@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .pagenation{
+            display: flex;
+            gap: 2px;
+        }
+        .pagenation li{
+            border: 1px solid black;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+        }
+        .pagenation li.active{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>pagenation 원리</h1>
+    <!-- 
+        전체 데이터(목록)의 개수
+        페이지당 표현될 데이터 개수
+        전체 페이지 개수:  전체 데이터(목록)의 개수 / 페이지당 표현될 데이터 개수
+        소수점 이하는 올림 -> Math.ceil() 
+        표시될 시작 인덱스,
+        표시될 끝 인덱스,
+        // Math.min(전체 개수, 끝인덱스)
+     -->
+
+     <div class="items"></div>
+     <ul class="pagenation"></ul>
+    <script>
+        const ary=[];
+        for(let a=1; a<=15; a++){
+            ary.push(a);
+        }
+        
+        console.log(ary);
+
+        let pagerPerCount=5; // 페이지당 표현될 데이터 개수
+
+        // 전체 페이지 수
+        let pagers=Math.ceil(ary.length/pagerPerCount);
+        console.log(`목록 ${ary.length}, pagerPerCount ${pagerPerCount}, 총페이지 ${pagers}`);
+
+        let currentPage=1; // 현재 선택된 페이지
+        let endIndex=currentPage*pagerPerCount;
+        // let endIndex=Math.min(currentPage*pagerPerCount); // startIndex를 처리한 후 필요
+        let startIndex=endIndex - pagerPerCount;
+        // (currentPage-1) * pagerPerCount + 1;
+        console.log(`endIndex : ${endIndex}, startIndex: ${startIndex}`);
+
+
+        createPager();
+        function createPager(){
+            for(let a=1;a<=pagers;a++){
+                const li=`<li>${a}</li>`
+                const pagenation=document.querySelector('.pagenation');
+                pagenation.insertAdjacentHTML('beforeend',li);
+            }
+            const lis=document.querySelectorAll('.pagenation li');
+            // lis[0].classList.add('active');
+            // createItems();
+
+            lis.forEach(li=>
+                li.addEventListener('click',()=>{
+                    lis.forEach((li,index)=>li.classList.remove('active'));
+                    li.classList.add('active');
+                    currentPage=index; // pager 클릭시 현재 페이지 수정
+                    
+                    endIndex = currentPage*pagerPerCount;
+                    startIndex = endIndex-currentPage;
+
+                    createItems();
+                })
+            )
+        }
+
+        function createItems(){
+            const items=document.querySelector('.items');
+            items.innerHTML='';
+
+            const sliceAry=ary.slice(startIndex,endIndex);
+            sliceAry.forEach(item=>{
+                const div=`<div>${item}</div>`;
+                items.insertAdjacentHTML('beforeend',div);
+            })
+        }        
+
+
+
+    </script>
+</body>
+</html>

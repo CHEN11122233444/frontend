@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+        5*7칸
+        웹접근성에 적합하게 만들기
+        브라우저 인식 : 테이블을 제작할 때는 
+        tbody: table 기본 데이터
+        tfoot : 테이블의 연산결과
+        thead : 테이블의 제목 영역
+    -->
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td width="400" align="center">TV 편성표 보기</td>
+            <td>
+                <img src="https://img.freepik.com/free-vector/vintage-tv_23-2147503075.jpg?w=2000" alt="텔레비전 이미지" width="120">
+            </td>
+        </tr>
+
+        <table>
+            <tr>
+                <td>2023년 12월 17일(월) TV 영화 편성표</td>
+            </tr>
+        </table>
+
+        <table border="1" width="533">
+            <caption>표 1-3 caption css를 이용해서 위치 변경가능</caption>
+            <tfoot>
+                <tr>
+                    <td>합계</td>
+                    <td colspan="4">90개</td>
+                </tr>
+            </tfoot>
+            <thead>
+                <tr>
+                    <th align="center">&nbsp;</th>
+                    <th>OCN</th>
+                    <th>SUPER ACTION</th>
+                    <th>채널 CGV</th>
+                    <th>XTM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th align="center" scope="row">19시</th>
+                    <td rowspan="2">&nbsp;의뢰인</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th align="center" scope="row">20시</th>
+                    <td></td>
+                    <td rowspan="3" &nbsp;>공감랭크쇼</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th align="center" scope="row">21시</th>
+                    <td >&nbsp;CSI MIAMI 시즌2</td>
+                    <td rowspan="3">&nbsp;스워드 피쉬</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th align="center" scope="row">22시</th>
+                    <td >&nbsp;CSI시즌</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th align="center" scope="row">23시</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="5" align="center"><i>일간단위로 업데이트 되며, 방송사 사정에 따라 변경될 수있습니다.</i></td>
+                
+                </tr>
+            </tbody>
+            
+        </table>
+
+
+    </table>
+</body>
+</html>

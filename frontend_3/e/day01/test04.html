@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .slider-container {
+        margin-left: 600px;
+      }
+      .indecator {
+        display: flex;
+        gap: 10px;
+      }
+
+      .indecator a {
+        color: transparent;
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        background-color: lightgray;
+      }
+      .indecator a.active {
+        background-color: black;
+      }
+
+      .hidden {
+        color: red;
+      }
+
+      .imgs-contents {
+        width: 600px;
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+        /* transition: 0.5s; */
+      }
+      .imgs-contents > div {
+        width: 600px;
+        height: 300px;
+        position: absolute;
+        left: 100%;
+      }
+      .imgs-contents > div:nth-child(1) {
+        background-color: pink;
+        left: 0;
+      }
+      .imgs-contents > div:nth-child(2) {
+        background-color: skyblue;
+      }
+      .imgs-contents > div:nth-child(3) {
+        background-color: green;
+      }
+      .imgs-contents > div:nth-child(4) {
+        background-color: lavender;
+        /* left: -100%; */
+      }
+
+      .slider-bar {
+        width: 600px;
+        height: 3px;
+        background-color: lightgrey;
+      }
+
+      .slider-bar > span {
+        display: block;
+        width: calc((100% / 4) * 1);
+        height: 3px;
+        background-color: black;
+        transition: 0.4s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="imgs-contents">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="slider-bar"><span></span></div>
+
+      <div class="slider-num-view"><span></span>/<span>4</span></div>
+    </div>
+
+    <ul class="indecator">
+      <li><a href="#">1</a></li>
+      <!-- <li><a href="#" class="active">1</a></li> -->
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+    </ul>
+
+    <div class="ctrl-btn">
+      <div class="prev" id="prev">prev</div>
+      <!-- 3 2 1 0 -->
+      <div class="next" id="next">next</div>
+      <!-- 1 2 3 0 -->
+      <div id="play">play</div>
+    </div>
+
+    <script>
+      const carosel = document.querySelector(".imgs-contents");
+      const caroselImages = document.querySelectorAll(".imgs-contents>div");
+      let currentImg = 1; // 화면에 들어와 있는 이미지 : left : 0
+      let prevImg; // 왼쪽 화면밖으로 나간 이미지 left : -100%
+
+      const size = document.querySelector(".imgs-contents > div").clientWidth;
+      console.log(size);
+
+      // currentImg : 0 1 2 3
+      // prevImg    : 3 0 1 2
+      //   caroselImages[currentImg].style.transition = `0.4s`;
+      //   caroselImages[currentImg].style.left = `0`;
+      //   caroselImages[prevImg].style.transition = `0.4s`;
+      //   caroselImages[prevImg].style.left = `-100%`;
+
+      function caroselHandle() {
+        prevImg = currentImg > 0 ? currentImg - 1 : caroselImages.length - 1;
+        console.log(currentImg, prevImg);
+
+        caroselImages[currentImg].style.transition = `0.4s`;
+        caroselImages[currentImg].style.left = `0`;
+        caroselImages[prevImg].style.left = `-100%`;
+      }
+      // caroselHandle();
+
+      let timerToggle = false; // 반드시
+      const indecators = document.querySelectorAll(".indecator li");
+      // a를 선택하도로 해주어야 함
+      indecators.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+          // clearInterval(timer); // 멈춤지 못하고 시간이 계속 돌아갈 수 있음
+          timerToggle = true;
+
+          currentImg = index;
+          caroselHandle();
+          indecatorActive(btn);
+        });
+      });
+
+      function indecatorActive(btn) {
+        indecators.forEach((btn) => {
+          btn.firstElementChild.classList.remove("active");
+        });
+        btn.firstElementChild.classList.add("active");
+      }
+
+      // 사용자 이벤트가 아니라 시스템 내부 이벤트 처리
+      carosel.addEventListener("transitionend", () => {
+        console.log(currentImg, "transitionend");
+        caroselImages[prevImg].style.transition = "none";
+        caroselImages[prevImg].style.left = "100%";
+      });
+
+      //
+      function sliderHandle() {
+        // currentImg = slider  되는 이미지 번호 : 0, 1, 2, 3
+
+        if (!timerToggle) {
+          if (currentImg >= caroselImages.length - 1) {
+            currentImg = 0;
+          } else {
+            currentImg++;
+          }
+          caroselHandle();
+          indecatorActive(indecators[currentImg]); // li
+        } else {
+          clearInterval(timer);
+        }
+
+        console.log("timer");
+      }
+
+      let timer = setInterval(sliderHandle, 3000);
+
+      play.addEventListener("click", () => {
+        timerToggle = false;
+        timer = setInterval(sliderHandle, 3000);
+      });
+    </script>
+    <!-- 
+        slider autoplay는 복잡한 코드이므로 신경써서 제어할 필요 있음 
+        jQuery 아주개발된 라이브러리 slider 많이 개발해뒀음
+         bxslider, slick .......
+
+        https://swiperjs.com/
+        다양한 프레임워크기반으로 개발 되어 있음  
+     -->
+  </body>
+</html>

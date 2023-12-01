@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-color: skyblue;
+      }
+
+      .container img {
+        position: absolute;
+        width: 100%;
+        display: none;
+      }
+
+      .container img:nth-child(1) {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- <img src="./imgs200/pic0.jpg" alt="0" /> -->
+    </div>
+
+    <!-- <script>
+      const container = document.querySelector(".container");
+      container.addEventListener("mousemove", (event) => {
+        console.log(event);
+      });
+    </script> -->
+
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script>
+      function imgAppendHandle() {
+        let imgs = "";
+        for (let i = 0; i <= 200; i++) {
+          imgs += `<img src="./imgs200/pic${i}.jpg" alt="${i}" />`;
+        }
+        $(".container").html(imgs);
+      }
+
+      function imgAppendHandle2() {
+        for (let i = 0; i <= 200; i++) {
+          let imgs = `<img src="./imgs200/pic${i}.jpg" alt="${i}" />`;
+          $(".container").append(imgs);
+        }
+      }
+
+      imgAppendHandle2();
+
+      $(".container").on("mousemove", function (event) {
+        let index = event.pageX % 201;
+
+        $(this).find("img").css("display", "none");
+        $(this).find("img").eq(index).css("display", "block");
+      });
+
+      // 동영상을 연속적인 사진으로 만들기
+      // 영상 툴에 1초 30프레임
+      // pic0 ~ pic200
+    </script>
+  </body>
+</html>

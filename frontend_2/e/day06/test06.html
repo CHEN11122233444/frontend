@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 
+        flex,
+        grid,
+        position : static : 기본 성격, 지정된 position 해제하는 역활,
+        float
+     -->
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      /* desktop first */
+
+      header {
+        position: fixed;
+        height: 100vh;
+        width: 230px;
+        background-color: rgba(0, 255, 255, 0.493);
+        top: 0;
+        left: 0;
+      }
+      aside {
+        width: calc(100% - 230px);
+        height: 30px;
+        background-color: black;
+        margin-left: 230px;
+      }
+      section {
+        margin: 0 0 0 230px;
+        /* height: 100vh; */
+        background-color: pink;
+      }
+
+      article:nth-child(1) {
+        background-color: aliceblue;
+      }
+      article:nth-child(2) {
+        background-color: rgb(187, 218, 246);
+      }
+      article:nth-child(3) {
+        background-color: rgb(49, 159, 255);
+      }
+      article:nth-child(4) {
+        background-color: rgb(16, 74, 125);
+      }
+      article:nth-child(5) {
+        background-color: rgba(255, 237, 208, 0.999);
+      }
+      article:nth-child(6) {
+        background-color: lightsalmon;
+      }
+      article:nth-child(7) {
+        background-color: orange;
+      }
+      article:nth-child(8) {
+        background-color: skyblue;
+      }
+      article:nth-child(9) {
+        background-color: darkblue;
+      }
+      article:nth-child(10) {
+        background-color: steelblue;
+      }
+      article:nth-child(11) {
+        background-color: yellow;
+      }
+      article:nth-child(12) {
+        background-color: lavender;
+      }
+      /* float layout
+         너비가 부족하면 자동 탈락
+      */
+      article {
+        --size: 20%;
+        width: var(--size);
+        height: 260px;
+        float: left;
+      }
+
+      article:nth-child(1) {
+        width: calc(var(--size) * 3);
+        height: 520px;
+      }
+      article:nth-child(2),
+      article:nth-child(9),
+      article:nth-child(6) {
+        width: calc(var(--size) * 2);
+      }
+
+      /* content design  */
+      article:nth-child(1) {
+        position: relative;
+        overflow: hidden;
+      }
+      article:nth-child(1) img {
+        width: 100%;
+        /* height: 100%; object-fit */
+
+        position: absolute;
+        top: -200px;
+      }
+      article:nth-child(1) p {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 150px;
+      }
+      article:nth-child(1):hover p {
+        color: white;
+      }
+
+      @media screen and (max-width: 1600px) {
+        /*
+                header 상단이동
+        */
+        header {
+          position: static;
+          height: auto;
+          width: auto;
+        }
+        aside {
+          width: auto;
+          margin-left: 0;
+        }
+        section {
+          margin: 0;
+          height: 100vh;
+          background-color: pink;
+        }
+      }
+      @media screen and (max-width: 1280px) {
+        /*
+               section content의 사이즈가 달리변형
+               원래 사이즈를 거의 유지하면서 변형
+        */
+        article {
+          --size: 25%;
+        }
+        article:nth-child(1) {
+          width: calc(var(--size) * 3);
+        }
+        article:nth-child(2) {
+          width: var(--size);
+        }
+        article:nth-child(9),
+        article:nth-child(6) {
+          /* width: calc(var(--size) * 2); */
+        }
+        article:nth-child(12) {
+          width: calc(var(--size) * 2);
+        }
+      }
+      @media screen and (max-width: 1000px) {
+        /*
+                nav 여백 조정
+        */
+        article {
+          --size: 33.333333%;
+        }
+        article:nth-child(1) {
+          width: 100%;
+        }
+        article:nth-child(2) {
+          /* width: 33.333333%; */
+        }
+        article:nth-child(9) {
+          width: var(--size);
+        }
+        article:nth-child(6) {
+          /* width: 66.666666%; */
+        }
+        article:nth-child(12) {
+          width: var(--size);
+        }
+      }
+      @media screen and (max-width: 670px) {
+        /*
+                header 디자인 변경
+                display:flex;
+        */
+        article {
+          --size: 50%;
+        }
+
+        article:nth-child(2) {
+          width: var(--size);
+        }
+        article:nth-child(9) {
+          width: var(--size);
+        }
+        article:nth-child(6) {
+          width: calc(var(--size) * 2);
+        }
+        article:nth-child(12) {
+          width: var(--size);
+        }
+      }
+      @media screen and (max-width: 480px) {
+        /*
+            header 디자인 변경
+        */
+        article {
+          --size: 100%;
+        }
+        article:nth-child(2) {
+          /* width: 100%; */
+        }
+        article:nth-child(9) {
+          /* width: 100%; */
+        }
+        article:nth-child(6) {
+          width: 100%;
+        }
+        article:nth-child(12) {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>logo</h1>
+      <nav class="lnb">
+        <ul>
+          <li><a href="#">menu01</a></li>
+          <li><a href="#">menu02</a></li>
+          <li><a href="#">menu03</a></li>
+          <li><a href="#">menu04</a></li>
+          <li><a href="#">menu05</a></li>
+        </ul>
+      </nav>
+    </header>
+    <aside>aside</aside>
+    <section>
+      <article>
+        <img
+          src="https://plus.unsplash.com/premium_photo-1677078369255-eff02ef409b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+          alt=""
+        />
+        <p>TRANSFORM</p>
+      </article>
+      <article>article02</article>
+      <article>article03</article>
+      <article>article04</article>
+      <article>article05</article>
+      <article>article06</article>
+      <article>article07</article>
+      <article>article08</article>
+      <article>article09</article>
+      <article>article10</article>
+      <article>article11</article>
+      <article>article12</article>
+    </section>
+  </body>
+</html>

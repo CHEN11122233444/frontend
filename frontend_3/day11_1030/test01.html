@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="../styles/reset.css"> -->
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <script>    
+        const ary1=[-22,1,4,2,10,-5,]
+
+        // console.log(ary1.sort()); // 오름차순 
+        // console.log(ary1.reverse()); // 내림차순
+
+        const ary2=['hello','css','javascript','html','react'];
+        // console.log(ary2.sort());
+
+        const ary3=['헬로','스타일','자바스크립트','마크업','리액트'];
+        // console.log(ary3.sort());
+
+        const ary4=[
+            {
+                id:'html',
+                data:'마크업'
+            },
+            {
+                id:'css',
+                data:'스타일'
+            },
+            {
+                id:'javascript',
+                data:'자바스크립트'
+            },
+            {
+                id:'hello',
+                data:'헬로'
+            },
+        ];
+        // console.log(ary4.sort()); // id정렬인지 data정렬인지 처리
+        
+        // 오류
+        // ary4.reduce((prev,next)=>prev.id-next.id ? prev.id : next.id);
+
+        // ary4.sort((a,b)=>{
+        //    return a.id - b.id
+        // });
+        // console.log(ary4); 
+
+        const datalist=[
+            {id: 2,name: '곰'},
+            {id: 12,name: '여우'},
+            {id: 4,name: '사자'},
+            {id: 29,name: '기린'},
+            {id: -22,name: '호랑이'},
+        ];
+
+        function sortAscending(){
+            // 오름차순
+            datalist.sort((a,b)=> a.id - b.id);
+            console.log(datalist);
+        }
+
+        sortAscending();
+
+
+
+        function sortDescending(){
+            // 내림차순
+            datalist.sort((a,b)=> b.id - a.id);
+            console.log(datalist);
+        }
+
+        sortDescending();
+
+        function sortTextAscending(){
+            // 오름차순
+            datalist.sort((a,b)=> 
+                a.name < b.name ? -1 : a.name > b.name ? 1 : 0
+            );
+            console.log(datalist);
+        }
+
+        sortTextAscending();
+
+
+        function sortTextDescending(){
+            // 내림차순
+            datalist.sort((a,b)=> 
+                // a.name < b.name ? 1 : a.name > b.name ? -1 : 0
+                a.name < b.name ? 1 : a.name > b.name ? -1 : 0
+            );
+            console.log(datalist);
+        }
+
+        sortTextDescending();
+
+        // sort(), reverse() : 배열원본을 변경함
+    </script>
+</body>
+</html>

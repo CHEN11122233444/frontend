@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+  </head>
+  <body>
+    <pre>
+        // 특정시간내에 한번 처리할때 
+        let timer = setTimeout(callback, 지연시간)
+        clearTimeout(timer)
+
+        // 특정시간마다 여러번 반복 처리할때
+        let timer = setInterval(callback, 지연시간)
+        clearInterval(timer)
+    </pre>
+
+    <!-- <script>
+      // 쿠폰 발송 받을 때
+      let timer = setTimeout(() => {
+        alert("hello");
+      }, 3000);
+
+      setTimeout(() => {
+        if (timer) clearTimeout(timer);
+        console.log("timer delete");
+      }, 4000);
+
+    </script> -->
+    <script>
+      let colors = ["red", "green", "blue"];
+      let num = 0; // 1, 2
+
+      let timer = setInterval(() => {
+        document.querySelector("body").style.background = colors[num % 3];
+        num++;
+
+        if (num >= 5) {
+          clearInterval(timer);
+          console.log("clearTimeout");
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>

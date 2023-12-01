@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .select-container {
+        display: flex;
+        margin: 50px;
+        gap: 50px;
+      }
+
+      .select-menu,
+      .select-append-menu {
+        width: 150px;
+      }
+
+      .select-btn {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 40px;
+        background-color: skyblue;
+        border-radius: 6px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        padding: 0 10px;
+      }
+
+      .bx-chevron-down {
+        font-size: 20px;
+      }
+
+      .select-menu .options,
+      .select-append-menu .options {
+        padding: 15px;
+        margin-top: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        border-radius: 6px;
+        display: none;
+      }
+      .select-menu .options.active,
+      .select-append-menu .options.active {
+        display: block;
+      }
+
+      .select-menu .option,
+      .select-append-menu .option {
+        line-height: 40px;
+        cursor: pointer;
+      }
+      .select-menu .option:hover,
+      .select-append-menu .option:hover {
+        background-color: azure;
+      }
+    </style>
+    <script>
+      const local = [
+        {
+          value: "seoul",
+          local: "서울",
+          dong: [
+            {
+              value: "0",
+              dong: "종로구",
+            },
+            {
+              value: "1",
+              dong: "중구",
+            },
+            {
+              value: "2",
+              dong: "용산구",
+            },
+          ],
+        },
+        {
+          value: "busan",
+          local: "부산",
+          dong: [
+            {
+              value: "0",
+              dong: "영도구",
+            },
+            {
+              value: "1",
+              dong: "부산진구",
+            },
+            {
+              value: "2",
+              dong: "동래구",
+            },
+          ],
+        },
+        {
+          value: "deagu",
+          local: "대구",
+          dong: [
+            {
+              value: "0",
+              dong: "중구",
+            },
+            {
+              value: "1",
+              dong: "서구",
+            },
+            {
+              value: "2",
+              dong: "동구",
+            },
+          ],
+        },
+        {
+          value: "inchun", // local[3].value
+          local: "인천",
+          dong: [
+            {
+              value: "0", // local[3].dong[0].value
+              dong: "연수구",
+            },
+            {
+              value: "1",
+              dong: "부평구",
+            },
+            {
+              value: "2",
+              dong: "계양구",
+            },
+          ],
+        },
+      ];
+
+      // dom 을 모두 읽어 들인 후  js를 실행하세요.
+      //window.onload = ()=>{}
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("dom 읽기 완료");
+
+        const selectBtn = document.querySelector(".select-btn");
+        let selectBtnToggle = false;
+        selectBtn.addEventListener("click", () => {
+          if (!selectBtnToggle) {
+            selectBtn.nextElementSibling.classList.add("active");
+          } else {
+            selectBtn.nextElementSibling.classList.remove("active");
+          }
+          selectBtnToggle = !selectBtnToggle;
+        });
+
+        //////////////////////////////////////////////////////
+        const options = document.querySelectorAll(".select-menu .option");
+        const select_dong = document.querySelector(
+          ".select-append-menu .options"
+        ); /// 선택자 찾아보기
+
+        options.forEach((option) => {
+          option.addEventListener("click", () => {
+            selectBtn.nextElementSibling.classList.remove("active");
+            selectBtnToggle = !selectBtnToggle;
+
+            const value = option.innerText; // html제외하고 문자열만 추출
+            console.log(value);
+
+            selectBtn.firstElementChild.innerHTML = value;
+
+            local.forEach((lo) => {
+              if (lo.local === value) {
+                console.log(lo.dong);
+
+                optionAdd(select_dong, lo.dong, "dong");
+              }
+            });
+          });
+        });
+      });
+
+      function optionAdd(select, ary, attr) {
+        // ary=local, ary=local[].dong
+        for (let a = 0; a < ary.length; a++) {
+          const str = `<option value="${ary[a].value}" >${ary[a][attr]}</option>`;
+          select.insertAdjacentHTML("beforeend", str);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="select-container">
+      <div class="select-menu">
+        <div class="select-btn">
+          <span class="btn-text">다음을 선택하세요.</span>
+          <i class="bx bx-chevron-down"></i>
+        </div>
+        <ul class="options">
+          <li class="option">
+            <span class="option-text">서울</span>
+          </li>
+          <li class="option">
+            <span class="option-text">대구</span>
+          </li>
+          <li class="option">
+            <span class="option-text">부산</span>
+          </li>
+          <li class="option">
+            <span class="option-text">인천</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="select-append-menu">
+        <div class="select-btn">
+          <span class="btn-text">다음을 선택하세요.</span>
+          <i class="bx bx-chevron-down"></i>
+        </div>
+        <ul class="options"></ul>
+      </div>
+    </div>
+  </body>
+  <!-- 
+    방향키 이동시 : 제어 필요  : 다음주
+    error 고쳐서 업로드 하겠습니다. 
+   -->
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>CRUD : restApi</h1>
+    <div class="container_form">
+      <input type="search" placeholder="검색할 id를 입력하세요." />
+      <button class="searchBtn">검색</button>
+      <button class="delBtn">삭제</button>
+    </div>
+    <div class="log"></div>
+
+    <div class="container_users">
+      <table>
+        <tr>
+          <td>id</td>
+          <td>firstname</td>
+        </tr>
+        <!-- 데이터 추가 표시할 것임 -->
+      </table>
+    </div>
+
+    <script>
+      // user 전체 보기
+      const users_url = `http://localhost:3000/users`;
+
+      const readHandler = (url) => {
+        fetch(url)
+          .then((res) => res.json())
+          .then((res) => {
+            // console.log(res)
+
+            res.forEach((item) => {
+              const str = `
+                    <tr>
+                        <td>${item.id}</td>
+                        <td>${item.firstname}</td> 
+                    </tr>
+                `;
+              const table = document.querySelector(".container_users table");
+              table.insertAdjacentHTML("beforeend", str);
+
+              // $(".container_users table").append(str);
+            });
+          });
+      };
+
+      readHandler(users_url);
+    </script>
+
+    <script>
+      // search user 보기
+      document.querySelector(".searchBtn").addEventListener("click", () => {
+        const input = document.querySelector(".container_form input");
+        const id = input.value;
+        const searchId_url = `http://localhost:3000/user/id=${id}`;
+        searchHandler(searchId_url);
+      });
+
+      const searchHandler = (url) => {
+        fetch(url)
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+            const log = document.querySelector(".log");
+            if (res.success) {
+              log.innerHTML = `id : ${res.data.id}, firstname : ${res.data.firstname}`;
+            } else {
+              log.innerHTML = `${res.data}`;
+            }
+          });
+      };
+    </script>
+
+    <script>
+      const delBtn = document.querySelector(".delBtn");
+      delBtn.addEventListener("click", () => {
+        const id = document.querySelector(".container_form input").value;
+        const url = "http://localhost:3000/users/id=" + id;
+        deleteUser(url);
+      });
+
+      function deleteUser(url) {
+        fetch(url, { method: "DELETE" })
+          .then((res) => res.json())
+          .then((res) => console.log(res.message));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        가로 1
+    -->
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        header{
+            width:1200px; 
+            height: 40px; 
+            /* 부모와 배경색을 같이 사용할 것인지에 따라 조절 */
+            margin: auto;
+            background: skyblue;
+        }
+        h1{
+             
+        }
+
+        .lnb{
+            
+        }
+        .submenu{
+            display: none;
+        }
+        .lnb>ul>li:hover .submenu{
+            display: block;
+        }
+ 
+        /* design */
+        .lnb a{ 
+            display: block;
+            width: 100px; 
+            padding: 10px;
+        }
+        .lnb>ul{
+            height: 40px;
+            align-items: center;
+        }
+
+        .lnb>ul>li{
+            position: relative;
+        }
+        .submenu{
+            position: absolute;
+        }
+
+        .submenu a{
+            background-color: white;
+            border: 1px solid gray;
+            border-bottom: none;
+        }
+        .submenu li:last-child a{
+            border-bottom: 1px solid gray;
+            border-radius: 0 0 10px 10px;
+        }
+        .submenu li:first-child a{
+            border-radius:  10px 10px 0 0;
+        }
+
+         
+        .submenu::after{
+        /* .submenu li:first-child a::after{ */
+            content:'';
+            display: block;
+            width: 10px; 
+            height: 10px;
+            border-radius: 10px;
+            border: 2px solid gray;
+            background-color: white;
+            position: absolute;
+            top:-5px; 
+            /* left:calc(( 100% - 10px ) / 2); */
+            left: 50%; 
+            transform: translateX(-50%);
+        }
+        .lnb>ul>li:first-child:hover>a::after{
+            content:'';
+            display: block;
+            width: 10px; 
+            height: 10px;
+            border-radius: 10px;
+            border: 2px solid gray;
+            background-color: white;
+            position: absolute; 
+            bottom:-5px;
+            /* 높이는 좀더 수정할 필요가 있으나 일부러 보이도록 비뚤게 배치함 */
+            z-index:99;
+            /* left:calc(( 100% - 10px ) / 2); */
+            left: 50%; 
+            transform: translateX(-50%);
+        }
+
+        .lnb>ul>li:hover>a{
+            background-color: black;
+            color:white;
+        }
+        
+        .lnb>ul>li:hover>a::after{
+            /* transform  */
+        }
+
+        .submenu a:hover{
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <header class="flex_between">
+        <h1>로고</h1>
+        <nav class="lnb">
+            <ul class="flex_between">
+                <li>
+                    <a href="#">이용안내</a>
+                    <ul class="submenu">
+                        <li><a href="#">이용방법</a></li>
+                        <li><a href="#">이용시간</a></li>
+                        <li><a href="#">이용요금</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">이벤트정보</a>
+                    <ul class="submenu">
+                        <li><a href="#">현장이벤트</a></li>
+                        <li><a href="#">온라인이벤트</a></li>
+                        <li><a href="#">이벤트예약</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">프로그램</a>
+                    <ul class="submenu">
+                        <li><a href="#">프로그램안내</a></li>
+                        <li><a href="#">온라인예약</a></li>
+                        <li><a href="#">단체예약상담</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">고객센터</a>
+                    <ul class="submenu">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">자주묻는질문</a></li>
+                        <li><a href="#">자료실</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

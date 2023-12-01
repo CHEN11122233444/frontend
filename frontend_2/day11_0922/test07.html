@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #toggle{
+            display: none;
+        }
+        label{
+            display: block;
+            width: 100px;
+            height: 50px;
+            border-radius: 50px;
+            background-color: green;
+
+            position: relative;
+        }
+        /* label::before{ */
+        label>span{
+            content: '';
+            display: block;
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 30px;
+
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        
+        }
+        /* 구조를 잘못 만들면 제어할 수 없음 */
+    </style>
+</head>
+<body>
+    <label>
+        <span></span>
+        <input type="checkbox" id="toggle">
+    </label>
+
+    <script>
+        let label=document.querySelector('label');
+        let span=document.querySelector('span');
+        let check=document.querySelector('#toggle');
+
+        check.addEventListener('click',function(){
+            console.log(check.checked);
+
+            if(check.checked){
+                span.style.left='60px';
+                document.querySelector('body').style.backgroundColor='black';
+            }else{
+                span.style.left='10px';
+                document.querySelector('body').style.backgroundColor='white';
+            }
+        });
+    </script>
+</body>
+</html>

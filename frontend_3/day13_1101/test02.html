@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <button>Effect Method</button>
+    <div class="box"></div>
+    <h1>class 제어</h1>
+    <pre>
+        JS
+        className : 1개 클래스만 제어
+        classList.add()
+        classList.remove()
+        classList.toggle()
+
+        jQuery
+        addClass()
+        removeClass()
+        hasClass() : class 존재 유무를 true, false 리턴
+        toggleClass()
+    </pre>
+    <script src="../script/jquery-3.7.1.js"></script>
+    <!-- <script>
+        let toggle = false;
+
+        // display : none/block; 대용
+        $('button').on('click',function(){
+            if(toggle){
+                $('.box').show(5000);
+            }else{
+                $('.box').hide(5000);
+            }
+
+            toggle = !toggle;
+        });
+    </script> -->
+    <script>
+        ('button').on('click',function(){
+            $('.box').toggle();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="./styles/reset.css">
+    <style>
+        .product-container{
+            height: 500px;
+            background-image: url(./images/bg_prd_maxim.jpg);
+
+            color:white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .product_menu{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 100px;
+        }
+
+        .product_menu a{
+            display: block;
+            padding: 10px 20px;
+        }
+
+        .product_menu span{
+            display: block;
+            padding: 5px;
+            height: 30px;
+        }
+        .product_menu a:hover{
+            border-bottom: 2px solid white;
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .products_maxim{
+            display: flex;
+            width: 1200px;
+        }
+
+        .maxim{
+            font-size: 1.5rem;
+        }
+
+        .products_maxim img{
+            width:100%;
+        }
+
+        .products_maxim{
+            color:#333;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <ul class="product_menu">
+            <li><a href="#"><span>맥심</span></a></li>
+            <li><a href="#"><span>맥스웰하우스</span></a></li>
+            <li><a href="#"><span>프리마</span></a></li>
+            <li><a href="#"><span>타라</span></a></li>
+            <li><a href="#"><span>포스트</span></a></li>
+            <li><a href="#"><span>미떼</span></a></li>
+            <li><a href="#"><span>티오피</span></a></li>
+            <li><a href="#"><span>치즈</span></a></li>
+            <li><a href="#"><span>벌꿀</span></a></li>
+            <li><a href="#"><span>스타벅스</span></a></li>
+            <li><a href="#"><span>오레오</span></a></li>
+            <li><a href="#"><span>카누바리스타</span></a></li>
+        </ul>
+        <div class="maxim">
+            <img src="./images/img_maxim.png" alt="향기좋은 커피, 맥심 로고">
+            <p>
+                향기좋은 커피, 맥심
+            </p>
+        </div>
+
+        <div class="products_maxim">
+            <div class="product">
+                <img src="./images/img_maxim1.png" alt="맥심 모카골드 마일드커피믹스">
+                <p>맥심 모카골드 마일드커피믹스</p>
+            </div>
+            <div class="product">
+                <img src="./images/img_maxim2.png" alt="맥심 화이트골드 마일드 커피믹스">
+                <p>맥심 화이트골드 커피믹스</p>
+            </div>
+            <div class="product">
+                <img src="./images/img_maxim3.png" alt="맥심 오리지날 커피믹스">
+                <p>맥심 오리지날 커피믹스</p>
+            </div>
+            <div class="product">
+                <img src="./images/img_maxim4.png" alt="맥심 슈프림 골드">
+                <p>맥심 슈프림골드</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

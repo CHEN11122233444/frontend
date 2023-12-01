@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="search" placeholder="검색어를 입력하세요." />
+    <ul>
+      <li data-search="spring 봄">spring</li>
+      <li>summer</li>
+      <li>fall</li>
+      <li>winter</li>
+    </ul>
+
+    <script>
+      const lis = document.querySelectorAll("li");
+      console.log(lis[2].innerHTML);
+
+      const input = document.querySelector('input[type="search"]');
+      input.addEventListener("keyup", () => {
+        const value = input.value;
+        console.log(value);
+
+        lis.forEach((li) => {
+          const text = li.innerHTML;
+          if (text.includes(value)) {
+            // li.style.display = "block";
+            li.classList.remove("hidden");
+          } else {
+            //li.style.display = "none";
+            li.classList.add("hidden");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

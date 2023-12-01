@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0; 
+        }
+
+        a{ 
+            text-decoration: none;
+            color:inherit;
+        }
+
+        ul{
+            display: flex;
+            /* gap:20px; */
+            /* 
+                justify-content: space-evenly;
+            
+                fs : flex-start
+                fe : flex-end
+                jccenter
+                sb : space-between
+                sa : space-around
+                se : space-evenly
+            */
+            margin-bottom: 100px;
+        }
+
+        .fs{  justify-content: flex-start; }
+        .fe{  justify-content: flex-end; }
+        .jccenter{  justify-content: center; }
+        .sb{  justify-content: space-between; } 
+        .sa{  justify-content: space-around; } 
+        .se{  justify-content: space-evenly; } 
+
+        li{
+            list-style: none;
+        }
+
+        h1{
+            margin: 20px;
+        }
+
+        ul[class]  a{
+            background-color: orange;
+            padding: 10px 20px;
+            /* margin: 20px; */
+            margin:0 20px; 
+        }
+
+        ul[class] li:first-child a{
+            margin-left:0; 
+        }
+        ul[class] li:last-child a{
+            margin-right:0; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>클래스 없는 선택자</h1>
+    <ul>
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+        <li><a href="#">menu5</a></li>
+    </ul>
+
+    <h1>flex-start</h1>
+    <ul class="fs">
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+        <li><a href="#">menu5</a></li>
+    </ul>
+    <h1>flex-end</h1>
+    <ul class="fe">
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+        <li><a href="#">menu5</a></li>
+    </ul>
+    <h1>center</h1>
+    <ul class="jccenter">
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+        <li><a href="#">menu5</a></li>
+    </ul>
+    <h1>space-between</h1>
+    <ul class="sb">
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+        <li><a href="#">menu5</a></li>
+    </ul>
+    <h1>space-around</h1>
+    <ul class="sa">
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+        <li><a href="#">menu5</a></li>
+    </ul>
+    <h1>space-evenly</h1>
+    <ul class="se">
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+        <li><a href="#">menu5</a></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overflow</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        body{
+            display: flex;
+            /* 
+                세로 스크롤은 허영
+                가로 스크롤은 가로로 배치된 것이 아니면 허용하지 않음
+            */
+            overflow-x: hidden;
+            /* 
+                살짝 너비 조절이 안돼서 가로가 생길때 사용
+            */
+        }
+        .content{
+            width: 200px;
+            height: 150px;
+            margin: 50px;
+            background-color: antiquewhite;
+        }
+
+        .content:nth-child(2){
+            overflow: hidden;
+        }
+
+        .content:nth-child(3){
+            overflow:scroll;
+            /* 가로, 세로 스크롤 모두 생김 */
+        }
+        .content:nth-child(4){
+            overflow: scroll;
+            /* 가로 스크롤은 이미지에 유용 */
+        }
+        .content:nth-child(5){
+            overflow: auto;
+            /* 세로 스크롤만 생성*/ 
+        }
+        .content:nth-child(6){
+            overflow: auto;
+            /* 세로 스크롤은 오버플로우(넘쳤을때) 되었을 때만 생성*/
+
+        }
+        .content:nth-child(7){
+            overflow-x: scroll;
+            /* 
+                x : 가로 스크롤
+                y : 세로 스크롤  
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+       1  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus magni saepe itaque velit minus harum laudantium sint vitae reprehenderit sapiente, nisi nam obcaecati quaerat doloremque ipsum reiciendis iusto veritatis odio.
+    </div>
+    <div class="content">
+       2  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus magni saepe itaque velit minus harum laudantium sint vitae reprehenderit sapiente, nisi nam obcaecati quaerat doloremque ipsum reiciendis iusto veritatis odio.
+    </div>
+    <div class="content">
+       3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus magni saepe itaque velit minus harum laudantium sint vitae reprehenderit sapiente, nisi nam obcaecati quaerat doloremque ipsum reiciendis iusto veritatis odio.
+    </div>
+    <div class="content">
+        <img src="./images/samsung_z flip5.jpg" alt="">
+    </div>
+    <div class="content">
+        5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus magni saepe itaque velit minus harum laudantium sint vitae reprehenderit sapiente, nisi nam obcaecati quaerat doloremque ipsum reiciendis iusto veritatis odio.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus magni saepe itaque velit minus harum laudantium sint vitae reprehenderit sapiente, nisi nam obcaecati quaerat doloremque ipsum reiciendis iusto veritatis odio.
+    </div>
+    <div class="content">
+        6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+    </div>
+    <div class="content">
+        7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus magni saepe itaque velit minus harum laudantium sint vitae reprehenderit sapiente, nisi nam obcaecati quaerat doloremque ipsum reiciendis iusto veritatis odio.
+    </div>
+</body>
+</html>

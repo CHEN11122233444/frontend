@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <style>
+        .main_banner_img{
+            box-sizing: border-box;
+            background-image: url(./images/img_banner1_1.jpg);
+            width: 1100px;
+            height: 700px;
+
+            font-size: 48px;
+            color: white;
+            line-height: 1.2;
+
+            padding: 1em;
+            /*
+                실제 너비 : 1100px + 48 px;
+                실제 높이 : 700px + 48 px;
+                
+            */
+        }
+
+        p{
+            /*  margin : 상하 겹침 현상이 일어남
+                top, bottom 겹쳐지는데 큰값이 겹침
+                margin-top, bottom : % 가로너비의 비율을 사용
+                부모-자식간에도 겹침 현상
+                부모의 paddong 사용하면 오류 회피
+            */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main_banner">
+        <!-- <img src="/images/img_banner1_1.jpg" alt=""> -->
+
+        <div class="main_banner_img">
+            <p> 세상의<br> 모든 순간이 <br>더 행복해지도록</p>
+        </div>
+    </div>
+</body>
+</html>

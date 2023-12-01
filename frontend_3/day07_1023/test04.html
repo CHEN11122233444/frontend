@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      table tr:nth-child(1) {
+        font-weight: bold;
+        border-top: 3px solid black;
+        border-bottom: 3px solid black;
+      }
+      table td {
+        width: 10em;
+        height: 2em;
+        border-bottom: 1px solid gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>fetch</h1>
+    <!-- 서버(메모리)에 데이터가 있을 때  -->
+
+    <table>
+      <tbody></tbody>
+    </table>
+    <script>
+      // ansi코드(원시) => utf-8 변형해서 읽어들이기
+      // , tab  공백 분리, 기타 문자열 분리
+
+      fetch("./datas/출산지원금.csv")
+        .then((response) => response.text()) // promise
+        .then((response) => {
+          //console.log(response);
+
+          const ary = response.split("\r\n"); //한줄씩 분리
+          //console.log(ary);
+
+          lineCreate(ary);
+        });
+
+      function lineCreate(ary) {
+        ary.forEach((line) => {
+          const table = document.querySelector("table tbody");
+
+          const td = dataCreate(line);
+          //console.log(td);
+          const elem = `<tr>${td}</tr>`;
+
+          table.insertAdjacentHTML("beforeend", elem);
+          // innerHTML, append, appendChild .. 대체시 코드 수정 필요
+        });
+      }
+
+      function dataCreate(lineAry) {
+        const line = lineAry.split(",");
+        //console.log(line);
+
+        let td = "";
+        line.forEach((tdel) => {
+          td += `<td>${tdel}</td>`;
+          console.log(td);
+        });
+
+        return td;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .digital {
+        display: flex;
+        font-size: 36px;
+      }
+      .hours::after,
+      .minutes::after {
+        content: ": ";
+        display: inline-block;
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>한글은 아름다운 글입니다.</h1>
+    <!-- <script>
+      const str = "한글은 아름다운 글입니다.";
+
+      const timer = setInterval(substr, 100);
+      let index = 0;
+      const length = str.length;
+
+      function substr() {
+        const h1 = document.querySelector("h1");
+        h1.innerHTML = str.substring(0, index); //
+
+        if (index > length) index = -1;
+        index++;
+      }
+    </script> -->
+    <script>
+      const str = "한글은 아름다운 글입니다.";
+
+      const timer = setInterval(substr, 100);
+      let index = 0;
+      const length = str.length;
+
+      function substr() {
+        const h1 = document.querySelector("h1");
+        h1.innerHTML = str.substring(index, length); ///
+
+        if (index > length) index = -1;
+        index++;
+      }
+    </script>
+  </body>
+</html>

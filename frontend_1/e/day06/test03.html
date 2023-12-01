@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{ 
+            font-size:24px; 
+            color:rgb(30, 29, 29);
+            /* 농도가 낮은 검정색 */
+        }
+        a{
+            text-decoration: none;
+            color:inherit;
+            /* 부모의 색을 상속 */
+        }
+
+        /* 부모를 기준으로 번호를 지정하는 방법 
+           레이아웃이 수정될 일이 없을 때만 사용        
+        */
+        p:nth-child(3){
+            text-decoration: underline;
+        }
+        p:nth-child(4){
+            text-decoration: underline;
+        }
+        /* 
+            type을 기준으로 번호를 지정하는 방법 
+            형제 : 1남 2녀 중 장남
+            레이아웃이 수정되도 번호에 흔들림이 없음
+        */
+        p:nth-of-type(3){
+            text-decoration: overline;
+        }
+        p:nth-of-type(4){
+            text-decoration: line-through;
+        }
+        p:last-of-type{
+            /* 마지막 형제 */
+            text-decoration: overline underline line-through;
+        }
+        p:first-of-type{
+            color:red;
+        }
+
+        /* 부모 기준의 첫번째, 마지막 지정 */
+        h1:first-child{
+            background-color: aqua;
+        }
+        p:last-child{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1> text-decoration </h1>
+        <h2> 두번째 자식 생성 </h2>
+        <h3> 세번째 </h3>
+        <p><a href="#">한글은 아름다운 글입니다.</a></p>
+        <p>3. 한글은 아름다운 글입니다.</p>
+        <p>한글은 아름다운 글입니다.</p>
+        <p>한글은 아름다운 글입니다.</p>
+        <p>한글은 아름다운 글입니다.</p>
+        <p>한글은 아름다운 글입니다.</p>
+    </div>
+    <span>
+         text-decoration : 취소선, overline, underline, none 없애기
+    </span>
+</body>
+</html>

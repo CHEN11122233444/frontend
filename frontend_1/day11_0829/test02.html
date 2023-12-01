@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        section{
+            width: 1200px;
+            margin: auto;
+            background-color: pink;
+        }
+        article:nth-child(1){
+            width: 50%;
+            height: 500px;
+            background-color: lightcoral;
+        }
+        article:nth-child(2),
+        article:nth-child(3),
+        article:nth-child(4),
+        article:nth-child(5){
+            width: 25%;
+            height: 250px;
+            background-color: skyblue;
+        }
+        article:nth-child(6){
+            width: 25%;
+            height: 500px;
+            background-color: orange;
+        }
+        article:nth-child(7),
+        article:nth-child(10){
+            width: 50%;
+            height: 250px;
+            background-color: purple;
+        }
+        article:nth-child(8),
+        article:nth-child(9){
+            width: 25%;
+            height: 250px;
+            background-color: lavender;
+        }
+
+        article{
+            float: left;
+            opacity: 0.5;
+        }
+
+        footer{
+            width: 100%;
+            height: 100px;
+            background-color: gray;
+        }
+    </style>
+    <!-- 
+        가운데 정렬 불가
+        부모(여기서는 section)의 배경색, 테두리 오류
+        형제, 사촌동생(여기서는 footer)이 이상한 곳에 배치
+
+        -> 해결하는 방법
+
+     -->
+     <!-- <style>
+        section::after{
+            content:'';
+            display: block;
+            clear:both;
+        }
+     </style> -->
+</head>
+<body>
+    <section class="clearfix">
+        <article>article01</article>
+        <article>article02</article>
+        <article>article03</article>
+        <article>article04</article>
+        <article>article05</article>
+        <article>article06</article>
+        <article>article07</article>
+        <article>article08</article>
+        <article>article09</article>
+        <article>article10</article>
+    </section>
+    <!-- 방어막 -->
+    <footer></footer>
+</body>
+</html>

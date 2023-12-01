@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>삼항연산자</h1>
+    <div>
+        <pre>
+            if(조건식){
+                //조건식 == true일 때 처리할 일
+            }else{
+                //조건식 == false일 때 처리할 일
+            }
+            // 프론트엔드 연산식으로 주로 사용
+            (조건식) ? true일 때 처리 : flase일 때 처리
+        </pre>
+    </div>
+
+    <script>
+        let num=prompt("정수를 입력하세요.");
+        // JS는 나머지 모두 string으로 입력
+        console.log(num,typeof num, 99);
+        // 계산하지 않은 숫자들(전화번호, 우편번호, 주민번호... ): 문자처리
+
+        num=parseInt(num); // paserFloat()
+        console.log(num,typeof num,99)
+
+        let type;
+        if(num>100){
+            type='큰수';
+        }else{
+            type='작은수';
+        }
+
+
+        //가독성 측면에서 3항 연산자를 선호할 수 있다.
+        let op3 =num>100 ? '큰수':'작은수';
+        console.log(op3,type);
+
+        let mop3=num>100 ? '큰수':num>50 ? '중간수':num>0 ? '양수' : '음수';
+    </script>
+</body>
+</html>

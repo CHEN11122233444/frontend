@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .pagenation li.active {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <select name="" id="pagePerItem">
+      <option value="5">5</option>
+      <option value="7">7</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+    </select>
+    <div class="movies-container">
+      <table>
+        <thead>
+          <tr>
+            <th data-value="id">&nbsp; <span>▼</span></th>
+            <th data-value="title">제목</th>
+            <th>small_cover_image</th>
+            <th data-value="slug">SLUG <span>▼</span></th>
+            <th data-value="runtime">runtime <span>▼</span></th>
+            <th data-value="rating">rating <span>▼</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr>
+            <td>id</td>
+            <td>title</td>
+            <td>small_cover_image</td>
+            <td>slug</td>
+            <td>runtime</td>
+            <td>rating</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+    <ul class="pagenation"></ul>
+    <button id="prev">prev</button>
+    <button id="next">next</button>
+
+    <script>
+      const url = `https://yts.mx/api/v2/list_movies.json`;
+      let movies = []; // 백업
+      let searchMovies = []; // 검색
+      let pagePerCount = pagePerItem.value;
+      // select에서 선택된 개수, 기본값은 5로 선택됨
+      let pagers;
+      let currentPage = 1;
+      let startIndex;
+      let endIndex;
+
+      const pagenation = document.querySelector(".pagenation");
+      const table = document.querySelector(".movies-container");
+
+      let lists;
+
+      // 부모 클릭했는데 자식이 동작하도록 함
+      // 이벤트 위임
+      let order = true;
+      let sortCol = "";
+
+      function calculator(ary) {
+        pagers = Math.ceil(ary.length / pagePerCount);
+        endIndex = currentPage * pagePerCount;
+        startIndex = endIndex - pagePerCount;
+        console.log(pagers, endIndex, startIndex);
+      }
+
+      function pagenationHandle(ary) {
+        pagenation.innerHTML = "";
+
+        for (let a = 1; a <= pagers; a++) {
+          //   const li = `
+          //         <li class="list">${a}</li>
+          //     `;
+          //   pagenation.insertAdjacentHTML("beforeend", li);
+          //   이벤트 핸들러를 직접 적용하기 위한 dom 생성
+
+          const li = document.createElement("li");
+          li.classList.add("list");
+          li.innerHTML = a;
+
+          if (currentPage === a) li.classList.add("active");
+          li.addEventListener("click", (event) => {
+            // 처리할일이 커지므로 함수로 처리
+
+            currentPage = a;
+            activeHandle(currentPage);
+            calculator(movies);
+            repeatDom(movies);
+          });
+
+          pagenation.append(li);
+        }
+
+        lists = document.querySelectorAll(".list");
+        // 외부 고유 가능하도록 변수 등록
+      }
+
+      next.addEventListener("click", () => {
+        if (currentPage === pagers) return;
+        currentPage++;
+        activeHandle(currentPage);
+        calculator(movies);
+        repeatDom(movies);
+      });
+
+      prev.addEventListener("click", () => {
+        if (currentPage <= 0) return;
+        currentPage--;
+        activeHandle(currentPage);
+        calculator(movies);
+        repeatDom(movies);
+      });
+
+      pagePerItem.addEventListener("change", () => {
+        pagePerCount = pagePerItem.value;
+        currentPage = 1;
+        activeHandle(currentPage);
+        calculator(movies);
+        pagenationHandle(movies);
+        // pager, current 만들어진 후 pager  갱신
+        repeatDom(movies);
+      });
+
+      // 파라미터가 전달되지 않으면 undefined
+      // num = currentPage
+      function activeHandle(num, ary) {
+        console.log(num);
+
+        if (currentPage <= 1) prev.style.display = "none";
+        else prev.style.display = "inline";
+
+        if (currentPage >= pagers) next.style.display = "none";
+        else next.style.display = "inline";
+
+        lists.forEach((li) => li.classList.remove("active"));
+        lists[num - 1].classList.add("active");
+      }
+
+      // async function loadData() {
+      //   try {
+      //     const response = await fetch(url);
+      //     const datas = await response.json();
+
+      //     //console.log(datas);
+
+      //     if (datas.status === "ok") {
+      //       // 정상적 자료를 가져왔을때 처리함
+      //       //console.log(datas.data.movies);
+
+      //       movies = response.data.movies;
+      //       console.log(movies);
+      //       searchMovies = movies;
+
+      //       createTr();
+      //     }
+      //   } catch (err) {
+      //     console.log(err);
+      //   }
+      // }
+
+      function loadData() {
+        try {
+          fetch(url)
+            .then((res) => res.json())
+            .then((res) => {
+              console.log(res.data.movies);
+              // movies = res.data.movies;
+
+              movies = res.data.movies.map((movie, index) => {
+                // 필요한 데이터 모양으로 바꾸어 사용하기
+                // 처리속도 올라가겠죠
+                const id = index + 1;
+                const title = movie.title;
+                const image = movie.small_cover_image;
+                const slug = movie.slug;
+                const runtime = movie.runtime;
+                const rating = movie.rating;
+
+                const data = { id, title, image, slug, runtime, rating };
+
+                return data;
+              });
+
+              searchMovies = movies;
+              // movies == searchMovies == res.data.movies
+              console.log(searchMovies);
+              calculator(movies); // pagenation 계산
+              pagenationHandle(movies);
+              repeatDom(movies);
+            });
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      loadData();
+
+      table.addEventListener("click", (event) => {
+        if (event.target.tagName === "TH") {
+          //console.log(event.target);
+          // 정렬 작업
+
+          // order toggle 여러개 만들 필요 없음
+          //let thName = event.target.innerHTML;
+          // 대소문자, 띄어쓰기 문제 해결 필요
+
+          let thName = event.target.getAttribute("data-value");
+          order = sortCol === thName ? !order : true;
+          sortCol = thName;
+
+          searchMovies.sort((a, b) => {
+            if (order) return a[sortCol] > b[sortCol] ? 1 : -1;
+            else return b[sortCol] > a[sortCol] ? 1 : -1;
+          });
+
+          repeatDom(searchMovies);
+        }
+      });
+
+      function repeatDom(ary) {
+        // tr여러개 조립하고 등록하기
+        const tbody = document.querySelector(".movies-container tbody");
+        const viewAry = ary.slice(startIndex, endIndex);
+
+        tbody.innerHTML = "";
+        let str = "";
+        for (movie of viewAry) {
+          str += createTr(movie);
+        }
+
+        tbody.innerHTML = str;
+      }
+
+      // tr 한개만 만들기
+      function createTr(movie) {
+        const str = `
+            <tr>
+                <td>${movie.id} </td>
+                <td>${movie.title}</td>
+                <td><img src="${movie.image}"></td>
+                <td>${movie.slug}</td>
+                <td>${movie.runtime} </td>
+                <td>${movie.rating} </td>
+            </tr>
+            `;
+
+        return str;
+      }
+    </script>
+    <!-- 
+        검색어 기능 추가해보세요.
+        객체타입 클래스 => React 클래스로 제작 => 함수형 
+     -->
+    <script></script>
+  </body>
+</html>

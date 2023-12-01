@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        /* 변수지정 
+        
+           --두번사용 , 속성명 사용
+        */
+        :root{
+            --color : red;
+        }
+
+        h1{
+            color : var(--color);
+            background-color: orange;
+            margin: 10px;
+            width: var(--width);
+        }
+
+        /*
+        h1:nth-child(1){  width:300px;     }
+        h1:nth-child(2){  width:100px;     }
+        h1:nth-child(3){  width:8em;     }
+        h1:nth-child(4){  width:5em;     } 
+
+        preprocessor => 컴파일 
+        css => less, sass, scss
+        */
+    </style>
+</head>
+<body>
+    <h1 style="--width:300px">한글은 아름다운 글입니다.</h1>
+    <h1 style="--width:100px">한글은</h1>
+    <h1 style="--width:8em">한글은 아름다운</h1> 
+    <h1 style="--width:5em">글입니다.</h1>
+</body>
+</html>

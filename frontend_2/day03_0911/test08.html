@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        :root{
+            --width:100px; 
+            --height:100px;
+            --left:25%;
+            --center:50%; 
+            --right:75%;
+            --background-color:pink;
+            --background-circle:gray;
+            /* 코드를 일일이 찾아서 수정하는 것이 아니라
+                지정된 변수만 바꾸면 모두 수정 
+                => 유지보수가 쉬워짐 
+            */
+        }
+        .box{
+            width:var(--width); 
+            height:var(--height);
+            /* margin: 50px; */
+            /* background-color: var(--background-color); */
+            position: relative;
+            border:1px solid black;
+        }
+        /* .box span{
+            display: block;
+            width: 20px; 
+            height: 20px;
+            background-color: var(--background-circle);
+            border-radius: 20px;
+            position: absolute;
+        } */
+        .box>span{
+            left: var(--center);
+            top:var(--center);
+            transform: translate3d(-50%,-50%, 0);
+        }
+
+        .box02>span:nth-child(1){
+            left:var(--left);
+            top:var(--left);
+        }
+        .box02>span:nth-child(2){
+            left:var(--right);
+            top:var(--right);
+        }
+
+        .box03>span:nth-child(1){
+            left:var(--left);
+            top:var(--left);
+        }
+        .box03>span:nth-child(2){
+            left:var(--right);
+            top:var(--right);
+        }
+
+        .box04>span:nth-child(1){
+            left:var(--left);
+            top:var(--left);
+        }
+        .box04>span:nth-child(2){
+            left:var(--left);
+            top:var(--right);
+        }
+        .box04>span:nth-child(3){
+            left:var(--right);
+            top:var(--left);
+        }
+        .box04>span:nth-child(4){
+            left:var(--right);
+            top:var(--right);
+        }
+        .box05>span:nth-child(1){
+            left:var(--left);
+            top:var(--left);
+        }
+        .box05>span:nth-child(2){
+            left:var(--left);
+            top:var(--right);
+        }
+        .box05>span:nth-child(3){
+            left:var(--right);
+            top:var(--left);
+        }
+        .box05>span:nth-child(4){
+            left:var(--right);
+            top:var(--right);
+        }
+        .box06>span:nth-child(1){
+            left:var(--left);
+            top:var(--left);
+        }
+        .box06>span:nth-child(2){
+            left:var(--left);
+            top:var(--right);
+        }
+        .box06>span:nth-child(3){
+            left:var(--right);
+            top:var(--left);
+        }
+        .box06>span:nth-child(4){
+            left:var(--right);
+            top:var(--right);
+        }
+        .box06>span:nth-child(5){
+            left:var(--left);
+            top:var(--center);
+        }
+        .box06>span:nth-child(6){
+            left:var(--right);
+            top:var(--center);
+        }
+
+        /* rect 구현  */
+        .rect{ 
+            margin: 100px;
+            width:var(--width);
+            height:var(--width);
+            position: relative;
+            /* perspective: 200px; */
+            transform-style: preserve-3d;
+            transform: rotateX( 60deg) rotateY( 60deg);
+        }
+        .rect>.box{
+            position: absolute;
+            /* opacity: 0.5; */
+        }
+        .box01{
+            transform: translateZ(50px);
+        }
+        .box02{
+            transform: translateZ(-50px);
+        }
+        .box03{
+            transform: translateX(-50px) rotateY(90deg);
+        }
+        .box04{
+            transform: translateX(50px) rotateY(90deg);
+        }
+        .box05{
+            transform: translateY(50px) rotateX(90deg);
+        }
+        .box06{
+            transform: translateY(-50px) rotateX(90deg);
+        }
+        .box{
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+<div class="rect">
+    
+        <div class="box box01"><span></span></div>
+        <div class="box box02"><span></span><span></span></div>
+        <div class="box box03"><span></span><span></span><span></span></div>
+        <div class="box box04">transition</div>
+        <div class="box box05"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="box box06">★</div>
+
+</div>
+
+</body>
+</html>

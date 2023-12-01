@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            /* margin: 50px; */
+            text-align: center;
+            line-height: 200px;
+            font-size: 24px;
+            background-color: orange;
+        }
+        
+        .box{
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>layout : 11일차 복습</h1>
+    <ul>
+        <li>float</li>
+        <li>position</li>
+        <li>flex</li>
+        <li>grid</li>
+    </ul>
+    
+    <h2>position</h2>
+    <ul>
+        <li>left, top, right, bottom, z-index 속성을 추가적으로 사용할 수 있음</li>
+        <li>z-index : 0, 큰 숫자는 위로 배치, 작은 숫자는 아래로 배치</li>
+        <li> static : default, position 해제시</li>
+        <li> fixed : 브라우저를 기준으로 배치, top 버튼</li>
+        <li> relative : absolute를 자식으로 가진 부모</li>
+        <li> absolute : 부모의 요소를 기준으로 배치할 때 설정</li>
+        <li> sticky : 최근에 사용되는 레이아웃 </li>
+    </ul>
+    
+    <h1>fixed</h1>
+    <div class="box">box</div>
+</body>
+</html>

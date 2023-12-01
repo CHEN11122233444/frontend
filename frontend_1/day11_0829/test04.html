@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .container{
+            width: 1200px;
+            margin: auto;
+        }
+        .content{
+            width: 25%;
+        }
+
+        .content1>article{
+            height: 250px;
+            background-color: orange;
+        }
+        .content2>article{
+            height: 500px;
+            background-color: pink;
+        }
+        .content3{
+            width: 50%;
+        }
+        .content3>article{
+            width: 50%;
+            height: 250px;
+            background-color: green;
+        }
+        .content3>article:nth-child(3){
+            width: 100%;
+        }
+        .content4>article,
+        .content6>article{
+            height: 250px;
+            background-color: skyblue;
+        }
+
+        .content5{
+            width: 50%;
+        }
+        .content5>article{
+            height: 250px;
+            background-color: orange;
+        }
+
+        .content{
+            float: left;
+        }
+
+        .content3>article{
+            float: left;
+        }
+
+        footer{
+            height: 100px;
+            background-color: gray;
+        }
+        /* .container{
+            overflow: hidden;
+        } */
+
+    </style>
+</head>
+<body>
+    <section class="container clearfix">
+        <div class="content content1">
+            <article>article01</article>
+            <article>article02</article>
+        </div>
+        <div class="content content2">
+            <article>article03</article>
+        </div>
+        <div class="content content3">
+            <article>article04</article>
+            <article>article05</article>
+            <article>article06</article>  
+        </div>
+        <div class="content content4">
+            <article>article07</article>
+        </div>
+        <div class="content content5">
+            <article>article08</article>
+        </div>
+        <div class="content content6">
+            <article>article09</article>
+        </div>
+    </section>
+
+    <footer></footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0; 
+        }
+
+        a{ 
+            text-decoration: none;
+            color:inherit;
+        }
+
+        .box{
+            display: flex;
+            flex-direction: column;
+            /* 
+                items 배치되는 방향
+                row
+                column
+                row-reverse
+                column-reverse
+            */
+            background-color: green;
+            margin-bottom: 100px;
+            height: 100vh;
+        }
+
+        .fs{  justify-content: flex-start; }
+        .fe{  justify-content: flex-end; }
+        .jccenter{  justify-content: center; }
+        .sb{  justify-content: space-between; } 
+        .sa{  justify-content: space-around; } 
+        .se{  justify-content: space-evenly; } 
+
+        p{
+            pst-style: none;
+        }
+
+        h1{
+            margin: 20px;
+        }
+
+         
+        .box[class]  a{
+            background-color: orange;
+            padding: 10px 20px;
+            display: block;
+        }
+        /* 
+            padding: inpne 속성의 태그에서 padding을 사용하면 상하겹침현상 발생 => 블록형 속성으로 변경해야 함
+        */
+        p{width: 100px;}
+    </style>
+</head>
+<body>
+
+    <h1>클래스 없는 선택자</h1>
+    <div>
+        <p><a href="#">menu1</a></p>
+        <p><a href="#">menu2</a></p>
+        <p><a href="#">menu3</a></p>
+        <p><a href="#">menu4</a></p>
+        <p><a href="#">menu5</a></p>
+    </div>
+
+    <h1>flex-start</h1>
+    <div class="box fs" style="align-items: flex-start;">
+        <p><a href="#">menu1</a></p>
+        <p><a href="#">menu2</a></p>
+        <p><a href="#">menu3</a></p>
+        <p><a href="#">menu4</a></p>
+        <p><a href="#">menu5</a></p>
+    </div>
+
+    <h1>flex-end</h1>
+    <div class="box fe" style="align-items: flex-end;">
+        <p><a href="#">menu1</a></p>
+        <p><a href="#">menu2</a></p>
+        <p><a href="#">menu3</a></p>
+        <p><a href="#">menu4</a></p>
+        <p><a href="#">menu5</a></p>
+    </div>
+
+    <h1>center</h1>
+    <div class="box jccenter" style="align-items: center;">
+        <p><a href="#">menu1</a></p>
+        <p><a href="#">menu2</a></p>
+        <p><a href="#">menu3</a></p>
+        <p><a href="#">menu4</a></p>
+        <p><a href="#">menu5</a></p>
+    </div>
+    <h1>space-between</h1>
+    <div class="box sb">
+        <p><a href="#">menu1</a></p>
+        <p><a href="#">menu2</a></p>
+        <p><a href="#">menu3</a></p>
+        <p><a href="#">menu4</a></p>
+        <p><a href="#">menu5</a></p>
+    </div>
+    <h1>space-around</h1>
+    <div class="box sa">
+        <p><a href="#">menu1</a></p>
+        <p><a href="#">menu2</a></p>
+        <p><a href="#">menu3</a></p>
+        <p><a href="#">menu4</a></p>
+        <p><a href="#">menu5</a></p>
+    </div>
+    <h1>space-evenly</h1>
+    <div class="box se">
+        <p><a href="#">menu1</a></p>
+        <p><a href="#">menu2</a></p>
+        <p><a href="#">menu3</a></p>
+        <p><a href="#">menu4</a></p>
+        <p><a href="#">menu5</a></p>
+    </div>
+</body>
+</html>
+
+<!-- 
+    .container{
+        display:flex;
+        flex-direction : row, column;
+        justify-content: 주축정렬;
+        align-items:크로스축(반대축) 정렬;
+
+        items의 너비 높이를 100% 꽉차게 넓히는 속성이 있음
+    }
+
+    .items{
+        확대, 축소, 너비
+    }
+ -->

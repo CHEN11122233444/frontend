@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            width: 100%;
+            background-color: pink;
+            display: flex;
+            height:500px;
+        }
+
+        .item{
+            width: 200px;
+            border:1px solid black;
+        }
+
+        .item:nth-child(3){
+            height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, vero reiciendis esse laudantium dolorem voluptate dolor a tempore error aliquam, ipsum quaerat fuga libero eos saepe est eius assumenda et.
+        </div>
+        <div class="item">item2</div>
+        <div class="item">item3</div>
+    </div>
+    <!--
+        height가 있다면 가장 큰 높이에 맞춤
+        height가 없다면 가장 큰 콘텐츠에 맞춤
+        높이가 있는 item 제외하고 나머지만 가장 큰 콘텐츠에 맞춤
+
+        container의 높이가 없으면 items끼리 맞춤
+        container 높이가 있다면 container의 높이에 맞춤
+    -->
+
+</body>
+</html>

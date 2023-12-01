@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        color: red;
+      }
+      h1:nth-child(1) {
+      }
+      .h1 {
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>hello html</h1>
+    <h1>hello html</h1>
+    <h1 class="h1">hello html</h1>
+    <h1 class="h1">hello html</h1>
+    <h2 id="javascript"></h2>
+    <div>
+      <pre>
+            입력 => 처리 => 출력
+
+            js출력
+            화면 출력 : html 창에 출력(dom : Document Object Model) = element(요소)
+            디버그에 출력하기
+        </pre
+      >
+    </div>
+
+    <script>
+      document.write("javascript write");
+      //   body에 출력하기
+
+      // 태그 선택자
+      document.getElementsByTagName("h1")[0].innerHTML = "HELLO javascript";
+      document.getElementsByTagName("h1")[1].style.color = "blue";
+
+      // 클래스 선택자
+      document.getElementsByClassName("h1")[0].innerHTML = "hello javascript";
+      document.getElementsByClassName("h1")[1].style.color = "blue";
+
+      // 아이디 선택자
+      // 페이지 전체에서 유일한 선택자로 존재
+      document.getElementById("javascript").innerHTML = "한글은";
+
+      let h1 = document.getElementsByClassName("h1")[0];
+      h1.innerHTML = "아름다운";
+      h1.style.backgroundColor = "orange";
+
+      // 발전된 코드 // css 선택자를 그대로 선택자로 사용 가능
+      document.querySelector("h1");
+      document.querySelectorAll("h1");
+    </script>
+  </body>
+</html>

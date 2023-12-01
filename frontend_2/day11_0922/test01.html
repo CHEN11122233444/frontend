@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{}
+        #userid{}
+        .userid{}
+        input[name='userid']{
+        }
+        input[type='text']{
+        }
+    </style>
+</head>
+<body>
+    <h1>form</h1>
+    <form action="test.html">
+        <input type="text" id="userid" class="userid" name="userid">
+        <input type="submit" value="click" id="submit">
+        <!-- enter, click : 화면을 갱신하는 역할 -->
+    </form>
+    <script>
+        let tagEl=document.getElementsByTagName('input')[0];
+        let idEl=document.getElementById('userid');
+        let classEl=document.getElementsByClassName('userid')[0];
+        let nameEl=document.getElementsByName('userid')[0];
+        let typeEl=document.querySelector('input[type="text"]');
+        let allEl=document.querySelectorAll('input');
+        // allEl=[input], allEl[0]
+
+        tagEl.addEventListener('keydown',function(event){
+            console.log(event.target.value);
+        });
+
+        let form=document.querySelector('form');
+        form.addEventListener('submnt', function(event){
+            event.preventDefault();
+            // 원래 있던 기능을 해제, 버블링 방지
+        });
+
+        let btn=document.querySelector('#submit');
+        btn.addEventListener('click', function(){
+            console.log('click');
+            alert(idEl.value);
+        })
+        btn.addEventListener('mouseover', function(){
+            console.log('mouseover');
+        })
+        btn.addEventListener('mouseout', function(){
+            console.log('mouseout');
+        })
+    </script>
+</body>
+</html>

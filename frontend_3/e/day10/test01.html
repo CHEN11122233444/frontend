@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style></style>
+  </head>
+  <body>
+    <!-- <script>
+      const URL =
+        "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
+
+      fetch(URL)
+        .then((res) => res.json())
+        .then((res) => {
+          const categories = res.map((item) => item.category);
+          const product_type = res.map((item) => item.product_type);
+
+          // console.log(categories);
+
+          // 배열을 이용한 중복 제거 
+          let distinct = []; 
+          categories.forEach((item) => {
+            if (item !== null && !distinct.includes(item)) {
+              distinct.push(item);
+            }
+          });
+
+          console.log(distinct);
+          // console.log(product_type);
+        });
+    </script> -->
+    <!-- <script>
+      const URL =
+        "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
+
+      fetch(URL)
+        .then((res) => res.json())
+        .then((res) => {
+          const categories = res.map((item) => item.category);
+          const product_type = res.map((item) => item.product_type);
+
+          console.log(categories);
+
+          // null 문제 발생
+          let distinct = categories.filter(
+            (data, index) => categories.indexOf(data) === index
+          );
+
+          console.log(distinct);
+          // console.log(product_type);
+        });
+    </script> -->
+    <script>
+      const URL =
+        "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
+
+      fetch(URL)
+        .then((res) => res.json())
+        .then((res) => {
+          const categories = res.map((item) => item.category);
+          const product_type = res.map((item) => item.product_type);
+
+          // null제거
+          const notNull = categories.filter((item) => item !== null);
+
+          // 중복제거
+          const setCategories = new Set(notNull);
+          console.log(setCategories);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style></style>
+  </head>
+  <body>
+    <input type="text" id="details" list="detail-list" />
+
+    <datalist id="detail-list">
+      <option value="서울"></option>
+      <option value="대구"></option>
+      <option value="부산"></option>
+      <option value="인천"></option>
+    </datalist>
+
+    <script>
+      const details = document.querySelector("#details");
+      //   details.addEventListener("input", (event) => {
+      //     console.log(event.target.value);
+      //   });
+      details.addEventListener("keyup", () => {
+        console.log(details.value);
+      });
+    </script>
+  </body>
+</html>

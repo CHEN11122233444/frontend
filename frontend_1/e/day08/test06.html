@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+        a{
+            text-decoration: none;
+            color:inherit;
+        }
+
+        li{ 
+            list-style: none;
+        }
+
+        .header-container{
+            display: flex;
+            justify-content: space-between;
+            background-color: #ffc600;
+            align-items: center;
+            height: 90px;
+            margin: 20px; 
+        }
+
+        .header-container ul{
+            display: flex;
+        }
+
+        .ver-menu{
+            width: 200px; 
+            height: 200px;
+            background-color: pink;
+        }
+
+        .ver-menu ul{
+            display: flex;
+            flex-direction: column;
+            /* gap:20px; */
+            justify-content: space-evenly;
+            height: 100%;
+            align-items: center;
+        }
+
+        .right-bar{
+            /* ul을 오른쪽에 배치하고 싶어서 사용 */
+            display: flex;
+            justify-content: flex-end;
+        }
+        .right-bar ul{
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+            background-color: #ffc600;
+            width: 100px;
+
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>logo</h1>
+        <ul>
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+        </ul>
+    </div>
+
+    <div class="ver-menu">
+        <ul>
+            <li><a href="#">verMenu1</a></li>
+            <li><a href="#">verMenu2</a></li>
+            <li><a href="#">verMenu3</a></li>
+            <li><a href="#">verMenu4</a></li>
+        </ul>
+    </div>
+
+    <div class="right-bar">
+        <ul>
+            <li><a href="#">phone</a></li>
+            <li><a href="#">phone</a></li>
+            <li><a href="#">phone</a></li>
+        </ul>
+    </div>
+</body>
+</html>

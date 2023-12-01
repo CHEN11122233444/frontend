@@ -1,0 +1,80 @@
+<!-- 
+    sidebar
+    토글 : 버튼 1개 => 2개이상의 기능을 처리함
+    true(열린상태), false(닫힌상태)
+ -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      aside {
+        position: fixed;
+        width: 300px;
+        height: 100vh;
+        background-color: skyblue;
+        top: 0;
+        right: -300px;
+        /* open, close */
+
+        transition: 0.5s cubic-bezier(0.99, 0.07, 0.64, 1.04);
+      }
+
+      aside.active {
+        right: 0;
+      }
+
+      aside > button {
+        /* 
+        position: absolute;
+        left: -100px; 
+        // button 크기가 바뀌면 위치를 제조정해야함
+        */
+
+        cursor: pointer;
+        transform: translate(-100%, 300px);
+        padding: 5px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="active">
+      <button>open</button>
+    </aside>
+
+    <!-- <script>
+      let sideToggleBtn = document.querySelector("aside>button");
+
+      let sideToggle = false;
+      sideToggleBtn.addEventListener("click", function () {
+        let aside = document.querySelector("aside");
+        if (!sideToggle) {
+          //
+          sideToggle = true;
+          // aside.style.right = "-300px";
+          // aside.className = "active";
+          aside.classList.add("active");
+        } else {
+          //
+          sideToggle = false;
+          // aside.style.right = "0px";
+          // aside.className = "";
+          aside.classList.remove("active");
+        }
+        //console.log(sideToggle);
+      });
+    </script> -->
+
+    <script>
+      let sideToggleBtn = document.querySelector("aside>button");
+
+      sideToggleBtn.addEventListener("click", () => {
+        let aside = document.querySelector("aside");
+        aside.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

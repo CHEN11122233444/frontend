@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+
+    <style>
+      html,
+      body {
+        scroll-behavior: smooth;
+      }
+
+      .banner {
+        height: 500px;
+        background-color: antiquewhite;
+        animation: banner 5s forwards;
+      }
+
+      header {
+        height: 50px;
+        background-color: black;
+
+        position: sticky;
+        top: 0;
+        z-index: 999;
+      }
+
+      nav > ul {
+        display: flex;
+        list-style: none;
+        gap: 50px;
+        justify-content: center;
+        height: 50px;
+        align-items: center;
+      }
+
+      nav > ul a.active {
+        background-color: white;
+      }
+
+      nav > ul a {
+        display: block;
+        animation: bgcolor linear;
+        color: white;
+        /* animation-timeline: scroll(); */
+      }
+
+      section {
+        width: 100%;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 100px;
+      }
+
+      section:nth-child(2n) {
+        background-color: bisque;
+      }
+
+      section:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+    </style>
+    <style>
+      @keyframes rotate {
+        100% {
+          transform: rotate(0);
+        }
+      }
+
+      .section01 > h2 {
+        transform: rotate(180deg);
+        animation: rotate 1s forwards;
+        animation-timeline: view();
+        animation-range-end: cover 50%;
+        /* 
+            overflow:hidden; 
+            스크롤을 숨긴상태가 되므로 animation-timeline 동작하지 않음
+            화면밖에서 안으로 애니메이션이라면 주의할 필요 있음
+        */
+      }
+
+      @keyframes translateX {
+        100% {
+          transform: translateX(0);
+        }
+      }
+      .section02 > h2 {
+        transform: translateX(300px);
+        animation: translateX 1s forwards;
+        animation-timeline: view();
+        animation-range: contain 20% cover 80%;
+      }
+
+      .section03 > h2 {
+        transform: scale(0);
+        animation: scale-up linear;
+        animation-timeline: view();
+        animation-range: cover 0 cover 50;
+      }
+
+      @keyframes scale-up {
+        100% {
+          transform: scale(2);
+        }
+      }
+
+      input[name="menu"] {
+        display: none;
+      }
+    </style>
+  </head>
+  <!-- 
+    javascript 없이 
+ -->
+
+  <body>
+    <input type="radio" id="h" name="menu" />
+    <input type="radio" id="a" name="menu" />
+    <input type="radio" id="s" name="menu" />
+    <input type="radio" id="w" name="menu" />
+    <input type="radio" id="c" name="menu" />
+    <div class="wrapper">
+      <div class="banner"></div>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <label for="h"><a href="#home">home</a></label>
+            </li>
+            <li>
+              <label for="a"><a href="#about">about</a></label>
+            </li>
+            <li>
+              <label for="s"><a href="#skills">skills</a></label>
+            </li>
+            <li>
+              <label for="w"><a href="#work">work</a></label>
+            </li>
+            <li>
+              <label for="c"><a href="#contact">contact</a></label>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <section class="section01" id="home">
+        <h2>section01</h2>
+      </section>
+      <section class="section02" id="about">
+        <h2>section02</h2>
+      </section>
+      <section class="section03" id="skills">
+        <h2>section03</h2>
+      </section>
+      <section class="section04" id="work">
+        <h2>section04</h2>
+      </section>
+      <section class="section05" id="contact">
+        <h2>section05</h2>
+      </section>
+      <footer>footer</footer>
+    </div>
+  </body>
+</html>

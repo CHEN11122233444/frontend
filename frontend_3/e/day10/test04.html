@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .wrapper {
+        width: 1200px;
+        margin: auto;
+        /* background-color: pink; */
+      }
+
+      #search {
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        border: none;
+        background-color: #efefef;
+        margin-bottom: 15px;
+      }
+      #search::placeholder {
+        text-transform: capitalize;
+        text-indent: 1.5em;
+      }
+      #search.active {
+        background-color: #fff;
+      }
+
+      .category_container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+      .categories .btn {
+        line-height: 30px;
+        border: 1px solid gray;
+        width: 150px;
+        border-radius: 7px;
+        padding: 0 1.5em;
+
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .categories {
+        position: relative;
+      }
+      .categories .options {
+        display: none;
+        height: 90px;
+        overflow: auto;
+        position: absolute;
+        width: 100%;
+
+        z-index: 99;
+        background-color: white;
+      }
+
+      .categories .options > div {
+        line-height: 30px;
+      }
+      .categories .options > div:hover {
+        background-color: #efefef;
+      }
+
+      .btnGroup > button {
+        height: 30px;
+        padding: 0 15px;
+        border: none;
+        background-color: transparent;
+        text-transform: capitalize;
+        border-radius: 7px;
+      }
+      .btnGroup > button.active {
+        background-color: #efefef;
+      }
+    </style>
+    <style>
+      .container {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(5, 1fr);
+        margin: auto;
+        gap: 50px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 200px;
+        position: relative;
+      }
+      /* 순위를 사용한 bast, 랜덤 베스트를 사용한다면 js 필요 */
+      .card::before {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        content: "베스트";
+        display: block;
+        border-radius: 40px;
+        width: 40px;
+        line-height: 40px;
+        border: 2px solid coral;
+        background-color: white;
+        font-size: 10px;
+        text-align: center;
+        font-weight: bold;
+        color: coral;
+      }
+
+      .card::after {
+        position: absolute;
+        right: 0px;
+        bottom: 114px;
+        content: "♡";
+        display: block;
+
+        width: 40px;
+        line-height: 40px;
+        border: 1px solid #efefef;
+        background-color: white;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        color: #efefef;
+      }
+
+      .img {
+        border: 1px solid black;
+        text-align: center;
+      }
+      .strike {
+        text-decoration: line-through;
+      }
+      .sale {
+        color: red;
+        font-weight: bold;
+      }
+      .acc {
+        display: flex;
+        gap: 3px;
+      }
+      .acc > li {
+        border-radius: 10px;
+        font-size: 10px;
+        color: white;
+        padding: 0 5px;
+      }
+      .acc > li:nth-child(1) {
+        background-color: coral;
+      }
+      .acc > li:nth-child(2) {
+        background-color: greenyellow;
+      }
+      .acc > li:nth-child(3) {
+        background-color: skyblue;
+      }
+      .acc > li:nth-child(4) {
+        background-color: hotpink;
+      }
+
+      @media screen and (max-width: 1250px) {
+        .wrapper {
+          width: 100%;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .btnGroup > button {
+          padding: 0 5px;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .btnGroup {
+          display: none;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .container {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="darkmode"><button>★</button></div>
+    <div class="wrapper">
+      <form id="form">
+        <input type="search" id="search" placeholder="search type" />
+      </form>
+      <div class="category_container">
+        <div class="categories">
+          <div class="btn" value="All">
+            <span>All categories</span><span class="caret">▼</span>
+          </div>
+          <div class="options">
+            <div value="All categories">All categories</div>
+            <!-- <div value="lip_liner">lip_liner</div>
+            <div value="lipstick">lipstick</div>
+            <div value="foundation">foundation</div>
+            <div value="blush">blush</div>
+            <div value="bronzer">bronzer</div>
+            <div value="eyeshadow">eyeshadow</div> -->
+          </div>
+        </div>
+
+        <div class="btnGroup">
+          <button class="active">All</button>
+          <button>lip_liner</button>
+          <button>lipstick</button>
+          <button>foundation</button>
+          <button>blush</button>
+          <button>bronzer</button>
+          <button>eyeshadow</button>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- <div class="card"></div> -->
+      </div>
+    </div>
+
+    <script>
+      let darkmodeToggle = false;
+      const darkmode = document.querySelector(".darkmode");
+
+      darkmode.addEventListener("click", () => {
+        if (!darkmodeToggle) {
+          document.querySelector("body").style.background = "black";
+        } else {
+          document.querySelector("body").style.background = "white";
+        }
+        darkmodeToggle = !darkmodeToggle;
+      });
+
+      const searchSelect = document.querySelector(".categories .btn");
+      let toggleSelect = false;
+      const options = document.querySelector(".options");
+
+      searchSelect.addEventListener("click", () => {
+        const caret = document.querySelector(".caret");
+
+        if (!toggleSelect) {
+          options.style.display = "block";
+          caret.innerText = "▲";
+        } else {
+          options.style.display = "none";
+          caret.innerText = "▼";
+        }
+
+        toggleSelect = !toggleSelect;
+      });
+
+      const searchBtn = document.querySelectorAll(".btnGroup button");
+      let currentSearchBtn = document.querySelector(".btnGroup .active");
+
+      searchBtn.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+          if (currentSearchBtn) currentSearchBtn.classList.remove("active");
+
+          btn.classList.add("active");
+          currentSearchBtn = btn;
+
+          //console.log(event.target.innerHTML);
+          let searchText = event.target.innerHTML;
+          searchData(searchText);
+        });
+      });
+
+      search.addEventListener("focus", () => {
+        search.classList.add("active");
+      });
+      search.addEventListener("blur", () => {
+        search.classList.remove("active");
+      });
+
+      //   search.addEventListener("input", (event) => {
+      //     console.log(event.target.value);
+      //     const searchText = event.target.value;
+      //     searchData(searchText);
+      //   });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const searchText = search.value;
+        searchData(searchText);
+        search.value = "";
+      });
+
+      let rowDatas = []; // 원본데이터
+      let searchAry = []; // 검색어에 해당하는 데이터를 찾아서 저장
+
+      function loadData() {
+        const url =
+          "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
+
+        fetch(url)
+          .then((res) => res.json())
+          .then((res) => {
+            rowDatas = res; // 배열백업
+            console.log(rowDatas.length);
+            // options 채우기
+
+            const product_type = res.map(
+              (item) => item.product_type !== null && item.product_type
+            );
+            //console.log(product_type);
+            const set_pt = new Set(product_type);
+            console.log(set_pt);
+
+            // select dom 만들기
+            const options = document.querySelector(".categories .options");
+            set_pt.forEach((item) => {
+              const str = `<div value="${item}">${item}</div>`;
+              options.insertAdjacentHTML("beforeend", str);
+            });
+
+            // 동적으로 options 모두 만든 후 event 핸들러 추가
+            // 이벤트 위임을 사용하면 부모를 통해서 이벤트를 처리하도록 함
+            const optionsBtn = document.querySelectorAll(".options>div");
+            optionsBtn.forEach((option) => {
+              option.addEventListener("click", () => {
+                console.log("click");
+
+                const value = option.innerText;
+
+                searchSelect.firstElementChild.innerText = value; // 첫번째 span
+                searchSelect.firstElementChild.nextElementSibling.innerText =
+                  "▼";
+                // 두번째 span
+                options.style.display = "none";
+                toggleSelect = !toggleSelect;
+
+                searchData(value);
+              });
+            });
+
+            searchData("All");
+          });
+      }
+
+      loadData(); // 비동기 처리방식 // 완료보장 없음
+      console.log(rowDatas); // 데이터처리가 완료된 후에 처리된다는 보장이 없음
+
+      function searchData(search) {
+        searchAry = [];
+        console.log(searchAry.length);
+
+        if (search.includes("All")) {
+          // if (search === "All") {
+          searchAry = rowDatas; //
+        } else {
+          rowDatas.forEach((item) => {
+            if (item.product_type.includes(search)) {
+              searchAry.push(item);
+            }
+          });
+        }
+
+        // console.log(searchAry);
+        // UI로 표현 하기
+        createCardElement();
+      }
+
+      function createCardElement() {
+        const container = document.querySelector(".container");
+        container.innerHTML = "";
+
+        searchAry.forEach((item) => {
+          let str = createCard(item);
+
+          container.insertAdjacentHTML("beforeend", str);
+        });
+      }
+
+      function createCard(item) {
+        let price_sign = item.price_sign ? item.price_sign : "$";
+        // null, 0, undefined, NaN, false = false
+
+        let itemName =
+          item.name.length >= 40
+            ? item.name.substring(0, 40) + "..."
+            : item.name;
+
+        const domStr = `
+            <div class="card">
+                    <div class="img">
+                    <img src="${item.image_link}" alt="${item.product_type}"
+                         title="${item.product_type}"
+                    />
+                    </div>
+                    <div class="text">
+                    <h4>${item.product_type.toUpperCase()}</h4>
+                    <p class="desc">[${item.brand.toUpperCase()}]
+                        ${itemName}</p>
+                    <p class="price">
+                        <span class="strike">${
+                          parseInt(item.price) + 10
+                        } ${price_sign}</span>
+                        <span class="sale">${item.price} ${price_sign}</span>
+                    </p>
+                    <ul class="acc">
+                        <li>세일</li>
+                        <li>쿠폰</li>
+                        <li>증정</li>
+                        <li>오늘드림</li>
+                    </ul>
+                    </div>
+                </div>
+            `;
+
+        // container.insertAdjacentHTML("beforeend", domStr);
+        return domStr;
+      }
+    </script>
+  </body>
+</html>

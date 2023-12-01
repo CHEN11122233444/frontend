@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container"></div>
+    <script>
+        // fetch('http://makeup-api.herokuapp.com/api/v1/products.json')
+        fetch(
+            'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline'
+        )
+        .then((res)=>res.json()) // js 형태의 데이터로 변형
+        .then((res)=>{
+            console.log(res);
+
+            const container=document.querySelector('.container');
+            container.innerHTML=`<img src="${res[2].api_featured_image}" 
+                                    title="${res[2].product_type}"
+                                />
+                                <p>
+                                    price ${res[2].price}
+                                    ${res[2].price_sign ? res[2].price : "$"}
+                                </p>
+                                `;
+        })
+    </script>
+</body>
+</html>

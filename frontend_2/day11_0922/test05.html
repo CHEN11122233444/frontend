@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="jumsu">점수를 입력하세요.</label>
+    <input type="number" id="jumsu" min="0" max="5">
+    <button>클릭</button>
+
+    <div>
+        <pre>
+            // 방법1: 처리할 것이 1가지인 경우
+            if(조건식){
+                // 조건식 true일때 처리할 일
+            }
+
+
+            // 방법2: 처리할 것이 2가지인 경우
+            if(조건식){
+                // 조건식 true일때 처리할 일
+            }else{
+                // 조건식 false일때 처리할 일
+            }
+
+            // 방법3: 처리할 것이 여러 개인 경우
+            if(조건식1){
+                // 조건식1이 true일때 처리할 일
+            }else if(조건식2){
+                // 조건식1 false, 조건식2가 true일때 처리할 일
+            }else{
+                // 조건식이 모두 false일때
+            }
+        </pre>
+    </div>
+
+    <script>
+        let number=0;
+        let btn=document.querySelector('button');
+        btn.addEventListener('click',function(){
+            // let jumsu=document.querySelector("#jumsu").value;
+            let jumsu=document.querySelector('#jumsu');
+            let number=jumsu.value;
+
+            if(number>=0&&number<=100){
+                console.log('click',number);
+
+                if(number>=90){
+                    console.log('A 학점');
+                }else if(number>=80){
+                    console.log('B 학점');
+                }else if(number>=70){
+                    console.log('C 학점');
+                }else if(number>=60){
+                    console.log('D 학점');
+                }else{
+                    console.log('F 학점');
+                } 
+            }
+        });
+
+        // == 같다, != 같지않다
+        // 느슨한 검사 -> 데이터 값만 비교하고 데이터 타입은 비교하지 않음
+        console.log(10=='10'); //true
+        console.log(10!='10'); //false
+
+        // 엄격한 검사 -> 데이터 값과 데이터 타입 둘 다 비교함
+        console.log(10==='10'); //false
+        console.log(10!=='10'); //true
+
+        console.log(typeof 10); //number
+        console.log(typeof '10'); //string
+        console.log(typeof ture); //boolean
+        console.log(typeof []) //object
+        console.log(typeof {}) //object
+
+        function add(){
+            return a;
+        }
+        console.log(typeof add); //function
+
+        // 덧셈 연자: 문자열에서 사용될때 문자열 결합연산자로 사용됨
+        let str='Hello'+'javascript';
+        console.log(str);
+
+        // +을 이용한 문자열 결합 연산보다 ''(template literal)을 선호
+
+        // string 내장 클래스
+        console.log('hello'.concat('javascript'));
+    </script>
+</body>
+</html>

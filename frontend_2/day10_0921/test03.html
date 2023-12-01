@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color: red;
+        }
+        .h1{
+            font-size: 24px;
+        }
+        
+        div>pre{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>hello html</h1>
+    <h1>hello html</h1>
+    <h1 class="h1">hello html</h1>
+    <h1 class="h1">hello html</h1>
+    <h2 id="javascript"></h2>
+    <div>
+        <pre>
+            입력 -> 처리 -> 출력
+
+            JS출력
+            화면 출력 : html 창에 출력(dom: Document Object Model)
+            (요소)
+            디버그에 출력하기
+        </pre>
+    </div>
+
+    <script>
+        // 발전된 코드 // css 선택자를 그대로 선택자로 사용가능
+        document.querySelector("h1").innerHTML="한글은";
+        // 모두 적용이 아닌 첫 번째 것만 적용
+
+        let h1s = document.querySelectorAll("h1");
+        // 배열: 데이터를 여러 개 저장하는 공간
+        // [ h1, h1, h1, h1]
+        //   0   1    2  3
+        h1s[1].innerHTML='아름다운';
+        h1s[2].style.color='blue';
+
+        // JS의 불편한 부분 -> 편리하게 수정한 것
+        // 함수, 플러그인, 라이브러리, 모듈, 프레임워크
+        // https://www.npmjs.com/
+        // jQuery: 선택자를 편리하게 사용하도록 개발된 도구
+        // node.js: 서버를 만들 수 있는 도구
+        // frontend: React, Vue, angular
+    </script>
+
+    <!--  
+        메뉴마다 페이지 하나씩 -> MPA(Multiple Page Application)
+        jsp + html + cs + js
+        asp + html + cs + js
+        php + html + cs + js
+        py + html + cs + js
+        node.js + html + cs + js 
+    -->
+    <!--
+        SPA(Single)
+        페이스북 -> 메타 -> html + cs + js -> React.js
+     -->
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .indecator {
+        display: flex;
+        gap: 10px;
+      }
+
+      .indecator a {
+        color: transparent;
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        background-color: lightgray;
+      }
+      .indecator a.active {
+        background-color: black;
+      }
+
+      .hidden {
+        color: red;
+      }
+
+      .imgs-contents > div {
+        width: 600px;
+        height: 300px;
+      }
+      .imgs-contents {
+        display: flex;
+        width: 2400px;
+        transition: 0.5s;
+      }
+      .imgs-contents > div:nth-child(1) {
+        background-color: pink;
+      }
+      .imgs-contents > div:nth-child(2) {
+        background-color: skyblue;
+      }
+      .imgs-contents > div:nth-child(3) {
+        background-color: green;
+      }
+      .imgs-contents > div:nth-child(4) {
+        background-color: lavender;
+      }
+
+      .slider-bar {
+        width: 600px;
+        height: 3px;
+        background-color: lightgrey;
+      }
+
+      .slider-bar > span {
+        display: block;
+        width: calc((100% / 4) * 1);
+        height: 3px;
+        background-color: black;
+        transition: 0.4s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="imgs-contents">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="slider-bar"><span></span></div>
+
+      <div class="slider-num-view"><span></span>/<span>4</span></div>
+    </div>
+
+    <ul class="indecator">
+      <li><a href="#">1</a></li>
+      <!-- <li><a href="#" class="active">1</a></li> -->
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+    </ul>
+
+    <div class="ctrl-btn">
+      <div class="prev" id="prev">prev</div>
+      <!-- 3 2 1 0 -->
+      <div class="next" id="next">next</div>
+      <!-- 1 2 3 0 -->
+    </div>
+
+    <script>
+      const indecators = document.querySelectorAll(".indecator a");
+      let num = 0;
+      let currentNum = num;
+      //indecators[num].classList.add("active");
+
+      indecators.forEach((btn, index) => {
+        btn.addEventListener("click", (event) => {
+          console.log(event.target, btn);
+
+          indecators[currentNum].classList.remove("active");
+
+          const target = event.target;
+          target.classList.add("active");
+
+          //   ctrlHiddenHandle();
+          //   //num = index + 1;
+          //   currentNum = index;
+
+          num = index;
+          ctrlHiddenHandle();
+          ctrlBtnHandle();
+          sliderHandle();
+          numviewPrint();
+        });
+      });
+
+      indecators[num].click();
+      // 이벤트 트리거
+
+      // id는 페이지내에서 유일한 선택자로 변수 선언 없이 사용가능
+      // const next = 50; 변수선언이 되어 있다면 아이디선택자를 변수로 사용하기 불가
+      //
+      next.addEventListener("click", (event) => {
+        // console.log(event.target);
+        if (num < indecators.length - 1) num++;
+        // if (num === indecators.length - 1) next.style.color = "red";
+        ctrlHiddenHandle();
+        ctrlBtnHandle();
+        sliderHandle();
+        numviewPrint();
+      });
+
+      prev.addEventListener("click", (event) => {
+        if (num > 0) num--;
+        ctrlHiddenHandle();
+        ctrlBtnHandle();
+        sliderHandle();
+        numviewPrint();
+      });
+
+      function ctrlHiddenHandle() {
+        if (num === indecators.length - 1) next.classList.add("hidden");
+        else next.classList.remove("hidden");
+        if (num === 0) prev.classList.add("hidden");
+        else prev.classList.remove("hidden");
+      }
+
+      function ctrlBtnHandle() {
+        indecators[currentNum].classList.remove("active");
+        indecators[num].classList.add("active");
+
+        currentNum = num;
+      }
+
+      function sliderHandle() {
+        const imgsContents = document.querySelector(".imgs-contents");
+        imgsContents.style.transform = `translateX(${-600 * num}px)`;
+      }
+
+      function numviewPrint() {
+        const numview = document.querySelector(".slider-num-view> span");
+        numview.innerHTML = num + 1;
+
+        const sliderBar = document.querySelector(".slider-bar > span");
+        sliderBar.style.width = `calc((100% / 4) * ${num + 1})`;
+      }
+    </script>
+    <!-- 무한 루프 슬라이더는 아님 -->
+  </body>
+</html>

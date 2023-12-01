@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>radius</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .outbox:nth-child(1) .inbox{
+            border-radius: 50px;
+        }
+        .outbox:nth-child(2) .inbox{
+            border-radius: 50px 100px;
+        }
+        .outbox:nth-child(3) .inbox{
+            border-radius: 50px 100px 200px;
+        }
+        .outbox:nth-child(4) .inbox{
+            border-radius: 10px 50px 100px 200px;
+        }
+        .outbox:nth-child(5) .inbox{
+            border-radius: 50%;
+            /* box-sizing: border-box가 아닐 경우 
+                padding, border에 따라서 
+            */
+        }
+        .outbox:nth-child(6) .inbox{
+            box-sizing: content-box;
+            /* padding, border 실제 너비에 포함되지 않음  */
+            border-radius: calc(198px / 2);
+            padding: 50px;
+        }
+
+        .outbox:nth-child(7){
+            height: 100px;
+        }
+        .outbox:nth-child(7) .inbox{
+            border-radius: 50%;
+            /* 타원 */
+            border: 1px solid black;
+        }
+        .outbox:nth-child(8){
+            height: 100px;
+        }
+        .outbox:nth-child(8) .inbox{
+            border-radius: 100px;
+            /* 라운드 사각형 */
+            border: 1px solid black;
+        }
+        
+        .outbox:nth-child(9) .inbox{
+            border-radius: 0 200px 200px 200px;  
+            transform: rotate(45deg);
+        }
+
+        .outbox:nth-child(10) .inbox{
+            border:100px solid black; 
+            border-top-color: red;
+            border-bottom-color: red;
+        }
+
+        .outbox:nth-child(11) .inbox{
+            border-radius: 200px 0 0 0;
+        }
+        .outbox:nth-child(12) .inbox{
+            border-radius: 200px 200px 0 0;
+        }
+        .outbox:nth-child(13) .inbox{
+            border-radius: 200px 0;
+        }
+        .outbox:nth-child(14) .inbox{
+            border-radius: 100px/50px;
+        }
+        .outbox:nth-child(15) .inbox{
+            border-radius: 100px/200px;
+        }
+        .outbox:nth-child(16) .inbox{
+            border-radius:200px 0 0 0;
+        }
+        .outbox:nth-child(17) .inbox{
+            border-radius:0 200px   0 0;
+        }
+
+        /* 삼각형 제외 */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="outbox">
+            <div class="inbox">box01</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box02</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box03</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box04</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box05</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box06</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box07</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box08</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box09</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box10</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box11</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box12</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box13</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box14</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box15</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box16</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box17</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box18</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box19</div>
+        </div>
+        <div class="outbox">
+            <div class="inbox">box20</div>
+        </div>
+    </div>
+</body>
+</html>

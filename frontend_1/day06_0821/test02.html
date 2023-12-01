@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            font-size: 24px;
+        }
+        span{
+            display: block;
+        }
+        .orange__color{
+            color: orange;
+        }
+        b{
+            font-weight: normal;
+            font-size: 28px;
+        }
+        i{
+            font-style: normal;
+            font-size: 32px;
+            color: yellow;
+        }
+        sub{
+            font-weight: 600;
+            color: purple;
+        }
+        strong{
+            font-weight: normal;
+            font-size: 28px;
+        }
+        ins,
+        del{
+            text-decoration: none;
+        }
+        ins{
+            color: red;;
+        }
+        del{
+            color: blueviolet;
+            font-size: 32px;
+        }
+
+        #layout{
+            width: 500px;
+            background-color: antiquewhite;
+        }
+
+        /*
+            이름을 너무 많이 지정하면 기억하기 어려움
+            꼭 필요한 곳에 붙이기
+            태그지점
+        */
+    </style>
+</head>
+<body>
+    <div id="layout">
+        <h1>올망졸망 글자놀이</h1>
+        <div>
+            <span class="orange__color">글자들이</span>
+            <span>
+                <sub>올</sub>
+                <strong>망</strong>
+                <ins>졸</ins>
+                <del>망</del>
+            </span>
+            <span><b class="orange__color">왔다</b><i>갔다,</i></span>
+            <span>울룩불룩</span>
+            <span>마음대로 움직이네요.</span>
+            <span>끝</span>
+        </div>
+    </div>
+
+    <!--
+        id : layout(구조설계) 이름 지정, 100 우선순위
+            디자인기 겹쳐서 디자인 적용 안될때 우선순위를 높여주기 위해서도 사용
+    -->
+</body>
+</html>

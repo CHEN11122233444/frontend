@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docment</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <select name="" id="select">
+        <option value="0">지역을 선택하세요.</option>
+        
+    </select>
+
+    <script>
+        const local=[
+            {    
+                value:'seoul' ,
+                local:'서울',
+            },
+            {    
+                value:'busan' ,
+                local:'부산',
+            },
+            {    
+                value:'daegu' ,
+                local:'대구',
+            },
+            {    
+                value:'incheon' ,
+                local:'인천',
+            }
+        ];
+
+        function optionAdd(){
+            for(let a=0;a<local.length;a++){
+            const str=`<option value="${local[a].value}">${local[a].local}</option>`;
+            select.insertAdjacentHTML('beforeend',str);
+            }
+        }
+        optionAdd();
+       
+        select.addEventListener('click',(event)=>{
+            console.log(select.value);
+            console.log(event.target.value);
+        });
+    </script>
+</body>
+</html>

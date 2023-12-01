@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>office room</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+  </head>
+
+  <body>
+    <p>&nbsp;</p>
+    <table width="700" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="700" height="335" background="images/table_bg.gif">
+          <table
+            width="700"
+            height="54"
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+          >
+            <tr>
+              <td width="180">
+                <style>
+                  .left {
+                    position: relative;
+                  }
+                  .left ul {
+                    position: absolute;
+                    top: 170px;
+                    left: 20px;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                  }
+                </style>
+                <div align="left" class="left">
+                  <img src="images/man.gif" width="86" height="301" />
+
+                  <ul>
+                    <li><img src="./images/menu_up_01.gif" alt="" /></li>
+                    <li><img src="./images/menu_up_02.gif" alt="" /></li>
+                    <li><img src="./images/menu_up_03.gif" alt="" /></li>
+                    <li><img src="./images/menu_up_04.gif" alt="" /></li>
+                    <li><img src="./images/menu_up_05.gif" alt="" /></li>
+                  </ul>
+                </div>
+              </td>
+
+              <td width="500">
+                <img
+                  src="images/start.gif"
+                  width="500"
+                  height="300"
+                  class="mainImg"
+                />
+              </td>
+              <td width="20">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td height="80" bgcolor="4A9BB6">
+          <div align="center">
+            <img src="images/d_b.gif" width="217" height="53" />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td height="50" bgcolor="EDEDED">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>
+                <div align="right">
+                  <img src="images/bg.gif" width="102" height="11" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="700" border="0" align="left" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="332">&nbsp;</td>
+        <td width="268">&nbsp;</td>
+        <td width="100">
+          <div align="right">
+            <img src="images/cbc.gif" width="82" height="13" />
+          </div>
+        </td>
+      </tr>
+    </table>
+    <p>&nbsp;</p>
+    <script>
+      const floorImgs = {
+        1: "fifth",
+        2: "fourth",
+        3: "third",
+        4: "second",
+        5: "first",
+      };
+
+      // floorImgs.0  // error
+      // floorImgs[`${1}`]
+      const floors = document.querySelectorAll(".left ul img");
+      floors.forEach((floor, index) => {
+        // 0 1 2 3 4 => 1 2 3 4 5
+        const num = index + 1;
+        const mainImg = document.querySelector(".mainImg");
+
+        floor.addEventListener("mouseover", () => {
+          const path = `./images/menu_over_0${num}.gif`;
+
+          floor.setAttribute("src", path);
+          console.log(`${floorImgs[num]}.gif`);
+          mainImg.setAttribute("src", `./images/${floorImgs[num]}.gif`);
+        });
+
+        floor.addEventListener("mouseout", () => {
+          const path = `./images/menu_up_0${num}.gif`;
+
+          floor.setAttribute("src", path);
+          mainImg.setAttribute("src", `./images/start.gif`);
+        });
+      });
+    </script>
+  </body>
+</html>

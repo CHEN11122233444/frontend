@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:checked+label{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="checkbox" id="agree">
+        <label for="agree">동의합니다.</label>
+    </form>
+
+    <script>
+        let agree=document.querySelector('#agree');
+        let label=document.querySelector('label[for="agree"]');
+        agree.addEventListener('click',function(){ 
+            console.log(agree.checked);
+            // true, false
+            
+            if(agree.checked){
+                label.innerHTML="체크되었습니다.";
+            }else{
+                label.innerHTML='동의합니다';
+            }
+        });
+
+        //if
+    </script>
+    <!-- 
+        if(조건식){
+            // 조건식 true일때 처리할 일
+        }else{
+            // 조건식 false일때 처리할 일 
+        }
+     -->
+</body>
+</html>

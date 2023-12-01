@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <details class="collapse">
+        <summary>자세히보기</summary>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem porro architecto dolor neque est suscipit, accusamus amet modi, repellendus repudiandae veritatis reiciendis libero delectus tempora? Architecto dolor officiis eos minus!</div>
+    </details>
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script>
+        let toggle = false;
+        $('.collapse>div').css('display','none');
+        $('.collapse>summary').on('click',function(){
+            if(!toggle){
+                $('.collapse>div').css('display','block');
+            }else{
+                $('.collapse>div').css('display','none');
+            }
+            toggle = !toggle;
+        })
+
+        // $('.collapse>summary').trigger('click');
+        // $('.collapse>summary').trigger('click');
+        
+    </script>
+</body>
+</html>

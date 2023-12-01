@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .contents{
+            display: flex;
+        }
+        .box:nth-child(1){
+            background-color: orange;
+        } 
+        .box:nth-child(2){
+            background-color: skyblue;
+        }
+
+        @media screen and (max-width:600px) {
+            .contents{
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contents">
+        <div class="box">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore quidem quis cumque porro saepe eius optio et nisi modi consequuntur ipsum eum, dolorem expedita provident, quibusdam iusto odio eos totam.
+        </div>
+        <div class="box">한글은 아름다운 글입니다.</div>
+    </div>
+</body>
+</html>

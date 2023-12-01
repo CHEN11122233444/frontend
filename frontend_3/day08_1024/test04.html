@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .container{
+            display: grid;
+            width: 820px;
+            grid-template-columns: 1fr 1fr;
+            margin: auto;
+        }
+        .card{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 400px;
+        }
+
+        .strike{
+            text-decoration: line-through;
+        }
+        .sale{
+            color: red;
+            font-weight: bold;
+        }
+        .acc{
+            display: flex;
+            gap: 3px;
+        }
+        .acc>li{
+            border-radius: 10px;
+            font-size: 10px;
+            color: white;
+            padding: 0 5px;
+        }
+        .acc>li:nth-child(1){
+            background-color: coral;
+        }
+        .acc>li:nth-child(2){
+            background-color: greenyellow;
+        }
+        .acc>li:nth-child(3){
+            background-color: skyblue;
+        }
+        .acc>li:nth-child(4){
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="card">
+            <div class="img">
+            <img src="http://placekitten.com/200/200" alt="200x200">
+            </div>
+            <div class="text">
+                <h4>듀이트리</h4>
+                <p class="desc">[더보이즈 큐PICK] 듀이트리AC컨트롤</p>
+                <p class="price">
+                    <span class="strike">16,000원</span>
+                    <span class="sale">11,300원</span>
+                </p>
+                <ul class="acc">
+                    <li>세일</li>
+                    <li>쿠폰</li>
+                    <li>증정</li>
+                    <li>오늘드림</li>
+                </ul>
+            </div> -->
+        </div>
+    </div>
+    <script>
+        // fetch('http://makeup-api.herokuapp.com/api/v1/products.json')
+        const URL='http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
+
+        function loadData(){
+            fetch(URL)
+            .then((res)=>res.json()) // js 형태의 데이터로 변형
+            .then((res)=>{
+                console.log(res);
+                const container=document.querySelector('.container');
+
+
+                res.forEach((item)=>{
+                    createCard(item,container);
+                });
+            });
+        }
+
+         loadData();
+
+        function createCard(item,container){
+            let price_sign=item.price_sign ? item.price_sign : "$";
+                // false = null, 0, undefined, NaN, false
+
+                const domStr=`
+                <div class="card">
+                    <div class="img">
+                    <img src="${item.image_link}" alt="${item.product_type}"
+                        title="${item.product_type}"
+                    >
+                    </div>
+                    <div class="text">
+                        <h4>${item.product_type.toUpperCase()}</h4>
+                        <p class="desc">[${item.brand.toUpperCase()}] 
+                                        ${item.name}</p>
+                        <p class="price">
+                            <span class="strike">
+                                ${parseInt(item.price) + 10 } 
+                                ${price_sign}
+                            </span>
+                            <span class="sale">${item.price} ${price_sign}</span>
+                        </p>
+                        <ul class="acc">
+                            <li>세일</li>
+                            <li>쿠폰</li>
+                            <li>증정</li>
+                            <li>오늘드림</li>
+                        </ul>
+                    </div>
+                </div>
+                `;
+                container.insertAdjacentHTML('beforeend',domStr);
+        }
+    </script>
+    <!-- 
+        1. data 읽어오기
+        2. data 분석 : 문자, 숫자, 배열, 객체, 이미지
+        3. UI로 표현할 방식(태그 어떻게 표시할까)
+        4. 데이터 개수만큼 js를 이용해서 표현 : 함수,
+     -->
+</body>
+</html>

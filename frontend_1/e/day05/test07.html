@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>style삽입</title>
+    <style>
+        h1>span{
+            text-transform: uppercase;
+        }
+        h1{
+            text-transform:capitalize;
+        }
+        #extend{
+            color:blue; 
+        }
+        li{
+            color:purple;
+        }
+        li{
+            color:green;
+        }
+
+        #colorOrange{
+            color:blue; 
+        }
+        .color{ 
+            color:orange;
+        }
+    </style>
+    <!-- 
+        우선순위 : 디자인 적용
+        inline type
+        아래 코드 
+        선택자(selector) 우선순위
+        태그선택자 : 1, 
+        클래스 선택자 : 10, 
+        아이디 선택자 : 100
+     -->
+     <!-- 
+        id : 유일한 존재로 이름 설정, 레이아웃 정할때 ,
+        class : 디자인 적용 목적으로 많이 사용 
+
+        // 이미 개발 되어있는 플러그인, 라이브러리, 프레임워크
+        class로 레이아웃 설정함 
+      -->
+      <!-- 
+        이름만드는 법 : 명명법,
+        의미있는 단어를 사용, 숫자를 붙일 수 있고 
+        모든 이름은 띄어쓰기 사용 불가
+        
+        camal case : 단어와 단어가 섞어서 이름을 만들 경우 단어의 첫글자를 대문자로 사용 
+
+        snake case : 단어와 단어 사이를 _(under score)를 붙여서 사용
+
+        파스칼 케이스 : 도구 클래스(컴포넌트),  첫글자를 대문자로 사용 
+       -->
+</head>
+<body>
+    <h1><span>css</span> : casecading style sheet</h1>
+    <h2> 3가지 방법 </h2>
+    <ul>
+        <li style="color:red">inline type : 태그에 속성으로 추가하는 디자인 방법</li>
+        <li>embeded type : style 태그안에 넣는 디자인 </li>
+        <li id="extend">extended type : 외부 파일에 넣고 파일을 불러오는 방식 디자인 </li>
+    </ul>
+    <ul>
+        <li class="color">color</li>
+        <li class="color" id="colorOrange">color</li>
+        <li class="color">color</li>
+    </ul>
+</body>
+</html>

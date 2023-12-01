@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>배열</h1>
+    <div>
+      자료구조 : 데이터를 어떻게 처리할 것인가에 대한 이론적 학문 <br />
+      배열 : 동일한 데이터타입을 메모리상에 연속적으로 나열한 자료구조 <br />
+      자바스크립트에서도 가능한 동일한 데이터타입을 사용하는 것이 바람직함
+      <br />
+
+      <pre>
+        let a=0;
+        let b=1;
+        let c=3; 
+
+        let ary = [0, 1, 3]; // js 메모리상 연속적으로 저장된다는 보장 없음
+        // 배열에서 사용할 수 있는 기능을 미리 정의해 놨다.
+        // 객체지향적 프로그래밍
+        // 그랜저 : 썬루프
+      </pre>
+    </div>
+
+    <script>
+      let ary = [0, 1, 3];
+      ary[3] = 4;
+      ary[ary.length] = 5;
+      ary[ary.length] = ary.length;
+      ary[10] = 10;
+
+      delete ary[10];
+
+      // stack 자료구조를 구현해둔것임
+      // 맨마지막 자료만 추가, 꺼내기 가능함
+      // LILO
+      ary.push(5);
+      ary.push("hello");
+      ary.pop();
+
+      // js 메모리를 연속적으로 사용하지 않은 이유로 가능한 일
+      // 맨처음 데이터를 삭제, 삽입
+      ary.shift();
+      ary.unshift("hello");
+
+      ary.splice(6, 6);
+      // 인덱스로 부터 개수만큼 삭제
+      ary.splice(2, 0, "hello", "js");
+      // 0 삭제하지 않고,
+      // 2 인덱스 번호에 데이터 삽입
+
+      // 배열과 배열을 결합할때
+      let ary2 = ary.concat([6, 7, 8]);
+      let ary3 = ["a", "b"];
+      let ary4 = ary.concat(ary3);
+
+      let ary5 = ary.join("");
+      // 특정 문자열을 추가해서 배열을 문자열로 변환
+      // join문자열은 생략가능
+
+      ary.reverse(); // 배열을 꺼꾸로 정렬
+      // 배열의 원본을 바꾼다.
+
+      console.log(ary);
+      ary.forEach(function () {
+        console.log("forEach");
+        // ary 개수 8개라서 8번실행
+      });
+
+      // ary[0], ary[1], ary[2] .. ary[7]
+      ary.forEach(function (item) {
+        console.log(" forEach ", item);
+      });
+
+      // 아무변수명도 가능하나 헛갈리므로
+      // 배열명을 복수형, 배열을 단수형, index
+      ary.forEach(function (orange, num) {
+        console.log(" forEach ", orange, num);
+      });
+
+      // item, data, index, idx
+      ary.forEach(function (a, i) {
+        console.log(" forEach ", a, i);
+      });
+
+      // 배열에 특정 데이터의 포함여부를 확인 (true, flase)
+      let test = ary.includes("java");
+      console.log(test);
+
+      console.log(ary);
+      // 포함되어 있는 데이터의 첫번째 index를 찾음
+      let num = ary.indexOf("hello");
+      console.log(num);
+      num = ary.lastIndexOf("hello");
+      console.log(num);
+      num = ary.lastIndexOf("java");
+      console.log(num);
+      // -1을 false
+
+      // reduce()
+      // map()
+      // filter()
+
+      ary.fill(0);
+      // 특정값으로 초기화 하고 싶을때
+    </script>
+  </body>
+</html>
+<!-- 
+    메인페이지하나, 서브페이지 하나
+ -->

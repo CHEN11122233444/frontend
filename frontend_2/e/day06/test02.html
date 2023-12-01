@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 
+        flex,
+        grid,
+        position : static : 기본 성격, 지정된 position 해제하는 역활,
+        float
+     -->
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      /* desktop first */
+
+      header {
+        position: fixed;
+        height: 100vh;
+        width: 230px;
+        background-color: rgba(0, 255, 255, 0.493);
+        top: 0;
+        left: 0;
+      }
+      aside {
+        width: calc(100% - 230px);
+        height: 30px;
+        background-color: black;
+        margin-left: 230px;
+      }
+      section {
+        margin: 0 0 0 230px;
+        height: 100vh;
+        background-color: pink;
+      }
+      @media screen and (max-width: 1600px) {
+        /* 
+                header 상단이동
+        */
+        header {
+          position: static;
+          height: auto;
+          width: auto;
+        }
+        aside {
+          width: auto;
+          margin-left: 0;
+        }
+        section {
+          margin: 0;
+          height: 100vh;
+          background-color: pink;
+        }
+      }
+      @media screen and (max-width: 1280px) {
+        /* 
+               section content의 사이즈가 달리변형
+               원래 사이즈를 거의 유지하면서 변형
+        */
+      }
+      @media screen and (max-width: 1000px) {
+        /* 
+                nav 여백 조정
+                
+        */
+      }
+      @media screen and (max-width: 670px) {
+        /* 
+                header 디자인 변경
+                display:flex;
+        */
+      }
+      @media screen and (max-width: 480px) {
+        /* 
+                header 디자인 변경 
+        */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>logo</h1>
+      <nav class="lnb">
+        <ul>
+          <li><a href="#">menu01</a></li>
+          <li><a href="#">menu02</a></li>
+          <li><a href="#">menu03</a></li>
+          <li><a href="#">menu04</a></li>
+          <li><a href="#">menu05</a></li>
+        </ul>
+      </nav>
+    </header>
+    <aside>aside</aside>
+    <section>section</section>
+  </body>
+</html>

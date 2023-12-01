@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>class 제어</h1>
+    <pre>
+        JS
+        className : 1개 클래스만 제어
+        classList.add()
+        classList.remove()
+        classList.toggle()
+
+        jQuery
+        addClass()
+        removeClass()
+        hasClass() : class 존재 유무를 true, false 리턴
+        toggleClass()
+    </pre>
+
+    <button>addClass</button>
+    <button>removeClass</button>
+    <button>toggleClass</button>
+    <button>hasClass</button>
+    <div class="box"></div>
+
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script>
+        // attr()로 제어, 클래스 하나만 제어할 수 있음
+        // className와 비슷한 성격
+
+        $('button')
+        .eq(0)
+        .on('click',function(){
+            $('.box').addClass('border');
+        });
+
+        $('button')
+        .eq(1)
+        .on('click',function(){
+            $('.box').removeClass('border');
+        });
+
+        $('button')
+        .eq(2)
+        .on('click',function(){
+            $('.box').toggleClass('border');
+        });
+
+        // let toggle = false;
+        $('button')
+        .eq(3)
+        .on('click',function(){
+            // console.log($('.box').hasClass('border'));
+            if($('.box').hasClass('border')){
+                $('.box').removeClass('border');
+            };
+        });
+    </script>
+</body>
+</html>

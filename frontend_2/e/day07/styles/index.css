@@ -1,0 +1,125 @@
+section {
+  width: 1200px;
+  margin: auto;
+  height: 100vh;
+
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 2fr 1fr 1.2fr;
+}
+
+.main__banner {
+  grid-column: span 3;
+  background-image: url(https://images.unsplash.com/photo-1560762484-813fc97650a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80);
+
+  background-size: cover;
+  position: relative;
+}
+
+.main__banner p {
+  position: absolute;
+  left: 1em;
+  bottom: 1em;
+  color: white;
+  font-size: 32px;
+  background-color: rgba(255, 255, 255, 0.432);
+  padding: 20px;
+}
+
+section > div:has(h2) {
+  /* 포함여부에 따른 선택자 
+    js의 if연산과 비슷한 형태
+    h2를 포함하고 있는 div만 선택함
+    클래스명을 생략할 수 있도록 함
+  */
+  grid-column: span 2;
+}
+
+.content {
+  text-align: center;
+  background-color: bisque;
+}
+.content i {
+  font-size: 32px;
+  margin: 20px 0;
+}
+.content h3 {
+  font-size: 22px;
+  background-color: rgb(36, 12, 1);
+  padding: 12px;
+  color: white;
+}
+.content p {
+  background-color: tan;
+  padding: 12px;
+}
+
+.sns li {
+  padding: 1em;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.sns li::before {
+  content: attr(data-icon);
+}
+.sns li:first-child {
+  background-color: gray;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* 
+https://cssarrowplease.com/
+풍선도움말 사이트
+*/
+.sns li:first-child::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: linear-gradient(45deg, transparent 50%, gray 0);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-10px) rotate(135deg);
+  /* 
+    js : 삼각함수를 이용해서 위치를 맞출 수 있음
+  */
+}
+.sns li:nth-child(2) {
+  background-color: skyblue;
+}
+.sns li:nth-child(3) {
+  background-color: steelblue;
+}
+.sns li:nth-child(4) {
+  background-color: orange;
+}
+
+@media screen and (max-width: 1250px) {
+  section {
+    width: 98%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .main__banner p {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 670px) {
+  section {
+    display: block;
+    height: auto;
+    /* grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1.2fr; */
+  }
+  section > div {
+    margin-bottom: 10px;
+  }
+  .main__banner {
+    height: 200px;
+  }
+  .main__banner p {
+    font-size: 16px;
+  }
+}

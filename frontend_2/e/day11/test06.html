@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>논리연산자</h1>
+    <div>
+      수식의 삼항연산자를 만들기 위해서 사용
+
+      <pre>
+        // 모두, all 
+        // 자격증 : 과목수 모두 60이상이면 합격 
+        && (and) : true && true && true -> true
+        && (and) : true && false -> false
+        && (and) : false && true -> false
+        && (and) : false && false -> false
+        </pre
+      >
+      <pre>
+        // 하나라도  
+        // 40이하 과락 탈락
+        || (or) : true || true -> true
+        || (or) : true || false -> true
+        || (or) : false || true -> true
+        || (or) : false || false -> false
+        </pre
+      >
+
+      ! (not) !true -> false, !false -> true
+    </div>
+
+    <script>
+      console.log(true && true); // true
+      console.log(true || false); // true
+      console.log(!false); // true
+
+      // true 대신 사용되는 값 : 0 아닌 숫자, 문자열
+      console.log("!5", !5);
+      console.log("!-5", !-5);
+      console.log("!!-5", !!-5);
+      console.log("hello", !"hello");
+
+      // flase 대신 사용되는 값 : 0, null, undefined, NaN
+      console.log("!0", !0);
+      console.log("!null", !null);
+      console.log("!undefined", !undefined);
+      console.log("!NaN", !NaN);
+
+      let num = 124;
+      if (!!(num % 2)) {
+        console.log("홀수");
+      } else {
+        console.log("짝수");
+      }
+    </script>
+  </body>
+</html>

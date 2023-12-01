@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .container{
+            width:1200px; 
+            margin:10px auto;
+            height: 500px;
+            background-color: antiquewhite;
+            display: flex;
+            gap:10px; 
+        }
+
+        
+        .container:nth-child(1) .left{
+            width: 50%;
+            height: 100%;
+            background-color: pink;
+        }
+        .container:nth-child(1) .right{
+            width: 50%;
+            height: 100%;
+            background-color: skyblue;
+
+            display: flex;
+            gap:10px;
+        }
+        .container:nth-child(2) .left{
+            width: 25%;
+            height: 100%;
+            background-color: pink;
+        }
+        .container:nth-child(2) .right{
+            width: 75%;
+            height: 100%;
+            background-color: skyblue;
+        }
+
+        .container:nth-child(1) article{
+            width:50%; 
+            height: 100%;
+            background-color: orange;
+        }
+        .container:nth-child(1) article>div{
+            height: calc(50% - 5px);
+            background-color: green;
+        }
+        .container:nth-child(1) article>div:nth-child(1){
+            margin-bottom: 10px;
+        }
+
+        .container:nth-child(2) article{
+            height: calc(50% - 5px);
+            background-color: orange;
+            display: flex;
+        }
+        .container:nth-child(2) article:nth-child(1){
+            margin-bottom: 10px;
+        }
+
+        .webzine, 
+        .tvcf{
+            width:calc(33.333333% - 5px);
+            height: 100%;
+            background-color: green;
+        }
+
+        
+        .plant,
+        .safety{
+            width:calc(66.666666% - 5px);
+            height: 100%;
+            background-color: green;
+        }
+
+        .webzine, 
+        .plant{
+            margin-right: 10px;
+        }
+    </style>
+    <!-- 
+        flex 단점 : 박스를 너무 많이 만들어야 함 
+        1. float : 
+        2. grid : 속성많아서 공부할 것이 많음 
+     -->
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="left"></div>
+            <div class="right">
+                <article>
+                    <div class="hotNews"></div>
+                    <div class="blank"></div>
+                </article>
+                <article>
+                    <div class="prFilm"></div>
+                    <div class="product"></div>
+                </article>
+            </div>
+        </div>
+        <div class="container">
+            <div class="left"></div>
+            <div class="right">
+                <article>
+                    <div class="plant"></div>
+                    <div class="tvcf"></div>
+                </article>
+                <article>
+                    <div class="webzine"></div>
+                    <div class="safety"></div>
+                </article>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

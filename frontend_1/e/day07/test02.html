@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            /* list-style-type:none;  
+            padding:0;
+            margin:0;*/
+        }
+        li{
+            list-style-type:none; 
+        }
+        ul:nth-of-type(1)  li:nth-child(1){
+            list-style-type: circle;
+        }
+        ul:nth-of-type(1) li:nth-child(2){
+            list-style-type:lower-alpha;
+        }
+        ul:nth-of-type(1) li:nth-child(3){
+            list-style-type:lower-greek;
+        }
+
+        ul:nth-of-type(2){ 
+            margin: 0;
+            padding:0;
+        }
+
+        ul:nth-of-type(2) li{
+            text-indent: 36px;
+        }
+        ul:nth-of-type(2) li:nth-child(1){
+            text-indent: 12px;
+        }
+        ul:nth-of-type(2) li:nth-child(2){
+            text-indent: 24px;
+            background-image: url(./icons/mongodb-logo-24.png);
+            background-repeat: no-repeat;
+            /* 
+            img태그 : 레이아웃을 잘 알아야 디자인 잘되요
+            */
+        }
+
+        ul:nth-of-type(2) li:nth-child(3){
+            font: bold  italic 36px  arial, '돋움';
+            /* 
+                축약형 코드로 표현 
+                순서 지키기 
+                weight style size family
+            */
+        }
+
+        ol>li { list-style-type:lower-latin;}
+    </style>
+</head>
+<body>
+    <h1>목록 태그 스타일 </h1>
+    <ul >
+        <li><a href="#">멋진 수영장</a></li>
+        <li><a href="#">해변 바로 앞</a></li>
+        <li><a href="#">농장</a></li>
+    </ul>
+    <ul>
+        <li><a href="#">멋진 수영장</a></li>
+        <li><a href="#">해변 바로 앞</a></li>
+        <li><a href="#">농장</a></li>
+    </ul>
+    <ol>
+        <li><a href="#">멋진 수영장</a></li>
+        <li><a href="#">해변 바로 앞</a></li>
+        <li><a href="#">농장</a></li>
+    </ol>
+
+    <ol start="4">
+        <li><a href="#">멋진 수영장</a></li>
+        <li><a href="#">해변 바로 앞</a></li>
+        <li><a href="#">농장</a></li>
+    </ol>
+
+
+</body>
+</html>

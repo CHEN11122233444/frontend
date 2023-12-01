@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .contents {
+        display: flex;
+      }
+      .box:nth-child(1) {
+        background-color: orange;
+      }
+      .box:nth-child(2) {
+        background-color: skyblue;
+      }
+
+      @media screen and (max-width: 600px) {
+        .contents {
+          flex-direction: column-reverse;
+          /* 좌우 순서를 거꾸로 배치 : 적절히 사용하면 위치를 바꿀 수 있음  */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contents">
+      <div class="box">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. In sed omnis
+        neque, voluptas atque ut animi eos soluta provident beatae? Rerum magnam
+        doloribus facilis accusamus similique unde. Iste, nisi aliquam.
+      </div>
+      <div class="box">한글은 아름다운 글입니다.</div>
+    </div>
+  </body>
+</html>

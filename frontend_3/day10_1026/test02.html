@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+</head>
+<body>
+    <h1>중복을 제거한 자료구조형태</h1>
+    <div>
+        set : 배열의 형태(유사배열)
+        map : 객체의 형태
+    </div>
+
+    <script>
+        const ary=[
+            null, null, null, 'powder', 'powder', 'powder', 'cream', null, 
+            'cream', 'cream', 'cream', 'mineral', 'cream', 'liquid', 'liquid', 
+            'liquid', 'liquid', 'liquid', null, null, 'palette', null, 'palette', 
+            null, null, 'pencil', 'pencil', 'pencil', 'liquid', 'liquid', 'liquid', 
+            'liquid', 'liquid', null, null, null, 'lipstick', 'lipstick', 'lipstick',
+            'lipstick', 'lipstick', 'lipstick', 'lipstick', null, null, null, null, null, 
+            null, null, null, null, null, null
+        ];
+
+        // null 값이 아닌 값만 filter
+        const notNullAry=ary.filter((item)=>item!==null);
+        console.log(notNullAry);
+
+
+        // 중복된 데이터 제거
+        const setArys=new Set(ary);
+        console.log(setArys);
+
+        console.log(setArys.size); // length대신 size로 길이 구하기
+
+        // 데이터 추가 : chaining 가능
+        setArys.add('blush');
+        console.log(setArys, setArys.size);
+        
+        setArys.add('hello').add('javascript').add('html');
+        console.log(setArys, setArys.size);
+
+        // 데이터 존재 유무를 확인해서 boolean 리턴
+        console.log(setArys.has('blush'));
+        console.log(setArys.has('css'));
+
+        // 데이터 삭제 : chaining 불가
+        // 요소를 제거 했으면 true, 아니면 false
+        setArys.delete('javascript');
+        setArys.delete('blush');
+        console.log('delete html', setArys.has('html'));
+        console.log(setArys, setArys.size);
+
+        /*
+            for loop 가능
+            유사배열
+            배열과 가장 큰 차이점
+            1. length -> size
+            2. 순서 상관 없음
+            3. 인덱스로 요소에 접근 불가
+        */
+
+        setArys.forEach(item=>console.log(item));
+        for(let item of setArys){
+            console.log(item);
+        }
+        
+        // 일괄삭제
+        setArys.clear();
+        console.log('clear:',setArys);
+
+        /*
+            교집합 intersection()
+            합집합 union()
+            차집합 difference()
+            부분집합 isSetperset() : boolean
+        */
+
+        const Aary=new Set([1,2,3,4, 4]);
+        const Bary=new Set([2, 2, 2, 4, 6]);
+        console.log(Aary,Bary);
+
+        // console.log(Aary.intersection(Bary));
+        // console.log(Aary.union(Bary));  
+        // console.log(Aary.difference(Bary));  
+        // console.log(Aary.isSetperset(Bary));  
+
+
+    </script>
+</body>
+</html>

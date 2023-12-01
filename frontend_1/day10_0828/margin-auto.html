@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .container{
+            width: 900px;
+            height: 900px;
+            background-color:skyblue;
+            display: flex;
+            justify-content: center;
+        }
+        .item{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .item:nth-child(1){
+            margin-right: auto;
+        }
+
+        /* .item:nth-child(3){
+            margin-left: auto;
+        } */
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    
+</body>
+</html>

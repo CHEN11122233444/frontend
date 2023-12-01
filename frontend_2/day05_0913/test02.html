@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gradient</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 50px;
+        }
+
+        /* 그라디언트를 이미지로 처리 */
+        .box01{
+            background-image: linear-gradient(red, green, blue);
+        }
+        .box02{
+            background: linear-gradient(red, green, blue);
+        }
+        .box03{
+            background: linear-gradient(90deg, red, green, blue);
+        }
+        .box04{
+            background: linear-gradient(-90deg, red, green, blue);
+        }
+        .box05{
+            background: linear-gradient( red 50%, green 0);
+        }
+        /* border : 삼각형 그리기는 코드가 더 길어짐 */
+        .box06{
+            background: linear-gradient(45deg, red 50%, green 0);
+        }
+        .box07{
+            background-image: linear-gradient(red 50%, green 0);
+            background-size: 100% 50px;
+        }
+        .box08{
+            background-image: linear-gradient(90deg, red 50%, green 0);
+            background-size: 50px 100%;
+        }
+        .box09{
+            background-image: linear-gradient(45deg, red 50%, green 0);
+            background-size: 50px 100%;
+        }
+        .box10{
+            background-image: linear-gradient(45deg, red 50%, green 0);
+            background-size: 50px 50px;
+        }
+        .box11{
+            background-image: 
+            linear-gradient(45deg, skyblue 50%, transparent 0),
+            linear-gradient(-45deg, skyblue 50%, pink 0);
+            background-size: 50px 50px;
+        }
+        .box12{
+            background-image: linear-gradient(45deg, red 50%, green 0);
+            background-size: 50px 50px;
+            /* background-repeat: no-repeat; */
+            background-position: 25px 25px;
+        }
+        .box13{
+            background-image: 
+            linear-gradient(45deg, rgba(255, 0, 0, 0.49) 50%, transparent 0),
+            linear-gradient(-45deg, skyblue 50%, pink 0);
+            background-size: 50px 50px, 30px 30px;
+            background-position: 25px 0 0 ;
+        }
+        
+        .box14{
+            overflow: hidden;
+            position: relative;
+        }
+        .box14::after,
+        .box14::before{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(red 20px, transparent 0);
+            transform: rotate(45deg);
+
+            position: absolute;
+        }
+        .box14::after{
+            /* transform: translateX(-120px, -200px); */
+            left: -122px;
+            top: 135px;
+        }
+
+        /* 
+            outline, outline-offset
+            boxshadow
+        */
+
+        .box15>div{
+            height: 50px;
+            background-color: pink;
+            box-shadow: 0 0 0 20px gray;
+
+            position: relative;
+        }
+
+        .box15>div::before,
+        .box15>div::after{
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, transparent 50%, blue 0);
+
+            position: absolute;
+            top: 70px;
+        }
+
+        .box15>div::before{ 
+            left: -20px;
+        }
+        .box15>div::after{
+            right: -20px;
+            transform: rotate(-90deg);
+        }
+
+        .box16>div{
+            width: 40px;
+            height: 200px;
+            background-color: orange;
+            box-shadow: 0 -20px 0 black;
+
+            position: relative;
+        }
+
+        .box16>div::after{
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg,red 50%,transparent 0);
+            position: absolute;
+            right: -20px;
+            top: -20px;
+        }
+
+        .box16>div::before{
+            content: '';
+            display: block;
+            width: 40px;
+            height: 40px;
+            background: 
+            linear-gradient(-135deg,red 50%,transparent 0),
+            linear-gradient(135deg,red 50%,transparent 0);
+            position: absolute;
+            bottom: -40px;
+        }
+
+        .box17{
+            box-shadow: 0 0 0 20px orange;
+        }
+        /* 박스 2개로 그리기 */
+        .box18>div{
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 0 20px orange;
+            border-radius: 20px;
+        }
+
+        .box18{
+            box-shadow: 0 0 0 20px gray;
+        }
+
+        .box19{
+            background: linear-gradient(90deg, red, green, blue, red);
+            animation: gradient 10s infinite linear;
+        }
+
+        @keyframes gradient{
+            100%{
+                background-position: 200px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box box01">box01</div>
+    <div class="box box02">box02</div>
+    <div class="box box03">box03</div>
+    <div class="box box04">box04</div>
+    <div class="box box05">box05</div>
+    <div class="box box06">box06</div>
+    <div class="box box07">box07</div>
+    <div class="box box08">box08</div>
+    <div class="box box09">box09</div>
+    <div class="box box10">box10</div>
+    <div class="box box11">box11</div>
+    <div class="box box12">box12</div>
+    <div class="box box13">box13</div>
+    <div class="box box14">box14</div>
+    <div class="box box15"><div>box15</div></div>
+    <div class="box box16"><div>box16</div></div>
+    <div class="box box17">box17</div>
+    <div class="box box18"><div>box18</div></div>
+    <div class="box box19">box19</div>
+    <div class="box box20">box20</div>
+</body>
+</html>

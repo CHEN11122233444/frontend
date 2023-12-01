@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .content_img>img{
+            width: 300px;
+        }
+        .thumbs{
+            display: flex;
+        }
+        .thumbs div{
+            width: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>썸네일을 클릭하면 이미지 보이기</h1>
+    <div class="thumbs">
+        <div>
+            All
+            <img src="./images/topbg1.png" alt="" data-src="All">
+        </div>
+        <div>
+            <img src="./slideImg/thumb0.jpg" alt="" data-src="0">
+        </div>
+        <div>
+            <img src="./slideImg/thumb1.jpg" alt="" data-src="1">
+        </div>
+        <div>
+            <img src="./slideImg/thumb2.jpg" alt="" data-src="2">
+        </div>
+        <div>
+            <img src="./slideImg/thumb3.jpg" alt="" data-src="3">
+        </div>
+        <div>
+            <img src="./slideImg/thumb4.jpg" alt="" data-src="4">
+        </div>
+        <div>
+            <img src="./slideImg/thumb5.jpg" alt="" data-src="5">
+        </div>
+    </div>
+    <div class="content_img">
+    </div>
+
+    <script>
+        function imgAdd(){
+            for(let a=0; a<20; a++){
+                const imgTag=document.createElement('img')
+                imgTag.src=`./slideImg/${a}.jpg`
+                // imgTag.search=`${a%6}`;
+                imgTag.setAttribute('data-search',`${a%6}`);
+                // console.log(imgTag);
+
+                const content=document.querySelector('.content_img');
+                content.append(imgTag);
+            }
+        }
+        imgAdd();
+
+        const thumbs=document.querySelectorAll('.thumbs img');
+        thumbs.forEach(thumb=>{
+            thumb.addEventListener('click',()=>{
+                const search=thumb.getAttribute('data-src');
+                console.log(search);
+                const imgs=document.querySelectorAll('.content_img>img');
+                console.log(imgs[0]);
+
+                if(search==='All'){
+                    imgs.forEach((img)=>(img.style.display='block'));
+                }else{
+                    imgs.forEach((img)=>{
+                    const data=img.getAttribute('data-search');
+
+                    if(data.includes(search)){
+                        img.style.display='block';
+                    }else{
+                        img.style.display='none';
+                    }
+                });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

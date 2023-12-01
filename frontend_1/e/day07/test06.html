@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>padding</title>
+    <style>
+        h1:nth-child(2){
+            border:1px solid ;
+            /* 두께  style  color
+                color : 생략하면 문자색과 같음 
+                축약형 코드
+            */
+        }
+
+        h1:nth-child(3){
+            border-top:1px solid orange;
+            border-bottom:1px solid orange;
+            borer
+        }
+        
+        h1:nth-child(4){
+            border:5px solid black; 
+            border-top-color:pink;
+            border-left-width: 10px;
+            border-bottom-style: double; 
+        }
+
+        /* 입체색은 흐린색을 사용해야 함 */
+        h1:nth-child(5){
+            border: 3px groove skyblue;
+        }
+        h1:nth-child(6){
+            border: 3px ridge skyblue;
+        }
+        h1:nth-child(7){
+            width: 200px;
+            font-size: 10px;
+            border: 10px inset skyblue;
+        }
+        h1:nth-child(8){
+            width: 200px;
+            font-size: 10px;
+            border: 10px outset skyblue;
+        }
+        h1:nth-child(10){
+            width:0;
+            height: 0;
+            font-size: 0;
+            border: 20px  solid ;
+            border-top-color: red;
+            border-right-color: pink;
+            border-bottom-color: green;
+        }
+        h1:nth-child(11){
+            width:0;
+            height: 0;
+            font-size: 0;
+            border: 20px  solid ;
+            border-top-color: transparent;
+            /* transparent : 투명색칠 */
+            border-right-color: pink;
+            border-bottom-color: green;
+        }
+        h1:nth-child(12){
+            border-left: 20px  solid  orange;
+            /* 색칠을 하고 지우기로 삼각형 표현 */
+        }
+
+        h1:nth-child(13) span{
+            background-color: antiquewhite;
+            display: inline-block;
+            width:0;
+
+            border: 10px solid red;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+
+            font-size: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1> border </h1>
+
+    <h1>1 한글은 아름다운 글입니다. </h1>
+    <h1>2 한글은 아름다운 글입니다. </h1>
+    <h1>3 한글은 아름다운 글입니다. </h1>
+    <h1>4 한글은 아름다운 글입니다. </h1>
+    <h1>5 한글은 아름다운 글입니다. </h1>
+    <h1>6 한글은 아름다운 글입니다. </h1>
+    <h1>7 한글은 아름다운 글입니다. </h1>
+    <h1>8 한글은 아름다운 글입니다. </h1>
+    <h1>9 한글은 아름다운 글입니다. </h1>
+    <h1>10 한글은 아름다운 글입니다. </h1>
+    <h1>11 한글은 아름다운 글입니다. </h1>
+    <h1><span>12</span> 한글은 아름다운 글입니다. </h1>
+     
+</body>
+</html>

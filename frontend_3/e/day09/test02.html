@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .wrapper {
+        width: 1200px;
+        margin: auto;
+        /* background-color: pink; */
+      }
+
+      #search {
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        border: none;
+        background-color: #efefef;
+        margin-bottom: 15px;
+      }
+      #search::placeholder {
+        text-transform: capitalize;
+        text-indent: 1.5em;
+      }
+      #search.active {
+        background-color: #fff;
+      }
+
+      .category_container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+      .categories .btn {
+        line-height: 30px;
+        border: 1px solid gray;
+        width: 150px;
+        border-radius: 7px;
+        text-indent: 1.5em;
+      }
+      .categories .options {
+        display: none;
+      }
+
+      .btnGroup > button {
+        height: 30px;
+        padding: 0 15px;
+        border: none;
+        background-color: transparent;
+        text-transform: capitalize;
+        border-radius: 7px;
+      }
+      .btnGroup > button.active {
+        background-color: #efefef;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <form id="form">
+        <input type="search" id="search" placeholder="search type" />
+      </form>
+      <div class="category_container">
+        <div class="categories">
+          <div class="btn" value="All">All categories</div>
+          <div class="options">
+            <!-- <div value="All categories">All categories</div> -->
+            <div value="lip_liner">lip_liner</div>
+            <div value="lipstick">lipstick</div>
+            <div value="foundation">foundation</div>
+            <div value="blush">blush</div>
+            <div value="bronzer">bronzer</div>
+            <div value="eyeshadow">eyeshadow</div>
+          </div>
+        </div>
+
+        <div class="btnGroup">
+          <button class="active">All</button>
+          <button>lip_liner</button>
+          <button>lipstick</button>
+          <button>foundation</button>
+          <button>blush</button>
+          <button>bronzer</button>
+          <button>eyeshadow</button>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- <div class="card"></div> -->
+      </div>
+    </div>
+
+    <script>
+      function createCard(item, container) {
+        let price_sign = item.price_sign ? item.price_sign : "$";
+        // null, 0, undefined, NaN, false = false
+
+        let itemName =
+          item.name.length >= 40
+            ? item.name.substring(0, 40) + "..."
+            : item.name;
+
+        const domStr = `
+            <div class="card">
+                    <div class="img">
+                    <img src="${item.image_link}" alt="${item.product_type}"
+                         title="${item.product_type}"
+                    />
+                    </div>
+                    <div class="text">
+                    <h4>${item.product_type.toUpperCase()}</h4>
+                    <p class="desc">[${item.brand.toUpperCase()}]
+                        ${itemName}</p>
+                    <p class="price">
+                        <span class="strike">${
+                          parseInt(item.price) + 10
+                        } ${price_sign}</span>
+                        <span class="sale">${item.price} ${price_sign}</span>
+                    </p>
+                    <ul class="acc">
+                        <li>세일</li>
+                        <li>쿠폰</li>
+                        <li>증정</li>
+                        <li>오늘드림</li>
+                    </ul>
+                    </div>
+                </div>
+            `;
+
+        container.insertAdjacentHTML("beforeend", domStr);
+      }
+      
+      const searchSelect = document.querySelector(".categories .btn");
+      let toggleSelect = false;
+      const options = document.querySelector(".options");
+
+      searchSelect.addEventListener("click", () => {
+        if (!toggleSelect) {
+          options.style.display = "block";
+        } else {
+          options.style.display = "none";
+        }
+
+        toggleSelect = !toggleSelect;
+      });
+
+      const optionsBtn = document.querySelectorAll(".options>div");
+      optionsBtn.forEach((option) => {
+        option.addEventListener("click", () => {
+          const value = option.innerText;
+
+          searchSelect.innerText = value;
+          options.style.display = "none";
+          toggleSelect = !toggleSelect;
+
+          searchData(value);
+        });
+      });
+
+      const searchBtn = document.querySelectorAll(".btnGroup button");
+      searchBtn.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+          //console.log(event.target.innerHTML);
+          let searchText = event.target.innerHTML;
+          searchData(searchText);
+        });
+      });
+
+      search.addEventListener("focus", () => {
+        search.classList.add("active");
+      });
+      search.addEventListener("blur", () => {
+        search.classList.remove("active");
+      });
+
+      //   search.addEventListener("input", (event) => {
+      //     console.log(event.target.value);
+      //     const searchText = event.target.value;
+      //     searchData(searchText);
+      //   });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const searchText = search.value;
+        searchData(searchText);
+        search.value = "";
+      });
+
+      let rowDatas = []; // 원본데이터
+      let searchAry = []; // 검색어에 해당하는 데이터를 찾아서 저장
+
+      function loadData() {
+        const url =
+          "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
+
+        fetch(url)
+          .then((res) => res.json())
+          .then((res) => {
+            rowDatas = res; // 배열백업
+            console.log(rowDatas.length);
+
+            searchData("All");
+          });
+      }
+
+      loadData(); // 비동기 처리방식 // 완료보장 없음
+      console.log(rowDatas); // 데이터처리가 완료된 후에 처리된다는 보장이 없음
+
+      function searchData(search) {
+        searchAry = [];
+        console.log(searchAry.length);
+
+        if (search === "All") {
+          searchAry = rowDatas; //
+        } else {
+          rowDatas.forEach((item) => {
+            if (item.product_type.includes(search)) {
+              searchAry.push(item);
+            }
+          });
+        }
+
+        // console.log(searchAry);
+        // UI로 표현 하기
+        createCardElement();
+      }
+
+      function createCardElement() {
+        const container = document.querySelector(".container");
+        container.innerHTML = "";
+
+        searchAry.forEach((item) => {
+          let str = `<div class="card">${item.product_type}</div>`;
+
+          container.insertAdjacentHTML("beforeend", str);
+        });
+      }
+    </script>
+  </body>
+</html>

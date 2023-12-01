@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>BUTTON</button>
+
+    <script>
+      const btn = document.querySelector("button");
+
+      btn.addEventListener("mouseenter", () => {
+        // mouseover와 비슷한 기능
+        console.log("mouse enter");
+      });
+      btn.addEventListener("mouseleave", () => {
+        // mouseout이벤트 비슷한 기능
+        console.log("mouse leave");
+      });
+    </script>
+  </body>
+</html>

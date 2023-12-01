@@ -1,0 +1,41 @@
+section {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+}
+
+.sideMenu {
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+
+article {
+  width: 800px;
+  background-color: pink;
+}
+
+@media screen and (max-width: 1250px) {
+  section {
+    width: 98%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .sideMenu {
+    width: 200px;
+  }
+  article {
+    flex-shrink: 1;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  section {
+    /* flex-direction: column-reverse; */
+    flex-direction: column;
+  }
+  .sideMenu {
+    order: 1;
+  }
+}

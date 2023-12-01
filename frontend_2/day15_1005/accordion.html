@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        body{
+            font-size: 16px;
+        }
+        .accordion-container{
+            margin: 50px;
+            width: 500px;
+            border: 1px solid orange;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .accordion-title{
+            cursor: pointer;
+            background-color: pink;
+            padding: 10px;
+
+            display: flex;
+            justify-content: space-between;
+        }
+        .accordion-title:first-child{
+            border-radius: 5px 5px 0 0;
+        }
+        .accordion-content{
+            height: 2px;
+            overflow: hidden;
+            padding: 0 20px;
+            transition: height 0.4s;
+        }
+        .accordion-content:last-child{
+            height: 0;
+        }
+        .accordion-content.active{
+            padding: 20px;
+            height: 130px;
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion-container">
+        <div class="accordion-title">
+            <span>title 01</span>
+            <i class='bx bx-caret-down-square'></i>
+        </div>
+        <div class="accordion-content">
+            01 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, dolorem enim. Ipsum minus incidunt ex sed distinctio, rerum delectus ipsam expedita vero autem repellendus nobis commodi quasi quisquam dignissimos eos?
+        </div>
+        <div class="accordion-title">
+            <span>title 02</span>
+            <i class='bx bx-caret-down-square'></i>
+        </div>
+        <div class="accordion-content">
+            02 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, dolorem enim. Ipsum minus incidunt ex sed distinctio, rerum delectus ipsam expedita vero autem repellendus nobis commodi quasi quisquam dignissimos eos?
+        </div>
+        <div class="accordion-title">
+            <span>title 03</span>
+            <i class='bx bx-caret-down-square'></i>
+        </div>
+        <div class="accordion-content">
+            03 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, dolorem enim. Ipsum minus incidunt ex sed distinctio, rerum delectus ipsam expedita vero autem repellendus nobis commodi quasi quisquam dignissimos eos?
+        </div>
+    </div>
+
+    <dl>
+        <dt></dt>
+        <dd></dd>
+    </dl>
+
+    <!--<script>
+        let acTitles=document.querySelectorAll('.accordion-title');
+        acTitles.forEach((title,index)=>{
+            title.addEventListener('click',()=>{
+                // console.log(title.firstElementChild);
+                // console.log(title.children[1]);
+                console.log(title.lastElementChild);
+                // console.log(title.firstElementChild.nextElementSibling);
+
+                title.lastElementChild.classList.add('bx-caret-up-square');
+            });
+        });
+    </script> -->
+                
+    <!-- <script>
+        let acTitles=document.querySelectorAll('.accordion-title');
+
+        acTitles.forEach((title,index)=>{
+            title.addEventListener('click',()=>{
+                let icons=document.querySelectorAll('.accordion-title i.bx')
+                icons.forEach((icon)=>{
+                    icon.classList.remove('bx-caret-up-square');
+                })
+
+                icons[index].classList.addl('bx-caret-up-square');
+            });
+        });
+    </script> -->
+
+    <script>
+        let acTitles=document.querySelectorAll('.accordion-title');
+        let currentTitle; // undefinded === false
+
+        acTitles.forEach((title, index) => {
+            title.addEventListener('click', () => {
+                let icons=document.querySelectorAll('.accordion-title i.bx');
+
+                if(currentTitle){
+                    currentTitle.classList.remove('bx-caret-up-square');
+                }
+
+                icons[index].classList.add('bx-caret-up-square');
+                currentTitle=icons[index];
+
+                let contents=document.querySelectorAll('.accordion-content');
+                contents.forEach((content) => {
+                    content.classList.remove('active');
+                });
+                // contents[index].classList.add('active');
+                title.nextElementSibling.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

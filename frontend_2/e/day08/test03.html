@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .contents {
+        display: flex;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        font-size: 26px;
+        /* 
+            items에서 사용할 수 있는 속성
+            align-self : container에서 정한 정렬과 다른 위치에 배치
+            order: 순서 , 기본값 0 
+            flex-glow:확장
+            flex-shrink :축소
+            flex-basis:;
+        */
+        order: 2;
+      }
+      .box:nth-child(1) {
+        background-color: orange;
+      }
+      .box:nth-child(2) {
+        background-color: skyblue;
+      }
+      .box:nth-child(3) {
+        background-color: lavender;
+        order: -1;
+      }
+      .box:nth-child(4) {
+        background-color: pink;
+        order: 0;
+      }
+      .box:nth-child(5) {
+        background-color: purple;
+        order: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contents">
+      <div class="box">box01</div>
+      <div class="box">box02</div>
+      <div class="box">box03</div>
+      <div class="box">box04</div>
+      <div class="box">box05</div>
+    </div>
+  </body>
+</html>

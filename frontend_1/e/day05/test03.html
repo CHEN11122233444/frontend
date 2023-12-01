@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <!-- 
+       2x2
+       제목은 진하게, 가운데 정렬
+       칸과 칸, 줄사이 합치기(범위사용)
+
+       rowspan, colspan 속성은 디자인 대체할 수 없음
+     -->
+</head>
+<body>
+    <table border="1" width="200" height="100"
+    >
+         <tr>
+            <th width="50">title</th>
+            <th>title</th>
+         </tr>
+         <tr>
+            <td colspan="2">data1</td>
+            <!-- <td>data2 test</td> -->
+         </tr>
+         <tr>
+            <td>data3 transition</td>
+            <td rowspan="2">data4 html</td>
+         </tr>
+         <tr>
+            <td>data3 transition</td>
+            <!-- <td>data4 html</td> -->
+         </tr>
+    </table>
+</body>
+</html>

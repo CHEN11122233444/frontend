@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>json 형식 데이터</h1>
+    <p>obj 형식의 데이터를 많이 사용</p>
+    
+    <script>
+        const user={
+            name:'kim',
+            age:30,
+            addr:"마포구"
+        };
+
+        console.log(JSON.stringify(user)); 
+
+        // const myData={
+        //     "name" : "hong",
+        //     "age" : "30",
+        //     "addr" : "합정동",
+        // }
+
+        const datas=JSON.stringify(user);
+        console.log(JSON.parse(datas)); //
+    </script>
+</body>
+</html>

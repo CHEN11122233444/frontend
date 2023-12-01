@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <button>slideUp</button>
+    <button>slideDown</button>
+    <button>slideToggle</button>
+
+    <div class="box">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga culpa sunt
+      quae illum harum vero aliquid tempora vel numquam deleniti? Dignissimos
+      architecto harum aliquam accusamus beatae iusto facere corporis cumque.
+    </div>
+
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script>
+      // height 제어, 기본 높이가 필요 즉 height=0일때 동작할 수 없음
+      $("button")
+        .eq(0)
+        .on("click", function () {
+          $(".box").slideUp(3000);
+        });
+      $("button")
+        .eq(1)
+        .on("click", function () {
+          $(".box").slideDown(3000);
+        });
+      $("button")
+        .eq(2)
+        .on("click", function () {
+          $(".box").slideToggle(3000);
+        });
+    </script>
+  </body>
+</html>

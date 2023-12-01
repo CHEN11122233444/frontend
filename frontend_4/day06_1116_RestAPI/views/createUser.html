@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>create : id와 firstname을 입력하세요</h1>
+    <div class="container_create">
+      <input type="text" id="id" placeholder="id input" />
+      <input type="text" id="firstname" placeholder="firstname input" />
+      <button id="createBtn">등록</button>
+      <button id="updateBtn">수정</button>
+      <button id="resetBtn">취소</button>
+    </div>
+    <div class="log"></div>
+
+    <script>
+      const createHandler = (url, data) => {
+        fetch(url, {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: { "content-type": "application/json;charset=utf-8" },
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+            document.querySelector("#id").value = "";
+            document.querySelector("#firstname").value = "";
+          });
+      };
+
+      const createBtn = document.querySelector("#createBtn");
+      createBtn.addEventListener("click", () => {
+        const id = document.querySelector("#id").value;
+        const firstname = document.querySelector("#firstname").value;
+
+        if( id || firstname){
+          console.log('error')
+        }else{
+          const url = `http://localhost:3000/create`;
+          const data = { id, firstname };
+          console.log(data);
+          createHandler(url, data);
+        }
+        // if (!id && !firstname) {
+        //   // 데이터 값 넘기기
+        //   const url = `http://localhost:3000/create`;
+        //   const data = { id, firstname };
+        //   console.log(data);
+        //   //createHandler(url, data);
+        // }
+
+        const url = `http://localhost:3000/create`;
+        const data = { id, firstname };
+        console.log(data);
+        createHandler(url, data);
+      });
+
+      resetBtn.addEventListener("click", () => {
+        document.querySelector("#id").value = "";
+        document.querySelector("#firstname").value = "";
+      });
+    </script>
+    <script>
+      const updateBtn = document.querySelector("#updateBtn");
+      updateBtn.addEventListener("click", () => {
+        const id = document.querySelector("#id").value;
+        const firstname = document.querySelector("#firstname").value;
+        const newUser = { id, firstname };
+        const url = "http://localhost:3000/users";
+
+        updateUser(url, newUser);
+      });
+
+      function updateUser(url, data) {
+        fetch(url, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          // .then((res) => console.log(res));
+          .then(console.log);
+      }
+    </script>
+  </body>
+</html>

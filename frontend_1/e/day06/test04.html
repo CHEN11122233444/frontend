@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Tilt+Prism&display=swap" rel="stylesheet">
+    <!-- 인터넷 불량이면 글꼴이 나타나지 않을 수 있음 
+        font-family: 'Dongle', sans-serif;
+        font-family: 'Tilt Prism', cursive;
+    -->
+    <style>
+        /* 
+            단어와 단어 사이 조절 
+            word-spacing:36px;
+        */
+        p:first-of-type{
+            font-family: 'Tilt Prism', 'Dongle';
+            font-size: 50px;
+            word-spacing:36px;
+        }
+
+        @font-face {
+            font-family: 'gamja';
+            src: url(../fonts/Gamja_Flower/GamjaFlower-Regular.ttf);
+        }
+
+        /* 글꼴 이름이 영어로만 구성되면 따옴표 생략
+           글꼴이 특수문자를 포함, 띄어쓰기, 한글도 특수문자 따옴표를 붙임
+           // 최근들어서 리엑트에서는 ''따옴표 선호
+        */ 
+        p:nth-of-type(2){
+            font-family:  gamja , '굴림' ;
+            font-size: 30px;
+        }
+
+        @font-face {
+            font-family: monoton;
+            src: url(../fonts/Monoton/Monoton-Regular.ttf);
+        }
+        p:nth-of-type(3){
+            font-family:  monoton , '굴림' ;
+            font-size: 30px;
+            /* font-weight: 900; */
+        }
+
+        
+        @font-face {
+            font-family: inchun;
+            src: url(../fonts/inchun/인천교육소통.ttf);
+        }
+        p:nth-of-type(4){
+            font-family:  inchun , '굴림' ;
+            font-size: 30px;
+            font-style : italic; 
+            font-weight: bold; 
+        }
+
+        /*  내컴퓨터가 가지고 있는 기본 글꼴을 표시할 수 있음  */
+        p:nth-of-type(5){
+            font-family:cursive ;
+            font-size: 30px;
+        }
+        p:nth-of-type(6){
+            font-family: serif;
+            font-size: 30px;
+        }
+        p:nth-of-type(7){
+            font-family: sans-serif, '돋움';
+            font-size: 30px;
+        }
+        /* 문자와 문자사이여백 */
+        p:nth-of-type(8){
+            font-family:fantasy, '궁서';
+            font-size: 30px;
+            letter-spacing: 5px;
+        }
+        p:nth-of-type(9){
+            font-family:monospace, '고딕';
+            font-size: 30px;
+        }
+        /* 문자사이 여백 줄이기 */
+        p:nth-of-type(9)>span{
+            letter-spacing: -5px;
+        }
+
+        /* 
+            한글자 탈락현상 
+        */
+        p:last-of-type{
+            letter-spacing: -0.1px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>font</h1>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, he<span>ll</span>o, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach()</title>
+    <link rel="stylesheet" href="/frontend_3/styles/reset.css">
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <script>
+        
+        
+        //
+        const numbers1=[1,2,3,4,5];
+        numbers1.forEach(function(number){
+            console.log(number);
+        });
+
+
+        //
+        const numbers2=[1,2,3,4,5];
+        let sum=0;
+        numbers2.forEach(function(number){
+            sum+=number;
+        });
+        console.log(sum);
+
+
+        //
+        const numbers3=[10,25,30,45];
+        let foundNumber=null;
+        numbers3.forEach(function(number){
+            if(number>30){
+                foundNumber=number;
+            }
+        });
+        console.log(foundNumber);
+
+
+        //
+        const names=['Alice','Bob','Charlie'];
+        const greetings=[];
+
+        names.forEach(function(name){
+            greetings.push(`Hello, ${name}!`);
+        });
+        console.log(greetings);
+        
+        //
+        const people=[
+            {name: 'Alice', age:30},
+            {name: 'Bob', age:25},
+            {name: 'Charlie', age:35}
+        ];
+        people.forEach(function(person){
+            person.age+=5;
+        });
+        console.log(people);
+
+
+        //
+        const numbers4=[1,3,5,7,9,10,11];
+        numbers4.forEach(function(number){
+            console.log(number);
+        });
+        // 화살표 함수
+        numbers4.forEach(number=>{
+            console.log(number)
+        });
+
+        numbers4.forEach((number,index)=>{
+            console.log('Index: '+index+' Value: '+number);
+        });
+        numbers4.forEach((number,index,array)=>{
+            console.log(number,index,array);
+        });
+
+    </script>
+</body>
+</html>

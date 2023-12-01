@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .table-container{
+            width: 400px;
+            margin: 50px;
+            border:2px solid black;
+        }
+       
+        .column{
+            height: 40px;
+            width: 120px;
+            border:1px solid black;
+            border-right:none;
+            border-bottom:none;
+        }
+
+        .column:last-child{
+            border-right:1px solid black;
+        }
+
+        .row:nth-child(6){
+            border-bottom:1px solid black;
+        }
+
+        /* .row:last-child .column{ */
+        /* .row#caption .column{
+        #caption.row .column{ */
+        #caption .column{
+        /* 10 + 10 = 20, id를 사용해서 우선순위를 높여서 디자인 적용  */
+             width: 100%;
+             height: 20px;
+             border-top:none;
+             border-bottom:1px solid black;
+             color: black;
+             text-align: left;
+             line-height: 20px;
+        }
+
+        .row:nth-child(1) .column{
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            color:white;
+            background-color: #17202e;
+        }
+
+        /* 형제 : 5명 
+            맏형+둘째
+            세째+넷째
+
+            맏형~동생
+            세째~동생:(넷째 , 다섯째)
+
+            유교적인 사상  
+            형을 건들지 못함
+            부모를 건들지 못함 
+            => javascript : 형을 건들수 있고, 부모도 건들수 있음
+        */
+        .row:nth-child(1)~.row .column:first-child~.column{
+            line-height: 40px;
+            text-indent: 1rem;
+        }
+
+        /* 10 + 10 +  10 = 30 */
+        .row:nth-child(1)~.row .column:first-child{
+            color:red;  
+            font-weight: bold;          
+            text-align: center;
+            line-height: 40px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <div class="row  flex-center">
+            <div class="column">title</div>
+            <div class="column">title</div>
+            <div class="column">title</div>
+            <div class="column">title</div>
+            <div class="column">title</div>
+        </div>
+        <div class="row  flex-center">
+            <div class="column">data</div>
+            <div class="column">data</div>
+            <div class="column">data</div>
+            <div class="column">data</div>
+            <div class="column">data</div>
+        </div>
+        <div class="row  flex-center">
+            <div class="column">data</div>
+            <div class="column">data</div>
+            <div class="column">data</div>
+            <div class="column">data</div>
+            <div class="column">data</div>
+        </div>
+        <div class="row  flex-center">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row  flex-center">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row flex-center">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row"  id="caption">
+            <div class="column">일간 단위로 업데이트 되며,</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .tabs-container {
+        width: 300px;
+      }
+
+      .tabs-btns > li {
+        border-radius: 10px 10px 0 0;
+        border: 1px solid gray;
+        width: 100px;
+        text-align: center;
+        line-height: 30px;
+      }
+
+      .tabs-contents > div {
+        font-size: 32px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>tabs</h1>
+    <div class="tabs-container">
+      <ul class="tabs-btns flex_between">
+        <li>BTN01</li>
+        <li>BTN02</li>
+        <li>BTN03</li>
+      </ul>
+      <div class="tabs-contents">
+        <div>content01</div>
+        <div>content02</div>
+        <div>content03</div>
+      </div>
+    </div>
+    <!-- <script>
+      const li1 = document.getElementsByTagName("li")[0];
+      const li2 = document.getElementsByTagName("li")[1];
+      const li3 = document.getElementsByTagName("li")[2];
+      li1.addEventListener("click", function () {
+        let content1 = document.getElementsByTagName("div")[0];
+        content1.style.display = "block";
+      });
+      li2.addEventListener("click", function () { ... });
+      li3.addEventListener("click", function () { ... });
+    </script> -->
+    <script>
+      const lis = document.querySelectorAll(".tabs-btns li");
+      const contents = document.querySelectorAll(".tabs-contents>div");
+
+      console.log(lis, contents);
+      // 배열은 길이를 제어하는 기능을 포함
+
+      // 보이기 위한 용도
+      for (let a = 0; a <= lis.length - 1; a++) {
+        lis[a].addEventListener("click", function () {
+          console.log("click", a);
+
+          // 감추기 위한 용도의 for
+          for (let b = 0; b <= contents.length - 1; b++) {
+            contents[b].style.display = "none";
+          }
+          contents[a].style.display = "block";
+        });
+      }
+    </script>
+  </body>
+</html>

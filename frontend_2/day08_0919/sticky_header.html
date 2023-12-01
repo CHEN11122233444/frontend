@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        html, body{
+            scroll-behavior: smooth;
+            /* 스크롤에 애니메이션 삽입 */
+        }
+        header{
+            background-color: orange;
+            position: sticky;
+            top: 0;
+            /* 
+                특정 높이에서 고정
+            */
+        }
+        .header,
+        .lnb>ul{
+            display: flex;
+        }
+        .main__banner{
+            height: 500px;
+
+        }
+        section{
+            height: 100vh;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+        <div class="sticky-container">
+            <div class="main__banner">main_banner</div>
+            <header>
+                <div class="header">
+                    <h1>
+                        <a href="./index.html">
+                            <i class='bx bx-time-five'></i> TimeSwitch
+                        </a>
+                    </h1>
+                    <div class="bars">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <nav class="lnb">
+                        <ul>
+                            <li><a href="#section01">메인</a></li>
+                            <li><a href="#section02">연혁</a></li>
+                            <li><a href="#section03">사업 소개</a></li>
+                            <li><a href="#section04">채용 정보</a></li>
+                            <li><a href="#section05">문의</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <section id="section01">
+                <h2>history page</h2>
+                <details>
+                    <summary>평균값 확인</summary>
+                    <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt nam quos consequatur magni eius, repellendus quaerat commodi similique repellat nostrum veniam quibusdam itaque corporis totam dolore velit nisi sed. Labore.</div>
+                </details>
+                <details>
+                    <summary>평균값 확인</summary>
+                    <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt nam quos consequatur magni eius, repellendus quaerat commodi similique repellat nostrum veniam quibusdam itaque corporis totam dolore velit nisi sed. Labore.</div>
+                </details>
+                <details>
+                    <summary>평균값 확인</summary>
+                    <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt nam quos consequatur magni eius, repellendus quaerat commodi similique repellat nostrum veniam quibusdam itaque corporis totam dolore velit nisi sed. Labore.</div>
+                </details>
+            </section>
+            <section id="section02">연혁</section>
+            <section id="section03">사업</section>
+            <section id="section04">채용</section>
+            <section id="section05">문의</section>
+            <footer>
+                <div class="footer">
+                    <address>Copyright &copy; TimeSwitch</address>
+                </div>
+            </footer>
+        </div>
+</body>
+</html>

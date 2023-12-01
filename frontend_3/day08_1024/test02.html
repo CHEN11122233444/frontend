@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .card{
+            display: flex;
+        }
+
+        .strike{
+            text-decoration: line-through;
+        }
+        .sale{
+            color: red;
+            font-weight: bold;
+        }
+        .acc{
+            display: flex;
+            gap: 3px;
+        }
+        .acc>li{
+            border-radius: 10px;
+            font-size: 10px;
+            color: white;
+            padding: 0 5px;
+        }
+        .acc>li:nth-child(1){
+            background-color: coral;
+        }
+        .acc>li:nth-child(2){
+            background-color: greenyellow;
+        }
+        .acc>li:nth-child(3){
+            background-color: skyblue;
+        }
+        .acc>li:nth-child(4){
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="card">
+            <div class="img">
+            <img src="http://placekitten.com/200/200" alt="200x200">
+            </div>
+            <div class="text">
+                <h4>듀이트리</h4>
+                <p class="desc">[더보이즈 큐PICK] 듀이트리AC컨트롤</p>
+                <p class="price">
+                    <span class="strike">16,000원</span>
+                    <span class="sale">11,300원</span>
+                </p>
+                <ul class="acc">
+                    <li>세일</li>
+                    <li>쿠폰</li>
+                    <li>증정</li>
+                    <li>오늘드림</li>
+                </ul>
+            </div>
+        </div> -->
+    </div>
+    <script>
+        // fetch('http://makeup-api.herokuapp.com/api/v1/products.json')
+        fetch(
+            'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline'
+        )
+        .then((res)=>res.json()) // js 형태의 데이터로 변형
+        .then((res)=>{
+            console.log(res);
+
+            let price_sign=res[0].price_sign ? res[0].price_sign : "$";
+            // false = null, 0, undefined, NaN, false
+            const container=document.querySelector('.container');
+            container.innerHTML=`
+            <div class="card">
+                <div class="img">
+                <img src="${res[0].image_link}" alt="200x200">
+                </div>
+                <div class="text">
+                    <h4>${res[0].product_type.toUpperCase()}</h4>
+                    <p class="desc">[${res[0].brand.toUpperCase()}] 
+                                    ${res[0].name}</p>
+                    <p class="price">
+                        <span class="strike">
+                            ${parseInt(res[0].price) + 10 } 
+                            ${price_sign}
+                        </span>
+                        <span class="sale">${res[0].price} ${price_sign}</span>
+                    </p>
+                    <ul class="acc">
+                        <li>세일</li>
+                        <li>쿠폰</li>
+                        <li>증정</li>
+                        <li>오늘드림</li>
+                    </ul>
+                </div>
+            </div>
+            `;
+        });
+    </script>
+</body>
+</html>

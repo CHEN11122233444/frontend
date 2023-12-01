@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <!-- 
+        내것 위에 배치
+     -->
+    <link rel="stylesheet" href="./styles/reset.css">
+    
+    <style>
+        .plant{
+            border: 1px solid black;
+
+            width: 700px;
+            height: 335px;
+            background-image: url(./images/img_maxim_flant_banner.jpg);
+
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            /* background-position: 130px 15px; */
+            background-color: #9ab2cc;
+            padding:2.5rem;  
+        }
+
+        p:nth-of-type(1){
+            font-family: 'Roboto', sans-serif;
+            color:white; 
+            font-size: 18px;
+            font-weight: 100;
+            letter-spacing: -0.08em;
+            word-spacing: 4px;
+            margin-bottom: 0.5em;
+        }
+        p:nth-of-type(2){
+            font-size: 32px;
+            color:white; 
+        }
+        /* .plant img{
+            width:180px;
+        } */
+        p:nth-of-type(3){
+            width: 180px; 
+            height: 90px;
+            background-image: url(./images/img_maxim.png);
+            background-size: cover;
+
+            font-size:0;
+            /* em단위를 사용하고 있다면 
+                color:transparent;
+                색을 투명하게 처리
+            */
+        }
+        p:nth-of-type(4){
+            text-transform:uppercase;
+            color:white;
+            font-size: 22px;
+            letter-spacing: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="box07">
+        <div class="plant">
+            <p>
+                Better Beans Better Coffee Better Culture
+            </p>
+            <p>
+                도심 속 정원, 숲속 커피 공장
+            </p>
+            <!-- <img src="./images/img_maxim.png" alt=""> -->
+            <p>maxim img</p>
+            <p>plant</p>
+        </div>
+    </div>
+</body>
+</html>

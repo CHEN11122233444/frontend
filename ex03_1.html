@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./css/ex03.css"> -->
+    <title>ex03</title>
+    <style>
+      .box-container {}
+
+      .box {
+        border: 1px black solid;
+        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box02 {
+        background-color: orange;
+      }
+
+      .box03 {
+        background-color: yellow;
+      }
+
+      .box04 {
+        background-color: green;
+      }
+
+      .box05 {
+        background-color: blue;
+      }
+
+      .box06 {
+        background-color: indigo;
+      }
+
+      .box07 {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-container">
+      <div class="box box01" style="background-color: red;">box01</div>
+      <div class="box box02">box02</div>
+      <div class="box box03">box03</div>
+      <div class="box box04">box04</div>
+      <div class="box box05">box05</div>
+      <div class="box box06">box06</div>
+      <div class="box box07">box07</div>
+    </div>
+
+    <!-- 
+        Element Attribute(엘리먼트 속성) = 태그 내 인라인으로 정의된 것
+        box01 : 인라인 방식으로 스타일이 정의되어 노드 자체에 스타일이 적용
+        box02~ : 인터널 방식(head>style 태그로 정의하는 방식), 태그 자체에 직접 속성 정의X
+    -->
+
+    <script>
+      const box01 = document.querySelector('.box01');
+      const box02 = document.querySelector('.box02');
+      const box03 = document.querySelector('.box03');
+      const box04 = document.querySelector('.box04');
+      const box05 = document.querySelector('.box05');
+      const box06 = document.querySelector('.box06');
+      const box07 = document.querySelector('.box07');
+
+      // ⭐️ https://helloinyong.tistory.com/284 참조
+
+      // 여러 .box 요소의 배경 색상을 가져오고 싶은 경우, 내부 스타일 시트에 정의된 스타일도 포함하여 가져와야 한다. 이를 위해 getComputedStyle를 사용한다
+      // getComputedStyle() 메서드 : 인자로 전달받은 엘리먼트에 최종적으로 적용된 모든 CSS 속성 값을 담은 객체를 반환한다
+      // getComputedStyle() 메서드는 실제로 브라우저에 적용된 최종 CSS 스타일 데이터를 가져오는 것이기 때문에,
+      // 색이름이 아니라 이 색이름에 대응된 실제로 적용된 RGB데이터를 가져오게 된다
+
+      // getComputedStyle()메서드 vs Element.style 속성
+      // getComputedStyle() 메서드에서 반환된 객체는 읽기 전용이며, 해당 엘리먼트의 스타일을 검사하는 데 사용
+      // getComputedStyle() 메서드는 스타일 변경 불가
+      // Element.style 속성은 해당 엘리먼트에게 새로운 스타일을 설정하는 데 사용하게 된다
+      // Element.style 속성을 통해, 해당 DOM 노드에 접근하여 직접적으로 스타일을 주입시키는 것
+
+      const computedStyle01 = getComputedStyle(box01).backgroundColor;
+      const computedStyle02 = getComputedStyle(box02).backgroundColor;
+      const computedStyle03 = getComputedStyle(box03).backgroundColor;
+      const computedStyle04 = getComputedStyle(box04).backgroundColor;
+      const computedStyle05 = getComputedStyle(box05).backgroundColor;
+      const computedStyle06 = getComputedStyle(box06).backgroundColor;
+      const computedStyle07 = getComputedStyle(box07).backgroundColor;
+
+      let box = [];
+      box.push(computedStyle01);
+      box.push(computedStyle02);
+      box.push(computedStyle03);
+      box.push(computedStyle04);
+      box.push(computedStyle05);
+      box.push(computedStyle06);
+      box.push(computedStyle07);
+
+      console.log('box: ', box);
+
+      for (i = 0; i < 7; i++) {
+        console.log(`box[${i}]: `, box[i])
+      }
+
+
+      box01.style.backgroundColor = 'purple';
+      box02.style.backgroundColor = 'pink';
+      box03.style.backgroundColor = 'indigo';
+      box04.style.backgroundColor = 'crimson';
+      box05.style.backgroundColor = 'darkblue';
+      box06.style.backgroundColor = 'black';
+      box07.style.backgroundColor = 'skyblue';
+
+      let box2 = [box01, box02, box03, box04, box05, box06, box07];
+
+      console.log('box2: ', box2);
+
+      for (let i = 0; i < 7; i++) {
+        console.log(`box2[${i}]: `, box2[i].style.backgroundColor);
+      }
+    </script>
+  </body>
+</html>

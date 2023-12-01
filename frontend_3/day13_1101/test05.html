@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <button>animate run</button>
+    
+
+    <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, itaque facere? Adipisci esse nisi cum est. Aliquid, earum porro minima in impedit labore dolorem facilis error eum ut, natus facere!
+    </div>
+    
+    <pre>
+        animate({css속성:value,css속성:value}, 실행시간, ease, callback);
+        callback : 함수의 파라미터로 사용된 함수
+        animate에서 callback은 애니메이션 처리한 후 할 일
+
+        주의점
+        1. css transition과 충돌
+        2. ease : 'swing', 'linear' -> 추가적인 라이브러리 필요
+        3. animate를 실행할 수 있는 css속성 제한됨
+            속성값이 숫자인 경우만 애니메이션 가능
+            (margin-left, height, width, padding, margin, font-size, letter-spacing, line-height, top, left, right, z-index...) -> 추가적인 라이브러리 필요
+
+
+        delay() : 지연시간
+    </pre>
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script>
+        // animate : css keyframes와 같은 기능
+        $('button')
+            .eq(0)
+            .on('click',function(){
+             $('.box')
+                .delay(3000)
+             .animate({'margin-left':'500px'},3000,function(){
+
+                console.log('이동 완료');
+             });
+        });
+       
+    </script>
+</body>
+</html>

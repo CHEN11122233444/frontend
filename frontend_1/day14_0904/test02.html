@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0, user-scalable=yes"/>
+    <title>Document</title>
+    <!-- 
+        @(at) 문법 => at rule
+        @media(쿼리)
+
+        각각의 장비에 맞춰서 디자인 새로 하기
+        코드 길어짐
+        desktop wep page => mobile page
+        mobile page => desktop page
+     -->
+     <style>
+        /* desktop design */
+        body{
+            background-color: pink;
+        }
+
+        @media screen and (max-width:1600px) {
+            /* 브라우저 사이즈 : 변경이 되는 지점 : breakpoint 
+               브라우저사 이즈 <= 1600px 이하 
+            */
+            body{
+                background-color: skyblue;
+            }
+        }
+        @media screen and (max-width:1200px){
+            /* 1200px이하일때 */
+            body{
+                background-color: lightgreen;
+            }
+        }
+        /* 
+            breakpoint는 스스로 지정함 
+            max-width : 숫자는 내림차순 배열
+        */
+     </style>
+</head>
+<body>
+    
+</body>
+</html>

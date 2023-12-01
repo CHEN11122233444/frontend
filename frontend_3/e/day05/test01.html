@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>문자열 다루기</h1>
+    <div>String 클래스 사용</div>
+    <div>Regex(정규표현식) 사용</div>
+
+    <script>
+      const str = "     hello     javascript!!   ";
+      // ['h','e', 'l', 'l', 'o'...]
+      console.log(str.length);
+      console.log(str.trim().length);
+
+      const ary = ["a", "b", "c"];
+      ary[1] = "f";
+      console.log(ary);
+
+      str[0] = "h"; // error 없음
+      str[5] = "hi";
+      console.log(str);
+      console.log(str.replace("hello", "hi"));
+      console.log(str.replace("  ", ""));
+      console.log("hi".repeat(3));
+      console.log("=".repeat(30));
+
+      console.log(str.slice(6, 15));
+
+      const str2 = "한글은 아름다운 글입니다.";
+      const split = str2.split(" ");
+      console.log(split);
+      const str3 = "http://www.naver.com/jemicom/todos";
+      const split3 = str3.split("/");
+      console.log(split3);
+
+      console.log(split3.join("+")); // 배열을 문자열로 조인
+      console.log(split3.join("")); //  특정 문자열을 제거역활
+
+      console.log(str2.substring(0, 1));
+      console.log(str2.substring(1, 2));
+
+      for (let a = 0; a < str2.length; a++) {
+        console.log(str2.substring(a, a + 1));
+      }
+      for (let a = 0; a < str2.length; a++) {
+        console.log(str2.substring(0, a));
+      }
+      for (let a = 0; a < str2.length; a++) {
+        console.log(str2.substring(a, str2.length));
+      }
+
+      console.log(str.toLowerCase());
+      console.log(str.toUpperCase());
+      console.log(str.includes("java"));
+      console.log(str.includes("c#"));
+      console.log(str.indexOf("c#"));
+      console.log("1".padStart(3, "0"));
+
+      for (let a = 0; a < str.length; a++) {
+        console.log(`${a}`.padStart(2, "0"));
+        // 특정위치에 공백을 채우기
+      }
+      for (let a = 0; a < str.length; a++) {
+        console.log(`${a}`.padEnd(3, "0"));
+        // 특정위치에 공백을 채우기
+      }
+    </script>
+  </body>
+</html>

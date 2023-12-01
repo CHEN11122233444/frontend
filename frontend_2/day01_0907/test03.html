@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hover</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .box{
+            width: 200px;
+            height: 50px;
+            border: 1px solid black;
+            margin: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+        }
+
+        .box>div{
+            width: 100%;
+            height: 100%;
+            background-color: orange;
+            transition: 2s;
+        }
+
+        .box:hover>div{
+            transform: translateX(500px);
+        }
+        .box01>div{
+            transition-timing-function: ease;
+            /* 출빌 */
+            /* 애니메이션 움직임 급발진, 급정거 제어  */
+        }
+        .box02>div{
+            transition-timing-function: ease-in;
+            /* 출발 */
+        }
+        .box03>div{
+            transition-timing-function: ease-out;
+            /* 도착 */
+        }
+        .box04>div{
+            transition-timing-function: ease-in-out;
+        }
+        .box05>div{
+            transition-timing-function: linear;
+            /* 시계바늘 */
+        }
+        .box06>div{
+            transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1)
+        }
+        .box07>div{
+            transition-timing-function: cubic-bezier(0.46, 1.01, 1, 0.22);
+        }
+        .box08>div{
+            transition-duration: 0.5s;
+            transition-timing-function: cubic-bezier(.66, .56, .68, 1.37);
+            /* https://cubic-bezier.com/#.17,.67,.83,.67 */
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>가속 : ease</h1>
+
+    <div class="box box01">
+        <div>box01</div>
+    </div>
+    <div class="box box02">
+        <div>box02</div>
+    </div>
+    <div class="box box03">
+        <div>box03</div>
+    </div>
+    <div class="box box04">
+        <div>box04</div>
+    </div>
+    <div class="box box05">
+        <div>box05</div>
+    </div>
+    <div class="box box06">
+        <div>box06</div>
+    </div>
+    <div class="box box07">
+        <div>box07</div>
+    </div>
+    <div class="box box08">
+        <div>box08</div>
+    </div>
+    <div class="box box09">
+        <div>box09</div>
+    </div>
+   
+</body>
+</html>

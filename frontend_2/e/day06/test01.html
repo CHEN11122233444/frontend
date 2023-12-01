@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        background-color: pink;
+      }
+      .content {
+        background-color: orange;
+        height: 200px;
+
+        position: sticky;
+        top: 100px;
+        /* top 속성만 사용, 부모로부터의 고정될 나의 위치 */
+      }
+      .box {
+        height: 100vh;
+        background-color: skyblue;
+      }
+      .sticky {
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="container">
+      <div class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </div>
+      <div class="sticky">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore,
+        adipisci. Aliquam quaerat ratione accusantium saepe? Laboriosam
+        consequuntur corrupti vero ex suscipit, assumenda similique perferendis
+        officiis tempora, aliquid reiciendis provident eius?
+      </div>
+    </div>
+    <div class="container">
+      <div class="sticky">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore,
+        adipisci. Aliquam quaerat ratione accusantium saepe? Laboriosam
+        consequuntur corrupti vero ex suscipit, assumenda similique perferendis
+        officiis tempora, aliquid reiciendis provident eius?
+      </div>
+      <div class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </div>
+    </div>
+    <div class="box"></div>
+  </body>
+</html>
+
+<!-- 
+    https://hyesunghan.github.io/CityTourBus_ver2/
+    https://hince.co.kr/
+    https://yoouna0119.github.io/crowcanyon/
+ -->

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{ 
+            width:200px; 
+            height: 200px;
+            border: 1px solid black;
+            /* margin:50px; */
+            text-align: center;
+            line-height: 200px;
+            font-size: 24px; 
+            background-color: orange;
+        }
+        .innerBox{ 
+            width:100px; 
+            height: 100px;
+            
+            background-color: blue;
+        }
+        .outerBox{ 
+            width:500px; 
+            height: 500px;
+            
+            background-color: green;
+        }
+
+        /* 
+            조부모>부모>자식
+        */
+        .box{
+            position: relative;
+        }
+        .innerBox{
+            position: absolute;
+            right:0;
+            bottom:0;
+        }
+    </style>
+</head>
+<body>
+    <h1>absolute</h1>
+    <div>
+        부모의 영역에 배치
+        부모 position이 지정되어 있지 않다면  body가 부모가 되고, fixed position 과 같이 동작
+        부모 position이 있다면 부모에 소속(left, top, right, bottom)됨
+        부모는 태그상 부모자식 관계가 아니라 position 부모자식 관계를 사용한다.
+    </div>
+    <div class="outerBox">
+        <div class="box">
+            <div class="innerBox"></div>
+        </div>
+    </div>
+     
+</body>
+</html>

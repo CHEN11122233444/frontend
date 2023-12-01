@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre>
+        // 반복 제어문 : 횟수 제어할때, a의 변화에 따라 반복 처리될때
+        for( let a=1; a<=5 ; a++){
+            console.log(a)
+        }
+
+        // 객체, 배열 : 규칙성을 가진 데이터
+        // 회원가입 : 1, 5, 10
+        배열.forEach(function(item, index){
+            console.log(index)
+        })
+
+        // 유의할 것 : 리턴값 : 원본, 결과, 숫자, 문자 등
+        배열.cancat()  
+        배열.indexOf() 
+        배열.includes() 
+        배열.splice() 
+
+        // 배열.filter(function(){  })
+    </pre>
+    <pre>
+        // 하나의 함수 : 1개 기능을 구현
+        // 객체(class), 생성자 함수 
+        function 함수명(파라미터...){
+            return 값;
+        }
+        
+        //화살표 함수 
+        let 변수명 = (파라미터)=>{
+            return 값;
+        }
+    </pre>
+
+    <script>
+      console.log(add(5, 10));
+
+      function add(a, b) {
+        return a + b;
+      }
+      console.log(add(11, 15));
+
+      // sub(5, 10);  // error
+      // 선언문
+      let sub = (a, b) => {
+        //return a >= b ? a - b : b - a;
+        return a - b;
+      };
+
+      console.log(sub(5, 10)); // 실행
+    </script>
+  </body>
+</html>

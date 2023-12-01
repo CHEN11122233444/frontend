@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input:checked + label {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>스케쥴관리</h1>
+
+    <div class="todo-list">
+      <!-- <p>할일1</p>
+        <p>할일2</p>
+        <p>할일3</p> -->
+      <!-- <div class="todo">
+        <input type="checkbox" />
+        <label for="todo">할일1</label>
+        <button class="del">삭제</button>
+      </div> -->
+    </div>
+
+    <form class="todos-container" id="form">
+      <button>저장</button>
+      <input type="text" id="input-todo" />
+    </form>
+
+    <script>
+      const todos = [];
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+      });
+
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", () => {
+        const input = document.querySelector("#input-todo");
+        console.log(input.value);
+
+        todos.push(input.value);
+        const todoList = document.querySelector(".todo-list");
+        // todoList.innerHTML = input.value;
+
+        todoList.innerHTML = ""; // 비우기
+        let str = "";
+        todos.forEach((todo, index) => {
+          str += `
+           <div class="todo">
+                <input type="checkbox" id="todo${index}"/>
+                <label for="todo${index}">${todo}</label>
+                <button class="del">삭제</button>
+            </div>
+           `;
+        });
+        todoList.innerHTML = str;
+
+        // 화면 모두 쓰면
+        input.value = "";
+        // value  태그가 아니므로 remove(), empty()를 사용할 수 없음
+
+        const dels = document.querySelectorAll(".del");
+        console.log(dels);
+        dels.forEach((del, index) =>
+          del.addEventListener("click", function () {
+            // del.parentElement.innerHTML = ""; // 속의 text 공백 채우기
+            del.parentElement.remove(); // 나를 지우기
+            // del.parentElement.empty(); // 자식들을 지우기
+
+            todos.splice(index, 1);
+            /// 배열의 있는 순서와 dom의 순서가 달라지는 문제 발생
+            // 배열을 지운다음 dom다시 생성하도록 만들어 주기 => 함수 처리 필요
+          })
+        );
+      });
+      // javascript 속성을 이용해서 여러번 작업 하도록 수정할 것임
+    </script>
+  </body>
+</html>
+<!-- 
+    object 만들기( Oject.keys, Object.values, Object.entity() )
+    for( in )
+    배열.splice()
+    dom: DOCUMENT OBJECT Model(태그요소)
+    createElement()
+    remove()
+    empty()
+ -->

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 
+        배경이미지 처리하는 법 
+     -->
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      header {
+        height: 502px;
+        background-image: url(./images/visual.jpg);
+        background-color: antiquewhite;
+
+        background-position: center center;
+        background-size: cover;
+      }
+
+      @media screen and (max-width: 1250px) {
+        header {
+        }
+      }
+      @media screen and (max-width: 1000px) {
+        header {
+          height: 400px;
+          /* background-position: -230px 0; */
+          background-position: top right;
+        }
+      }
+      @media screen and (max-width: 670px) {
+        header {
+          height: 300px;
+          background-position: -500px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+  </body>
+</html>
+<!-- 
+https://github.com/ahsor/리파지토리명 : 이미지 다운로드
+https://github.com/ahsor/global
+https://github.com/ahsor/nike
+https://github.com/ahsor/200shot
+https://github.com/ahsor/flower/
+ -->

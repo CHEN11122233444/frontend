@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        5*7
+        웹접근성에 적합하게 만들기
+        브라우저 인식 : 테이블을 제작할 때는 tbody : table 기본 데이타, 
+        tfoot : 테이블의 연산결과, 
+        thead : 테이블의 제목 영역
+     -->
+</head>
+<body>
+    <table border="1">
+        <caption>표 1-3 제목</caption>
+        <tr>
+            <td width="400"
+                align="center"
+            >TV 편성표 보기</td>
+            <td>
+                <img src="https://img.freepik.com/free-vector/vintage-tv_23-2147503075.jpg?w=2000" alt="텔레비젼 이미지"
+                width="120"
+                >
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <caption>표 1-2 제목</caption>
+        <tr>
+            <th> 2023년 12월 17일(월) TV 영화 편성표</th>
+        </tr>
+    </table>
+
+    <table border="1"  width="533">
+        <caption>표 1-3 caption css를 이용해서 위치 변경가능 </caption>
+        <tfoot>
+            <tr>
+                <td>합계</td>
+                <td colspan="4">90 개</td>
+            </tr>
+        </tfoot>       
+        <thead>
+            <tr>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">OCN</th>
+                <th scope="col">SUPER ACTION</th>
+                <th scope="col">채널 CGV</th>
+                <th scope="col">XTM</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th align="center" scope="row">19시</th>
+                <td rowspan="2"> &nbsp;의뢰인</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th align="center" scope="row">20시</th>
+                <!-- <td></td> -->
+                <td></td>
+                <td rowspan="3"> &nbsp; 공감랭크쇼</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th align="center" scope="row">21시</th>
+                <td></td>
+                <td rowspan="3"> &nbsp; 스워피시</td>
+                <!-- <td></td> -->
+                <td></td>
+            </tr>
+            <tr>
+                <th align="center" scope="row">22시</th>
+                <td></td>
+                <!-- <td></td> -->
+                <!-- <td></td> -->
+                <td></td>
+            </tr>
+            <tr>
+                <th align="center" scope="row">23시</th>
+                <td></td>
+                <!-- <td></td> -->
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        
+    </table>
+</body>
+</html>

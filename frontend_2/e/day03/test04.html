@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .box{
+            width:200px; 
+            height: 200px;
+            margin: 50px;
+            background-color: gray;
+            position: relative;
+        }
+        .box span{
+            display: block;
+            width: 20px; 
+            height: 20px;
+            background-color: red;
+            border-radius: 20px;
+            position: absolute;
+        }
+        .box>span{
+            left: 50%;
+            top:50%;
+            transform: translate3d(-50%,-50%, 0);
+        }
+
+        .box02>span:nth-child(1){
+            left:25%;
+            top:25%;
+        }
+        .box02>span:nth-child(2){
+            left:75%;
+            top:75%;
+        }
+
+        .box03>span:nth-child(1){
+            left:25%;
+            top:25%;
+        }
+        .box03>span:nth-child(2){
+            left:75%;
+            top:75%;
+        }
+
+        .box04>span:nth-child(1){
+            left:25%;
+            top:25%;
+        }
+        .box04>span:nth-child(2){
+            left:25%;
+            top:75%;
+        }
+        .box04>span:nth-child(3){
+            left:75%;
+            top:25%;
+        }
+        .box04>span:nth-child(4){
+            left:75%;
+            top:75%;
+        }
+        .box05>span:nth-child(1){
+            left:25%;
+            top:25%;
+        }
+        .box05>span:nth-child(2){
+            left:25%;
+            top:75%;
+        }
+        .box05>span:nth-child(3){
+            left:75%;
+            top:25%;
+        }
+        .box05>span:nth-child(4){
+            left:75%;
+            top:75%;
+        }
+        .box06>span:nth-child(1){
+            left:25%;
+            top:25%;
+        }
+        .box06>span:nth-child(2){
+            left:25%;
+            top:75%;
+        }
+        .box06>span:nth-child(3){
+            left:75%;
+            top:25%;
+        }
+        .box06>span:nth-child(4){
+            left:75%;
+            top:75%;
+        }
+        .box06>span:nth-child(5){
+            left:25%;
+            top:50%;
+        }
+        .box06>span:nth-child(6){
+            left:75%;
+            top:50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box01"><span></span></div>
+    <div class="box box02"><span></span><span></span></div>
+    <div class="box box03"><span></span><span></span><span></span></div>
+    <div class="box box04"><span></span><span></span><span></span><span></span></div>
+    <div class="box box05"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="box box06"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</body>
+</html>

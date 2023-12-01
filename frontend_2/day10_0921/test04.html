@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color: red;
+        }
+        .h1{
+            font-size: 24px;
+        }
+        
+        div>pre{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>hello html</h1>
+    <h1>hello html</h1>
+    <h1 class="h1">hello html</h1>
+    <h1 class="h1">hello html</h1>
+    <h2 id="javascript"></h2>
+    <div>
+        <pre>
+            입력 -> 처리 -> 출력
+
+            JS출력
+            화면 출력 : html 창에 출력(dom: Document Object Model)
+            (요소)
+            디버그에 출력하기
+        </pre>
+    </div>
+
+    <script>
+        document.write('body 출력');
+        console.log('디버그 출력');
+        alert('메시지창 출력');
+
+        let mem=10; //메모리 저장
+        console.log(mem);
+
+        document.getElementsByTagName('h1')[0].innerHTML=mem;
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      /* form, a, table reset디자인이 적용안될 수 있으므로 필수 다시 재정의 해야함 */
+
+      form {
+        width: 300px;
+        margin: 50px;
+      }
+      form > div {
+        margin-bottom: 10px;
+      }
+      label {
+        display: block;
+      }
+      input,
+      textarea {
+        width: 100%;
+      }
+
+      .submit {
+        border: none;
+        padding: 10px 30px;
+        background-color: gray;
+        color: white;
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .submit::after {
+        content: "";
+        display: block;
+        background: linear-gradient(90deg, transparent, aliceblue, transparent);
+        width: 200px;
+        height: 200px;
+
+        position: absolute;
+        transform: translate(-130%, -100px);
+
+        transition: 0.4s;
+      }
+
+      .submit:hover::after {
+        transform: translate(80%, -100px);
+      }
+
+      .error {
+        color: transparent;
+      }
+      .error.active {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" id="form">
+      <h4>CONTACT</h4>
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" />
+        <div class="error errorName">이름은 3글자이상 입력하세요.</div>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" />
+        <div class="error errorEmail">
+          이메일 형식은 아이디@domain.com 형식입니다.
+        </div>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        <div class="error errorMessage">200이하로 입력하세요.</div>
+      </div>
+      <div>
+        <button class="submit">SUBMIT</button>
+      </div>
+    </form>
+
+    <script>
+      const users = [];
+      //  [{…}, {…}]
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const name = document.querySelector("#name").value;
+        if (name.length < 3) {
+          document.querySelector(".errorName").classList.add("active");
+        } else {
+          document.querySelector(".errorName").classList.remove("active");
+        }
+
+        const email = document.querySelector("#email").value;
+        // if( email.indexOf('@') < 0 ){
+        if (!email.includes("@")) {
+          document.querySelector(".errorEmail").classList.add("active");
+        } else {
+          document.querySelector(".errorEmail").classList.remove("active");
+        }
+
+        const message = document.querySelector("#message").value;
+        if (message.length > 200) {
+          document.querySelector(".errorMessage").classList.add("active");
+        } else {
+          document.querySelector(".errorMessage").classList.remove("active");
+        }
+
+        // const data = {
+        //   name: name,
+        //   email: email,
+        //   message: message,
+        // };
+
+        const data = { name, email, message };
+        console.log(data);
+        users.push(data); // 회원가입되어있는 회원은 누적저장됨
+
+        // 저장(submit)한 후에는 input value 지우기
+        document.querySelector("#name").value = "";
+        document.querySelector("#email").value = "";
+        document.querySelector("#message").value = "";
+      });
+    </script>
+    <!-- /* object-fit */ -->
+  </body>
+</html>

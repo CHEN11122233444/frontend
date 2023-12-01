@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <button>animate run</button>
+
+    <div class="box">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga culpa sunt
+      quae illum harum vero aliquid tempora vel numquam deleniti? Dignissimos
+      architecto harum aliquam accusamus beatae iusto facere corporis cumque.
+    </div>
+
+    <pre>
+        animate({css속성:value,css속성:value}, 실행시간, ease, callback);
+        callback : 함수의 파라미터로 사용된 함수
+        animate에서 callback은 애니메이션 처리한 후 할일 
+
+        주의점 
+        1. css transition과 충돌
+        2. ease : "swing", "linear" => 추가적인 라이브러리 필요
+        3. animate를 실행할 수 있는 css속성 제한됨 
+           속성 값이 숫자인 경우만 애니메이션 가능
+           (margin-left, height, width, padding, margin, font-size, letter-spacing, line-height, top, left, right, bottom, z-index ...) => 추가적인 라이브러리 필요
+
+
+        delay() : 지연시간 
+    </pre>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+    <!-- 네트워크 상의 링크를 사용할 수도 있음  -->
+    <script>
+      // animate : css keyframes 와 같은 기능
+      $("button")
+        .eq(0)
+        .on("click", function () {
+          $(".box")
+            .animate({ left: "500px" }, 3000, function () {
+              console.log("왼쪽 이동  완료");
+            })
+            .animate({ top: "500px" }, 3000, function () {
+              console.log("아래쪽 이동  완료");
+            })
+            .animate({ left: 0 }, 3000, function () {
+              console.log("아래 왼쪽 이동 완료");
+            })
+            .animate({ top: 0 }, 3000, function () {
+              console.log("위 왼쪽 이동 완료");
+            });
+        });
+    </script>
+  </body>
+</html>

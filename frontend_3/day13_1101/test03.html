@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <button>fadeIn</button>
+    <button>fadeOut</button>
+    <button>fadeToggle</button>
+    <button>fadeTo</button>
+
+    <div class="box"></div>
+   
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script>
+        // opacity : 0/1; 대용
+        $('button')
+            .eq(0)
+            .on('click',function(){
+             $('.box').fadeIn(3000);
+        });
+        $('button')
+            .eq(1)
+            .on('click',function(){
+             $('.box').fadeOut(3000);
+        });
+        $('button')
+            .eq(2)
+            .on('click',function(){
+             $('.box').fadeToggle(3000);
+        });
+        $('button')
+            .eq(3)
+            .on('click',function(){
+             $('.box').fadeTo(3000, 0.5);
+        });
+    </script>
+</body>
+</html>

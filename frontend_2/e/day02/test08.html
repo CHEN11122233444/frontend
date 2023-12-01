@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <!-- 
+        서브 메뉴가 가로인 것 
+     -->
+     <style>
+        header{
+             width: 1200px;
+             margin: auto;
+             height: 40px;
+             
+             position: relative;
+             /* submenu : 위치와 너비를 제어하기 위해서  */
+        }
+
+        .lnb a{ 
+            display: block;
+            padding: 12px;
+        }
+
+        .lnb>ul>li{
+            /* position: relative; */
+        }
+
+        .submenu{
+            position: absolute;
+            width:100%; 
+            left:0;
+            /* 
+                position상 부모는 header로 만들었으므로 
+                header의 너비 1200px을 갖고 
+                header의 왼쪽에 배치됨
+            */
+            display: none;
+            background-color: blue;
+        }
+
+        .lnb>ul>li:hover .submenu{
+            display: flex;
+        }
+
+        .submenu a{ color:white;
+            position: relative;
+        }
+
+        /* transform, transition  animation */
+        .lnb>ul>li>a::after{
+            content:'';
+            display: block; 
+            transform: translateY(5px);
+            border-bottom: 3px solid red;
+            /* 두께만 만들어지는 것이고 
+                테두리의 길이는 너비나 높이에 따라서 지정됨 
+                width:0;
+                
+            */
+            width: 100%;
+            transform:scaleX(0) translateY(5px);
+            transition: 0.4s;
+        }
+        .lnb>ul>li:hover>a::after{
+            transform:scaleX(1)  translateY(5px);
+        }
+     </style>
+</head>
+<body>
+    <header class="flex_between">
+        <h1>로고</h1>
+        <nav class="lnb">
+            <ul class="flex_between">
+                <li>
+                    <a href="#">이용안내</a>
+                    <ul class="submenu  flex_center">
+                        <li><a href="#">이용방법</a></li>
+                        <li><a href="#">이용시간</a></li>
+                        <li><a href="#">이용요금</a></li>
+                        <li><a href="#">이용요금</a></li>
+                        <li><a href="#">이용요금</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">이벤트정보</a>
+                    <ul class="submenu   flex_center">
+                        <li><a href="#">현장이벤트</a></li>
+                        <li><a href="#">온라인이벤트</a></li>
+                        <li><a href="#">이벤트예약</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">프로그램</a>
+                    <ul class="submenu  flex_center">
+                        <li><a href="#">프로그램안내</a></li>
+                        <li><a href="#">온라인예약</a></li>
+                        <li><a href="#">온라인예약</a></li>
+                        <li><a href="#">단체예약상담</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">고객센터</a>
+                    <ul class="submenu  flex_center">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">자주묻는질문</a></li>
+                        <li><a href="#">자료실</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

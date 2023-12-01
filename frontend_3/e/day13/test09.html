@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .sideBar {
+        position: fixed;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        background-color: skyblue;
+      }
+      .sideBar button {
+        position: absolute;
+        right: 0;
+        transform: translate(100%, 300px);
+        padding: 10px;
+      }
+
+      .sideBar.active {
+        left: -200px;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="sideBar">
+      <button>닫기</button>
+    </aside>
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script>
+      $(".sideBar button").on("click", function () {
+        // $(".sideBar").toggleClass("active");
+        $(this).parent().toggleClass("active");
+      });
+    </script>
+  </body>
+</html>

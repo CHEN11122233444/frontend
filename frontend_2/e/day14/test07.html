@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .callapse {
+        width: 500px;
+        /* 
+            .title + .content
+        */
+        height: 50px;
+        margin: 25px 50px;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: 0.4s;
+      }
+
+      .title {
+        height: 50px;
+        line-height: 50px;
+        background-color: pink;
+        /* text-indent: 1em; */
+        padding: 0 1em;
+        cursor: pointer;
+
+        display: flex;
+        justify-content: space-between;
+      }
+      .title i {
+        font-style: normal;
+      }
+      .title span {
+        transform: rotate(0deg);
+        transition: 0.4s;
+      }
+      .content {
+        height: 100px;
+        background-color: skyblue;
+        overflow: hidden;
+        /* padding: 20px; */
+        transition: 0.5s;
+      }
+      .content > div {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="callapse">
+      <div class="title"><i>TITLE1</i> <span>▼</span></div>
+
+      <div class="content">
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ex
+          expedita, possimus modi quis, exercitationem porro corporis pariatur
+          eos esse voluptatem voluptates. Libero blanditiis fugit repellat
+          consequuntur, quis alias ipsam!
+        </div>
+      </div>
+    </div>
+    <div class="callapse">
+      <div class="title"><i>TITLE2</i> <span>▼</span></div>
+
+      <div class="content">
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ex
+          expedita, possimus modi quis, exercitationem porro corporis pariatur
+          eos esse voluptatem voluptates. Libero blanditiis fugit repellat
+          consequuntur, quis alias ipsam!
+        </div>
+      </div>
+    </div>
+    <div class="callapse">
+      <div class="title"><i>TITLE3</i> <span>▼</span></div>
+
+      <div class="content">
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ex
+          expedita, possimus modi quis, exercitationem porro corporis pariatur
+          eos esse voluptatem voluptates. Libero blanditiis fugit repellat
+          consequuntur, quis alias ipsam!
+        </div>
+      </div>
+    </div>
+    <div class="callapse">
+      <div class="title"><i>TITLE3</i> <span>▼</span></div>
+
+      <div class="content">
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ex
+          expedita, possimus modi quis, exercitationem porro corporis pariatur
+          eos esse voluptatem voluptates. Libero blanditiis fugit repellat
+          consequuntur, quis alias ipsam!
+        </div>
+      </div>
+    </div>
+    <script>
+      // ▲
+      let callapseTitles = document.querySelectorAll(".callapse>.title");
+      let callapseToggles = [false, false, false, false];
+
+      // 논리 규칙성을 찾아서 구현하면되는 것
+      // index번호를 규칙으로 처리함
+      callapseTitles.forEach((title, index) => {
+        title.addEventListener("click", () => {
+          let callapseContents = document.querySelectorAll(".callapse");
+          let callapseIcons = document.querySelectorAll(
+            ".callapse .title span"
+          );
+
+          if (!callapseToggles[index]) {
+            callapseContents[index].style.height = "150px";
+            callapseIcons[index].style.transform = "rotate(180deg)";
+          } else {
+            callapseContents[index].style.height = "50px";
+            callapseIcons[index].style.transform = "rotate(0deg)";
+          }
+          callapseToggles[index] = !callapseToggles[index];
+        });
+      });
+    </script>
+  </body>
+</html>

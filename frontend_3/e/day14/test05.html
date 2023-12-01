@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../script/jquery-ui.css" />
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #efefef;
+        text-align: center;
+        line-height: 100px;
+
+        position: relative;
+        /* overflow: hidden; */
+      }
+      .box > div {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .box-container {
+        margin: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1></h1>
+    <div class="box-container">
+      <div class="box">
+        over
+        <div>out</div>
+      </div>
+      <div class="box">
+        over
+        <div>out</div>
+      </div>
+      <div class="box">
+        over
+        <div>out</div>
+      </div>
+      <div class="box">
+        over
+        <div>out</div>
+      </div>
+    </div>
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script src="../script/jquery-ui.min.js"></script>
+    <script>
+      const move = {
+        over: { left: "-100px", top: "100px" },
+        out: { left: "0", top: "0" },
+      };
+
+      $(".box").on("mouseover", function () {
+        // $(".box>div").stop().animate(move);
+        $(this).find(">div").stop().animate(move.over, 1000, "easeInBack");
+      });
+      $(".box").on("mouseout", function () {
+        // $(".box>div").stop().animate(move);
+        $(this).find(">div").stop().animate(move.out);
+      });
+
+      //  animate(), show()/hide(), fadeIn()/fadeOut().../slideDown()/slideUP()... : 큐(fifo),
+      // stop() : 실시간 애니메이션이 가능
+      //  js array  : 스택(lifo) pop(), push()
+    </script>
+  </body>
+</html>

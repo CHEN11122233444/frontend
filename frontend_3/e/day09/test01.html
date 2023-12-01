@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      #search.active {
+        background-color: #efefef;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="search" id="search" placeholder="search type" />
+
+    <script>
+      search.addEventListener("focus", () => {
+        search.classList.add("active");
+      });
+      search.addEventListener("blur", () => {
+        search.classList.remove("active");
+      });
+      search.addEventListener("input", (event) => {
+        console.log(event.target.value);
+      });
+
+      function loadData(search) {
+        let url = "";
+        if (!search) {
+          url =
+            "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
+        } else {
+          url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline&product_type=${search}`;
+
+          //http://makeup-api.herokuapp.com/api/v1/products.json?product_category=pencil&product_type=eyebrow
+        }
+
+        fetch(url)
+          .then((res) => res.json())
+          .then((res) => console.log(res.length));
+      }
+
+      loadData();
+      //loadData("bronzer");
+    </script>
+  </body>
+</html>

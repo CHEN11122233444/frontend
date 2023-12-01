@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        body{
+            font-size: 24px;
+        }
+
+        header{
+            background-color: black;
+            color: white;
+            width: 500px;
+            height: 100vh;
+            transform: skewX(-35deg);
+            text-align: right;
+            padding-right: 1em;
+            text-transform: uppercase;
+            transform-origin: left top;
+            position: fixed;
+        }
+        ul{
+            padding-top: 200px;
+        }
+        li{
+            margin: 5px;
+            /* background-color: aqua;
+            width: 100px;
+            transform: skewX(-20deg); */
+            background-color: aqua;
+        }
+        a{
+            display: block;
+            transform: skewX(35deg) translateX(0);
+            transition: 0.4s;
+        }
+        li:hover a{
+            transform: translateX(150px);
+            color: black;
+        }
+      
+    </style>
+</head>
+<body>
+    <!-- 구조를 추가적으로 더 사용할 수도 있다. -->
+    <header>
+        <ul>
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+            <li><a href="#">menu4</a></li>
+        </ul>
+    </header>
+</body>
+</html>

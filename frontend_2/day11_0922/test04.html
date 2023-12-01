@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>클릭</button>
+
+    <div>
+        <pre>
+            // 방법1: 처리할 것이 1가지인 경우
+            if(조건식){
+                // 조건식 true일때 처리할 일
+            }
+
+
+            // 방법2: 처리할 것이 2가지인 경우
+            if(조건식){
+                // 조건식 true일때 처리할 일
+            }else{
+                // 조건식 false일때 처리할 일
+            }
+
+            // 방법3: 처리할 것이 여러 개인 경우
+            if(조건식1){
+                // 조건식1이 true일때 처리할 일
+            }else if(조건식2){
+                // 조건식1 false, 조건식2가 true일때 처리할 일
+            }else{
+                // 조건식이 모두 false일때
+            }
+        </pre>
+    </div>
+
+    <script>
+        let number=0;
+        let btn=document.querySelector('button');
+        btn.addEventListener('click',function(){
+            number=number+1;
+            console.log('click',number);
+
+            if(number>=5){
+                number=0;
+            }
+
+            if(number%2==0){
+                console.log(number,'짝수');
+            }else{
+                console.log(number,'홀수');
+            }
+
+        });
+
+    </script>
+</body>
+</html>

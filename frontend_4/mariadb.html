@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            scroll-behavior: smooth;
+        }
+
+        /* CSS 스타일 시트 */
+        header {
+            height: 50px;
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            /* Flexbox 활용 */
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        nav>ul>li {
+            position: relative;
+        }
+
+        .subMenu {
+            position: fixed;
+            width: 100%;
+            background-color: #333;
+            left: 0;
+            top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <style>
+        section {
+            width: 1000px;
+            margin: 50px auto;
+            background: rgb(242, 247, 255);
+            padding: 50px;
+        }
+
+        section:nth-of-type(1) {
+            margin-top: 150px;
+        }
+
+        ul {
+            margin: 20px;
+        }
+
+        .commend-box {
+            padding: 20px 0;
+        }
+
+        .commend-box>.description {
+            /* background-color: #eee; */
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .commend-box>.commend {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .commend-box>.commend>.title {
+            font-weight: bold;
+            padding: 10px;
+            margin-bottom: 0;
+        }
+
+        .commend {
+            border: 1px solid gray;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .commend .title {
+            margin: 0;
+            font-size: 18px;
+            background: rgb(59, 63, 78);
+            color: white;
+        }
+
+        .commend .content {
+            font-size: 16px;
+            line-height: 1.5;
+            background: rgb(30, 30, 30);
+            color: rgb(220, 220, 220);
+            white-space: pre-wrap;
+        }
+
+        details>summary {
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        details>.pre {
+            width: 700px;
+        }
+
+        details pre {
+            font-size: 22px;
+            font-weight: bold;
+            margin-left: -160px;
+        }
+    </style>
+    <style>
+        #DATATYPE ul {
+            list-style: inside;
+        }
+
+        #DATATYPE li {
+            line-height: 30px;
+            border-bottom: 1px solid lightblue;
+        }
+
+        h3 {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Maria DB</h1>
+        <nav>
+            <ul>
+                <li><a href="#DDL">DDL</a>
+                    <ul class="subMenu">
+                        <li><a href="#MariaDB">MariaDB 주석</a></li>
+                        <li><a href="#SHOW">SHOW</a></li>
+                        <li><a href="#USE">USE</a></li>
+                        <li><a href="#DESC">DESC</a></li>
+                        <li><a href="#ALTER">ALTER</a></li>
+                        <li><a href="#DROP">DROP</a></li>
+                        <li><a href="#DATATYPE">DATATYPE</a></li>
+                        <li><a href="#CREATE">CREATE</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#SELECT">SELECT</a></li>
+                <li><a href="#INSERT">INSERT</a></li>
+                <li><a href="#UPDATE">UPDATE</a></li>
+                <li><a href="#DELETE">DELETE</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="DDL">
+        <h2><i class='bx bxs-magic-wand'></i> DDL( Data Defind Language , 데이터 정의어) </h2>
+        <div class="commend-box">
+            <div class="description">
+
+                DDL(Data Definition Language)은 데이터베이스의 스키마(schema)를 정의하고 조작하는 언어를 의미합니다. <br>
+                데이터베이스의 테이블, 인덱스, 제약 조건 등
+                데이터베이스의 구조를 정의하고 관리하며, SQL 문으로 DDL 기능을 수행할 수 있습니다. <br>
+                schema, domain, table, view, index를 정의하거나 변경 또는 삭제하기 위한 명령어이며 DB관리자나 설계자가 사용
+                DDL은 크게 다음과 같은 기능을 제공합니다.
+                <ul>
+                    <li>CREATE : 데이터베이스, 테이블, 뷰 등을 생성합니다.</li>
+                    <li>ALTER : 데이터베이스, 테이블, 뷰 등을 변경합니다. <br> 예를 들어, 테이블에 새로운 컬럼을 추가하거나 제거하거나, 제약 조건을 변경하는 등의 작업을 수행할 수
+                        있습니다.
+                    </li>
+                    <li>DROP : 데이터베이스, 테이블, 뷰 등을 삭제합니다.</li>
+                    <li>TRUNCATE : 테이블의 모든 데이터를 삭제하지만, 테이블 자체는 삭제하지 않습니다. <br> 즉, 테이블을 초기화시키는 역할을 합니다.</li>
+                    <li>RENAME : 데이터베이스, 테이블, 뷰 등의 이름을 변경합니다.</li>
+                </ul>
+
+                DDL 문을 사용할 때는 변화를 가할 대상을 정확히 지정해야 하며, 데이터베이스의 스키마를 변경할 때는 주의가 필요합니다. <br> 특히 다른 사용자가 사용 중인 데이터베이스에 대해서
+                DDL을
+                실행할 때는 잠금(lock) 등의 상호 배제(mutex exclusion) 작업이 필요할 수 있으며, 잘못된 사용으로 인해 데이터의 손실이 발생할 수 있습니다. 결국, DDL 사용 전에
+                스키마 변경에 대한 충분한 검토 및 테스트가 필요합니다.
+            </div>
+        </div>
+        <h2><i class='bx bxs-magic-wand'></i> DML(Data Manipulation Language, 데이터 조작어) </h2>
+        <div class="commend-box">
+            <div class="description">
+                DML(Data Manipulation Language)은 데이터베이스 내의 데이터를 검색, 삽입, 수정, 삭제하는 등 데이터를 조작하는 언어를 의미합니다. <br>
+
+                DML은 다음과 같은 구문으로 구성되어 있습니다.
+
+                <ul>
+                    <li>SELECT : 데이터베이스에서 데이터를 검색합니다.</li>
+                    <li>INSERT : 데이터베이스에 새로운 데이터를 삽입합니다. </li>
+                    <li>UPDATE : 데이터베이스에 저장된 데이터를 수정합니다..</li>
+                    <li>DELETE : 데이터베이스 내의 데이터를 삭제합니다. </li>
+                </ul>
+
+                예를 들어, 특정 영화의 정보를 검색하거나, 사용자가 작성한 새로운 댓글을 데이터베이스에 삽입하거나, 상품 가격 수정 등의 데이터를 변경하거나, 사용자가 삭제하기 원하는 게시물을
+                데이터베이스에서 삭제할 경우, DML 구문을 사용할 수 있습니다. <br><br>
+
+                DML은 데이터베이스의 스키마(schema)에 영향을 미치지 않습니다. 즉, 테이블이나 컬럼 등의 구조적 요소를 변경하지 않습니다. <br>
+                따라서 DML 구문을 실행해도 데이터베이스의 논리적
+                구조(schema)나, 데이터의 저장 위치, 저장 방법, 인덱스 등의 물리적 구조(physical structure)는 변경되지 않습니다. <br><br>
+
+                DML은 대부분 어플리케이션에서 사용되며, SQL을 이용하여 데이터를 CRUD(create, read, update, delete)하는 데 있어 효율적인 방법 중 하나입니다.
+            </div>
+
+        </div>
+        <h2><i class='bx bxs-magic-wand'></i> DCL(Data Control Language, 데이터 제어어 )</h2>
+        <div class="commend-box">
+            <div class="description">
+                DCL(Data Control Language)은 데이터베이스의 보안, 권한, 무결성 등을 제어하는 데 사용되는 언어입니다.
+
+                DCL은 다음과 같은 구문으로 구성되어 있습니다.
+                <ul>
+                    <li>GRANT : 데이터베이스 내의 객체(테이블, 뷰, 프로시저 등)에 대한 권한을 부여합니다.</li>
+                    <li>REVOKE : 데이터베이스 내의 객체에 대한 권한을 취소합니다. </li>
+                </ul>
+
+
+
+                예를 들어, 특정 사용자에게 테이블 조회 권한을 부여하거나, 특정 사용자에게 프로시저 실행 권한을 부여할 경우, GRANT 구문을 사용할 수 있습니다. 또한 특정 사용자의 테이블 수정
+                권한을 취소하거나, 모든 사용자의 데이터 조회 권한을 제한할 경우, REVOKE 구문을 사용할 수 있습니다 . <br><br>
+                DCL의 사용법과 권한 관리는 데이터베이스의 보안과 무결성 유지에 중요한 역할을 합니다. 따라서 대부분의 데이터베이스 관리자(DBA)는 DCL을 주요 관리 대상으로 삼아 구성하는 것이
+                일반적입니다.
+
+            </div>
+        </div>
+    </section>
+    <section id="MariaDB">
+        <h2><i class='bx bxs-magic-wand'></i> MariaDB 주석</h2>
+        <div class="commend-box">
+            <div class="description">
+                MariaDB에서 주석을 사용하는 방법은 두 가지입니다. <br>
+                한 줄 주석: 한 줄 주석은 두 가지 방법으로 작성할 수 있습니다. 주석 내용은 해당 줄의 끝까지만 표시됩니다.
+                <br><br>
+                '-- ' (두 개의 하이픈 뒤에 공백)를 사용하여 한 줄 주석을 시작할 수 있습니다. <br>
+                '#' 기호를 사용하여 한 줄 주석을 시작할 수도 있습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">예시 </div>
+                <div class="content">
+                    SELECT * FROM employees; -- employees 테이블의 모든 데이터를 조회합니다. <br>
+                    SELECT * FROM employees; # employees 테이블의 모든 데이터를 조회합니다.
+                </div>
+            </div>
+            <div class="description">
+
+                여러 줄 주석: 여러 줄 주석은 '/*'로 시작하고 '*/'로 끝납니다. <br>
+                여러 줄 주석은 주석이 시작되는 곳부터 끝나는 곳까지 모든 줄이 주석으로 처리됩니다.<br>
+                주석을 이용하면 코드의 가독성을 높이고, 다른 개발자들과 코드를 공유하거나 코드를 수정 및 유지보수할 때 유용합니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    /*
+                    employees 테이블에서는 직급이 4인 사원만 조회하고자 합니다.
+                    디자인 및 마케팅 관련 업무를 담당하는 사원들입니다.
+                    */
+                    SELECT * FROM employees WHERE job_title = 4;
+
+                </div>
+            </div>
+
+    </section>
+    <section id="SHOW">
+        <h2><i class='bx bxs-magic-wand'></i> SHOW</h2>
+        <div class="commend-box">
+            <div class="description">
+                SHOW FULL COLUMNS FROM은 특정 테이블의 칼럼에 대한 상세 정보를 출력하는 MariaDB의 SQL 명령문입니다. 이 명령문의 구문은 다음과 같습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">sql </div>
+                <div class="content">
+                    SHOW 테이블명; <br>
+                    SHOW 데이터베이스명;
+                </div>
+            </div>
+            <div class="description">
+                SHOW는 데이터베이스나 테이블 목록을 확인하는 명령문입니다.
+                이때 반드시 복수형 S를 붙여야 합니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">sql </div>
+                <div class="content">
+                    SHOW FULL COLUMNS FROM 테이블명;
+                </div>
+            </div>
+            <div class="description">
+                FULL COLUMNS를 추가하면 모든 칼럼을 확인할 수 있습니다. 예를 들어 employees 테이블에서 모든 칼럼에 대한 상세 정보를 출력하려면 다음과 같이 명령문을 입력할 수
+                있습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    SHOW FULL COLUMNS FROM employees;
+                </div>
+            </div>
+            <div class="description">
+                출력 결과에는 각 칼럼의 이름, 타입, NULL 허용 여부, 기본값, 키 정보 등의 정보가 모두 포함됩니다. 정보가 완전하게 출력되므로, 데이터 모델링 및 개발 시 유용하게 사용될 수
+                있습니다.
+            </div>
+        </div>
+    </section>
+    <section id="USE">
+        <!--  -->
+
+        <h2><i class='bx bxs-magic-wand'></i> USE</h2>
+        <div class="commend-box">
+            <div class="description">
+                USE 문은 데이터베이스(database)를 선택하는 명령어입니다. USE 문을 사용해 데이터베이스를 선택하면, 이후의 쿼리문에서 해당 데이터베이스를 대상으로 작업하게 됩니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">sql </div>
+                <div class="content">
+                    USE 데이터베이스명;
+                </div>
+            </div>
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    USE mydatabase;
+                </div>
+            </div>
+            <div class="description">
+                위 예시에서는 mydatabase라는 데이터베이스를 선택하였습니다. 따라서 이후의 쿼리문에서는 mydatabase 데이터베이스가 대상이 되며, mydatabase 데이터베이스 내의
+                테이블을 조작할 수 있습니다.
+                <br><br>
+                USE 문을 사용하여 데이터베이스를 선택하는 것은 새로운 연결을 맺지 않고도 서로 다른 데이터베이스를 단번에 선택하여 작업할 수 있어 유용합니다.
+            </div>
+    </section>
+    <section id="DESC">
+        <h2><i class='bx bxs-magic-wand'></i> DESC</h2>
+        <div class="commend-box">
+            <div class="description">
+                DESC는 MariaDB나 MySQL에서 데이터베이스 테이블 구조를 출력하는 SQL 명령문입니다. 구문은 다음과 같습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">sql : 데이터 베이스 생성 </div>
+                <div class="content">
+                    DESC 테이블명;
+
+                </div>
+            </div>
+            <div class="description">
+                DESCRIBE나 EXPLAIN 등으로 대체하여 사용할 수도 있습니다.
+
+                만약 tables라는 이름의 테이블 구조를 출력하고자 한다면, 다음과 같이 명령문을 입력합니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    DESC employees;
+                </div>
+            </div>
+            <div class="description">
+                위 명령문을 수행하면 tables 테이블의 각 칼럼에 대한 정보, 칼럼명, 데이터 타입, NULL 허용 여부 등이 출력됩니다. SHOW COLUMNS FROM과 유사한
+                결과를 얻을
+                수 있습니다.
+            </div>
+        </div>
+    </section>
+    <section id="ALTER">
+        <!--  -->
+        <h2><i class='bx bxs-magic-wand'></i> ALTER</h2>
+        <div class="commend-box">
+            <div class="description">
+                ALTER 문은 데이터베이스의 테이블(schema)을 수정할 때 사용하는 명령어입니다. 아래는 ALTER문의 일부분인 ALTER TABLE을 사용한 예제입니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">sql : 데이터 베이스 생성 </div>
+                <div class="content">
+                    ALTER TABLE 테이블이름 ADD 열이름 데이터타입;
+                </div>
+            </div>
+            <div class="description">
+                위 문장은 테이블이름 테이블에 새로운 열이름 열(column)을 추가하는 예제입니다. 데이터타입은 추가한 열(column)의 데이터타입을 의미합니다.
+
+                예를 들어, employees 테이블에 phone_number 라는 새로운 열(column)을 추가하려면 다음과 같이 입력합니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    ALTER TABLE employees ADD phone_number VARCHAR(20);
+
+                </div>
+            </div>
+            <div class="description">
+                위 쿼리에서는 employees 테이블에 phone_number 열(column)을 추가하며, VARCHAR(20)은 추가한 열(column)의 데이터타입을 지정합니다.
+                VARCHAR는 가변 길이 문자열 데이터타입으로, (20)은 최대 글자 수를 20자로 지정한 것입니다.
+                <br><br>
+                ALTER 문으로는 열 추가 외에도, 열 이름 변경, 열 삭제, 열 순서 변경 등의 여러 작업을 할 수 있습니다. 따라서 ALTER 문은 테이블의 구조를 조절할 때 자주
+                사용되는 명령어입니다.
+            </div>
+        </div>
+    </section>
+    <section id="DROP">
+        <!--  -->
+        <h2><i class='bx bxs-magic-wand'></i> DROP</h2>
+        <div class="commend-box">
+            <div class="commend structure">
+                <div class="title">sql </div>
+                <div class="content">
+                    DROP TABLE 테이블이름 ; <br>
+                    DROP DATABASE 데이터베이스이름 ; <br>
+                </div>
+            </div>
+            <div class="description">
+                DROP 문은 데이터베이스, 테이블, 인덱스(index) 등을 삭제할 때 사용하는 명령어입니다.
+
+                아래는 DROP 문을 사용하여 employees 테이블을 삭제하는 예제입니다.
+            </div>
+
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    DROP TABLE employees;
+                </div>
+            </div>
+            <div class="description">
+                위 문장에서 DROP TABLE은 employees 테이블을 삭제할 것임을 명시합니다. employees 테이블이 크게 훼손되지 않았다면, 해당 쿼리문을 실행한 후에는
+                employees 테이블이 삭제되어 더 이상 존재하지 않게 됩니다. <br><br>
+
+                DROP 문에서는 TABLE 외에도, DATABASE, PROCEDURE, INDEX 등 다양한 대상을 삭제할 수 있습니다. 삭제할 대상에 맞는 명령어를 선택해 사용하시면
+                됩니다.<br><br>
+
+                데이터베이스 또는 테이블 전체를 삭제할 때는 해당 데이터베이스 또는 테이블의 데이터가 모두 삭제되기 때문에, 잘못 사용하면 심각한 문제를 초래할 수 있습니다. 따라서
+                DROP 문을 사용할 때는 신중하게 사용해야 합니다.
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="DATATYPE">
+        <h2><i class='bx bxs-magic-wand'></i> MariaDB data type</h2>
+        <div class="commend-box">
+            <div class="description">
+                MariaDB에서 지원하는 데이터 타입은 다양합니다. 다음은 주요한 데이터 타입들 입니다.
+                <ul>
+                    <li>INT (정수형) : -2^31 ~ 2^31-1 범위의 정수를 저장할 수 있는 데이터 타입입니다.</li>
+                    <li>BIGINT (대용량 정수형) : -2^63 ~ 2^63-1 범위의 정수를 저장할 수 있는 데이터 타입입니다.</li>
+                    <li>FLOAT (실수형) : 유효 숫자 7자리의 실수를 저장할 수 있는 데이터 타입입니다.</li>
+                    <li>DOUBLE (더블형) : 유효 숫자 16자리의 실수를 저장할 수 있는 데이터 타입입니다.</li>
+                    <li>DECIMAL (고정 소수점형) : 소수점 아래 자릿수를 지정하여 정밀한 실수를 저장할 수 있는 데이터 타입입니다.</li>
+                    <li>CHAR (고정 길이 문자형) : 고정된 길이의 문자열을 저장할 수 있는 데이터 타입입니다.</li>
+                    <li>VARCHAR (가변 길이 문자형) : 가변적인 길이의 문자열을 저장할 수 있는 데이터 타입입니다.</li>
+                    <li>DATE (날짜형) : 연월일 정보를 저장할 수 있는 데이터 타입입니다.</li>
+                    <li>TIME (시간형) : 시분초 정보를 저장할 수 있는 데이터 타입입니다.</li>
+                    <li>DATETIME (날짜와 시간 형) : 연월일과 시분초 정보를 저장할 수 있는 데이터 타입입니다.</li>
+                    <li>ENUM (열거형) 데이터 타입: 열거형 데이터 타입으로, 특정 설정된 값들 중에서 하나를 선택하여 저장할 때 사용되며, 중복된 값은 허용되지 않습니다. <br>
+                        예를 들어, 성별을 '남자', '여자', '기타' 세 가지 범주로 설정하려는 경우 ENUM을 사용할 수 있습니다.</li>
+                    <li>이 외에도 BLOB, TEXT, SET 등 다양한 데이터 타입이 존재합니다.</li>
+                </ul>
+
+                데이터 타입을 지정할 때는 데이터의 특성에 맞게 적절한 데이터 타입을 선택하고, 저장할 데이터의 크기를 고려하여 적절한 크기를 설정해야 합니다. 이를 통해 데이터베이스의 성능 및 저장
+                공간을 효율적으로 사용할 수 있습니다.
+            </div>
+    </section>
+    <section id="CREATE">
+        <h2><i class='bx bxs-magic-wand'></i> CREATE</h2>
+        <div class="commend-box">
+            <div class="description">
+                mariadb에서 CREATE문을 사용하여 데이터베이스, 테이블, 뷰 등을 생성할 수 있습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">sql </div>
+                <div class="content">
+                    CREATE DATABASE 데이터베이스이름;
+                </div>
+                <div class="title">sql : 테이블 생성 </div>
+                <div class="content">
+                    CREATE TABLE 테이블이름 (
+                    열이름1 데이터타입1 제약조건1,
+                    열이름2 데이터타입2 제약조건2,
+                    ...
+                    열이름n 데이터타입n 제약조건n
+                    );
+
+                </div>
+            </div>
+            <div class="description">
+                PRIMARY KEY와 UNIQUE는 데이터베이스에서 일반적으로 사용되는 키 제약조건입니다. <br><br>
+                PRIMARY KEY는 테이블 내에서 행(row)을 각각 고유하게 식별하는 열(column)을 지정합니다. 이 열은 NOT NULL 속성을 가지며, 하나의 테이블에서 하나의
+                PRIMARY
+                KEY만 정의할 수 있습니다. <br><br>
+                UNIQUE는 테이블 내에서 해당 열(column)에 입력된 값이 모두 고유(unique)한 값이어야 함을 지정합니다. 이 열(column)에는 중복된 값이 입력될 수 없는
+                제약조건이
+                생기며, 다른 열들과는 중복될 수 있습니다. 즉, 테이블 내에서 여러 개의 UNIQUE 조건을 지정할 수 있습니다.<br><br>
+                PRIMARY KEY와 UNIQUE는 둘 다 중복된 값을 허용하지 않는 차이가 있는데, PRIMARY KEY는 해당 열(column)이 NOT NULL 이어야하며 하나의 테이블에서
+                하나만
+                정의할 수 있습니다. 반면, UNIQUE는 해당 열(column)이 중복 없이 고유하면 어떤 값이든 입력이 가능합니다. 만약 여러 개의 열(column)이 UNIQUE로 정의됐을
+                경우,
+                각각의 열들의 조합이 고유한 값이어야 합니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+
+                    CREATE TABLE employees (
+                    <pre>
+                        id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(20) NOT NULL,
+                        age INT UNSIGNED NOT NULL,
+                        gender CHAR(1) NOT NULL
+                    </pre>
+                    );
+
+                </div>
+            </div>
+            <div class="description">
+                반드시 PRIMARY KEY와 UNIQUE가 필요한 것은 아니지만, 이러한 제약조건을 사용하면 데이터베이스의 일관성과 정확성을 유지할 수 있습니다.
+            </div>
+
+            <details>
+                <summary>SQL 더보기</summary>
+                <pre>
+                    CREATE TABLE employees (
+                    emp_no INT NOT NULL AUTO_INCREMENT,
+                    birth_date DATE NOT NULL,
+                    first_name VARCHAR(14) NOT NULL,
+                    last_name VARCHAR(16) NOT NULL,
+                    gender ENUM ('M','F') NOT NULL,
+                    hire_date DATE NOT NULL,
+                    PRIMARY KEY (emp_no)
+                    );
+
+
+                    CREATE TABLE departments (
+                    dept_no CHAR(4) NOT NULL,
+                    dept_name VARCHAR(40) NOT NULL,
+                    PRIMARY KEY (dept_no),
+                    UNIQUE KEY (dept_name)
+                    );
+
+
+                    INSERT INTO employees (emp_no, birth_date )
+                    CREATE TABLE dept_manager (
+                    emp_no INT NOT NULL,
+                    dept_no CHAR(4) NOT NULL,
+                    from_date DATE NOT NULL,
+                    to_date DATE NOT NULL,
+                    FOREIGN KEY (emp_no) REFERENCES employees (emp_no) ON DELETE CASCADE,
+                    FOREIGN KEY (dept_no) REFERENCES departments (dept_no) ON DELETE CASCADE,
+                    PRIMARY KEY (emp_no,dept_no)
+                    );
+
+
+                    employees 테이블의 emp_no 칼럼을 참조하는 emp_no 칼럼을 가진 외래키(foreign key)를 생성합니다.
+                    ON DELETE CASCADE 옵션은 참조하는
+                    employees 테이블에서 해당 직원 정보가 삭제될 경우,
+                    이 키를 참조하는 외래키를 가진 테이블의 데이터도 같이 삭제하도록 설정하는 것입니다.
+                    즉, 참조하는 직원 정보가
+                    삭제되면, 해당 직원에 대한 모든 데이터가 모두 삭제
+
+
+                    CREATE TABLE dept_emp (
+                    emp_no INT NOT NULL,
+                    dept_no CHAR(4) NOT NULL,
+                    from_date DATE NOT NULL,
+                    to_date DATE NOT NULL,
+                    FOREIGN KEY (emp_no) REFERENCES employees (emp_no) ON DELETE CASCADE,
+                    FOREIGN KEY (dept_no) REFERENCES departments (dept_no) ON DELETE CASCADE,
+                    PRIMARY KEY (emp_no,dept_no)
+                    );
+
+
+                    CREATE TABLE titles (
+                    emp_no INT NOT NULL,
+                    title VARCHAR(50) NOT NULL,
+                    from_date DATE NOT NULL,
+                    to_date DATE,
+                    FOREIGN KEY (emp_no) REFERENCES employees (emp_no) ON DELETE CASCADE,
+                    PRIMARY KEY (emp_no,title, from_date)
+                    );
+
+
+                    CREATE TABLE salaries (
+                    emp_no INT NOT NULL,
+                    salary INT NOT NULL,
+                    from_date DATE NOT NULL,
+                    to_date DATE NOT NULL,
+                    FOREIGN KEY (emp_no) REFERENCES employees (emp_no) ON DELETE CASCADE,
+                    PRIMARY KEY (emp_no, from_date)
+                    );
+
+
+                </pre>
+            </details>
+        </div>
+    </section>
+    <section id="SELECT">
+        <h2><i class='bx bxs-magic-wand'></i> SELECT</h2>
+        <div class="commend-box">
+            <div class="description">
+                SELECT 문은 MariaDB 및 다른 대부분의 관계형 데이터베이스 관리 시스템(RDBMS)에서 데이터를
+                조회하는 데 사용됩니다. 기본적인 사용 방법은 다음과 같습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">사용법</div>
+                <div class="content">
+                    SELECT column1, column2, ... FROM table_name WHERE condition;
+
+                </div>
+            </div>
+            <div class="description">
+                위 구문에서 column1, column2, ...는 선택할 열(column)의 이름들입니다. <br> table_name은 데이터를 가져올 테이블(table)의 이름입니다. WHERE
+                절은 OPTIONAL이며, 추출하려는 데이터의 조건을 지정할 수 있습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">예시 1</div>
+                <div class="content">
+                    SELECT * FROM employees;
+                </div>
+            </div>
+            <div class="description">
+                위 문장에서의 *는 SELECT 문에서 모든 열(column)을 선택한다는 의미입니다. FROM 절은 데이터를 가져올 테이블(table)을 명시합니다. 위 예제에서는
+                employees
+                테이블에서 모든 열(column)과 행(row)을 가져옵니다.
+
+                특정 열(column)만 선택하여 출력할 수도 있습니다. 예시는 다음과 같습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">예시 2</div>
+                <div class="content">
+                    SELECT emp_no, first_name, last_name FROM employees;
+                </div>
+            </div>
+            <div class="description">
+                위 예제에서는 emp_no, first_name, last_name 세 개의 열(column)만 선택하여 가져옵니다. 이렇게 특정 열(column)만 선택하면 데이터를
+                추출하는
+                데 필요한 컴퓨팅 리소스를 줄일 수 있습니다.
+
+                <br>
+                아래 구문에서 column1의 값이 some_value인 출처로부터 데이터를 추출할 것입니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">예시 1</div>
+                <div class="content">
+                    SELECT emp_no, first_name, last_name FROM employees WHERE column1 = some_value;
+
+                </div>
+            </div>
+            <details>
+                <summary>SQL 더보기</summary>
+                <pre>
+
+                    select * from employees;
+                    select * from employees where gender = 'F';
+
+                    select * from employees order by hire_date; # 오름차순
+                    select * from employees order by hire_date desc; # 내림차순
+                    select * from employees
+                    order by gender asc, hire_date desc;
+                </pre>
+            </details>
+
+            <div class="description">
+                <h3># 연산자</h3>
+                특정 조건의 데이터를 가져오기 위해 연산자를 사용할 수 있습니다. 다음은 일반적인 연산자들입니다.
+
+                <ul>
+                    <li>=: 같음</li>
+                    <li>
+                        <>: 같지 않음
+                    </li>
+                    <li>
+                        <: 작음>: 큼
+                    </li>
+                    <li>
+                        <=: 작거나 같음>=: 크거나 같음
+                    </li>
+                </ul>
+
+                AND와 OR 연산자도 사용할 수 있습니다.
+            </div>
+            <details>
+                <summary>SQL 더보기</summary>
+                <pre>
+                    # 산술연산
+                    select 20+20;
+                    select 20-20;
+                    select 20*20;
+                    select 20/20;
+                    select hire_date+10 from employees where emp_no = 70021;
+                    // 문자열인 경우 숫자만 나옴거나 0
+
+                    select * from employees where emp_no in ( 10027, 10009, 10012);
+                    # emp_no 가 10027, 10009, 10012 인 것만 찾기
+                    select * from employees where emp_no not in ( 10027, 10009, 10012);
+                    # 아닌 것만 찾기
+
+                    # 또는 if 처럼
+                    select * from employees
+                    where emp_no = 10027 or emp_no =10009 or emp_no = 10012 ;
+
+                    # 10015 ＞ emp_no ＞ 10026
+                    select * from employees
+                    where emp_no ＞ 10015 and emp_no ＜ 10026 ;
+
+                    # 또는
+                    select * from employees where emp_no between 10015 and 10026 ;
+
+                </pre>
+            </details>
+            <div class="description">
+                <h3># 와일드 문자(Wildcard Character)</h3>
+                Mariadb에서 와일드 문자(Wildcard Character)는 %와 _입니다.
+                <br><br>
+                % 와일드 문자는 임의의 문자열을 나타냅니다. 예를 들어, LIKE 연산자를 사용하여 특정 문자열을 검색할 때 '%abc%'와 같은 구문을 사용할 수 있습니다. <br>이 때 %는 abc
+                문자열 앞뒤로 어떤 문자열이와도 일치하는 와일드 문자입니다.
+                <br><br>
+                _ 와일드 문자는 하나의 문자를 나타냅니다. <br>예를 들어, LIKE '_bc%' 구문을 사용하여 'abc'나 'dbc'와 같은 문자열을 검색할 수 있습니다. 이 때 _는 첫 문자가
+                'b'인 어떤 문자열도 포함된 결과입니다.
+                <br><br>
+                와일드 문자는 문자열 검색이나 비교를 할 때 유용하게 사용됩니다. 정규식을 사용할 수 없는 경우에 다양한 문자열 비교와 문자열 검색에 유용하게 사용할 수 있습니다.
+            </div>
+            <details>
+                <summary>SQL 더보기</summary>
+                <pre>
+
+                    select birth_date, replace(substring(birth_date, 3), '-', '')
+                    from employees;
+                    결과 : 1953-09-02 | 530902
+
+                    select * from employees where first_name like '%c%' ;
+                    select * from employees where first_name like '__l%';
+                    # 3번째 문자가 l
+
+                    # 아닌 것 찾기
+                    select * from employees
+                    where first_name not like '%c%';
+
+                    select * from employees where first_name not like '__l%'; // 3번째 문자가 l
+
+
+            </details>
+
+            <div class="commend structure">
+                <div class="title">예시 1</div>
+                <div class="content">
+                    SELECT employee_id, first_name, last_name FROM employees WHERE age >= 25 AND (favorite_color
+                    =
+                    'blue' OR
+                    favorite_color = 'green');
+
+                </div>
+            </div>
+
+
+            <div class="description">
+                추가로, SELECT 문 내에 MySQL 내장 함수를 사용하여 데이터 변환, 조작 등의 작업을 수행할 수도 있습니다. 가장 자주 사용되는 함수 몇 가지는 다음과 같습니다.
+
+                <ul>
+                    <li>COUNT(): 데이터 집합의 레코드 수(num of records)를 계산합니다.</li>
+                    <li>
+                        SUM(): 데이터 집합 내의 값의 합(sum)을 계산합니다.
+                    </li>
+                    <li>
+                        AVG(): 데이터 집합의 산술평균(average)을 계산합니다.
+                    </li>
+
+                </ul>
+
+
+                이러한 함수들을 사용하여, 데이터를 집계하고 분석할 수도 있습니다.
+
+
+            </div>
+        </div>
+
+        <details>
+            <summary>SQL 더보기</summary>
+            <pre>
+                // 테스트 위해 중복 데이터 추가
+                insert into employees
+                values (40020,'1952-12-24','Mayuko','Warwick','M','1991-01-26'),
+                (40021,'1960-02-20','Ramzi','Erde','M','1988-02-10'),
+                (50021,'1960-02-20','Ramzi','Erde','M','1988-02-10'),
+                (60021,'1960-02-20','Ramzi','Erde','M','1988-02-10'),
+                (70021,'1960-02-20','Ramzi','Erde','M','1988-02-10');
+
+                // count
+                select * from employees where first_name = 'Ramzi';
+                select count(*) from employees;
+                select count(first_name) from employees
+                where first_name = 'Ramzi';
+                select count(*) from employees
+                -> where gender = "M";
+
+                // 중복 제거
+                select distinct(first_name) from employees
+                where first_name = 'Ramzi';
+
+                select count(distinct(first_name)) from employees
+                where first_name = 'Ramzi';
+
+                // 지역별 학생 수
+                select addr, count(*) as cnt from student
+                group by addr
+                order by cnt desc;
+
+                select city, count(*) as cnt from member_info
+                group by city
+                order by cnt desc;
+
+        </details>
+
+        <div class="commend-box">
+            <div class="description">
+                SELECT 쿼리 결과의 페이지네이션을 위해서는 LIMIT와 OFFSET 구문을 사용할 수 있습니다. LIMIT는 가져올 결과의 최대 개수를 지정하고 OFFSET은 가져올 결과의 시작점을
+                지정합니다.
+
+                예를 들어, 다음과 같은 쿼리에서 10개의 결과를 가져오고 싶다면:
+            </div>
+
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    SELECT salary, salary+100, salary-100, salary*100 FROM salaries LIMIT 10;
+                </div>
+            </div>
+
+            <div class="description">
+                이 쿼리에서는 LIMIT 구문을 통해 최대 10개의 결과를, OFFSET 구문을 사용하지 않았기 때문에 결과의 시작점은 0입니다.
+                <br><br>
+                만약 첫 번째 페이지에서 10개의 결과를 가져오고 싶다면 다음과 같이 쿼리를 작성할 수 있습니다:
+            </div>
+
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    SELECT salary, salary+100, salary-100, salary*100 FROM salaries LIMIT 10 OFFSET 0;
+
+                </div>
+            </div>
+
+            <div class="description">
+                이 쿼리에서 LIMIT 구문은 최대 10개의 결과를 가지고 오고, OFFSET 구문은 결과 시작점을 0으로 지정합니다. <br>
+                OFFSET 구문에는 상수만 사용할 수 있습니다.
+
+                <br><br>
+                두 번째 페이지에서 10개의 결과를 가져오려면 OFFSET을 10으로 지정하면 됩니다:
+            </div>
+
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    SELECT salary, salary+100, salary-100, salary*100 FROM salaries LIMIT 10 OFFSET 10;
+
+                </div>
+            </div>
+            <div class="description">
+                이 쿼리에서 LIMIT 구문은 최대 10개의 결과를 가지고 오고, OFFSET 구문은 결과 시작점을 10으로 지정합니다.
+                <br><br>
+                이와 같은 방법으로 LIMIT와 OFFSET 구문을 조합하여 페이징을 구현할 수 있습니다. 다만, 이 방법은 대규모의 데이터를 처리할 때는 성능이 저하될 수 있습니다. 더 좋은 성능을
+                위해서는
+                다른 방법을 고려해야 할 수도 있습니다.
+            </div>
+        </div>
+    </section>
+    <section id="INSERT">
+        <h2><i class='bx bxs-magic-wand'></i> INSERT</h2>
+        <div class="commend-box">
+            <div class="description">
+                INSERT문은 새로운 행(row)을 테이블(Table)에 삽입할 수 있도록 해줍니다. 삽입할 행(row)의 값을 지정하는 방법은 다음과 같습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">sql</div>
+                <div class="content">
+                    INSERT INTO 테이블이름 (열1, 열2, ..., 열n)
+                    VALUES (값1, 값2, ..., 값n);
+
+                </div>
+            </div>
+            <div class="description">
+                위 문장에서 테이블이름은 삽입할 행(row)이 위치한 테이블의 이름을 나타냅니다.<br><br>열1부터 열n까지는 삽입할 열(column) 이름을 지정합니다. 열 이름을 지정하지
+                않고
+                테이블의 모든
+                열(column)에 값을 삽입하려면 INSERT INTO 테이블이름 VALUES (값1, 값2, ..., 값n); 형태로 사용할 수 있습니다.
+                <br><br>
+
+                그리고, 값1부터 값n은 삽입할 행(row)의 값(value)을 지정합니다. 먼저 지정한 열(column)에 대해 값을 삽입하고, 이를 반복하여 삽입합니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    INSERT INTO employees (id, name, age, gender)
+                    VALUES (1, 'John', 20, 'M');
+
+                </div>
+            </div>
+            <div class="description">
+                위 쿼리는 employees 테이블에 John이라는 이름의 학생 정보를 새로 삽입하는 쿼리입니다. id, name, age, gender 열(column)에 각각 1,
+                "John",
+                20,
+                "M" 값들을 지정하여 데이터를 넣을 수 있습니다.
+            </div>
+        </div>
+
+        <details>
+            <summary>SQL 더보기</summary>
+            <pre>
+                INSERT INTO users(userid, userpwd, username ) VALUES('test1', 111, '김길동' );
+                INSERT INTO users(userid, userpwd, username ) VALUES('test2', 222, '은s길동');
+                INSERT INTO users(userid, userpwd, username ) VALUES('test5', 555, '오길동');
+                INSERT INTO users(userid, userpwd, username ) VALUES('test4', 444, '홍길동');
+                INSERT INTO users(userid, userpwd, username ) VALUES('test3', 123, '박길동');
+                <br>
+                ==========================================================
+                <br>
+                id, userid,userpwd 필수 입력이 제외할 수 없음
+                insert into users(id, userid,userpwd)
+                select first_name, last_name, first_name from employees
+                where emp_no < 10009; <br>
+                    ==========================================================<br>
+                    insert into employees
+                    values (10020,'1952-12-24','Mayuko','Warwick','M','1991-01-26'),
+                    (10021,'1960-02-20','Ramzi','Erde','M','1988-02-10'),
+                    (10022,'1952-07-08','Shahaf','Famili','M','1995-08-22'),
+                    (10023,'1953-09-29','Bojan','Montemayor','F','1989-12-17'),
+                    (10024,'1958-09-05','Suzette','Pettey','F','1997-05-19'),
+                    (10025,'1958-10-31','Prasadram','Heyers','M','1987-08-17'),
+                    (10026,'1953-04-03','Yongqiao','Berztiss','M','1995-03-20'),
+                    (10027,'1962-07-10','Divier','Reistad','F','1989-07-07'),
+                    (10028,'1963-11-26','Domenick','Tempesti','M','1991-10-22'),
+                    (10029,'1956-12-13','Otmar','Herbst','M','1985-11-20'),
+                    (10030,'1958-07-14','Elvis','Demeyer','M','1994-02-17'),
+                    (10031,'1959-01-27','Karsten','Joslin','M','1991-09-01'),
+                    (10032,'1960-08-09','Jeong','Reistad','F','1990-06-20'),
+                    (10033,'1956-11-14','Arif','Merlo','M','1987-03-18'),
+                    (10034,'1962-12-29','Bader','Swan','M','1988-09-21'),
+                    (10035,'1953-02-08','Alain','Chappelet','M','1988-09-05'),
+                    (10036,'1959-08-10','Adamantios','Portugali','M','1992-01-03'),
+                    (10037,'1963-07-22','Pradeep','Makrucki','M','1990-12-05'),
+                    (10038,'1960-07-20','Huan','Lortz','M','1989-09-20'),
+                    (10039,'1959-10-01','Alejandro','Brender','M','1988-01-19'),
+                    (10040,'1959-09-13','Weiyi','Meriste','F','1993-02-14'),
+                    (10041,'1959-08-27','Uri','Lenart','F','1989-11-12'),
+                    (10042,'1956-02-26','Magy','Stamatiou','F','1993-03-21'),
+                    (10043,'1960-09-19','Yishay','Tzvieli','M','1990-10-20'),
+                    (10044,'1961-09-21','Mingsen','Casley','F','1994-05-21'),
+                    (10045,'1957-08-14','Moss','Shanbhogue','M','1989-09-02'),
+                    (10046,'1960-07-23','Lucien','Rosenbaum','M','1992-06-20'),
+                    (10047,'1952-06-29','Zvonko','Nyanchama','M','1989-03-31');
+                    <br>
+                    ==========================================================
+                    <br>
+                    INSERT
+                    INTO `departments` VALUES ('d001','Marketing'), ('d002','Finance'), ('d003','Human Resources'),
+                    ('d004','Production'), ('d005','Development'), ('d006','Quality Management'), ('d007','Sales'),
+                    ('d008','Research'), ('d009','Customer
+                    Service');
+                    <br>
+                    ==========================================================
+                    <br>
+                    INSERT INTO `dept_emp` VALUES
+                    (10001,'d005','1986-06-26','9999-01-01'), (10002,'d007','1996-08-03','9999-01-01'),
+                    (10003,'d004','1995-12-03','9999-01-01'), (10004,'d004','1986-12-01','9999-01-01'),
+                    (10005,'d003','1989-09-12','9999-01-01'), (10006,'d005','1990-08-05','9999-01-01'),
+                    (10007,'d008','1989-02-10','9999-01-01'), (10008,'d005','1998-03-11','2000-07-31'),
+                    (10009,'d006','1985-02-18','9999-01-01');
+                    <br>
+                    ==========================================================
+                    <br>
+                    INSERT
+                    INTO `dept_manager` VALUES (110022,'d001','1985-01-01','1991-10-01'),
+                    (110039,'d001','1991-10-01','9999-01-01'), (110085,'d002','1985-01-01','1989-12-17'),
+                    (110114,'d002','1989-12-17','9999-01-01'), (110183,'d003','1985-01-01','1992-03-21'),
+                    (110228,'d003','1992-03-21','9999-01-01'), (110303,'d004','1985-01-01','1988-09-09'),
+                    (110344,'d004','1988-09-09','1992-08-02'), (110386,'d004','1992-08-02','1996-08-30'),
+                    (110420,'d004','1996-08-30','9999-01-01'), (110511,'d005','1985-01-01','1992-04-25'),
+                    (110567,'d005','1992-04-25','9999-01-01'), (110725,'d006','1985-01-01','1989-05-06'),
+                    (110765,'d006','1989-05-06','1991-09-12'), (110800,'d006','1991-09-12','1994-06-28'),
+                    (110854,'d006','1994-06-28','9999-01-01'), (111035,'d007','1985-01-01','1991-03-07'),
+                    (111133,'d007','1991-03-07','9999-01-01');
+                    <br>
+                    ==========================================================
+                    <br>
+                    INSERT
+                    INTO `titles` VALUES (10001,'Senior Engineer','1986-06-26','9999-01-01'),
+                    (10002,'Staff','1996-08-03','9999-01-01'), (10003,'Senior Engineer','1995-12-03','9999-01-01'),
+                    (10004,'Engineer','1986-12-01','1995-12-01'), (10004,'Senior Engineer','1995-12-01','9999-01-01'),
+                    (10005,'Senior Staff','1996-09-12','9999-01-01'), (10005,'Staff','1989-09-12','1996-09-12'),
+                    (10006,'Senior Engineer','1990-08-05','9999-01-01'), (10007,'Senior
+                    Staff','1996-02-11','9999-01-01'), (10007,'Staff','1989-02-10','1996-02-11'), (10008,'Assistant
+                    Engineer','1998-03-11','2000-07-31'), (10009,'Assistant Engineer','1985-02-18','1990-02-18'),
+                    (10009,'Engineer','1990-02-18','1995-02-18'), (10009,'Senior Engineer','1995-02-18','9999-01-01'),
+                    (10010,'Engineer','1996-11-24','9999-01-01'), (10011,'Staff','1990-01-22','1996-11-09'),
+                    (10012,'Engineer','1992-12-18','2000-12-18'), (10012,'Senior Engineer','2000-12-18','9999-01-01'),
+                    (10013,'Senior Staff','1985-10-20','9999-01-01'), (10014,'Engineer','1993-12-29','9999-01-01'),
+                    (10015,'Senior Staff','1992-09-19','1993-08-22'), (10016,'Staff','1998-02-11','9999-01-01'),
+                    (10017,'Senior Staff','2000-08-03','9999-01-01'), (10017,'Staff','1993-08-03','2000-08-03'),
+                    (10018,'Engineer','1987-04-03','1995-04-03'), (10018,'Senior Engineer','1995-04-03','9999-01-01'),
+                    (10019,'Staff','1999-04-30','9999-01-01'), (10020,'Engineer','1997-12-30','9999-01-01'),
+                    (10021,'Technique
+                    Leader','1988-02-10','2002-07-15');<br>
+                    ==========================================================
+                    <br>
+                    INSERT
+                    INTO `salaries` VALUES (10001,60117,'1986-06-26','1987-06-26'),
+                    (10001,62102,'1987-06-26','1988-06-25'), (10001,66074,'1988-06-25','1989-06-25'),
+                    (10001,66596,'1989-06-25','1990-06-25'), (10001,66961,'1990-06-25','1991-06-25'),
+                    (10001,71046,'1991-06-25','1992-06-24'), (10001,74333,'1992-06-24','1993-06-24'),
+                    (10001,75286,'1993-06-24','1994-06-24'), (10001,75994,'1994-06-24','1995-06-24'),
+                    (10001,76884,'1995-06-24','1996-06-23'), (10001,80013,'1996-06-23','1997-06-23'),
+                    (10001,81025,'1997-06-23','1998-06-23'), (10001,81097,'1998-06-23','1999-06-23'),
+                    (10001,84917,'1999-06-23','2000-06-22'), (10001,85112,'2000-06-22','2001-06-22'),
+                    (10001,85097,'2001-06-22','2002-06-22'), (10001,88958,'2002-06-22','9999-01-01'),
+                    (10002,65828,'1996-08-03','1997-08-03'), (10002,65909,'1997-08-03','1998-08-03'),
+                    (10002,67534,'1998-08-03','1999-08-03'), (10002,69366,'1999-08-03','2000-08-02'),
+                    (10002,71963,'2000-08-02','2001-08-02'), (10002,72527,'2001-08-02','9999-01-01'),
+                    (10003,40006,'1995-12-03','1996-12-02'), (10003,43616,'1996-12-02','1997-12-02'),
+            </pre>
+        </details>
+    </section>
+    <section id="UPDATE">
+        <h2><i class='bx bxs-magic-wand'></i> UPDATE</h2>
+        <div class="commend-box">
+            <div class="description">
+                UPDATE 문은 MariaDB에서 데이터를 수정할 때 사용하는 SQL 명령문입니다. UPDATE 문의 기본 구문은 다음과 같습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">sql</div>
+                <div class="content">
+                    UPDATE 테이블명 SET 칼럼명 = 값 [, 칼럼명 = 값 ...] [WHERE 조건];
+                </div>
+            </div>
+            <div class="description">
+                위 문법에서 테이블명은 데이터를 수정할 대상 테이블의 이름입니다. SET 절은 바뀔 값들을 나열하는 것으로, 수정할 칼럼명과 해당 칼럼에 대입할 값을 나열합니다. WHERE 절은
+                조건식을
+                추가하여 특정 데이터만 변경할 수 있습니다. 예를 들면, employees 테이블에서 first_name이 'John'인 직원의 last_name을 'Smith'로 바꾸고자 한다면
+                다음과
+                같은 SQL 문을 작성할 수 있습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    UPDATE employees SET last_name = 'Smith' WHERE first_name = 'John';
+                </div>
+            </div>
+            <div class="description">
+                위 문장을 수행하면, first_name이 'John'인 모든 직원의 last_name이 'Smith'로 변경됩니다. UPDATE 문을 이용해 여러 컬럼을 한 번에 수정할 수도
+                있습니다.
+                변경하고자 하는 각 칼럼명과 칼럼에 대해 대입할 값을 SET 절에 나열하면 됩니다.
+            </div>
+        </div>
+
+        <details>
+            <summary>SQL 더보기</summary>
+            <pre>
+
+                update employees set birth_date = replace(substring(birth_date, 3), '-', '')
+                where emp_no>10030 and birth_date is not null;
+
+                update employees set first_name = '길동' where emp_no = 10009;
+
+                서브쿼리
+                // 10009번의 이름을 10003에 셋팅함
+                update employees set first_name = (
+                select first_name from employees where emp_no=10009
+                ) where emp_no = 10003;
+
+                // id, userid,userpwd 필수 입력이 제외할 수 없음
+                insert into users(id, userid,userpwd)
+                select first_name, last_name, first_name from employees
+                where emp_no ＜ 10009;
+
+                UPDATE users SET ui_name='삼길동' WHERE 1=1 AND ui_id LIKE '%test3%' ; UPDATE users
+                SET ui_name='은길동' , useremaile='test2@test.com' WHERE 1=1 AND ui_id LIKE '%test2%' ; SELECT * FROM
+                Customers; update * from employees mynum=mod(emp_no, 2); // 2로 나눈 나머지 값으로 셋팅 update employees set
+                birth_date=replace(substring(birth_date, 3), '-' , '' ) where emp_no>10030 and birth_date is not
+                null;
+
+                update employees set first_name = '길동' where emp_no = 10009;
+
+                서브쿼리
+                // 10009번의 이름을 10003에 셋팅함
+                update employees set first_name = (
+                select first_name from employees where emp_no=10009
+                ) where emp_no = 10003;
+
+
+                ```
+                - 위 명령어 실행 후 output 결과
+                /* 영향 받은 행: 1 찾은 행: 0 경고: 0 지속 시간 1 쿼리: 0.000 초 */
+
+                // 조건절이 없다면 모든 데이터를 수정하게 되므로 where을 반드시 사용하도록 한다.
+                UPDATE Customers
+                SET CustomerName='하르방', City='한라산', Country='선계'
+                WHERE CustomerID = 1;
+
+            </pre>
+        </details>
+    </section>
+    <section id="DELETE">
+        <h2><i class='bx bxs-magic-wand'></i> DELETE</h2>
+        <div class="commend-box">
+            <div class="description">
+                DELETE 문은 MariaDB에서 데이터를 삭제할 때 사용하는 SQL 명령문입니다. DELETE 문의 기본 구문은 다음과 같습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">sql</div>
+                <div class="content">
+                    DELETE FROM 테이블명 [WHERE 조건];
+                </div>
+            </div>
+            <div class="description">
+                위 문법에서 테이블명은 데이터를 삭제할 대상 테이블의 이름입니다. WHERE 절은 옵션으로, 특정 조건에 해당하는 데이터만 삭제하고자 할 경우에 사용됩니다. 예를 들면,
+                employees
+                테이블에서 first_name이 'John'인 직원 데이터를 삭제하고자 한다면 다음과 같이 DELETE 문을 작성할 수 있습니다.
+            </div>
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    DELETE FROM employees WHERE first_name = 'John';
+                </div>
+            </div>
+            <div class="description">
+                WHERE 절을 삭제하면 해당 테이블의 모든 데이터가 삭제됩니다. 부분적으로 데이터를 삭제하고자 할 때에는 WHERE 절을 추가하여 적절한 조건을 지정해주면 됩니다. 마찬가지로,
+                JOIN
+                구문을 이용해 여러 테이블에서 데이터를 삭제할 수도 있습니다. 다만, 데이터 삭제 전에는 신중하게 데이터를 백업하거나 삭제되는 데이터를 얻어내기 위한 검증 절차를 거치는 것이
+                좋습니다.
+            </div>
+        </div>
+
+        <details>
+            <summary>SQL 더보기</summary>
+            <pre>
+                DELETE from users ; // 테이블 내의 모든 데이터를 삭제하므로 유의
+
+                DELETE from users WHERE 1=1 AND ui_id LIKE '%test4%';
+                // test4를 포함한 데이터 삭제
+
+                DELETE from users where usernum>10;
+                DELETE from users where usernum in ( 5, 6, 8);
+                SELECT * FROM users;
+            </pre>
+        </details>
+    </section>
+
+    <section id="JOIN">
+        <h2><i class='bx bxs-magic-wand'></i> JOIN</h2>
+        <div class="commend-box">
+            <div class="description">
+
+
+                데이터베이스에서 가장 중요한 부분은 데이터를 조회시간의 최소화
+                저장된 데이터의 총량이 크면 클수록 조회시간이 오래 걸리므로
+                데이터의 중복을 최소화 하여 데이터를 바르게 조회하는 것이 목적입니다.<br><br>
+
+                이러한 이유로 데이터를 여러개의 테이블로 분리저장하고
+
+                이때 분리시킨 데이터를 조회할 때 하나의 테이블로 join하는 일이 필요
+                여러 테이블을 join할때는 테이블의 이름을 , 로 구분하여 작성하고
+                각 테이블의 컬러명을 기술하여 주면 원하는 데이터를 조회할 수 있습니다.<br><br>
+
+                JOIN은 둘 이상의 테이블(table)에서 데이터를 연결하는 방법 중 하나입니다. JOIN을 사용하면, 두 개 이상의 테이블(table)에서 데이터를 결합하여 하나의 결과
+                집합(set)으로 반환할 수 있습니다. <br><br>
+
+                아래는 employees 테이블과 departments 테이블에서 데이터를 조인하여 직원 이름, 부서 이름, 지역을 함께 출력하는 예제입니다.
+            </div>
+
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+
+
+                    SELECT employees.first_name,
+                    employees.last_name,
+                    departments.department_name,
+                    departments.location <br>
+                    FROM employees
+                    INNER JOIN departments
+                    ON employees.department_id = departments.department_id;
+                </div>
+            </div>
+            <div class="description">
+                위 쿼리문에서는 employees 테이블과 departments 테이블을 INNER JOIN 하여, department_id 열(column)이 값이 서로 일치하는 경우에 대해 데이터를
+                조합하여 출력합니다. <br><br>
+                SELECT 문에서는 employees 테이블의 first_name, last_name 열(column)과 departments 테이블의
+                department_name, location 열(column)을 선택하여 출력합니다. <br><br>
+                <ul>
+                    <li>INNER JOIN : 교집합</li>
+                    <li>LEFT JOIN : 왼쪽 테이블로 합침</li>
+                    <li>RIGHT JOIN : 오른쪽 테이블로 합침</li>
+                    <li>FULL OUTER JOIN : 합집합</li>
+                </ul>
+                Inner join 이외에도 많은 종류의 JOIN이 존재합니다. LEFT JOIN, RIGHT JOIN, OUTER JOIN 등이 대표적인 종류입니다. JOIN 구문을 사용할 때는 어떤
+                종류의 JOIN을 사용할지와 JOIN에 사용할 조건문(where)을 정확하게 설정하는 것이 중요합니다.
+            </div>
+        </div>
+
+        <details>
+            <summary>SQL 더보기</summary>
+            <pre>
+
+            </pre>
+        </details>
+    </section>
+    <section id="UNION">
+        <h2><i class='bx bxs-magic-wand'></i> UNION</h2>
+        <div class="commend-box">
+            <div class="description">
+                UNION은 둘 이상의 SELECT 문의 결과를 통합하여 하나의 결과 집합(set)으로 반환하는 방법 중 하나입니다.
+
+                <br><br>
+                예를 들어, employees 테이블과 customers 테이블에서 직원과 고객의 이름을 모두 가져와서 하나의 결과로 출력하고자 할 때, UNION을 사용하여 두 개의 SELECT문을
+                하나의 결과 집합으로 합칠 수 있습니다.
+            </div>
+
+            <div class="commend structure">
+                <div class="title">예시</div>
+                <div class="content">
+                    SELECT first_name, last_name FROM employees
+                    UNION
+                    SELECT customer_first_name, customer_last_name FROM customers;
+
+                </div>
+            </div>
+            <div class="description">
+                위 쿼리문에서는 employees 테이블과 customers 테이블에서 각각 first_name, last_name, customer_first_name,
+                customer_last_name 열(column)의 데이터를 추출하여 하나의 결과 집합으로 합치고 있습니다.
+                <br><br>
+
+                UNION 구문은 SELECT문의 결과 집합을 합치기 때문에, 합쳐지는 결과 집합의 열(column) 수 및 데이터 타입은 모두 일치해야 합니다. 비교하는 두 SELECT 문에서 표시되는
+                열(column) 수가 다른 경우, UNION 구문은 기본적으로 보다 적은 수의 열(column)을 사용하는 SELECT 문에 맞추어 출력하며, 열(column) 순서도 맞춰집니다.
+                특별히 데이터 타입이 일치하지 않을 때는 타입을 변환할 수 있는 방법을 사용합니다.
+            </div>
+        </div>
+        <details>
+            <summary>SQL 더보기</summary>
+            <pre>
+                ALTER TABLE users add column mynum bit not null default 0;
+                // 기본값이 있는 것이 좋음
+
+                ALTER TABLE users add column userpwd varchar(50) ;
+                ALTER TABLE users modify column userpwd varchar(100) ;
+                ALTER TABLE users drop column ui_active;
+
+
+                ALTER table users add column userpwd varchar(50) ;
+                ALTER table users modify column userpwd varchar(100) ;
+            </pre>
+        </details>
+    </section>
+</body>
+
+</html>

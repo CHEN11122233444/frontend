@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .table-container{
+            width: 400px;
+            margin: 50px;
+            border:2px solid black;
+        }
+        
+        /* 각각의 태그마다 다른 display 속성을 가지고 있고 
+            block, inline
+        */
+        .row{
+            display: table;
+        }
+        .column{
+            display: table-cell;
+            width: calc( 400px / 5) ;
+            height: 30px;
+            border-right:1px solid gray;
+            border-bottom:1px solid gray; 
+        }
+        .row:first-child {
+            background-color: black;
+            color:#fff;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .column:last-child{
+            border-right: none;
+        }
+        .column:first-child{
+            text-align: center;
+            line-height: 30px;
+        }
+        .row:first-child~.row .column:first-child ~ .column{
+            text-indent: 1rem;
+        }
+
+        #caption .column{
+            width: 100%;
+            border-bottom: none;
+            text-indent: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <div class="row">
+            <div class="column">title</div>
+            <div class="column">title</div>
+            <div class="column">title</div>
+            <div class="column">title</div>
+            <div class="column">title</div>
+        </div>
+        <div class="row">
+            <div class="column">data</div>
+            <div class="column">data</div>
+            <div class="column">data</div>
+            <div class="column">data</div>
+            <div class="column">data</div>
+        </div>
+        <div class="row">
+            <div class="column">data</div>
+            <div class="column">data</div>
+            <div class="column">data</div>
+            <div class="column">data</div>
+            <div class="column">data</div>
+        </div>
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row"  id="caption">
+            <div class="column">일간 단위로 업데이트 되며,</div>
+        </div>
+    </div>
+</body>
+</html>

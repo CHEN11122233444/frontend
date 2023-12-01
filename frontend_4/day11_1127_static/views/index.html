@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>views/index.html</h1>
+    <pre>
+      회원가입
+      get  /register : 입력 폼을 보여 주는 창
+      post /register : 입력완료시 전송해주는 요청
+      put  /register : 수정 요청
+      delete /register : 회원 탈퇴시 삭제 요청
+
+      {
+        id:직접만들기,
+        username : 이름,
+        useremail : useremail,
+        usepwd : userpwd
+      }
+
+      로그인
+      get /login : 입력 폼을 보여주는 창
+      post /login : 입력완료시 전송해주는 요청
+      
+      get /logout : 로그 아웃 요청
+      post /logout : 로그 아웃 요청
+      
+
+      // 장바구니 
+      get  /product : 입력 폼을 보여 주는 창
+      post /product : 입력완료시 전송해주는 요청
+      put  /product : 수정 요청
+      delete /product : 회원 탈퇴시 삭제 요청
+    </pre>
+  </body>
+</html>
+
+<!-- 
+  데이터를 관계가 있는 속성들끼리 table 처럼 묶어둔다.
+  테이블 간에도 관계가 존재
+ -->

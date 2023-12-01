@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>반복처리문</h1>
+    <div>
+      <pre>
+            for(let a=1; a<=5 ; a++){
+              // 초기식 ; 조건식 ; 증감식
+
+              // 조건식 true일때 처리할 문장
+            }
+            // 조건식 false 일때 다음 문장 처리
+        </pre
+      >
+    </div>
+    <script>
+      for (let a = 1; a <= 5; a++) {
+        console.log("forin", a);
+        // 같은 일을 여러번 하고 싶을 때
+        // a변수의 값을 이용해서 어떤 수식을 만들어 내고 싶을때
+      }
+      // for 종료되면 변수 삭제
+      //console.log("exit ", a);
+
+      // 여러번 같은 일을 처리하고 싶을 때
+      for (let a = 1; a <= 5000; a++) {
+        console.log("Hello", a);
+      }
+      for (let a = 5000; a >= 1; a--) {
+        console.log("Hello", a);
+      }
+
+      // 구구단 a변수의 값을 이용해서 어떤 수식을 만들어 내고 싶을때
+      for (let a = 1; a <= 9; a++) {
+        // console.log("2 * ", a, " = ", 2 * a);
+        // console.log("2 * " + a + " = " + 2 * a);
+
+        let str = `2 * ${a} = ${2 * a}`;
+        console.log(str);
+      }
+
+      // 발전한 여러 for를 사용함
+    </script>
+  </body>
+</html>

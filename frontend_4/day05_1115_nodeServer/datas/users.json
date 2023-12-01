@@ -1,0 +1,17 @@
+[
+  {
+    "firstname": "jemicom",
+    "addr": "합정",
+    "id": 1
+  },
+  {
+    "firstname": "kim",
+    "addr": "신촌",
+    "id": 2
+  },
+  {
+    "firstname": "park",
+    "addr": "홍대",
+    "id": 3
+  }
+]

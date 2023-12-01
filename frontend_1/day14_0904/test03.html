@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0, user-scalable=yes"/>
+    <title>Document</title>
+    <!-- 
+        @(at) 문법 => at rule
+        @media(쿼리)
+
+        각각의 장비에 맞춰서 디자인 새로 하기
+        코드 길어짐
+        desktop wep page => mobile page
+        mobile page => desktop page
+     -->
+     <style>
+        /* mobile design */
+        /* 
+            min-width : 오름차순
+        */
+        body{
+            background-color: pink;
+        }
+
+        @media screen and (min-width:480px){
+            /* 최소사이즈 480px => 480px 이상일때 */
+            body{
+                background-color: skyblue;
+            }
+        }
+        @media screen and (min-width:980px){
+            /* 최소사이즈 980px => 980px 이상일때  */
+            body{
+                background-color: lightgray;
+            }
+        }
+        @media screen and (min-width:1200px){
+            body{
+                background-color: salmon;
+            }
+        }
+     </style>
+</head>
+<body>
+    
+</body>
+</html>

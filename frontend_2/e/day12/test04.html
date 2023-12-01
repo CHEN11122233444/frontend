@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .tabs-container {
+        width: 300px;
+      }
+
+      .tabs-btns > li {
+        border-radius: 10px 10px 0 0;
+        border: 1px solid gray;
+        width: 100px;
+        text-align: center;
+        line-height: 30px;
+      }
+
+      .tabs-contents > div {
+        font-size: 32px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>tabs</h1>
+    <div class="tabs-container">
+      <ul class="tabs-btns flex_between">
+        <li>BTN01</li>
+        <li>BTN02</li>
+        <li>BTN03</li>
+        <li>BTN04</li>
+        <li>BTN05</li>
+        <li>BTN06</li>
+        <li>BTN07</li>
+      </ul>
+      <div class="tabs-contents">
+        <div>content01</div>
+        <div>content02</div>
+        <div>content03</div>
+      </div>
+    </div>
+    <!-- <script>
+      const li1 = document.getElementsByTagName("li")[0];
+      const li2 = document.getElementsByTagName("li")[1];
+      const li3 = document.getElementsByTagName("li")[2];
+      li1.addEventListener("click", function () {
+        let content1 = document.getElementsByTagName("div")[0];
+        content1.style.display = "block";
+      });
+      li2.addEventListener("click", function () { ... });
+      li3.addEventListener("click", function () { ... });
+    </script> -->
+    <script>
+      const lis = document.querySelectorAll(".tabs-btns li");
+      const contents = document.querySelectorAll(".tabs-contents>div");
+
+      console.log(lis, lis.length, lis.length - 1);
+
+      const ary = ["a", "b", "c", "d", "e"];
+      console.log(ary, ary.length);
+      console.log(ary[4], ary[ary.length - 1]);
+
+      // 배열의 데이터를 여러번 사용하고 싶을때
+      for (let a = 0; a <= ary.length - 1; a++) {
+        console.log(ary[a]);
+      }
+    </script>
+    <!-- 
+        tabs, acordion, slider ... 
+        //코드
+     -->
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Date</h1>
+
+
+    <script>
+        const today=new Date();
+        console.log(today);
+        console.log(today.getFullYear());
+        console.log(today.getMonth()); // 0~11 +1 보정 필요
+        console.log(today.getDate());
+        console.log(today.getDay());    // 0일, 1월, 2화, 3수, 4목, 5금, 6토
+        
+        if(today.getDay()===0){
+            console.log('일요일');
+        }else if(today.getDay()===1){
+            console.log('월요일');
+        }else if(today.getDay()===2){
+            console.log('화요일');
+        }else if(today.getDay()===3){
+            console.log('월요일');
+        }else if(today.getDay()===4){
+            console.log('월요일');
+        }else if(today.getDay()===5){
+            console.log('월요일');
+        }else{
+            console.log('토');
+        }
+
+        console.log(today.getHours()); // 24시간제
+        console.log(today.getMinutes());
+        console.log(today.getSeconds());
+
+
+        const birthDay=new Date();
+        birthDay.setFullYear(1996);
+        birthDay.setMonth(5); // +1을 추가한 상태로 인식
+        birthDay.setDate(32); // 28, 29, 30 ,31 (30,31일 넘으면 알아서 1일로 넘어감)
+        console.log(birthDay);
+    </script>
+</body>
+</html>

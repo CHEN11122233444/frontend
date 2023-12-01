@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .button{
+            display: block;
+            width: 200px;
+            height: 50px;
+            border-radius: 10px;
+            margin: 100px 50px;
+            background-color: orange;
+            border: none;
+
+            text-transform: uppercase;
+            font-weight: bold;
+            text-align: center;
+            font-size: 16px;
+            line-height: 50px;
+            
+            position: relative;
+            overflow: hidden;
+        }
+        /* div */
+        div.button::before{
+            content: "button";
+            position: absolute;
+            z-index: 99;
+            color: white;
+        }
+        div.button::after {
+            content: '';
+            display: block;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            transform: rotate(45deg);
+
+            position: absolute;
+            left: -200px;
+            top: -100px;
+            transition: 1s;
+        }
+        div.button:hover::after{
+            left: 200px;
+            top: -100px;
+        }
+        /* button */
+        button.button::before{
+            content: "button";
+            position: absolute;
+            z-index: 99;
+            color: white;
+        }
+        button.button::after {
+            content: '';
+            display: block;
+            width: 200px;
+            height: 200px;
+            border-radius: 200px;
+            background-color: purple;
+
+            position: absolute;
+            left: -200px;
+            top: -100px;
+            transition: 1s;
+        }
+        button.button:hover::after{
+            left: 200px;
+            top: -100px;
+        }
+        /* a */
+       a.button{
+        border-radius: 0;
+       }
+       a>span{
+        position: absolute;
+
+        display: block;
+        width: 0px;
+        height: 0px;
+        background-color: black;
+        transition: 1s;
+       }
+       a>span:nth-child(1),
+       a>span:nth-child(2){
+        left: 0px;
+        top: 0;
+       }
+
+       a>span:nth-child(1){
+        width: 0;
+        height: 2px;
+       }
+       a:hover>span:nth-child(1){
+        width: 100%;
+       }
+       a>span:nth-child(2){
+        width: 2px;
+        height: 0px;
+       }
+       a:hover>span:nth-child(2){
+        height: 100%;
+       }
+
+       a>span:nth-child(3){
+        width: 2px;
+        height: 0px;
+       }
+       a>span:nth-child(4){
+        width: 0px;
+        height: 2px;
+       }
+       a>span:nth-child(3),
+       a>span:nth-child(4){
+        right: 0;
+        bottom: 0;
+       }
+
+       a:hover>span:nth-child(3){
+        height: 100%;
+       }
+       a:hover>span:nth-child(4){
+        width: 100%;
+       }
+    </style>
+</head>
+<body>
+    <div role="button" class="button">button</div>
+    <button class="button">BUTTON</button>
+    <a href="#" class="button">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+</body>
+</html>

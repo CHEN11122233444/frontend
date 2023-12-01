@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Tilt+Prism&display=swap" rel="stylesheet">
+    <!-- 인터넷 불량이면 글꼴이 나타나지 않을 수 있음 
+        font-family: 'Dongle', sans-serif;
+        font-family: 'Tilt Prism', cursive;
+    -->
+    <style>
+         p{
+            font-size: 30px;
+         }
+         i{ font-style: normal;}
+         p:nth-of-type(2)>span{
+            font-style:italic;
+         }
+
+         p:nth-of-type(3){
+            color:rgb( 255, 255, 255);
+            /* 가산혼합 : 모든 색이 혼합되면 흰색, 모든색이 빠지면 검정색 */
+            /* red, green, blue */
+         }
+         p:nth-of-type(4){
+            color:rgb( 255, 0, 0);
+         }
+         p:nth-of-type(5){
+            color:rgb( 0, 125, 0); 
+         }
+         p:nth-of-type(6){
+            color:rgb( 255, 0, 255); 
+         }
+         p:nth-of-type(7){
+            color: #0000FF;
+             /* 16진수 
+                0 1 2 3 4 5 6 7 8 9 10(A) 11(B) 12(C) 13(D) 14(E) 15(F) 
+             */
+         }
+
+         /* 
+            각 사이트 테마를 기본 설정하고 작업하기 
+            폰트칼라
+            강조색
+            보조색
+            기본색(70% 색)
+            폰트강조색
+            배경강조색
+            배경보조색         
+         */
+    </style>
+</head>
+<body>
+    <h1>font</h1>
+    <p><i>HELLO, hello, 1235, 한글은 아름다운 글입니다.</i></p>
+    <p><span>HELLO, hello,</span> 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, he<span>ll</span>o, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+</body>
+</html>

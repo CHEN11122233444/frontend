@@ -1,0 +1,366 @@
+header {
+  height: 502px;
+  background-image: url(../images/visual.jpg);
+  background-color: antiquewhite;
+
+  background-position: center center;
+  background-size: cover;
+
+  margin-bottom: 10px;
+}
+
+.lnb a::before {
+  content: "GoodJob ";
+}
+
+.header {
+  width: 1200px;
+  margin: auto;
+  background-color: white;
+}
+h1 {
+  font-size: 0;
+}
+.bars {
+  display: none;
+}
+.lnb li a {
+  display: block;
+  height: 60px;
+  background-size: cover;
+  color: transparent;
+}
+.lnb li:nth-child(1) a {
+  background-image: url(../images/gnb1.png);
+}
+.lnb li:nth-child(2) a {
+  background-image: url(../images/gnb2.png);
+}
+.lnb li:nth-child(3) a {
+  background-image: url(../images/gnb3.png);
+}
+.lnb li:nth-child(4) a {
+  background-image: url(../images/gnb4.png);
+}
+.lnb li:nth-child(5) a {
+  background-image: url(../images/gnb5.png);
+}
+.lnb li:nth-child(6) a {
+  background-image: url(../images/gnb6.png);
+}
+
+.small__banner {
+  width: 1200px;
+  margin: auto;
+  padding-top: 9em;
+}
+
+section:nth-of-type(1) {
+  width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.2fr 1.2fr;
+  grid-template-rows: 1fr 1.8fr 0.5fr;
+  height: 70vh;
+  gap: 10px;
+
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.box {
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.box01 {
+  background-color: green;
+  background-image: url(../images/picBox1.png);
+}
+.box02 {
+  background-color: rgb(108, 180, 108);
+  background-image: url(../images/picBox2.png);
+}
+.box03 {
+  background-color: rgb(231, 178, 3);
+  background-image: url(../images/picBox3.png);
+}
+.box04 {
+  grid-column: span 2;
+  background-image: url(../images/bgBox4.png);
+  background-position: right bottom;
+}
+.box05 {
+}
+.box06 {
+  grid-column: span 2;
+}
+
+.box06,
+.box07,
+.box08 {
+  border: 1px solid gray;
+}
+.box06 ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+  /* flex 차이점 확인 */
+}
+.box07 {
+  background-image: url(../images/pic71.png);
+}
+.box08 {
+  background-image: url(../images/pic81.png);
+}
+.box09 {
+  grid-column: span 5;
+}
+
+/* 각각 콘텐츠 디자인 */
+/* .box04 table {
+        width: 380px;
+      }
+      .box04 td:nth-child(1) {
+        width: 250px;
+        overflow: hidden;
+      }
+      .box04 td:nth-child(2) {
+        width: 130px;
+        overflow: hidden;
+      }
+      .box04 td > div {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      } */
+
+.box04 h2 {
+  padding: 10px;
+}
+.box04 li a {
+  display: flex;
+  line-height: 2em;
+  cursor: pointer;
+}
+
+.box04 li span:nth-child(1) {
+  width: 350px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.box05 {
+  border: 1px solid gray;
+}
+.box05 h2 {
+  background-image: url(../images/box03_bg.png);
+  background-repeat: no-repeat;
+  height: 100px;
+  background-position: 1em center;
+  text-indent: 4.5em;
+  line-height: 100px;
+}
+
+.box05 li {
+  padding-left: 2em;
+  line-height: 3em;
+}
+.box05 li a {
+  display: flex;
+  align-items: center;
+}
+
+.box05 li span {
+  display: block;
+  margin-left: 1em;
+}
+
+.box09 ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+#different {
+  border-top: 2px solid steelblue;
+  padding: 3em 0;
+}
+
+#different h2 {
+  color: steelblue;
+  margin-bottom: 1em;
+}
+
+.section {
+  width: 1200px;
+  margin: auto;
+}
+.dif-container {
+  display: flex;
+}
+.dif-item > * {
+  margin-bottom: 1em;
+}
+
+footer {
+  background-color: rgb(59, 59, 59);
+}
+
+.footer-sitemap {
+  height: 300px;
+  width: 1200px;
+  margin: auto;
+}
+.bar {
+  width: 100%;
+  border-bottom: 1px solid gray;
+}
+.footer-address {
+  height: 100px;
+  width: 1200px;
+  margin: auto;
+  display: flex;
+}
+
+.footer-address address {
+  color: white;
+  font-style: normal;
+}
+.footer-address {
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  background-color: rgb(68, 68, 68);
+  color: white;
+  padding: 5px 10px;
+}
+
+option {
+  height: 50px;
+}
+@media screen and (max-width: 1250px) {
+  .header {
+    width: 100%;
+  }
+  .small__banner {
+    width: 100%;
+  }
+  .small__banner img {
+    width: 45%;
+  }
+  section:nth-of-type(1) {
+    width: 100%;
+  }
+
+  .section {
+    width: 100%;
+  }
+  .dif-container {
+    gap: 10px;
+  }
+  .section img {
+    width: 100%;
+  }
+  .footer-sitemap {
+    width: 100%;
+  }
+  .footer-address {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  header {
+    height: 400px;
+    /* background-position: -230px 0; */
+    background-position: top right;
+  }
+
+  .header {
+  }
+  .lnb {
+    display: none;
+  }
+  .bars {
+    display: block;
+  }
+  header h1 {
+    margin: auto;
+  }
+
+  section:nth-of-type(1) {
+    height: 100vh;
+    grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
+    grid-template-rows: 1fr 1.5fr 1.5fr 0.5fr;
+  }
+  .box02 {
+    grid-column: span 2;
+  }
+  .box04 {
+    display: none;
+  }
+
+  .box06 {
+    grid-column: span 3;
+  }
+
+  .box07,
+  .box08 {
+    grid-column: span 2;
+  }
+  .box09 {
+    grid-column: span 4;
+  }
+  /* js 이용하면 상황에 따라 클래스 변형이 가능하다. */
+  .box09 ul {
+    justify-content: space-around;
+  }
+  .box09 li:nth-child(4) ~ li {
+    display: none;
+  }
+
+  .section h2 {
+    text-indent: 3em;
+  }
+  .dif-container {
+    flex-wrap: wrap;
+    /* 자식을 배치하기 위한 너비가 부족하면 탈락 */
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .dif-item {
+    /* width: calc(50% - 10px); */
+    width: 400px;
+  }
+
+  .footer-address address {
+    display: none;
+  }
+}
+@media screen and (max-width: 670px) {
+  header {
+    height: 300px;
+    background-position: -500px 0;
+  }
+  section:nth-of-type(1) {
+    grid-template-rows: 1fr 1.5fr 1.5fr;
+  }
+
+  .box01,
+  .box02,
+  .box03 {
+    background-size: 50%;
+  }
+  .box05,
+  .box09 {
+    display: none;
+  }
+  .box06 {
+    grid-column: span 4;
+  }
+}

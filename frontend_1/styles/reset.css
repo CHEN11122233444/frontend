@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
+li{
+    list-style: none;
+}
+
+body{
+    font-size: 12px;
+    font-family: 'Roboto',sans-serif;
+    /* overflow-x: hidden; */
+}
+
+.outbox{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    margin: 50px;
+}
+.inbox{
+    width: 100%;
+    height: 100%;
+    /* 198px */
+    background-color: orange;
+}
+
+/* float된 레이아웃의 문제들 해결 */
+.clearfix::after{
+    content:'';
+    display: block;
+    clear:both;
+}
+
+/* 
+    프레임워크 : 자주 사용하는 디자인을 만들어둔 도구 
+    부트스트랩, antdesign, tailwind....
+*/
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+}
+
+.flex-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-around{
+    display: flex;
+    justify-content: space-around;
+}
+
+/* 
+    클래스를 만들어두면 코딩량이 줄고 개발을 신속하게 할 수 있다.
+*/

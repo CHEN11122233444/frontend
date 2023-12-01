@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overflow</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .content{
+            width: 200px;
+            background-color: #efefef;
+            margin: 50px;
+        }
+        .pure{
+            line-height: 1.5em;
+            height: 4.5em;
+            overflow: hidden;
+            position: relative;
+        }
+        .pure::after{
+            content: '...';
+            position: absolute;
+            bottom: 0;
+            right: 3em;
+        }
+        
+        .lineclamp{
+            display: -webkit-box;
+            /* 반드지 displat를 반드시 -webkit-box 사용 */
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>한줄 만들고....</li>
+        <li>여러줄 생략형 코드....</li>
+        <li>javascrip로....</li>
+    </ul>
+
+    <div class="content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, fuga! Maxime ea doloribus, repudiandae possimus est fugit sequi animi unde rerum reiciendis, illo eveniet magnam non nesciunt beatae nihil porro.
+    </div>
+    <div class="content pure">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, fuga! Maxime ea doloribus, repudiandae possimus est fugit sequi animi unde rerum reiciendis, illo eveniet magnam non nesciunt beatae nihil porro.
+    </div>
+    <div class="content lineclamp">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, fuga! Maxime ea doloribus, repudiandae possimus est fugit sequi animi unde rerum reiciendis, illo eveniet magnam non nesciunt beatae nihil porro.
+    </div>
+    <div class="content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, fuga! Maxime ea doloribus, repudiandae possimus est fugit sequi animi unde rerum reiciendis, illo eveniet magnam non nesciunt beatae nihil porro.
+    </div>
+</body>
+</html>

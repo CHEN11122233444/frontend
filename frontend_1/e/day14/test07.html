@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- gradient 배경으로 grid 그려 두고 작업 할 수 있음   -->
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .container{
+            width:1200px; 
+            margin: auto;
+            background-color: pink;
+
+            display: grid; 
+            height: 120vh;
+
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 3fr 1fr ;
+        }
+
+        header{  
+            background-color: red;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1{
+            height: 100px;
+            margin-bottom: 100px;
+        }
+        nav ul{
+            display: flex;
+            flex-direction: column;
+            
+        }
+        section{  
+            background-color: cyan;
+        }
+        aside{  
+            background-color: lightgreen;
+        }
+        footer{ 
+            grid-column: span 3; 
+            background-color: coral;
+        }
+
+        @media screen and (max-width:1250px) {
+            .container{width:98%;}
+        }
+        @media screen and (max-width:1024px) {
+            .container{
+                grid-template-rows: 3fr 1fr 1fr;
+            }
+            section{ 
+                grid-column: span 2;
+            }
+            aside{
+                grid-column: span 3;
+            }
+        }
+        @media screen and (max-width:970px) {
+            
+        }
+        @media screen and (max-width:480px) {
+             .container{
+                display: block;
+                /* flex, grid => block 세로로 나란히 배열  */
+             }
+             header{
+                height: 100px;
+                flex-direction: row;
+                /* align-items: normal;
+                justify-content: center; */
+             }
+
+             h1{
+                height: auto;
+                margin-bottom: 0;
+             }
+             
+             nav ul{
+                flex-direction: row;
+             }
+             section{
+                height: 500px;
+             }
+             aside{
+                height: 500px;
+             }
+             footer{
+                height: 100px;
+             }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- javascript로 제어하면 class로 제어할 수 있음  -->
+            <h1>logo</h1>
+            <nav>
+                <ul >
+                    <li><a href="#">menu</a></li>
+                    <li><a href="#">menu</a></li>
+                    <li><a href="#">menu</a></li>
+                    <li><a href="#">menu</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section></section>
+        <aside></aside>
+        <footer></footer>
+    </div>
+</body>
+</html>

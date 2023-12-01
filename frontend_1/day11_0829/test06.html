@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        /* header{
+            background-color: skyblue;
+        } */
+        header>*{
+            width: 1440px;
+            margin: auto;
+        }
+        .site_btn_group a{
+            display: block;
+            float: left;
+            padding: 5px 10px;
+            background-color: pink;
+        }
+
+        .lnb>ul,
+        .gnb>ul{
+            float: right;
+        }
+        .lnb li,
+        .gnb li{
+            float: left;
+        } 
+
+        .gnb a,
+        .lnb a{
+            display: block; padding: 5px 2px;
+        }
+
+        /* .lnb a::after, */
+        .gnb a::after{
+            content: ' | ';
+            /* entity code 찾아서 넣으면 넓힐 수 있음  */
+            color: red;
+        }
+
+        /* .lnb li:last-child a::after, */
+        .gnb li:last-child a::after{
+            content:' ';
+        }
+        .lnb{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .lnb li{padding: 0.3rem 1.3rem;}
+        
+        .lnb a{
+            padding: 10px 20px;
+        }
+        .lnb a:hover{
+            background-color: orange;
+            border-radius: 1.5rem;
+        }
+
+        .main_banner{
+            width: 100%;
+            height: 600px;
+            background-color: skyblue;
+        }
+        
+        section{
+            padding: 100px 0;
+        }
+        .content_menu{
+            width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+        .content_menu>h2{
+            text-transform: uppercase;
+            padding: 50px;
+        }
+        
+        .content_menu>ul>li{
+            float: left;
+            width: 300px;
+            height: 300px;
+            margin-left: calc((1200px - 300px * 3) / 4) ;
+            /* 전체 section의 너비에서 li 너비를 빼고 필요한 공간을 나눔 */
+        }
+
+        .content_menu a::before{
+            content: 'new';
+            display: block;
+            width: 60px;
+            height: 60px;
+            background-color: black;
+            color: white;
+            border-radius: 60px;
+            line-height: 60px;
+            text-transform: capitalize;
+        }
+        .content_menu a::after{
+            display: block;
+            width: auto;
+            height: 40px;
+            background-color: orange;
+            color: white;
+            border-radius: 60px;
+            line-height: 40px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .content_menu li:nth-child(1) a::after{
+            content: '[기간한정]허니오리지날+레드볶음면';
+        }
+        .content_menu li:nth-child(2) a::after{
+            content: '허니맵떡세트';
+        }
+        .content_menu li:nth-child(3) a::after{
+            content: '허니점보윙';
+        }
+        
+        .event-contents{
+            height: 600px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <header class="clearfix">
+        <div class="site_btn_group clearfix">
+            <a href="#">시골치킨</a>
+            <a href="#">시골F&amp;B</a>
+        </div>
+        <nav class="gnb clearfix">
+            <ul>
+                <li><a href="#">고객센터</a></li>
+                <li><a href="#">사이트맵</a></li>
+                <li><a href="#">가맹점 개설안내</a></li>
+            </ul>
+        </nav>
+        <h1>시골치킨 1987</h1>
+        <nav class="lnb clearfix">
+            <ul>
+                <li><a href="#">메뉴</a></li>
+                <li><a href="#">매장안내</a></li>
+                <li><a href="#">이벤트</a></li>
+                <li><a href="#">주문</a></li>
+                <li><a href="#">E-쿠폰</a></li>
+                <li><a href="#">교촌스토리</a></li>
+            </ul>
+        </nav>
+        <div class="main_banner">
+            
+        </div>
+    </header>
+    <!-- 가상의 방어벽 -->
+
+    <section class="content_menu clearfix">
+        <h2>menu</h2>
+        <ul>
+            <li>
+                <a href="">
+                    <img src="http://placekitten.com/150/150" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="http://placekitten.com/150/160" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="http://placekitten.com/160/150" alt="">
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="event-contents">
+
+    </section>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const user = {
+        name: "kim",
+        age: 30,
+        addr: "마포구",
+      };
+
+      console.log(Object.keys(user)); // 유사배열
+      console.log(Object.values(user)); // 유사배열
+      console.log(Object.entries(user)); // 유사배열
+
+      const keys = Object.keys(user);
+      keys.forEach((key) => {
+        console.log(key);
+      });
+
+      // 객체의 값을 출력하기 위한 for
+      for (let key in user) {
+        console.log(key, user[`${key}`]); // 순서는 아무렇게나
+      }
+
+      const user4 = {
+        firstName: "jemicom",
+        "last-name": "kim",
+      };
+
+      // 속성명은 숫자, 문자열, 특수문자를 포함했다면 "" 반드시 필요
+      console.log(user4.firstName);
+      //console.log(user4."last-name"); // 불가
+      console.log(user4["last-name"]); // 가능
+
+      let x = 10;
+      let y = 20;
+
+      const obj1 = {
+        x: x,
+        y: y,
+      };
+      console.log(obj1);
+
+      // object에서 키값과 value가 같은 경우 value 생략 할 수 있음
+      const obj2 = { x, y };
+      console.log(obj2);
+    </script>
+  </body>
+</html>

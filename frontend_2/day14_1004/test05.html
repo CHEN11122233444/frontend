@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .callapse{
+            width: 500px;
+            margin: 50px;
+        }
+
+        .title{
+            height: 40px;
+            line-height: 40px;
+            background-color: pink;
+            /* text-indent: 1em; */
+            padding: 0 1em;
+            cursor: pointer;
+        }
+        .title i{
+            font-style: normal;
+        }
+        .content{
+            height: 0px;
+            background-color: skyblue;
+            overflow: hidden;
+            /* padding: 20px; */
+            transition: 0.5s;
+        }
+        .content>div{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="callapse">
+        <div class="title"><i>TITLE </i><span>▼</span></div>
+        <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab reprehenderit, culpa nostrum ratione ex blanditiis saepe inventore maxime aliquid illum beatae! Ratione nobis consequatur quia. Repellendus voluptas assumenda accusamus ipsam.
+        </div>
+    </div>
+    <script>
+        let callapseTitle=document.querySelector('.callapse>.title');
+        let callapseToggle=false;
+
+        callapseTitle.addEventListener('click',()=>{
+            let callapseContent=document.querySelector('.callapse>.content');
+            let callapseIcon=document.querySelector('callapse>.title>span');
+
+            if(!callapseToggle){
+                callapseContent.style.height='100px';
+                callapseIcon.innerHTML='▲';
+            }
+            else{
+                callapseContent.style.height='0px';
+                callapseIcon.innerHTML='▼';
+
+            }
+            callapseToggle=!callapseToggle;
+            console.log(callapseToggle);
+        });
+    </script>
+</body>
+</html>

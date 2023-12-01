@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .bg{
+            width: 500px;
+            height: 300px;
+            background-color: aqua;
+
+            background-image: url(images/topbg1.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        @media screen and (min-width:600px) {
+            .bg{
+            width: 100%;
+            background-color: aqua;
+
+            background-image: url(images/topbg2.png);
+          }
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        이미지 사용법
+        배경이미지로 사용하거나
+        img태그를 이용하거나 : transform, position 레이아웃 사용 가능
+    </div>
+
+    <div class="bg">
+        
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>

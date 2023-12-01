@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docment</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        select{
+            /* appearance: none; */
+        }
+    </style>
+</head>
+<body>
+    <select name="" id="select_local">
+        <option value="0">시/도</option>
+    </select>
+    <select name="" id="select_dong">
+        <option value="0">시/군/구</option>
+    </select>
+
+    <script>
+        const local=[
+            {    
+                value:'seoul' ,
+                local:'서울',
+                dong:[
+                    {
+                        value:'0',
+                        dong:'종로구',
+                    } ,
+                    {
+                        value:'1',
+                        dong:'중구',
+                    } ,
+                    {
+                        value:'2',
+                        dong:'용산구',
+                    } 
+                ]
+            },
+            
+            {    
+                value:'busan' ,
+                local:'부산',
+                dong:[
+                    {
+                        value:'0',
+                        dong:'영도구',
+                    },
+                    {
+                        value:'1',
+                        dong:'부산진구',
+                    },
+                    {
+                        value:'2',
+                        dong:'동래구',
+                    },
+                ]
+            },
+            {    
+                value:'daegu' ,
+                local:'대구',
+                dong:[
+                    {
+                        value:'0',
+                        dong:'중구',
+                    },
+                    {
+                        value:'1',
+                        dong:'서구',
+                    },
+                    {
+                        value:'2',
+                        dong:'동구',
+                    },    
+                ]
+            },
+            {    
+                value:'incheon' ,
+                local:'인천',
+                dong:[
+                    {
+                        value:'0',
+                        dong:'연수구',
+                    },
+                    {
+                        value:'1',
+                        dong:'부평구',
+                    },
+                    {
+                        value:'2',
+                        dong:'계양구',
+                    },
+               ]
+            }
+        ];
+
+        function optionAdd(select,ary,attr){ 
+            // ary=local, ary=local[].dong
+            for(let a=0;a<ary.length;a++){
+            const str=`<option value="${ary[a].value}">${ary[a][attr]}</option>`;
+            select.insertAdjacentHTML('beforeend',str);
+            }
+        }
+        optionAdd(select_local,local,'local');
+       
+        select_local.addEventListener('click',(event)=>{
+            console.log(select_local.value,event.target.value);
+
+            const search=select_local.value;
+            local.forEach(lo=>{
+                if(lo.value===search){
+                    console.log(lo.dong);
+                    const dongs=lo.dong;
+
+                    select_dong.innerHTML='';
+                    select_dong.insertAdjacentHTML(
+                        'beforeend',
+                        `<option value="0">${lo.local}</option>`
+                    );
+
+                    // optionAdd()를 활용하려면
+                    optionAdd(select_dong,lo.dong,'dong');
+                    // lo.dong.forEach((dong)=>{
+                    //     const str=`<option value="${dong}">${dong}</option>`;
+                    //     select_dong.insertAdjacentHTML('beforeend',str);
+
+                    // });
+
+                };
+            })
+        });
+    </script>
+</body>
+</html>
+
+<!-- 
+    API : 앱, 웹 = 필요한 데이터, 프로그램
+    openAPI : 아무나 무료로 사용할 수 있는 데이터
+    naver, google, kakao => 키값을 발급받은 개발자만 무료, 유료
+    https://apis.map.kakao.com/
+ -->

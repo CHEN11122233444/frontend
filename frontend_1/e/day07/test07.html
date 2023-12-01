@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 12px;
+            word-spacing: 0.6em;
+            letter-spacing: 0.05em;
+            /* 
+                12px = 1em; 
+                24px = 1em; 
+                알파벳 M
+            */
+        }
+
+        div{
+            width: 600px;
+            /* margin-left:auto;
+            margin-right:auto; */
+            margin: 0 auto;
+        }
+        
+        div:nth-child(1) p:nth-of-type(1),
+        div:nth-child(1) p:nth-of-type(2),
+        div:nth-child(2) p:nth-of-type(1){
+            line-height: 2;
+        }
+
+        h2{
+            font-size: 16px;
+            /* 16px = 1em : 현재 요소기준의 M문자의 비율 */
+            letter-spacing: -0.01rem;
+            /* 12px = 1rem : root , body 기준 M문자의 비율*/
+            font-weight: 600;
+        }
+
+        h2>span:nth-child(1){ color:darkorange;}
+        h2>span:nth-child(2){ color:lightgrey;}
+
+        p{ 
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+
+        ol{
+            margin-bottom: 40px;
+        }
+
+        ol+p{
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .blue{
+            color:#0667ef;
+        }
+
+        .itailc{
+            font-style: italic;
+        }
+        
+        .align{
+            float:left; 
+            margin-right: 10px;
+        }
+        /* .align+p{ 
+            display: inline-block;
+            width:200px;
+        } */
+    </style>
+</head>
+<body>
+   <div>
+       
+       <h2><span>Special</span><span> | </span> Who's DEAN; Indigo Child</h2>
+       <p>
+            "인디고 차일드" DEAN. 21살의 어린 나이에 EXO, VIXX 등 국내 아티스트들의 앨범에 작곡/작사가로 참여하며 먼저 작곡가로서 입지를 굳혔고, 이후 미국과 한국을 오가며 프로듀서로 활동했다. 에릭 벨린저(Eric Bellinger), 밀라 제이(Mila J), DJ 에스타(esta.) 등 유명 아티스트들과 작업한 곡들을 공개하며 미국에서 먼저 화제를 모았다. 2015년 유니버설 뮤직과 계약을 체결, US데뷔 싱글 I'm Not Sorry(feat, Eric Bellinger)'가 미국과 영국에서 먼저 발매되었다. 
+        </p>
+       
+       <h3>#. 인디고 차일드?</h3>
+       <p>
+            인류문명의 발전을 위해 외계에서 보내진 아이들이라 믿어지는 인물들을 일컫는 말로, 주로 음악/미술 등 예술 분야에 특별한 재능을 가진 경우가 많다고 알려져 있다.
+       </p>
+       
+       <h3>
+            <span class="blue">Indigo child</span> 
+            (<span class="itailc">plural</span> 
+            <span class="blue">Indigo children</span>)
+       </h3>
+       <ol>
+           <li>
+                (New Age) A child believed to be a next stage in human evolution; to have paranormal abilities like telepathy; and/or to be more empathic, independent, and creative than its peers.
+            </li>
+       </ol>
+       
+       <p>자료제공 : 유니버설뮤직 | 구성 : 네이버 뮤직</p>
+   </div>
+
+    <div>
+        <h2><span>Album</span><span> | </span>디지털 싱글 'I'm Not Sorry'</h2>
+        <img class="align" src="./인디고밴드/ex1_text.png" alt="">
+        <p>
+            DEAN의 US데뷔싱글. 근래 한국에서도 많이 회자되고 있는 에릭 벨린저(Eric Bellinger)가 참여한 곡으로, 7월 10일 미국과 영국에서 먼저 발매되어 'This is50.com'과 'Allhiphop.COM' 등의 매체에 소개되며 호평 받았다.
+        </p>
+    </div>
+</body>
+</html>

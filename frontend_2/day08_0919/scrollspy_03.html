@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrollspy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            padding-top: 60px;
+            /* 메뉴만큼 높이 공백 */
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            width: 100%;
+            background-color: skyblue;
+            top: 0;
+            padding: 10px;
+        }
+
+        nav>ul {
+            display: flex;
+            list-style: none;
+            gap: 50px;
+        }
+
+        nav>ul a:is(:link, :active, :visited).active {
+            background-color: white;
+        }
+
+        nav>ul a:is(:link, :active, :visited) {
+            display: block;
+            padding: 5px 10px;
+        }
+
+        section {
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">home</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#skills">skills</a></li>
+                <li><a href="#work">work</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- 
+        elements에서 다음 section을 선택하면 $0요소로 표시 
+        console에서 $0.offsetTop 등을 확인할 수 있음 
+     -->
+    <section id="home">
+        <h1>home</h1>
+    </section>
+    <section id="about">
+        <h1>about</h1>
+    </section>
+    <section id="skills">
+        <h1>skills</h1>
+    </section>
+    <section id="work">
+        <h1>work</h1>
+    </section>
+    <section id="contact">
+        <h1>contact</h1>
+    </section>
+
+
+    <script>
+        let sections = document.querySelectorAll('section');
+        let navLinks = document.querySelectorAll('nav>ul a');
+
+        let currentActive = "home";
+        window.addEventListener('scroll', () => {
+            // 스크롤때마다 section확인
+            sections.forEach(section => {
+                // if (window.scrollY >= section.offsetTop - 120) {
+                // 다음 콘텐츠 보이고 싶은 비율만큼 120 보정 // 지금은 그냥 해둔 것임
+                if (window.scrollY >= section.offsetTop - section.clientHeight / 4) {
+                    // 콘텐츠 높이를 이용하여 active 표시 
+                    /// 콘텐츠가 반 정도 보이면 /2, 1/4 보이면 4
+                    currentActive = section.id;
+                }
+            })
+
+            navLinks.forEach(link => {
+                if (link.href.includes(currentActive)) {
+                    document.querySelector('.active')?.classList.remove('active');
+                    link.classList.add('active');
+                }
+            })
+        }) 
+    </script>
+</body>
+
+</html>

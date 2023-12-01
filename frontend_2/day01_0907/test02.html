@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hover</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 50px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 24px;
+        }
+
+        .box>div{
+            width: 100%;
+            height: 100%;
+            background-color: orange;
+        }
+
+        .box01>div:hover{
+            transform: translateX(100px);
+            /* margin-left: 100px; */
+        }
+        .box02:hover>div{
+            transform: translateY(10px);
+        }
+        .box03:hover>div{
+            transform: translateX(10px) translateY(10px);
+            /* x축으로 이동 후 y축으로 이동 */
+        }
+        .box04:hover>div{
+            transform: translate(-10px,-10px);
+        }
+        .box05:hover>div{
+            transform: rotate(45deg);
+            /* 중심점 : center center */
+        }
+        .box06>div{
+            transform-origin: left top ;
+            transform: rotate(35deg);
+        }
+        .box07>div{
+            transform-origin: right bottom;
+            transform: rotate(35deg);
+        }
+        .box08>div{
+            transform-origin: 75% 75%;
+            transform: rotate(35deg);
+        }
+        .box09>div{
+            transform: skewX(30deg);
+        }.box10>div{
+            transform: skewY(30deg);
+        }
+        .box11:hover>div{
+            transform-origin: left top;
+            transform: skewX(30deg);
+        }
+        .box12:hover>div{
+            transform-origin: right top;
+            transform: skewY(30deg);
+        }            
+        .box13:hover>div{
+            transform: scale(1.2);
+        }
+        .box14:hover>div{
+            transform: scaleX(1.2);
+        }
+        .box15:hover>div{
+            transform: scale(1.2);
+        }
+        .box16:hover>div{
+            transform: scaleX(1.2);
+            transform-origin: left top;
+        }
+        .box17:hover>div{
+            transform: scale(-0.8);
+        }
+        .box18:hover>div{
+            transform: scaleX(-1.2);
+            transform-origin: left top;
+        }
+        .box18~.box{
+            /* overflow: hidden; */
+        }
+        .box19>div{
+            transform: translateX(-200px);
+            transition-duration: 1s;
+            /* transition을 기본에 설정하면 양방향 애니메이션 */
+        }
+        .box19:hover>div{
+            transform:translateX(0)
+        }
+        .box20>div{
+            transform: rotate(0);
+            /* transition-duration: 1s; */
+        }
+        .box20:hover>div{
+            transform: rotate(1turn);
+            transition-duration: 1s;
+            /* transition을 hover에 설정하면 단방향 애니메이션 */
+        }
+        .box21>div{
+            transform: rotate(0);
+            transition-duration: 1s;
+            transition-delay: 1s;
+            /* 지연 시간 */
+        }
+        .box21:hover>div{
+            transform: rotate(1turn);
+        }
+        .box22>div{
+            transform: rotate(0);
+            transition-duration: 1s;
+            transition-delay: 1s;
+            transition-property: width;
+            /* 
+                애니메이션 될 속성, 생략 all
+                all 속성을 직접 사용할 수도 있음 
+            */
+        }
+        .box22:hover>div{
+            transform: rotate(1turn);
+            width: 200%;
+        }
+        .box23>div{
+            transition-duration: 1s;
+            transition-property: background;
+    
+        }
+        .box23:hover>div{
+            width: 200%;
+            background-color: blue;
+        }
+        .box24>div{
+            box-shadow: 0 0 0 black;
+            transition: all 1s 1s;
+                        /* all 실행 delay */
+        }           
+        .box24:hover>div{
+            box-shadow: 0 0 20px black;
+        }
+        .box25>div{
+            box-shadow: 0 0 0 black;
+            transition: 1s;
+        }           
+        .box25:hover>div{
+            box-shadow: 0 0 0px black,
+                        1px 1px 0 1px black,
+                        2px 2px 0 1px black,
+                        3px 3px 0 1px black,
+                        4px 4px 0 1px black,
+                        5px 5px 0 1px black;
+        }
+        .box26>div{
+            /* border-radius: 100px; */
+            transition: 1s;
+        }
+        .box26:hover>div{
+            border-radius: 100px;
+        }
+        .box27>div{
+            /* reset.css의 box-sizing:border-box때문에 */
+            line-height: 180px;
+            /* 200px - 10px - 10px  위와 아래의 borde 빼기 */
+            border: 0px solid black;
+            transition: 1s;
+        }
+        .box27:hover>div{
+            border-right-style: 180px;
+            border-color: red;
+            border-width: 10px;
+        }
+
+        .box28>div{
+            transition: 2s;
+            transform-origin: left top;
+
+            /* transform-origin: center center; */
+        }
+        .box28:hover>div{
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>transform</li>
+        <li>@keyframes</li>
+        <li>setInterval</li>
+        <li>requestAnimationFrame</li>
+        <li>observer</li>
+    </ul>
+    
+    <div class="box box01">
+        <div>box01</div>
+    </div>
+    <div class="box box02">
+        <div>box02</div>
+    </div>
+    <div class="box box03">
+        <div>box03</div>
+    </div>
+    <div class="box box04">
+        <div>box04</div>
+    </div>
+    <div class="box box05">
+        <div>box05</div>
+    </div>
+    <div class="box box06">
+        <div>box06</div>
+    </div>
+    <div class="box box07">
+        <div>box07</div>
+    </div>
+    <div class="box box08">
+        <div>box08</div>
+    </div>
+    <div class="box box09">
+        <div>box09</div>
+    </div>
+    <div class="box box10">
+        <div>box10</div>
+    </div>
+    <div class="box box11">
+        <div>box11</div>
+    </div>
+    <div class="box box12">
+        <div>box12</div>
+    </div>
+    <div class="box box13">
+        <div>box13</div>
+    </div>
+    <div class="box box14">
+        <div>box14</div>
+    </div>
+    <div class="box box15">
+        <div>box15</div>
+    </div>
+    <div class="box box16">
+        <div>box16</div>
+    </div>
+    <div class="box box17">
+        <div>box17</div>
+    </div>
+    <div class="box box18">
+        <div>box18</div>
+    </div>
+    <div class="box box19">
+        <div>box19</div>
+    </div>
+    <div class="box box20">
+        <div>box20</div>
+    </div>
+    <div class="box box21">
+        <div>box21</div>
+    </div>
+    <div class="box box22">
+        <div>box22</div>
+    </div>
+    <div class="box box23">
+        <div>box23</div>
+    </div>
+    <div class="box box24">
+        <div>box24</div>
+    </div>
+    <div class="box box25">
+        <div>box25</div>
+    </div>
+    <div class="box box26">
+        <div>box26</div>
+    </div>
+    <div class="box box27">
+        <div>box27</div>
+    </div>
+    <div class="box box28">
+        <div>box28</div>
+    </div>
+    <div class="box box29">
+        <div>box29</div>
+    </div>
+    <div class="box box30">
+        <div>box30</div>
+    </div>
+</body>
+</html>

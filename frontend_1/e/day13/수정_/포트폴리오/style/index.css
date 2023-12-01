@@ -1,0 +1,114 @@
+.wrapper {
+    width: 100%;
+    margin: auto;
+}
+
+header {
+    width: 1200px;
+    height: 50px;
+    margin: 0 auto;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu_bar ul{
+    display: flex;
+    gap: 80px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.menu_bar li{
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.menu_bar li:hover {
+    /* color: #fff; */
+    color: rgb(38, 193, 237);
+    /* background-color: rgb(38, 193, 237); */
+    transition: 0.4s;
+}
+
+
+
+.info {
+    width: 60px;
+    height: 60px;
+    background-color: rgb(38, 193, 237);
+    text-align: center;
+    border-radius: 50%;
+}
+
+.info a>img {
+    position: relative;
+    top: 10px;
+}
+
+.info:hover {
+    background-color: rgb(255, 63, 63);
+    transition: 0.4s;
+}
+
+.info p {
+    position: relative;
+    top: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* == main == */
+
+.main_bg {
+    width: 100%;
+    height: 510px;
+    background-color: #92D5E2;
+    margin: auto;
+}
+
+.main_banner {
+    width: 1200px;
+    height: 100%;
+    margin: auto;
+}
+
+.main_text {
+    font-size: 16px;
+    position: relative;
+    top:150px;
+    left: 50px;
+}
+
+.main_text h1 {
+    font-size: 45px;
+    color: #fff;
+    letter-spacing: -0.08em;
+}
+
+.main_text p,
+.main_text ul {
+    font-size: 25px;
+    color: #fff;
+    letter-spacing: -0.08em;
+}
+
+
+
+
+.main_img {
+    width: 500px;
+    height: 500px;
+    background-image: url(../images/clock_bg.png);
+    background-size: cover;
+    position: relative;
+    left: 600px;
+    bottom: 380px;
+}

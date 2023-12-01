@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- design 변경하여 사용한다. 구조는 변경되지 않음
+        참고 사이트는 건강보험공단
+    -->
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        header{
+            position: fixed;
+            width:200px; 
+            height: 100vh;
+            background: skyblue;
+        }
+        h1{
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .lnb{
+            padding:10px;
+            line-height: 3em;
+            width: 220px;
+            /* background-color: antiquewhite; */
+        }
+        .submenu{
+            display: none;
+        }
+        .lnb>ul>li:hover .submenu{
+            display: block;
+        }
+
+        /* design 변경 */
+        .lnb>ul>li{
+            /* position: relative; */
+        }
+        header{
+            /* position: relative; */
+        }
+        .lnb{
+            position: relative;
+        }
+        .submenu{
+            position: absolute;
+            background-color: orange;
+            /* top:200px; */
+            top:-10px;
+            left: 200px; 
+            width:200px; 
+            height: 15em;
+        }
+
+        .lnb a{
+            display: block;
+            text-indent: 2em;
+        }
+        .lnb a::before{
+            content:'💜';
+            position: absolute;
+            left: -1em;
+        }
+        .lnb a:hover::before{
+            content:'💛'; 
+        }
+        .submenu a{
+            text-indent: 3em;
+        }
+        .submenu a::before{
+            left: -1.8em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>로고</h1>
+        <nav class="lnb">
+            <ul>
+                <li>
+                    <a href="#">이용안내</a>
+                    <ul class="submenu">
+                        <li><a href="#">이용방법</a></li>
+                        <li><a href="#">이용시간</a></li>
+                        <li><a href="#">이용요금</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">이벤트정보</a>
+                    <ul class="submenu">
+                        <li><a href="#">현장이벤트</a></li>
+                        <li><a href="#">온라인이벤트</a></li>
+                        <li><a href="#">이벤트예약</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">프로그램</a>
+                    <ul class="submenu">
+                        <li><a href="#">프로그램안내</a></li>
+                        <li><a href="#">온라인예약</a></li>
+                        <li><a href="#">단체예약상담</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">고객센터</a>
+                    <ul class="submenu">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">자주묻는질문</a></li>
+                        <li><a href="#">자료실</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

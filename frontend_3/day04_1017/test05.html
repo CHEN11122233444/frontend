@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+
+
+    </style>
+</head>
+<body>
+    <h1>썸네일을 클릭하면 이미지 보이기</h1>
+    <div class="content_img">
+        <img src="./slideImg/0.jpg" alt="" 
+            data-src="./slideImg/0.jpg">
+    </div>
+    <div class="thumbs">
+        <div>
+            <img src="./slideImg/thumb0.jpg" alt="" data-src="./slideImg/0.jpg">
+        </div>
+        <div>
+            <img src="./slideImg/thumb1.jpg" alt="" data-src="./slideImg/1.jpg">
+        </div>
+        <div>
+            <img src="./slideImg/thumb2.jpg" alt="" data-src="./slideImg/2.jpg">
+        </div>
+        <div>
+            <img src="./slideImg/thumb3.jpg" alt="" data-src="./slideImg/3.jpg">
+        </div>
+        <div>
+            <img src="./slideImg/thumb4.jpg" alt="" data-src="./slideImg/4.jpg">
+        </div>
+        <div>
+            <img src="./slideImg/thumb5.jpg" alt="" data-src="./slideImg/5.jpg">
+        </div>
+    </div>
+
+    <script>
+        const thumbs=document.querySelectorAll('.thumbs img');
+
+        thumbs.forEach(thumb=>{
+            thumb.addEventListener('click',()=>{
+                const path=thumb.getAttribute('data-src');
+                console.log(path);
+
+                const img=document.querySelector('.content_img img');
+                img.setAttribute('src',path);
+
+                // search 출력
+                console.log(path.includes('5'));
+                // string 문자열에서 특정 문자열 포함 여부 출력
+                // contains 클래스 찾기
+            });
+        });
+    </script>
+</body>
+</html>

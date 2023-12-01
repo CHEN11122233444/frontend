@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>천문우주지식정보</title>
+    <style>
+        html{
+            /* height: 100%; */
+            /* background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%); */
+        }
+        
+        .header_wrap{
+            /* background-color: antiquewhite; */
+
+            width: 1800px;
+            height: 40px;
+        }
+        .header_grab{
+            /* background-color: skyblue; */
+
+            height: 40px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+
+            position: relative;
+        }
+        li{
+            list-style: none;
+        }
+        .lnb>a{
+            color: black;
+            font-weight: 600;
+            text-decoration-line: none;
+        }
+        .lbn>a:hover{
+            cursor: pointer;
+        }
+
+        h1{
+            /* background-color: green; */
+
+            margin: 0 auto;
+            height: 40px;
+
+            position: absolute;
+            left: 20%;
+        }
+    
+        .gnb{
+            /* background-color: yellow; */
+
+            margin: 0 auto;
+            height: 40px;
+        }
+        .gnb>ul:first-child{
+            background-color: purple;
+            height: 40px;
+
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+
+            position: absolute;
+            right: 15%;
+            
+        }
+        .lnb{
+            padding: 10px 20px;
+            position: relative;
+        }
+        .submenu{
+            font-size: auto;
+            position: absolute;
+            /* width: 200px; */
+        }
+        .header_btn{
+            /* background-color: pink; */
+            height: 20px;
+            padding: 10px 30px;
+
+            position: absolute;
+            right: 0%;
+        }
+        .header_btn>a{
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header_wrap">
+        <div class="header_grab">
+            <h1><a href="https://astro.kasi.re.kr/index" class="navbar"><img src="/portfolio/images_1/main_logo.png" alt="main_logo" height="40px" ></a></h1>
+            <nav class="gnb">
+                <ul class="">
+                    <li class="lnb">
+                        <a href="https://astro.kasi.re.kr/life/pageView/39">생활천문관</a>
+                        <ul class="submenu">
+                            <li><a href="#">음양력변환계산</a></li>
+                            <li><a href="#">월별 음양력</a></li>
+                            <li><a href="#">달력자료(월력요항)</a></li>
+                            <li><a href="#">일출일몰시각계산</a></li>
+                            <li><a href="#">월별 해/달 출몰시각</a></li>
+                            <li><a href="#">태양 고도/방위각계산</a></li>
+                            <li><a href="#">월별 천문현상</a></li>
+                        </ul>
+                    </li>
+                    <li class="lnb">
+                        <a href="#">천문학습관</a>
+                    </li>
+                    <li class="lnb">
+                        <a href="#">천문기록관</a>
+                    </li>
+                    <li class="lnb">
+                        <a href="#">공공데이터</a>
+                    </li>
+                    <li class="lnb">
+                        <a href="#">천문지식참여</a>
+                    </li>
+                    <li class="lnb">
+                        <a href="#">정보공개&활용</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header_btn">
+                <a href=""><img src="/portfolio/images_1/main_header_ico_sitemap.png" alt="사이트맵 바로가기"></a>
+                <a href=""><img src="/portfolio/images_1/main_header_ico_search.png" alt="통합검색 바로가기"></a>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
+
+
+<!-- 
+    GNB : Global Navigation Bar - 웹사이트 최상단, 어떤 페이지를 클릭해도 동일하게 표시, 메인 메뉴, 모든 서비스
+    LNB : Local Navigation Bar - GNB의 하위 카테고리, 특정 페이지로 연결되는 링크, 서브 메뉴
+ -->

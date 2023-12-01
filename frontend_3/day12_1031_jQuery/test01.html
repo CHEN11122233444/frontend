@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{})
+
+        $(function(){
+            // jquery는 자바스크립트로 만든 도구이므로 자바스크립트만 사용해도 상관없다
+        })
+    </script>
+</head>
+<body>
+    <h1>jQuery</h1>
+    <div>javascript 불편한 점을 보강한 js라이브러리 = 도구</div>
+    <div class="container"></div>
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+    <div class="box">box4</div>
+    <div class="box">box5</div>
+    <pre>
+        https://jquery.com/
+        https://cdnjs.com/ : js 라이브러리 모음 사이트
+        https://www.npmjs.com/
+    </pre>
+    <script>
+        // 괄호 보기 불편하므로 $(function(){})
+        // 주의 : 이벤트 핸들러 함수는 화살표 함수 사용하지 말 것
+
+        const $h1 = $('h1'); // js코딩시에도 선택자변수, 값변수를 구분하기 위해서 '$'를 붙이면 선택자변수로 인식
+
+        $('h1').html('한글은 아름다운 글입니다.');
+        $('.container').text('<b>콘테이너에 추가</b>') // innerText
+        $('.container').html('<b>콘테이너에 추가</b>') // innerHTML
+
+        $('.container>b').css('color','red'); 
+        $('.container>b').css('background-color','yellow'); 
+        // 선택자 그대로 사용 가능
+        // 속성은 js타입으로 카멜케이스를 사용하거나 
+        // css 타입으로 스네이크 케이스를 사용 가능
+
+        $('.container').append('<div class="box">박스</div>');
+        $('.box').css({
+            color: 'pink',
+            'background-color': 'green' // = backgroundColor(따옴표 없이 사용)
+        });
+        // js 배열로 사용해서 인덱스 번호 필요
+        // 첫번째만 처리 
+        // 모두 처리하려면 for문
+
+        $('.box').eq(0).css('font-size','36px');
+        // px 버전에 따라서 생략 불가, 생략 가능할 수 있으나 
+        // 생략하지 말고 사용하기
+
+        $('.box').eq(1).attr('class'); // getAttribute('class')
+        $('.box').eq(1).attr('class', 'myBox'); // setAttribute('class', 'myBox')
+
+        // chainging
+        $('.box').eq(1).next().css('background-color','skyblue');
+        $('.box').eq(1).prev().css('background-color','skyblue');
+        $('.box').eq(1).parent().css('background-color','skyblue');
+
+        $('.container').find('>b').css('color','blue');
+        $('.container').find('b').css('color','blue');
+        $('.container').find('.b').css('color','blue');
+    </script>
+</body>
+</html>

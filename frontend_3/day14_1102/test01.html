@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>tabs</h1>
+    <div class="tabs-container">
+        <ul class="tab-btns">
+            <li>BTN1</li>
+            <li>BTN2</li>
+            <li>BTN3</li>
+        </ul>
+        <div class="tab-content">
+            <div>content01</div>
+            <div>content02</div>
+            <div>content03</div>
+        </div>
+    </div>
+
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script>
+        $('.tab-btns li').on('click',function(){
+            let num = $(this).index();
+            $('.tab-contents>div').hide();
+            $('.tab-contents>div').eq(num).show();
+        });
+
+        // 초기화 작업
+        $('.tab-btns li').eq(0).trigger('click');
+    </script>
+</body>
+</html>

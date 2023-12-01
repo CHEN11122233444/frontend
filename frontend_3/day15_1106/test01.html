@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        iframe{
+            width: 600px;
+            height: 400px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://maps.app.goo.gl/vkLTDn95Fhm3zUmK9">코리아it아카데미</a>
+    <br>
+    <button>코리아it아카데미</button> <br>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.0410300079816!2d126.9357111!3d37.5540971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c99f5afd6e3e9%3A0x3a7c75b35e2f214b!2z7Iug7LSMSVTtlZnsm5At7L2U66as7JWESVTslYTsubTrjbDrr7g!5e0!3m2!1sko!2skr!4v1699265796554!5m2!1sko!2skr" 
+    width="600" 
+    height="450" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+
+    <script>
+        const button = document.querySelector('button');
+        button.addEventListener('click',()=>{
+            location.href = 'https://maps.app.goo.gl/vkLTDn95Fhm3zUmK9'
+            // a가 아닌 다른 요소로 특정 홈페이지 이동하기
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+</head>
+<body>
+    <h1>중복을 제거한 자료구조형태</h1>
+    <div>
+        <pre>
+            map : 객체의 형태
+            키값과 value값 쌍으로 표현해야 한다. -> 2차원 배열로 표현
+            {
+                key:value
+            }
+        </pre>
+    </div>
+    <script>
+        const map1=new Map([
+            ['key1','value1'],
+            ['key2','value2']
+        ]);
+        // 1차원 배열 표현은 에러
+        console.log(map1);
+        console.log(map1.size);
+
+        const map2=new Map();
+        map2.set('key','value');
+        // map 자료구조의 set()
+        console.log(map2,map2.size);
+
+        map2.set('name','kim')
+            .set('age','30')
+            .set('addr','마포')
+        console.log(map2,map2.size);
+
+        // 키 값은 객체도 가능
+        const lee={name:'lee'};
+        const kim={name:'kim'};
+
+        const map3=new Map();
+        map3.set(lee,'javascript')
+            .set(kim,'html');
+        console.log(map3);
+
+        // 키값 가져오기
+        console.log(map1.get('key1'));
+        console.log(map2.get('name'));
+        console.log(map3.get(kim));
+
+        // 요소 존재 유무 확인
+        console.log(map1.has('key1'));
+        console.log(map2.has('name'));
+        //console.log(map3.has(park)); // error
+
+        // 요소 삭제
+        map3.delete(kim);
+        console.log(map3);
+        console.log(map1.delete('key1'));
+
+        // 요소 일괄 삭제
+        map2.clear();
+        console.log(map2);
+    </script>
+</body>
+</html>

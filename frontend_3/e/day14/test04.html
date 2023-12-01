@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../script/jquery-ui.css" />
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <h1></h1>
+    <div class="box"></div>
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script src="../script/jquery-ui.min.js"></script>
+    <script>
+      // jQuery UI 있다면
+      // 칼라 애니메이션 가능
+      // ease값을 다양하게 변경가능하다. : jQuery Easing Plugin
+      // drag 등 이벤트 편리
+      $(".box").on("mouseenter", function () {
+        $(this).animate(
+          { "background-color": "#00ff00" },
+          1000,
+          "easeInOutElastic"
+        );
+      });
+      $(".box").draggable();
+
+      $(".box").on("mouseleave", function () {
+        $(this).animate(
+          { "background-color": "#ff0000" },
+          1000,
+          "easeInOutElastic"
+        );
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .table-container{
+            margin:30px;
+            width:500px; 
+            flex-wrap: wrap;
+            border:2px solid yellow;
+            /* 테두리를 500px 포함하니까 실제 너비가 496px */
+            box-sizing: content-box;
+            /* 실제 504px */
+        }
+        .column{
+            box-sizing: border-box;
+            width:100px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-right: 1px solid red;
+            border-bottom: 1px solid red;
+
+            border-radius: 5px;
+        }
+
+        .column:nth-child(1),
+        .column:nth-child(2),
+        .column:nth-child(3),
+        .column:nth-child(4),
+        .column:nth-child(5){
+            font-weight: bold;
+            text-transform: capitalize;
+            background-color: black;
+            color: white;
+        }
+
+        .column:nth-child(5n){
+            border-right: none;
+        }
+        .column:nth-child(5n+1){
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .column:nth-child(25) ~ .column{
+             border-bottom:none;
+        }
+
+        .table-container::after{
+            content:'hello html after';
+            border-top:1px solid red;
+            display: block;
+            width: 100%;
+            padding:0.2em 1em;
+        }
+
+        .column:hover{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container flex-between">
+        <div class="column">data01</div>
+        <div class="column">data02</div>
+        <div class="column">data03</div>
+        <div class="column">data04</div>
+        <div class="column">data05</div>
+        <div class="column">data06</div>
+        <div class="column">data07</div>
+        <div class="column">data08</div>
+        <div class="column">data09</div>
+        <div class="column">data10</div>
+        <div class="column">data11</div>
+        <div class="column">data12</div>
+        <div class="column">data13</div>
+        <div class="column">data14</div>
+        <div class="column">data15</div>
+        <div class="column">data16</div>
+        <div class="column">data17</div>
+        <div class="column">data18</div>
+        <div class="column">data19</div>
+        <div class="column">data20</div>
+        <div class="column">data21</div>
+        <div class="column">data22</div>
+        <div class="column">data23</div>
+        <div class="column">data24</div>
+        <div class="column">data25</div>
+        <div class="column">data26</div>
+        <div class="column">data27</div>
+        <div class="column">data28</div>
+        <div class="column">data29</div>
+        <div class="column">data30</div>
+    </div>
+</body>
+</html>

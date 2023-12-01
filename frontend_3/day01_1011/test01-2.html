@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .indecator {
+        display: flex;
+        gap: 10px;
+      }
+
+      .indecator a {
+        color: transparent;
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        background-color: lightgray;
+      }
+      .indecator a.active {
+        background-color: black;
+      }
+      .hidden {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="indecator">
+      <li><a href="#">1</a></li>
+      <!-- <li><a href="#" class="active">1</a></li> -->
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+    </ul>
+
+    <div class="ctrl-btn">
+      <div class="prev" id="prev">prev</div>
+      <!-- 3 2 1 0 -->
+      <div class="next" id="next">next</div>
+      <!-- 0 1 2 3 -->
+    </div>
+
+    <script>
+      const indecators = document.querySelectorAll(".indecator a");
+      let num = 0;
+      let currentNum = num;
+      indecators[num].classList.add("active");
+
+      indecators.forEach((btn, index) => {
+        btn.addEventListener("click", (event) => {
+          console.log(event.target, btn);
+
+          indecators[currentNum].classList.remove("active");
+
+          const target = event.target;
+          target.classList.add("active");
+
+          ctrlBtnHandle();
+          //   num = index;
+          currentNum = index;
+        });
+      });
+
+      indecators[num].click();
+      //이벤트 트리거
+
+      // id는 페이지내에서 유일한 선택자로 변수 선언없이 사용가능
+      // const next = 50; 변수선언이 되어 있다면 아이디선택자를 변수로 사용하기 불가
+      //
+      const next = document.querySelector("#next");
+      // next.addEventListener("click ", (event) => {
+      //   if (num < indecators.length - 1) num++;
+
+      //   console.log(event);
+      //   ctrlHiddenHandle();
+      //   ctrlBtnHandle();
+      // });
+      next.addEventListener("click", (event) => {
+        // console.log(event.target);
+        if (num < indecators.length - 1) num++;
+        // if (num === indecators.length - 1) next.style.color = "red";
+        ctrlHiddenHandle();
+        ctrlBtnHandle();
+      });
+      prev.addEventListener("click", (event) => {
+        if (num > 0) num--;
+        console.log("click");
+        crtlHiddenHandle();
+        ctrlBtnHandle();
+      });
+
+      function ctrlHiddenHandle() {
+        if (num === indecators.length - 1) next.classList.add("hidden");
+        else next.classList.remove("hidden");
+        if (num === 0) prev.classList.add("hidden");
+        else next.classList.remove("hidden");
+      }
+
+      function ctrlBtnHandle() {
+        indecators[currentNum].classList.add("active");
+        indecators[num].classList.add("active");
+
+        currentNum = num;
+      }
+    </script>
+  </body>
+</html>

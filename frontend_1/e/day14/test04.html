@@ -1,0 +1,61 @@
+<!-- 
+    desktop : 12칼럼
+    tablet : 8~10칼럼
+    mobil: 4~6칼럼
+ -->
+ <!DOCTYPE html>
+ <html lang="ko">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .container{
+            display: flex;
+            gap:20px;
+            justify-content: center;
+        }
+        .container>div{
+            width:80px; 
+            background-color: rgba(255, 192, 203, 0.45);
+            height: 100vh;
+        } 
+
+        @media screen and (max-width:800px) {
+            .container>div:nth-child(8)~div{
+                display: none;
+            }
+        }
+        @media screen and (max-width:480px) {
+            .container>div:nth-child(4)~div{
+                display: none;
+            }
+        }
+
+    </style>
+ </head>
+ <body>
+    <div class="container">
+        <div>box01</div>
+        <div>box02</div>
+        <div>box03</div>
+        <div>box04</div>
+        <div>box05</div>
+        <div>box06</div>
+        <div>box07</div>
+        <div>box08</div>
+        <div>box09</div>
+        <div>box10</div>
+        <div>box11</div>
+        <div>box12</div>
+    </div>
+ </body>
+ </html>
+
+ <!-- 
+    안드로이드 앱 : java
+    ios앱 : c
+
+    html => 번역기 => 안드로이드 앱, ios앱
+  -->

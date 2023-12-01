@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box model</title>
+    <style>
+        div{
+            box-sizing: border-box;
+
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+            padding-top: 50px;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-bottom: 50px;
+            border: 1px solid black;
+            margin-top: 50px;
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-bottom: 50px;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>box model</h1>
+    <div>
+        block element(요소)
+    </div>
+    <pre>
+        box-model : 아래와 같은 관계가 있음
+
+        padding : 안쪽 여백, 배경색칠
+        border : 테두리의 두께도 너비에 포함됨
+        margin : 바깥쪽 여백
+        width, height : 내용(content)
+        실제 너비 : padding(left, right) + margin(left, right) + border(left, right) + width
+        실제 높이 : padding(top, bottom) + margin(top, bottom) + border(top, bottom) + height
+    </pre>
+    <pre>
+        box-sizing : border-box;
+        실제 너비 : width(padding, border) + margin
+        실제 높이 : height(padding, border) + margin
+    </pre>
+</body>
+</html>

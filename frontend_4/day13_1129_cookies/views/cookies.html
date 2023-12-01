@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>cookie test</h1>
+    <button class="delCookie">delete cookies</button>
+
+    <!-- <script>
+      let today = new Date();
+      console.log(today.getDate());
+      today.setDate(today.getDate() + 1);
+      console.log(today.getDate());
+
+      const koreait = `userid=koreait;Expires=${today.toUTCString()}`;
+      //   const koreait = `userid=koreait;Max-Age=10;path=/;httpOnly;cecure`;
+
+      document.cookie = koreait;
+    </script> -->
+
+    <script>
+      // 한사이트에서 1개이상의 쿠키를 사용,
+      // 접속만 해도 10개, 로그인 14개
+
+      //name=koreait;Max-Age=10;path=/
+      const getCookieName = (name) => {
+        //let r = document.cookie.match(/\bname=([^;]*)\b/);
+        //let r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+
+        const r = name.split(";");
+
+        return r ? r[0] : " ";
+      };
+
+      //console.log(getCookieName("name=koreait;Max-Age=10;path=/"));
+
+      const setCookies = (name, day) => {
+        let today = new Date();
+        today.setDate(today.getDate() + day);
+
+        // const koreait = `${name}=${value};Expires=${today.toUTCString()}`;
+        const cookie = `${name};Expires=${today.toUTCString()}`;
+        document.cookie = cookie;
+      };
+
+      setCookies(getCookieName("name=koreait;Max-Age=10;path=/"), -1);
+    </script>
+
+    <script>
+      // page 읽을때 쿠키 요청
+      const url = `http://localhost:3000/cookies/setCookie`;
+      fetch(url)
+        .then((res) => res.json())
+        .then((res) => console.log(res));
+    </script>
+
+    <script>
+      const delCookie = document.querySelector(".delCookie");
+      delCookie.addEventListener("click", () => {
+        //const url = `http://localhost:3000/clearCookie`;
+        const url = `http://localhost:3000/cookies/clearCookie`;
+        fetch(url, {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify({ cookie_id: "NID_use" }),
+        })
+          .then((res) => res.json())
+          .then((res) => console.log(res));
+      });
+    </script>
+  </body>
+</html>

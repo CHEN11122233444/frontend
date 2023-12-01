@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        color: red;
+      }
+      h1:nth-child(1) {
+      }
+      .h1 {
+        font-size: 24px;
+      }
+
+      div > pre {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>hello html</h1>
+    <h1>hello html</h1>
+    <h1 class="h1">hello html</h1>
+    <h1 class="h1">hello html</h1>
+    <h2 id="javascript"></h2>
+    <div>
+      <pre>
+            입력 => 처리 => 출력
+
+            입력 : 메모리저장
+            javascript 데이터 
+            숫자(실수) : 123, 12.3
+            문자 : "", '', `(백틱, 백어포스트로피) 로 표현
+            true, false
+            null : 비어있다
+            undefind : 정의 되어 있지 않다
+            NaN : 숫자가 아니다. NOT A NUMBER
+
+            배열, 함수, 객체
+            객체 : 데이터 속성, 값이 쌍으로 이루어진 데이터
+        </pre
+      >
+    </div>
+
+    <script>
+      // 함수 : 특정한 기능을 구현한 프로그램 집합
+      function NamePrint() {
+        // 부품명(클래스) : 파스칼 케이스
+      }
+      function namePrint() {
+        console.log("kim");
+      }
+
+      namePrint();
+
+      function log(message) {
+        console.log(message);
+      }
+
+      log(20);
+      log("안녕하세요.");
+      log({ name: "kim" });
+
+      // 변수명, 함수명 선언시 유의사항
+      // 1) 특수문자, 띄어쓰기는 사용할 수 없음
+      // 1) 변수명 첫글자로는 $,_(언더바),영문자만 올수 있다.
+      // 2) 변수명 첫글가 다음은 영문자,숫자,$,_,숫자만 포함할 수 있다.
+      // 3) 변수명으로는 예약어를 사용할 수 없다.(document,locatuon,window 등)
+      // 4) 변수명을 지을때는 되도록 의미를 부여해 작성하는 것이 좋다.
+      // 5) 변수명을 사용할떄는 대소문자를 구분해야 한다.
+      // 6) 카멜케이스,  스네이크 케이스 , 파스칼케이스(클래스명시 사용)
+    </script>
+  </body>
+</html>

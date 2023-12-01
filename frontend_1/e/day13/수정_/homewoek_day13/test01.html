@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/reset.css">
+    <title>Document</title>
+    <style>
+
+        #header {
+            width: 1080px;
+            height: 60px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        .header_menu {
+            width: auto;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .menu_list > ul{
+            display: flex;
+            /* justify-content: space-between; */
+            /* flex-direction: row; */
+            gap: 100px;
+        }
+
+        .menu_list li > a{
+            width: auto;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .menu_list a:hover {
+            color: red;
+            transition: 0.4s;
+        }
+
+        .contanier {
+            width: 100%;
+            height: 500px;
+            margin: 0 auto;
+            background-color: bisque;
+        }
+
+        .main_title {
+            padding-top: 100px;
+            text-align: center;
+        }
+
+        a::after {
+            content: '';
+            display: block;
+            background-image: url(./images/sp_img.png);
+        }
+
+        .login::after {
+            background-position: -535px -237px;
+        }
+
+        .main_title h1{
+            font-size: 30px;
+            color: green;
+        }
+
+        .main_title p {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 0.2em;
+        }
+
+        .main_list {
+            padding-top: 50px;
+        }
+
+        .main_list li {
+            width: 150px;
+            height: 150px;
+            border-radius: 30px;
+        }
+
+        .main_list ul {
+            display: flex;
+            /* justify-content: space-between; */
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 50px;
+        }
+
+        .item p{
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            top: 30px;
+            
+        }
+        
+        .item img {
+            width: 100px;
+            position: relative;
+            top: 15px;
+
+        }
+    
+
+
+    </style>
+</head>
+<body>
+    <div class="wrpper">
+
+        <div id="header">
+            <div class="header_menu">
+                <a href="#">(logo)</a>
+            </div>
+
+            <nav class="menu_list">
+                <ul>
+                    <li><a href="#">menu1</a></li>
+                    <li><a href="#">menu2</a></li>
+                    <li><a href="#">menu3</a></li>
+                    <li><a href="#">menu4</a></li>
+                </ul>
+            </nav>
+
+            <div class="login_list">
+                <ul>
+                    <li><a href="#">login</a></li>
+                    <li><a href="#">oder</a></li>
+                    <li><a href="#">info</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="main">
+            <div class="contanier">
+                <div class="main_title">
+                    <h1>main_title</h1>
+                    <p>abcdefghijklnmopqrstuvwxyz</p>
+                </div>
+                <div class="main_list">
+                    <ul class="item_list">
+                        <li>
+                            <a href="#">
+                            <div class="item">
+                                <img src="./images/ico_main10.png" alt="main10">
+                                <p>item1</p>
+                            </div>
+                            </a>
+                         </li>
+                         <li>
+                            <a href="#">
+                            <div class="item">
+                                <img src="./images/ico_main10.png" alt="main10">
+                                <p>item1</p>
+                            </div>
+                            </a>
+                         </li>
+                         <li>
+                            <a href="#">
+                            <div class="item">
+                                <img src="./images/ico_main10.png" alt="main10">
+                                <p>item1</p>
+                            </div>
+                            </a>
+                         </li>
+                         <li>
+                            <a href="#">
+                            <div class="item">
+                                <img src="./images/ico_main10.png" alt="main10">
+                                <p>item1</p>
+                            </div>
+                            </a>
+                         </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

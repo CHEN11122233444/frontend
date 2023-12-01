@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>중복을 제거한 자료구조형태</h1>
+    <div>set : 배열의형태(유사배열) map : 객체의형태</div>
+    <script>
+      const ary = [
+        null,
+        null,
+        null,
+        "powder",
+        "powder",
+        "powder",
+        "cream",
+        null,
+        "cream",
+        "cream",
+        "cream",
+        "mineral",
+        "cream",
+        "liquid",
+        "liquid",
+        "liquid",
+        "liquid",
+        "liquid",
+        null,
+        null,
+        "palette",
+        null,
+        "palette",
+        null,
+        null,
+        "pencil",
+        "pencil",
+        "pencil",
+        "liquid",
+        "liquid",
+        "liquid",
+        "liquid",
+        "liquid",
+        null,
+        null,
+        null,
+        "lipstick",
+        "lipstick",
+        "lipstick",
+        "lipstick",
+        "lipstick",
+        "lipstick",
+        "lipstick",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+      ];
+
+      // null 값이 아닌 값만 filter
+      const notNullAry = ary.filter((item) => item !== null);
+      console.log(notNullAry);
+
+      // 중복된 데이터 제거
+      const setArys = new Set(notNullAry);
+      console.log(setArys);
+
+      console.log(setArys.size); // length 대신 size로 길이 구하기
+
+      // 데이터 추가
+      setArys.add("blush");
+      console.log(setArys, setArys.size);
+
+      // chainning 가능
+      setArys.add("hello").add("javascript").add("html");
+      console.log(setArys, setArys.size);
+
+      // 데이터 존재 유무를 확인해서 boolean 리턴
+      console.log(setArys.has("blush"));
+      console.log(setArys.has("css"));
+
+      // 데이터 삭제 : chaining error
+      // 요소를 제거했으면 true, 아니면 false.
+      setArys.delete("javascript");
+      setArys.delete("blush");
+      console.log("delete html : ", setArys.delete("html"));
+      console.log(setArys, setArys.size);
+
+      // 유사배열 : for loop 사용가능
+      // 배열과 가장 큰 사이점 :
+      // 1. length => size
+      // 2. 순서상관 없음
+      // 3. 인덱스로 요소에 접근 불가
+
+      setArys.forEach((item) => console.log(item));
+      for (let item of setArys) {
+        console.log(item);
+      }
+
+      // 일괄삭제
+      setArys.clear();
+      console.log("clear : ", setArys);
+
+      // 집합연산
+      // 교집합 intersection()
+      // 합집합 union()
+      // 차집합 difference()
+      // 분분집합 isSetperset() : boolean
+      const Aary = new Set([1, 2, 3, 4, 4]);
+      const Bary = new Set([2, 2, 2, 4, 6]);
+      console.log(Aary, Bary);
+
+      //   console.log(Aary.intersection(Bary));
+      //   console.log(Aary.union(Bary));
+      //   console.log(Aary.difference(Bary));
+      //   console.log(Bary.difference(Aary));
+      //   console.log(Bary.difference(Aary));
+    </script>
+  </body>
+</html>

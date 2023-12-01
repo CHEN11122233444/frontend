@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .logo {
+      }
+
+      .keitten {
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="logo" class="logo">
+      brandname
+      <img
+        src="http://placekitten.com/150/50"
+        alt=""
+        width="150"
+        height="50"
+        id="img"
+        class="keitten"
+      />
+    </h1>
+
+    <pre>
+        attributes : 태그의 불특정 다수의 속성을 처리 
+        setAttribute()
+        getAttribute()
+        removeAttribute()
+
+        // class 속성은 별도로 관리
+        className : 단 한개의 클래스만 제어
+        classList : 여러개의 클래스 제어 가능 
+        classList.add();
+        classList.remove();
+        classList.toggle();
+    </pre>
+    <script>
+      const imgTag = document.querySelector("img");
+      console.log(imgTag);
+      console.log(imgTag.attributes);
+      // 불특정다수의 속성을 처리하는 경우
+
+      const imgAttr = imgTag.attributes;
+      console.log(imgAttr);
+
+      //
+      for (let a = 0; a < imgAttr.length; a++) {
+        console.log(imgAttr[a], imgAttr.item(a));
+      }
+
+      // get : 가져온다, set : 초기화
+      console.log(imgTag.getAttribute("src"));
+      console.log(imgTag.getAttribute("class"));
+      imgTag.setAttribute("alt", "고양이");
+
+      const h1Tag = document.querySelector("h1");
+      console.log(h1Tag.getAttribute("id"));
+      h1Tag.setAttribute("id", "brandname");
+
+      // 클래스를 제어하는데 단일 클래스인 경우만 제어함
+      h1Tag.className = "블랜드네임";
+      h1Tag.setAttribute("class", "brandname");
+
+      h1Tag.classList.add("test");
+      h1Tag.classList.remove("brandname");
+      h1Tag.classList.toggle("brandname");
+      h1Tag.classList.toggle("test");
+
+      h1Tag.removeAttribute("id");
+    </script>
+  </body>
+</html>

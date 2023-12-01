@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .indecator{
+            display: flex;
+            gap: 5px;
+        }
+        .indecator li{
+            width: 20px; height: 20px;
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div><img src="" alt=""></div>
+        <div><img src="" alt=""></div>
+        <div><img src="" alt=""></div>
+        <div><img src="" alt=""></div>
+        <div><img src="" alt=""></div>
+        <div><img src="" alt=""></div>
+        <div><img src="" alt=""></div>
+        <div><img src="" alt=""></div>
+        <div><img src="" alt=""></div>
+        <div><img src="" alt=""></div>
+      
+    </div>
+    <ul class="indecator">
+        
+    </ul>
+    <script>
+        const imgsLength=document.querySelectorAll('img').length;
+
+        console.log(imgsLength);
+
+        const ul=document.querySelector('.indecator');
+        for(let a=0; a<imgsLength;a++){
+            const li=document.createElement('li');
+            li.innerText=a;
+            ul.appendChild(li);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        div{
+            /* width: 500px; */
+            height: 300px;
+            aspect-ratio: 2/1;
+            /* 비율로 사이즈 정하기 */
+            background-color: aqua;
+            overflow: hidden;
+        }
+
+        div>img{
+            /* width: 100% */
+            height: 100%;
+
+            object-fit: cover;
+            /* background-size: cover; */
+            object-position: right center;
+            /* background-position: ; */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./images/topbg3.png" alt="">
+    </div>
+
+    <script>
+        const div=document.querySelector('div');
+        div.addEventListener('click',()=>{
+            const img=document.querySelector('img');
+            console.log(div.firstElementChild.getAttribute('src'));
+            console.log(img.getAttribute('src'));
+
+            img.setAttribute('src','./images/topbg1.png');
+        })
+    </script>
+</body>
+</html>

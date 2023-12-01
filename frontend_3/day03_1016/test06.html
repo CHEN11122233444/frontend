@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style></style>
+</head>
+<body>
+    <h1>object</h1>
+    <pre>
+
+    </pre>
+    <script>
+        let age=30;
+        let name='kim';
+        let datas=[30,'kim'];
+        datas[datas.length]='마포구';
+
+        let user1={
+            age:30,
+            name:'kim',
+        };
+
+        let user2={
+            age:22,
+            name:'park',
+        }
+
+        user1.addr='마포구';
+        const getName=function(){
+            console.log(name);
+        }
+        user1.sayName=getName;
+
+        console.log(user1['age']); // 필요
+        console.log(user1.age);
+
+        const likeAry={
+            0 : '30',
+            1 : 30,
+            2 : 'hello',
+            length:3
+        }
+
+        // likeAry.0
+        // likeAry['0']
+
+        const num=10;
+        num=30; // 불가
+
+        const user3={};
+        console.log(user3);
+        console.log(typeof user3);
+        user3.age=40;
+        user3['name']='you';
+        console.log(user3);
+    </script>
+</body>
+</html>

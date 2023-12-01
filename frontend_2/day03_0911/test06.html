@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        :root{
+            --width:200px; 
+            --height:200px;
+            --left:25%;
+            --center:50%; 
+            --right:75%;
+            --background-color:pink;
+            --background-circle:gray; 
+        }
+        .box{
+            width:var(--width); 
+            height:var(--height);
+            background-color: var(--background-color);
+            position: relative;
+        }
+        .box span{
+            display: block;
+            width: 20px; 
+            height: 20px;
+            background-color: var(--background-circle);
+            border-radius: 20px;
+            position: absolute;
+        }
+        .box>span{
+            left: var(--center);
+            top:var(--center);
+            transform: translate3d(-50%,-50%, 0);
+        }
+
+        .box02>span:nth-child(1){
+            left:var(--left);
+            top:var(--left);
+        }
+        .box02>span:nth-child(2){
+            left:var(--right);
+            top:var(--right);
+        }
+
+        .box03>span:nth-child(1){
+            left:var(--left);
+            top:var(--left);
+        }
+        .box03>span:nth-child(2){
+            left:var(--right);
+            top:var(--right);
+        }
+
+        .box04>span:nth-child(1){
+            left:var(--left);
+            top:var(--left);
+        }
+        .box04>span:nth-child(2){
+            left:var(--left);
+            top:var(--right);
+        }
+        .box04>span:nth-child(3){
+            left:var(--right);
+            top:var(--left);
+        }
+        .box04>span:nth-child(4){
+            left:var(--right);
+            top:var(--right);
+        }
+        .box05>span:nth-child(1){
+            left:var(--left);
+            top:var(--left);
+        }
+        .box05>span:nth-child(2){
+            left:var(--left);
+            top:var(--right);
+        }
+        .box05>span:nth-child(3){
+            left:var(--right);
+            top:var(--left);
+        }
+        .box05>span:nth-child(4){
+            left:var(--right);
+            top:var(--right);
+        }
+        .box06>span:nth-child(1){
+            left:var(--left);
+            top:var(--left);
+        }
+        .box06>span:nth-child(2){
+            left:var(--left);
+            top:var(--right);
+        }
+        .box06>span:nth-child(3){
+            left:var(--right);
+            top:var(--left);
+        }
+        .box06>span:nth-child(4){
+            left:var(--right);
+            top:var(--right);
+        }
+        .box06>span:nth-child(5){
+            left:var(--left);
+            top:var(--center);
+        }
+        .box06>span:nth-child(6){
+            left:var(--right);
+            top:var(--center);
+        }
+
+        .rect{
+            transform-style: preserve-3d;
+            perspective: 500px;
+            width:var(--width);
+            height: var(--height);
+            position: relative;
+            margin: 50px;
+
+            transform: rotateX(30deg) rotateY(30deg) rotateZ(15deg);
+        }
+        .box{
+            position: absolute;
+            opacity: 0.5;
+        }
+        .box01{
+            /* 앞면 */
+            background-color: yellow;
+            transform: translateZ(100px);
+        }
+        .box02{
+            /* 뒷면 */
+            background-color: green;
+            transform: translateZ(-100px);
+        }
+        .box03{
+            /* 왼쪽면 */
+            background-color: blue;
+            transform: translateX(-100px) rotateY(90deg);
+        }
+        .box04{
+            /* 오른쪽면 */
+            background-color: orange;
+            transform:translateX(100px) rotateY(90deg);
+        }
+        .box05{
+            /* 위쪽 */
+            background-color: purple;
+            transform:translateY(-100px) rotateX(90deg);
+        }
+        /* 
+            정육면체 만들기
+        */
+        .box06{
+            /* 아래  */
+            transform:translateY(100px) rotateX(90deg);
+        }
+    </style>
+</head>
+<body>
+<div class="rect">  
+        <div class="box box01"><span></span></div>
+        <div class="box box02"><span></span><span></span></div>
+        <div class="box box03"><span></span><span></span><span></span></div>
+        <div class="box box04"><span></span><span></span><span></span><span></span></div>
+        <div class="box box05"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="box box06"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</div>
+
+</body>
+</html>

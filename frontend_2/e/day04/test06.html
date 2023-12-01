@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(skyblue 50%, black 0);
+        /* 삼각형, 패턴, 차트도 그리기 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .clock {
+        width: 200px;
+        height: 200px;
+        background-color: black;
+        border-radius: 200px;
+        border: 10px solid rgb(46, 46, 46);
+        position: relative;
+      }
+      .number {
+        position: absolute;
+        color: white;
+        transform: translate(-50%, -50%);
+      }
+      .n12 {
+        left: 50%;
+        top: 13px;
+      }
+      .n3 {
+        right: 5px;
+        top: 50%;
+      }
+      .n6 {
+        bottom: 0;
+        left: 50%;
+      }
+      .n9 {
+        left: 10px;
+        top: 50%;
+      }
+
+      .bar {
+        position: absolute;
+        top: 47%;
+
+        width: 100%;
+        height: 10px;
+
+        display: flex;
+        justify-content: space-between;
+      }
+      .bar::after,
+      .bar::before {
+        content: "";
+        display: block;
+
+        width: 10px;
+        height: 5px;
+        background: white;
+      }
+      .bar:nth-child(5) {
+        transform: rotate(30deg);
+      }
+      .bar:nth-child(6) {
+        transform: rotate(60deg);
+      }
+      .bar:nth-child(7) {
+        transform: rotate(120deg);
+      }
+      .bar:nth-child(8) {
+        transform: rotate(150deg);
+      }
+
+      .hour {
+        width: 50px;
+        height: 10px;
+        background-color: white;
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: left center;
+        transform: rotate(10deg);
+        animation: hour calc(1s * 60 * 60);
+      }
+      @keyframes hour {
+        100% {
+          transform: rotate(30deg);
+        }
+      }
+
+      .minute {
+        width: 70px;
+        height: 10px;
+        background-color: white;
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: left center;
+        transform: rotate(30deg);
+      }
+      .second {
+        width: 75px;
+        height: 5px;
+        background-color: steelblue;
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: left center;
+        transform: rotate(0deg);
+        animation: second 60s infinite;
+      }
+
+      @keyframes second {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="number n12">12</div>
+      <div class="number n3">3</div>
+      <div class="number n6">6</div>
+      <div class="number n9">9</div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="hour"></div>
+      <div class="minute"></div>
+      <div class="second"></div>
+    </div>
+  </body>
+</html>

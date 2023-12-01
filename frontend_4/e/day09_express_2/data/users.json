@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "홍길동",
+    "email": "hong@naver.com",
+    "pwd": "hello%"
+  },
+  {
+    "id": 2,
+    "name": "이길동",
+    "email": "userEmail@naver.com",
+    "pwd": "hello%"
+  },
+  {
+    "id": 3,
+    "name": "우길동",
+    "email": "parck@naver.com",
+    "pwd": "html$%"
+  }
+]

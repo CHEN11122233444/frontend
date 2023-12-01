@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <style>
+        .main_banner_img{
+            border:1px solid black; 
+            box-sizing: border-box;
+
+            /*  background로 이미지 표현하기  */
+            background-image: url(./images/img_banner1_1.jpg);
+            background-position: -145px 0;
+            /* 
+                옵션이 문자인 경우 순서 상관 없음 
+                top, center, bottom, left, center, right 
+
+                옵션을 단위로 사용할 경우 
+                x, y : y는 생략할 수 있음
+            */
+            background-repeat: no-repeat;
+
+            width:846px; 
+            height: 626px;
+
+            font-size:48px; 
+            color:white;
+            line-height: 1.2;
+
+            padding:1em;
+             
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="main_banner">
+        <!-- <img src="./images/img_banner1_1.jpg" alt=""> -->
+
+        <div class="main_banner_img">
+            <!-- 
+                banner 이미지는 글씨를 포함하지 않도록 만듬
+                문자열 별도로 표현 
+             -->
+            <p> 세상의<br> 모든 순간이 <br> 더 행복해지도록</p>
+        </div>
+    </div>
+</body>
+</html>

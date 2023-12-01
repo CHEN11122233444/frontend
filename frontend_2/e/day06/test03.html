@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 
+        flex,
+        grid,
+        position : static : 기본 성격, 지정된 position 해제하는 역활,
+        float
+     -->
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      /* desktop first */
+
+      header {
+        position: fixed;
+        height: 100vh;
+        width: 230px;
+        background-color: rgba(0, 255, 255, 0.493);
+        top: 0;
+        left: 0;
+
+        /* header child design */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+      }
+      aside {
+        width: calc(100% - 230px);
+        height: 30px;
+        background-color: black;
+        margin-left: 230px;
+      }
+      section {
+        margin: 0 0 0 230px;
+        /* height: 100vh; */
+        background-color: pink;
+
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 260px);
+      }
+
+      article:nth-child(1) {
+        background-color: aliceblue;
+      }
+      article:nth-child(2) {
+        background-color: rgb(187, 218, 246);
+      }
+      article:nth-child(3) {
+        background-color: rgb(49, 159, 255);
+      }
+      article:nth-child(4) {
+        background-color: rgb(16, 74, 125);
+      }
+      article:nth-child(5) {
+        background-color: rgba(255, 237, 208, 0.999);
+      }
+      article:nth-child(6) {
+        background-color: lightsalmon;
+      }
+      article:nth-child(7) {
+        background-color: orange;
+      }
+      article:nth-child(8) {
+        background-color: skyblue;
+      }
+      article:nth-child(9) {
+        background-color: darkblue;
+      }
+      article:nth-child(10) {
+        background-color: steelblue;
+      }
+      article:nth-child(11) {
+        background-color: yellow;
+      }
+      article:nth-child(12) {
+        background-color: lavender;
+      }
+
+      /* layout */
+      article:nth-child(1) {
+        grid-column: span 3;
+        grid-row: span 2;
+      }
+      article:nth-child(2),
+      article:nth-child(6),
+      article:nth-child(9) {
+        grid-column: span 2;
+      }
+
+      @media screen and (max-width: 1600px) {
+        /*
+                header 상단이동
+        */
+        header {
+          position: static;
+          height: auto;
+          width: auto;
+
+          /* header child design */
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        .lnb ul {
+          display: flex;
+          gap: 150px;
+        }
+
+        aside {
+          width: auto;
+          margin-left: 0;
+        }
+        section {
+          margin: 0;
+          height: 100vh;
+          background-color: pink;
+        }
+      }
+      @media screen and (max-width: 1280px) {
+        /*
+               section content의 사이즈가 달리변형
+               원래 사이즈를 거의 유지하면서 변형
+        */
+
+        section {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        /* 선택자가 달라지면 디자인 적용 불가할 수 있음  */
+        article:nth-child(2),
+        article:nth-child(9) {
+          grid-column: span 1;
+        }
+        article:nth-child(7),
+        article:nth-child(10) {
+          grid-column: span 2;
+        }
+      }
+      @media screen and (max-width: 1000px) {
+        /*
+                nav 여백 조정
+        */
+        .lnb ul {
+          gap: 50px;
+        }
+        section {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(9, 260px);
+        }
+        article:nth-child(12) {
+          grid-column: span 2;
+        }
+      }
+      @media screen and (max-width: 670px) {
+        /*
+                header 디자인 변경
+                display:flex;
+        */
+        section {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(11, 260px);
+        }
+        article:nth-child(1) {
+          grid-column: span 2;
+        }
+        article:nth-child(7),
+        article:nth-child(10) {
+          grid-column: span 1;
+        }
+        article:nth-child(12) {
+          grid-column: span 1;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        /*
+                header 디자인 변경
+        */
+        header {
+          position: fixed;
+          width: 100%;
+          height: 100vh;
+
+          flex-direction: column;
+          justify-content: space-around;
+        }
+
+        .lnb ul {
+          flex-direction: column;
+        }
+        aside {
+          position: relative;
+          margin-top: 100vh;
+        }
+        section {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>logo</h1>
+      <nav class="lnb">
+        <ul>
+          <li><a href="#">menu01</a></li>
+          <li><a href="#">menu02</a></li>
+          <li><a href="#">menu03</a></li>
+          <li><a href="#">menu04</a></li>
+          <li><a href="#">menu05</a></li>
+        </ul>
+      </nav>
+    </header>
+    <aside>aside</aside>
+    <section>
+      <article>article01</article>
+      <article>article02</article>
+      <article>article03</article>
+      <article>article04</article>
+      <article>article05</article>
+      <article>article06</article>
+      <article>article07</article>
+      <article>article08</article>
+      <article>article09</article>
+      <article>article10</article>
+      <article>article11</article>
+      <article>article12</article>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
+    <!--인터넷이 불량이면 글꼴이 나타나지 않을 수 있음-->
+    <style>
+        /*
+            단어와 단어사이 조절
+        */
+
+        p:first-of-type{
+            font-family: 'Tilt Prism', cursive;
+            font-size: 50px;
+            word-spacing: 36px;
+        }
+
+        @font-face{
+            font-family: 'Yeongdeok-Sea';
+            src:url(../fonts/Yeongdeok\ Sea.ttf);
+        }
+
+        /* 
+            글꼴 이름이 영어로만 구성되면 따옴표 생략
+            글꼴이 특수문자를 포함, 띄어쓰기, 한글도 특수문자
+            따옴표를 붙임
+            //최근 들어서 리액트에서는 '' (작은 따옴표)를 선호함
+        */
+        p:nth-of-type(2){
+            font-family: Yeongdeok-Sea;
+            font-size: 30px;
+        }
+
+        @font-face {
+            font-family: monoton;
+            src: url(../fonts/Monoton/Monoton-Regular.ttf);
+        }
+
+        p:nth-of-type(3){
+            font-family: monoton,'굴림';
+            font-size: 30px;
+        }
+
+        @font-face {
+            font-family: otf;
+            src: url(../fonts/Yeongdeok\ Sea.otf);
+        }
+        p:nth-of-type(4){
+            font-family: otf;
+            font-size: 30px;
+        }
+
+        p:nth-of-type(5){
+            font-family: 'Arial';
+            font-size: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>font</h1>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+    <p>HELLO, hello, 1235, 한글은 아름다운 글입니다.</p>
+</body>
+</html>

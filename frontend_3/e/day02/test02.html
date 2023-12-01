@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+  </head>
+  <body>
+    <pre>
+        // 기본 자료구조의 일부 사용
+        // 내장객체 : String, Math, Number ...
+
+    </pre>
+
+    <script>
+      console.log(Math.min(12, 3, 4));
+      console.log(Math.max(12, 3, 4));
+      console.log(Math.round(12.3456789));
+      console.log(Math.round(12.6789));
+      console.log(window.parseInt(12.3456789));
+      console.log(Math.floor(12.3456789));
+      console.log(Math.floor(12.6789));
+      console.log(Math.ceil(12.3456789));
+      console.log(Math.ceil(12.6789));
+      console.log(Math.random()); // 0 ~ 1 : 임의의 난수 발생
+
+      for (let a = 0; a < 10; a++) {
+        console.log(Math.random());
+      }
+      for (let a = 0; a < 10; a++) {
+        console.log(Math.ceil(Math.random() * 10));
+      }
+      for (let a = 0; a < 10; a++) {
+        console.log(Math.ceil(Math.random() * 256));
+      }
+
+      // rgb(red, green, blue) => rgb( 255, 255, 255 )
+      // hsl(color, s, l)   => hsl(30deg, 50%, 50%)
+
+      function randomRgb() {
+        const red = Math.floor(Math.random() * 256);
+        const green = Math.floor(Math.random() * 256);
+        const blue = Math.floor(Math.random() * 256);
+
+        const color = `rgb(${red}, ${green}, ${blue})`;
+        return color;
+      }
+
+      function randomHsl() {
+        const hue = Math.random() * 360;
+        const color = `hsl(${hue}deg , 20%, 50%)`;
+        return color;
+      }
+
+      setInterval(() => {
+        document.querySelector("body").style.background = randomHsl();
+      }, 3000);
+    </script>
+    <!-- <script>
+      let colors = ["red", "green", "blue"];
+      let num = 0; // 1, 2
+
+      let timer = setInterval(() => {
+        document.querySelector("body").style.background = colors[num % 3];
+        num++;
+
+        if (num >= 5) {
+          clearInterval(timer);
+          console.log("clearTimeout");
+        }
+      }, 3000);
+    </script> -->
+  </body>
+</html>

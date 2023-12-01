@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=k, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/frontend_2/styles/reset.css">
+    <style>
+        header{
+            position: fixed;
+            left: 0; 
+            top: 0;
+            opacity: 0.5;
+            z-index: 99;
+        }
+
+        header,
+        footer{
+            width: 100%;
+            height: 100px;
+            background-color: var(--bgcolor);
+        }
+        section{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bgcolor);
+            z-index: 9;
+        }
+    </style>
+</head>
+<body>
+    <header style="--bgcolor:pink">header</header>
+    <section style="--bgcolor:green">section01</section>
+    <section style="--bgcolor:skyblue">section02</section>
+    <section style="--bgcolor:brown">section03</section>
+    <footer style="--bgcolor:gray">footer</footer>
+</body>
+</html>

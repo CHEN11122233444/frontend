@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gradient</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 50px;
+        }
+
+        /* 그라디언트를 이미지로 처리 */
+        .box01{
+            background-image: radial-gradient(red, green, blue);
+        }
+        .box02{
+            width: 100px;
+            background-image: radial-gradient(red, green, blue);
+        }
+        .box03{
+            height: 100px;
+            background-image: radial-gradient(red, green, blue);
+        }
+        .box04{
+            height: 100px;
+            background-image: radial-gradient(circle, red, green, blue);
+        }
+        .box05{
+            width: 100px;
+            background-image: radial-gradient(circle, red, green, blue);
+        }
+        .box06{
+            height: 100px;
+            background-image: radial-gradient(circle at 0 0, red, green, blue);
+        }
+        .box07{
+            width: 100px;
+            background-image: radial-gradient(circle at 100% 100%, red, green, blue);
+        }
+       
+        .box08{
+            background-image: radial-gradient(transparent 25%, green 0, green 50%, transparent 0);
+        }
+        .box09{
+            background-image: radial-gradient(transparent 25%, green 0, green 50%, blue 0);
+
+            background-size: 50px 50px;
+        }
+
+        .box10{
+            background-image: radial-gradient(transparent 25%, green 0, green 50%, blue 0);
+            background-position: 100px;
+        }
+        .box11{
+            background-image: radial-gradient(transparent 25%, green 0, green 50%, blue 0);
+            background-position: 0 100px;
+        }
+        .box12{
+            background-image: radial-gradient(transparent 25%, green 0, green 50%, blue 0);
+            background-size: 100px 100px;
+            background-position: 50px 50px;
+        }
+
+        .box13{
+            background-image: radial-gradient(transparent 25%, rgb(2, 76, 155) 0);
+            background-position: 100px 100px;
+        }
+
+        .box14{
+            background-image: radial-gradient(transparent 20%, green 0, green 30%, transparent 0),
+            radial-gradient(transparent 20%, red 0, red 30%, transparent 0);
+
+            background-size: 20px 20px ;
+            background-repeat: repeat-x;
+            background-position: 0 0, 17% 0;
+        }
+       .box15{
+            background: conic-gradient(red ,blue, green);
+       }
+       .box16{
+            background: conic-gradient(red 36deg ,orange 36deg 170deg, yellow 170deg);
+            border-radius: 100px;
+       }
+
+       /* 수정 필요 */
+       .box17{
+        --deg: 360deg;
+        background: conic-gradient(
+            transparent var(--deg),
+            orange var(--deg) 170deg
+        );
+
+        border-radius: 100px;
+       }
+
+       @keyframes conic{
+        100%{
+            --deg:0deg;
+        }
+       }
+
+       .box18{
+        --deg: 360deg;
+        background: conic-gradient(
+            transparent 90deg,
+            orange 90deg 170deg
+        );
+
+        border-radius: 100px;
+
+        animation: conic2 1s;
+       }
+
+       @keyframes conic2{
+        100%{
+            --deg:0deg;
+        }
+       }
+    </style>
+</head>
+<body>
+    <div class="box box01">box01</div>
+    <div class="box box02">box02</div>
+    <div class="box box03">box03</div>
+    <div class="box box04">box04</div>
+    <div class="box box05">box05</div>
+    <div class="box box06">box06</div>
+    <div class="box box07">box07</div>
+    <div class="box box08">box08</div>
+    <div class="box box09">box09</div>
+    <div class="box box10">box10</div>
+    <div class="box box11">box11</div>
+    <div class="box box12">box12</div>
+    <div class="box box13">box13</div>
+    <div class="box box14">box14</div>
+    <div class="box box15"><div>box15</div></div>
+    <div class="box box16"><div>box16</div></div>
+    <div class="box box17">box17</div>
+    <div class="box box18">box18</div>
+    <div class="box box19">box19</div>
+    <div class="box box20">box20</div>
+</body>
+</html>

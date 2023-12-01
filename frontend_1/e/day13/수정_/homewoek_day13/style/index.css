@@ -1,0 +1,264 @@
+.wrapper{
+    margin: auto;
+    line-height: 1.5;
+    letter-spacing: -0.5px;
+    font-size: 16px;
+}
+
+header{
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px;
+    display: block;
+}
+
+.header_menu {
+    width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header span{
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+    color: #666;
+}
+
+.lnb a {
+    display: block;   
+    padding: 10px 50px 0px 50px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.lnb a:hover {
+    color: red;
+    transition: 0.4s;
+}
+
+.header_op {
+    position: relative;
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    background-color: #e2e1e1;
+    border-radius: 20px;
+    padding: 0 42px 0 16px;
+}
+
+.header_op img {
+    position: absolute;
+    transform: translateY(21%);
+    right: 20px;
+}
+
+.header_op:hover {
+    color: #fff;
+    background-color: red;
+    transition: 0.4s;
+}
+
+
+
+/* == main == */
+
+.main_baner {
+    background-color: #3a4658;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_baner>.container{
+    width: 1000px; 
+    height: 400px;
+    background-color: orange;
+    display: flex;
+}
+ 
+
+.main_title {
+    display: block;
+}
+
+.main_title h1{
+    line-height: 1.3;
+    color: #fff;
+    font-size: 50px;
+
+}
+
+/* .main_list >ul{
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    position: relative;
+    top: 200px;
+}
+.container>img {
+    position: relative;
+    left: 600px;
+    bottom: 150px;
+} */
+
+.section_title {
+    width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 85px 0;
+}
+
+.section_title h1{
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.section_title p{
+    font-size: 16px;
+    padding-bottom: 30px;
+}
+
+.section_list {
+    display: flex;
+    gap: 100px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.section_list li{
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.section_list li > a{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 21px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section_list li:nth-child(1) img{
+    width: 150px;
+}
+
+.section_list li:nth-child(2) img{
+    width: 160px;
+}
+
+.section_list li:nth-child(3) img{
+    width: 113px;
+}
+
+.section_list li:nth-child(4) img{
+    width: 130px;
+}
+/* 
+.container {
+    width: 1080px;
+    margin: auto;
+} */
+
+.section_bg {
+    background-color: #ebecee;
+    padding: 92px 0 110px 0;
+}
+
+.about_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.about_list >li {
+    width: 350px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.about_list >li >a{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 25px;
+}
+
+.icon_wrap{
+    width: 80px;
+    height: 80px;
+    line-height: 90px;
+    text-align: center;
+    background-color: #e3e1e1;
+    border-radius: 50%;
+}
+
+.section2 {
+    background-image: url(../images/main_bg.jpg);
+    background-color: #fff;
+    padding: 92px 0 110px 0;
+}
+
+.secrion_title2 {
+    text-align: center;
+    font-size: 30px;
+    color: #fff;   
+}
+
+.slide_top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #fff;   
+}
+
+
+
+/* == footer == */
+#footer {
+    border: 2px solid rgb(201, 200, 200);
+}
+.footer_top {
+    width: 1080px;
+    height: 290px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.sevice_info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.sevice_info h4{
+    color: rgb(21, 21, 21);
+    font-size: 18px;
+}
+
+.sevice_info strong{
+    color: red;
+    font-size: 18px;
+}
+
+
+
+

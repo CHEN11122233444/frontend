@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex05</title>
+    <style>
+      .btn {
+        width: 100px;
+        height: 50px;
+        margin: 20px 60px;
+      }
+
+      .box_container {
+        width: 200px;
+        margin: 20px;
+        background-color: black;
+      }
+
+      .box {
+        background-color: pink;
+
+        border: 2px solid black;
+        border-radius: 20px;
+
+        width: 200px;
+        height: 200px;
+
+        margin-bottom: 1px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 30px;
+        font-weight: bold;
+        font-family: 'Yeongdeok_Sea';
+      }
+
+      @font-face {
+        font-family: 'Yeongdeok_Sea';
+        src: url(/fonts/Yeongdeok\ Sea.ttf);
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn">버튼</button>
+    <div class="box_container">
+      <div class="box box01">box01</div>
+      <div class="box box02">box02</div>
+      <div class="box box03">box03</div>
+      <div class="box box04">box04</div>
+      <div class="box box05">box05</div>
+      <div class="box box06">box06</div>
+      <div class="box box07">box07</div>
+    </div>
+
+
+    <script>
+      // 버튼을 클릭하면 다음 박스의 색으로 넘어가는 함수(무지개색), 빨->주, 주->노 ... 보->빨
+
+      const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+      let boxColor = document.querySelectorAll('.box');
+      const button = document.querySelector('.btn');
+
+
+      // boxColor[0].style.backgroundColor = color[0];
+      colors.forEach((color, index) => {
+        boxColor[index].style.backgroundColor = color;
+      })
+
+      //   let currentBoxColor = boxColor;
+      //   let currentBoxColor = [...boxColor];
+      let currentBoxColor = Array.from(boxColor).map(box => box.cloneNode(true)); // 깊은 복사로 각 DOM 요소를 복제
+
+      console.log('currentBoxColor = boxColor')
+      // console.log(currentBoxColor[0].style.backgroundColor);
+      // console.log(currentBoxColor[1].style.backgroundColor);
+      // console.log(currentBoxColor[2].style.backgroundColor);
+      // console.log(currentBoxColor[3].style.backgroundColor);
+      // console.log(currentBoxColor[4].style.backgroundColor);
+      // console.log(currentBoxColor[5].style.backgroundColor);
+      // console.log(currentBoxColor[6].style.backgroundColor);
+      // console.log(' ');
+
+
+
+      // 버튼
+      button.addEventListener('click', () => {
+        changeBoxColor();
+        console.log('클릭')
+      })
+
+
+
+
+      // 색상 변경 함수
+      function changeBoxColor() {
+        // 1. currentBoxColor에 boxColor 저장 
+        // 2. currentBoxColor 이용해서 boxColor 변경 
+        // 3. 변경된 boxColor를 currentBoxColor에 저장
+        console.log(currentBoxColor[0].style.backgroundColor);
+
+        // boxColor[0].style.backgroundColor = currentBoxColor[1].style.backgroundColor;
+        // boxColor[1].style.backgroundColor = currentBoxColor[2].style.backgroundColor;
+        // boxColor[2].style.backgroundColor = currentBoxColor[3].style.backgroundColor;
+        // boxColor[3].style.backgroundColor = currentBoxColor[4].style.backgroundColor;
+        // boxColor[4].style.backgroundColor = currentBoxColor[5].style.backgroundColor;
+        // boxColor[5].style.backgroundColor = currentBoxColor[6].style.backgroundColor;
+        // boxColor[6].style.backgroundColor = currentBoxColor[0].style.backgroundColor;
+
+        console.log(currentBoxColor[0].style.backgroundColor);
+
+        for (let i = 0; i < boxColor.length; i++) {
+          if (i === boxColor.length - 1) {
+            boxColor[boxColor.length - 1].style.backgroundColor = currentBoxColor[0].style.backgroundColor;
+            console.log('current' + i + '번째 색', currentBoxColor[i].style.backgroundColor);
+          } else {
+            boxColor[i].style.backgroundColor = currentBoxColor[i + 1].style.backgroundColor;
+            console.log('current' + i + '번째 색', currentBoxColor[i].style.backgroundColor);
+          }
+        }
+
+
+        // console.log(currentBoxColor[0].style.backgroundColor);
+        console.log(' ');
+        currentBoxColor = boxColor;
+
+      }
+    </script>
+  </body>
+</html>
+
+
+<!-- 
+    폰트 : https://www.yd.go.kr/?page_id=120264
+ -->

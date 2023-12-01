@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #username {
+        width: 200px;
+        height: 50px;
+        background-color: skyblue;
+        border: 4px double blue;
+      }
+      .hide {
+        display: none;
+      }
+      .logoutBtn {
+        display: none;
+      }
+      .logoutBtn.show {
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="username"></div>
+    <div class="login-container">
+      <div>
+        <label for="useremail">이메일</label>
+        <input type="email" id="useremail" />
+      </div>
+      <div>
+        <label for="userpwd">비밀번호</label>
+        <input type="text" id="userpwd" />
+      </div>
+    </div>
+    <div>
+      <button class="loginBtn">로그인</button>
+      <button class="logoutBtn">로그아웃</button>
+    </div>
+    <script>
+      const loginBtn = document.querySelector(".loginBtn");
+      const logoutBtn = document.querySelector(".logoutBtn");
+
+      loginBtn.addEventListener("click", () => {
+        const useremail = document.querySelector("#useremail").value;
+        const userpwd = document.querySelector("#userpwd").value;
+
+        const url = "http://localhost:3000/login";
+        const payload = { useremail, userpwd };
+
+        fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            if (res.success) {
+              const name = document.querySelector("#username");
+              name.innerHTML = res.name + " 님";
+
+              loginBtn.classList.add("hide");
+              logoutBtn.classList.add("show");
+
+              const loginContainer = document.querySelector(".login-container");
+              loginContainer.classList.add("hide");
+            } else {
+              alert(res.message);
+            }
+
+            document.querySelector("#useremail").value = "";
+            document.querySelector("#userpwd").value = "";
+          });
+      });
+
+      logoutBtn.addEventListener("click", () => {
+        loginBtn.classList.remove("hide");
+        logoutBtn.classList.remove("show");
+
+        const name = document.querySelector("#username");
+        name.innerHTML = "";
+
+        const loginContainer = document.querySelector(".login-container");
+        loginContainer.classList.remove("hide");
+      });
+    </script>
+  </body>
+</html>
+<!-- 
+    서버는 현재 로그인 된 상태를 확인할 필요 
+    서버는 로그인 할때 쿠키로 로그인된 상태 : 브라우저에 처리 
+    서버는 로그아웃 할때 저장된 쿠키를 모두 삭제 : 브라우저에 처리 
+
+    쿠키를 사용해야 함 
+    
+    react : front를 띄어주는 서버
+    backend : 4321
+
+    cors : 처리 
+ -->

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        .container{
+            width: 1200px;
+            height: 300px;
+            background-color: pink;
+            margin:50px auto; 
+        }
+
+        .container_flex{
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .container_flex>div{
+            width:50%; 
+            height: 100%;
+            border:1px solid black;
+        }
+
+        .container_flex>div:nth-child(2){
+            background-color: yellow;
+            width: 30%;
+            height: 100px;
+        }
+
+        .container_grid{
+            display: grid;
+            grid-template-columns: 2fr 0.8fr 1.2fr;
+        }
+        .container_grid>div{
+            background-color: orange;
+        }
+        .container_grid>div:nth-child(2){
+            grid-column: 3/4;
+        }
+        .container_grid p{
+            height: 100px;
+            background-color: green;
+        }
+
+        .row{
+            grid-template-rows: repeat(3, 1fr);
+        }
+        .row>div:nth-child(1){
+            /* grid-row: span 3; */
+            grid-row:1/4;
+        }
+
+        /* flex, grid 자식들의 위치를 부모가 정함
+           float : 자식 할일을 함
+        */
+        .container_float>div:nth-child(1){
+            float:left;
+            width:50%; 
+            height: 100%;
+            background-color: skyblue;
+        }
+        .container_float>div:nth-child(2){
+            float:right;
+            width:30%; 
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <section class="container container_flex">
+        <div>div01</div>
+        <div>div02</div>
+    </section>
+
+    <section class="container container_grid">
+        <div>div01</div>
+        <div>
+            <p>div02</p>
+        </div>
+    </section>
+
+    <section class="container container_grid row">
+        <div>div01</div>
+        <div>div02</div>
+    </section>
+
+    <section class="container container_float clearfix">
+        <div>div01</div>
+        <div>div02</div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .tab-btns {
+        display: flex;
+      }
+      .tab-btns > li {
+        padding: 10px;
+      }
+      .tab-btns > li.active {
+        background-color: black;
+        color: white;
+      }
+      .tab-contents > div {
+        display: none;
+      }
+      .tab-contents > div.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>tabs</h1>
+    <div class="tabs-container">
+      <ul class="tab-btns">
+        <li>BTN1</li>
+        <li>BTN2</li>
+        <li>BTN3</li>
+      </ul>
+      <div class="tab-contents">
+        <div>contents01</div>
+        <div>contents02</div>
+        <div>contents03</div>
+      </div>
+    </div>
+
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script>
+      //   $(".tab-btns li").on("click", function () {
+      //     let num = $(this).index();
+      //     $(".tab-btns li").removeClass("active");
+      //     //$(".tab-btns li").eq(num).addClass("active");
+      //     $(this).addClass("active");
+
+      //     $(".tab-contents>div").removeClass("active");
+      //     $(".tab-contents>div").eq(num).addClass("active");
+      //   });
+
+      $(".tab-btns li").on("click", function () {
+        let num = $(this).index();
+        activeHandle(".tab-btns li", "active", num);
+        activeHandle(".tab-contents>div", "active", num);
+      });
+
+      function activeHandle(elem, cName, index) {
+        $(elem).removeClass(cName);
+        $(elem).eq(index).addClass(cName);
+      }
+      // 초기화 작업을 생략할 수도 있음
+      $(".tab-btns li").eq(0).trigger("click");
+    </script>
+  </body>
+</html>

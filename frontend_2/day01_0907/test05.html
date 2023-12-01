@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            /* margin: 50px; */
+            text-align: center;
+            line-height: 200px;
+            font-size: 24px;
+            background-color: orange;
+        }
+        
+        .box{
+            position: relative;
+        }
+        .box:nth-of-type(2){
+            left: 100px;
+        }
+        .box:nth-of-type(3){
+            right: 100px;
+        }
+        .box:nth-of-type(4){
+            top: -100px;
+        }
+        .box:nth-of-type(5){
+            bottom: -100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>relative</h1>
+    <div>
+        relative : 내가 원래 있던 위치
+    </div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+    <div class="box">box4</div>
+    <div class="box">box5</div>
+    <div class="box">box6</div>
+    <div class="box">box7</div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <title>Document</title>
+
+    <!-- 
+        font : 색을 마음대로 수정 가능, 정렬 잘 됨
+        <i class='bx bxl-facebook-circle'></i>
+        <i class='bx bxl-blogger'></i>
+        <i class='bx bxl-instagram-alt'></i>
+        <i class='bx bxl-youtube'></i>
+        <i class='bx bxs-happy-alt'></i>
+
+        image의 단점 : 나중에 색조절 불편
+     -->
+    <style>
+        header{
+            display: flex;
+            justify-content: space-between;
+            width: 1200px;
+            background-color: black;
+            margin: auto;
+
+            align-items: center;
+            /* height: 70px; */
+            padding: 0.7em;
+            color: #fff;
+
+            outline: 2px solid red;
+            /* 
+                offset 지정할 수 있음
+                outline : 테두리의 위치를 지정할 수 있음
+            */
+            outline-offset: -10px;
+        }
+
+        h1{
+            padding-left: 1em;
+        }
+
+        header ul{
+            width: 700px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        nav+a{
+            display:block;
+            background-color: red;
+            padding:1.7em;
+        }
+
+        .gnb{
+            width:1200px;
+            margin: auto;
+        }
+        .gnb ul{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .gnb li{
+            background-image: url(./images/gnb_bg_cb.png);
+            background-repeat: no-repeat;
+            background-position: right center;
+            
+        }
+        .gnb li:last-child{
+            background-image: none;
+        }
+        .gnb a{
+            display: block;
+            padding: 5px 15px;
+            display: flex;
+            /* block 대신 flex로 덮어쓰기 */
+            justify-content: center;
+            align-items: center;
+        }
+        .gnb i{
+            font-size: 14px;
+            color: gray;
+            margin-right: 5px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <i class='bx bxl-facebook-circle'></i>
+    <i class='bx bxl-blogger'></i>
+    <i class='bx bxl-instagram-alt'></i>
+    <i class='bx bxl-youtube'></i>
+    <i class='bx bxs-happy-alt'></i>
+    <nav class="gnb">
+        <ul>
+            <li>
+                <a href="#">
+                    <i class='bx bxl-facebook-circle'></i>
+                    facebook
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxl-blogger'></i>
+                    Blog
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxl-instagram-alt'></i>
+                    Instagram
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxl-youtube'></i>
+                    Youtube
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-happy-alt'></i>
+                    해피포인트
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <header>
+        <h1>PASCUKKUI</h1>
+        <nav class="lnb">
+            <!-- local navigation button -->
+            <ul>
+                <li><a href="#">PASCUKKUI</a></li>
+                <li><a href="#">가맹점개설안내</a></li>
+                <li><a href="#">가맹설명회안내</a></li>
+                <li><a href="#">추천점포</a></li>
+                <li><a href="#">가맹문의&amp;FAQ</a></li>
+            </ul>
+        </nav>
+        <a href="">홈페이지 바로가기</a>
+    </header>
+    <!-- 
+        각각 콘텐츠마다 용도가 정해져 있음
+        div.class
+        용도별 정해진 div 사용하자
+
+        header : h1, 메뉴, 메인 배너
+        footer : 회사정보(주소, 연락처 등)
+        main : section, article을 묶는 역할
+        section,
+        article,
+        aside : 콘텐츠 내용과 상관없이 일정한 콘텐츠(ex: 광고)
+        nav
+        figure
+        audio 
+        video
+    --> 
+</body>
+</html>

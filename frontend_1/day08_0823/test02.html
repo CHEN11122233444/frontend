@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            overflow-x: hidden;
+            /*가로 스크롤바를 감추는 역할*/
+
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            /*가로 정렬 : 가로 100%*/
+
+            align-items: center;
+
+            /*세로 정렬  : 부모의 높이가 있을때 정렬 가능*/
+        }
+        /* .content{
+            width: 400px;
+            height:50%; 
+            background-color: orange;
+            
+            margin:calc((100vh - 400px)/2)auto;
+            세로 가운데 배치되도록 계산할 수 있음
+        } */
+
+        .content{
+            width: 400px;
+            height:50%; 
+            background-color: orange;
+            
+            margin:calc((100vh - 400px)/2)auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content item">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo maiores consectetur excepturi obcaecati nihil? Quam veniam, expedita minus cupiditate explicabo error voluptatem perferendis. Perferendis, iste! Animi vero totam qui eligendi.
+    </div>
+</body>
+</html>
+
+<!--
+layout
+가로배치
+가운데배치
+display : block, inline, inline-block, flex....;
+
+flex : container - 지정 하는 곳, items - 지정 당하는 곳
+-->

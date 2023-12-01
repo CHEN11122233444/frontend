@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>증감 연산자(단항)</h1>
+    <script>
+        let num=0;
+        num=num+1; //1
+        num=num+10; //11
+        num=num-10; //1
+        num=num*10; //10
+        num=num/10; //1
+        num=num%10; //1
+
+        let hap; //undefined
+        hap=num++; // 후행: 증가,감소된 결과가 최종 연산결과에 반영되지 않음
+        hap=++num; // 선행: 증가,감소된 결과가 최종 연산결과에 반영
+
+        num+=1;
+        num+=10;
+        num-=10;
+        num*=10;
+        num/=10;
+        num%=10;
+
+        num--; // 후행: 증가,감소된 결과가 최종 연산결과에 반영되지 않음
+        --num; // 선행: 증가,감소된 결과가 최종 연산결과에 반영
+        //오로지 단항일때는 선,후행 상관없음
+
+        console.log(num,hap);
+    </script>
+</body>
+</html>

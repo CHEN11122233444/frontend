@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>views/method.html get</h1>
+
+    <button class="getBtn">get</button>
+    <button class="postBtn">post</button>
+    <button class="putBtn">put</button>
+    <button class="deleteBtn">delete</button>
+
+    <script>
+      // localhost:3000
+
+      const getBtn = document.querySelector(".getBtn");
+      const postBtn = document.querySelector(".postBtn");
+      const putBtn = document.querySelector(".putBtn");
+      const deleteBtn = document.querySelector(".deleteBtn");
+
+      const fetchHandle = (url, method, payload) => {
+        fetch(url, {
+          method,
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        })
+          .then((res) => res.json())
+          .then((res) => console.log(res));
+      };
+
+      getBtn.addEventListener("click", () => {
+        const url = "http://localhost:3000/method";
+        const method = "GET";
+        const payload = { message: "get data" };
+        fetchHandle(url, method, payload);
+      });
+      postBtn.addEventListener("click", () => {
+        const url = "http://localhost:3000/method";
+        const method = "POST";
+        const payload = { message: "post data" };
+        fetchHandle(url, method, payload);
+      });
+      putBtn.addEventListener("click", () => {
+        const url = "http://localhost:3000/method";
+        const method = "PUT";
+        const payload = { message: "put data" };
+        fetchHandle(url, method, payload);
+      });
+      deleteBtn.addEventListener("click", () => {
+        const url = "http://localhost:3000/method";
+        const method = "DELETE";
+        const payload = { message: "delete data" };
+        fetchHandle(url, method, payload);
+      });
+    </script>
+  </body>
+</html>

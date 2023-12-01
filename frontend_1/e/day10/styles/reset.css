@@ -1,0 +1,33 @@
+*{
+    margin:0; 
+    padding:0; 
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
+li{
+    list-style: none;
+}
+
+body{
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+.outbox{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    margin: 50px;
+}
+.inbox{ 
+    width:100%; 
+    height: 100%;
+    /* 198px */
+    background-color: orange;
+}

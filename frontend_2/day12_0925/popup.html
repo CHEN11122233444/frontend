@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .popup{
+            position: fixed;
+            left: 0; 
+            top: 0;
+            bottom: 0; 
+            right: 0;
+            background-color: black;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-container{
+            padding: 50px;
+            background-color: white;
+            border-radius: 10px;
+        }
+        .popup-container input{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button class="popup-open">popup open</button>
+    <div class="popup">
+        <div class="popup-container">
+            <div class="popup-title">login <button class="popup-close">&times;</button></div>
+            <div class="pop-body">
+                <input type="text" placeholder="아이디">
+                <input type="password" placeholder="비밀번호">
+            </div>
+        </div>
+    </div>
+    <script>
+        let sideToggleBtn=document.querySelector('.popup-open');
+        let popupCloseBtn=document.querySelector('.popup-close');
+        let popup=document.querySelector('.popup');
+
+        popupCloseBtn.addEventListener('click',function(){
+            popup.style.display=none;
+        });
+        let sideToggle=false;
+    </script>
+</body>
+</html>

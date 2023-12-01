@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            width: 100px;
+            height: 50px;
+            margin: 20px 60px;
+        }
+        .box_container{
+            width: 200px;
+            margin: 20px;
+            background-color: black;
+        }
+        .box{
+            background-color: pink;
+
+            border: 2px solid black;
+            border-radius: 20px;
+
+            width: 200px;
+            height: 200px;
+
+            margin-bottom: 1px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 30px;
+            font-weight: bold;
+            font-family: 'Yeongdeok_Sea';
+        }
+        @font-face {
+            font-family: 'Yeongdeok_Sea';
+            src: url(/fonts/Yeongdeok\ Sea.ttf);
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">버튼</button>
+    <div class="box_container">
+        <div class="box box01">box01</div>
+        <div class="box box02">box02</div>
+        <div class="box box03">box03</div>
+        <div class="box box04">box04</div>
+        <div class="box box05">box05</div>
+        <div class="box box06">box06</div>
+        <div class="box box07">box07</div>
+    </div>
+
+
+    <script>
+        // 버튼을 클릭하면 다음 박스의 색으로 넘어가는 함수(무지개색), 빨->주, 주->노 ... 보->빨
+
+        
+        const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo','violet']; 
+        // 초기 색상 지정
+        let boxColor = document.querySelectorAll('.box'); // 박스 색상
+        let currentBoxColor = []; // 현재색 저장용 배열
+        const button = document.querySelector('.btn');
+        
+        currentBoxColor = colors;
+
+        colors.forEach((color,index)=>{
+            boxColor[index].style.backgroundColor = color;
+        })
+
+
+        // 깊은 복사?
+        // let currentBoxColor = Array.from(boxColor).map(box => box.cloneNode(true));  
+        // let currentBoxColor = boxColor;
+
+        // 버튼
+        button.addEventListener('click',()=>{
+            changeBoxColor();
+            console.log('클릭')
+        })
+        
+        // 색상 변경 함수
+        function changeBoxColor(){
+            // boxColor.length = 7;
+            for(let i=0; i<boxColor.length; i++) {
+                if(i==boxColor.length-1){
+                    boxColor[boxColor.length-1].style.backgroundColor = currentBoxColor[0];
+                }else{
+                    boxColor[i].style.backgroundColor = currentBoxColor[i+1];
+                }
+            }
+
+            for(let i=0; i<boxColor.length; i++){
+                currentBoxColor[i]  = boxColor[i].style.backgroundColor;
+            }
+
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- 
+    폰트 : https://www.yd.go.kr/?page_id=120264
+ -->

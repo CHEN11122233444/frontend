@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../script/jquery-ui.css">
+    <style>
+      li{
+        line-height: 50px;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="lnb">
+            <ul>
+                <li><a href="#">기부</a>
+                    <ul class="subMenu">
+                        <li>건축물01</li>
+                        <li>건축물02</li>
+                        <li>건축물03</li>
+                    </ul>
+                </li>
+                <li><a href="#">펀딩</a>
+                    <ul class="subMenu">
+                        <li>제로에너지01</li>
+                        <li>제로에너지02</li>
+                    </ul>
+                </li>
+                <li><a href="#">공감가게</a>
+                    <ul class="subMenu">
+                        <li>제로에너지01</li>
+                        <li>제로에너지02</li>
+                    </ul>
+                </li>
+                <li><a href="#">가볼까</a>
+                    <ul class="subMenu">
+                        <li>제로에너지01</li>
+                        <li>제로에너지02</li>
+                    </ul>
+                </li>
+                <li><a href="#">굿액션</a>
+                    <ul class="subMenu">
+                        <li>제로에너지01</li>
+                        <li>제로에너지02</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <script src="../script/jquery-3.7.1.js"></script>
+    <script src="../script/jquery-ui.min.js"></script>
+    <script>
+        $('.subMenu').slideUp();
+
+        $('.lnb>ul>li').on('mouseover',function(){
+            $(this).find('.subMenu').stop().slideDown();
+        });
+        $('.lnb>ul>li').on('mouseout',function(){
+            $(this).find('.subMenu').stop().slideUp();
+        });
+    </script>
+</body>
+</html>

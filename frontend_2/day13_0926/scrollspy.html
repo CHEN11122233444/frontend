@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+
+    <style>
+      html,
+      body {
+        scroll-behavior: smooth;
+      }
+
+      .banner {
+        height: 500px;
+        background-color: antiquewhite;
+        animation: banner 5s forwards;
+      }
+
+      header {
+        height: 50px;
+        background-color: black;
+
+        position: sticky;
+        top: 0;
+        z-index: 999;
+      }
+
+      nav > ul {
+        display: flex;
+        list-style: none;
+        gap: 50px;
+        justify-content: center;
+        height: 50px;
+        align-items: center;
+      }
+
+      nav > ul a.active {
+        background-color: white;
+      }
+
+      nav > ul a {
+        display: block;
+        animation: bgcolor linear;
+        padding: 5px 20px;
+        color: white;
+        border-radius: 20px;
+        /* animation-timeline: scroll(); */
+      }
+
+      section {
+        width: 100%;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 100px;
+      }
+
+      section:nth-child(2n) {
+        background-color: bisque;
+      }
+
+      section:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+
+      .section01 h2 {
+        transform: rotate(180deg);
+        animation: rotate 1s forwards;
+
+        /* js 없이 구현가능  */
+        animation-timeline: view();
+        animation-range-end: content 80%;
+        /*  https://developer.mozilla.org/en-US/docs/Web/CSS/animation-range    */
+      }
+
+      @keyframes rotate {
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    </style>
+    <style>
+      @keyframes rotate180{
+        100%{
+          transform: rotate(0);
+        }
+      }
+
+      .section01>h2{
+        transform: rotate(180deg);
+        animation: rotate 1s forwards;
+        animation-timeline: view();
+        animation-range-end: cover 50%;
+      }
+
+      @keyframes translateX{
+        100%{
+          transform: translateX();
+        }
+      }
+      .section02>h2{
+        transform: translateX(300px);
+        animation: translateX 1s forwards;
+        animation-timeline: view();
+        animation-range: cover 20% cover 80%;
+      }
+
+      .section03 >h2{
+        transform: scale(0);
+        animation: scale-up linear both;
+        animation-timeline: view(block);
+        animation-range: cover 0 cover 50%;
+      }
+      @keyframes scale-up{
+        100%{
+          transform: scale(2);
+        }
+      }
+
+
+    </style>
+  </head>
+  <!-- 
+    javascript 없이 
+ -->
+
+  <body>
+    
+    <div class="wrapper">
+      <div class="banner"></div>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <a href="#home">home</a>
+            </li>
+            <li>
+              <a href="#about">about</a>
+            </li>
+            <li>
+              <a href="#skills">skills</a>
+            </li>
+            <li>
+             <a href="#work">work</a>
+            </li>
+            <li>
+              <a href="#contact">contact</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <section class="section01" id="home">
+        <h2>section01</h2>
+      </section>
+      <section class="section02" id="about">
+        <h2>section02</h2>
+      </section>
+      <section class="section03" id="skills">
+        <h2>section03</h2>
+      </section>
+      <section class="section04" id="work">
+        <h2>section04</h2>
+      </section>
+      <section class="section05" id="contact">
+        <h2>section05</h2>
+      </section>
+      <footer>footer</footer>
+    </div>
+
+    <!-- <script>
+        let navs=document.querySelectorAll('nav a');
+        console.log(navs.length);
+        for(let a=0; a<navs.length; a++){
+            console.log(a);
+        }
+        for(let a=0; a<navs.length - 1; a++){
+            console.log(a);
+        }
+    </script> -->
+
+    <script>
+        // 문법확인
+        // window.onscroll(function(){})
+        // window.addEventListener('scroll',function(){
+        //     console.log(window.scrollY);
+        //     // 세로 스크롤 의 값 확인
+        // });
+
+        // let sections=document.querySelectorAll('section');
+        // for(let a=0; a<sections.length; a++){
+        //     console.log(sections[a].offsetTop,sections[a].offseHeight);
+        //     // 요소의 위치값, 너비, 높이를 확인할 수 있음
+        // }
+    </script>
+    <!-- <script>
+        let navs=document.querySelectorAll('nav a');
+        console.log(navs.length);
+
+        for(let a=0; a<=navs.length - 1; a++){
+            navs[a].addEventListener('click',function(){
+                console.log(navs[a].innerHTML);
+
+                // 지우기 작업(원래 색으로)
+                for(let b=0; b<=navs.length-1; b++){
+                    navs[b].style.backgroundColor='transparent';
+                    navs[b].style.color='white';
+                }
+
+                navs[a].style.backgroundColor='white';
+                navs[a].style.color='red';
+            });
+        }
+    </script> -->
+    <script>
+        let navs=document.querySelectorAll('nav a');
+        let sections=document.querySelectorAll('section');
+
+        window.addEventListener('scroll',function(){
+            let scrolltop=window.scrollY;
+
+            for(let a=0; a<sections.length; a++){
+                let offset=sections[a].offsetTop; //sectiontop
+                let height=sections[a].offsetHeight; //sectionbottom
+                console.log(offset,height);
+
+                if(scrolltop>=offset&&scrolltop>=height){
+                    for(let b=0; b<navs.length; b++){
+                        navs[b].style.backgroundColor='transparent';
+                        navs[b].style.color='white';
+                    }
+                    
+                    navs[a].style.backgroundColor='white';
+                    navs[a].style.color='red';
+                }
+            }
+        });
+
+    </script>
+  </body>
+</html>

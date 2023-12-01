@@ -1,0 +1,72 @@
+<!-- 
+    sidebar
+    토글 : 버튼 1개 => 2개이상의 기능을 처리함
+    true(열린상태), false(닫힌상태)
+ -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .popup {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-color: black;
+
+        display: flex;
+        /* none 초기화할 수 있지만 js 초기화하기 */
+        justify-content: center;
+        align-items: center;
+
+        transform: translateY(-100%);
+        transition: 0.3s cubic-bezier(0.78, 1.03, 0.81, 1.33);
+      }
+      .popup-container {
+        padding: 50px;
+        background-color: white;
+        border-radius: 10px;
+      }
+      .popup-container input {
+        display: block;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="popup-open">popup open</button>
+    <div class="popup">
+      <div class="popup-container">
+        <div class="popup-title">
+          login <button class="popup-close">&times;</button>
+        </div>
+        <div class="pop-body">
+          <input type="text" placeholder="아이디" />
+          <input type="password" placeholder="비밀번호" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let popupOpenBtn = document.querySelector(".popup-open");
+      let popupCloseBtn = document.querySelector(".popup-close");
+      let popup = document.querySelector(".popup");
+      let popupToggle = false;
+
+      popupOpenBtn.addEventListener("click", function () {
+        if (!popupToggle) popup.style.transform = "translateY(0)";
+        popupToggle = true;
+      });
+
+      popupCloseBtn.addEventListener("click", function () {
+        if (popupToggle) popup.style.transform = "translateY(-100%)";
+        popupToggle = false;
+      });
+    </script>
+  </body>
+</html>

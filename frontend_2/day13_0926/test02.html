@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>발전된 for</h1>
+    <section>section01</section>
+    <section>section02</section>
+    <section>section03</section>
+    <section>section04</section>
+    <section>section05</section>
+
+    <script>
+        // for 반복제어 가능하지만 발전된 for
+        let ary=['h', 'e', 'l', 'l', 'o'];
+
+        ary.forEach(function(item, index){
+            console.log(item,index);
+        });
+
+        let sections1=document.querySelectorAll('section'); //유사배열로 forEach 포함함
+        let sections2=document.getElementsByTagName('section'); //유사배열이지만 forEach없음
+
+        console.log(sections1,sections2);
+
+        // 어떤 함수의 피라미터가 함수 = callback function
+        // 개수가 정해진 오브젝트(객체)에서만 사용가능
+        sections1.forEach(function(item){
+            console.log(item);
+        })
+
+        // 언제 어디서든 무조건 사용가능
+        for(let a=0; a<=sections1.length-1; a++){
+            console.log(sections1[a]);
+        }
+    </script>
+</body>
+</html>

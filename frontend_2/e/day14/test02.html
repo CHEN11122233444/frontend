@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre></pre>
+
+    <script>
+      let a = 20;
+      let b = 10;
+
+      function add() {
+        return a + b;
+      }
+      console.log(add(11, 15)); // 의미 없음
+      console.log(add()); // 전역변수
+
+      // sub(5, 10);  // error
+      // 선언문
+      // 처리문이 한개 일때  return을 생략할 수 있음
+      let sub = () => a - b;
+
+      console.log(sub(5, 10)); // 실행
+      // 전달하는 파라미터를 사용하던 사용하지 않던 에러 발생하지 않음
+
+      function mul(num) {
+        console.log(2 * num);
+      }
+      mul(8);
+
+      // let div = num=> num / 2;
+      // 파라미터가 한개이면 () 생략
+      let div = (num) => num / 2;
+      console.log(div(9));
+
+      var snacks = [
+        "감자깡",
+        "꿀꽈배기",
+        "콘칩",
+        "포테이토칩",
+        "새우깡",
+        "양파깡",
+        "에이스",
+        "참크래커",
+      ];
+
+      snacks.forEach(function (snack, index) {
+        if (snack === "에이스") return snack;
+        console.log(snack);
+      });
+
+      snacks.forEach((snack, index) => console.log(snack));
+
+      // 조건에 맞는 데이터 찾기 : 첫번째 것만 1개만 리턴
+      let result = snacks.find((snack, index) => snack === "에이스");
+      console.log("result = ", result);
+      result = snacks.find((snack) => snack.indexOf("깡") > -1);
+      console.log("result = ", result);
+      result = snacks.find((snack) => snack.includes("깡"));
+      console.log("result = ", result);
+
+      // 조건에 맞는 데이터를 찾아서 배열로 리턴
+      result = snacks.filter((snack) => snack.includes("깡"));
+      console.log("result = ", result);
+
+      // 문자열은 기본사용법이 배열처럼 사용됨
+      result = snacks.filter((snack) => snack.length >= 4);
+      console.log("result = ", result);
+
+      const numAry = [5, 8, 33, 11, -3, -99, 18, 30];
+      result = numAry.filter((num) => num >= 0);
+      console.log(result);
+
+      const filterAry = [];
+      numAry.forEach((num) => {
+        // console.log(num>=0);
+        if (num >= 0) filterAry.push(num);
+      });
+      console.log(filterAry);
+
+      const numAry2 = [1, 2, 3, 4, 5];
+      let sum = 0;
+      numAry2.forEach((num, index) => (sum += num));
+      console.log("sum = ", sum);
+
+      // reduce
+      // 숫자인 경우 누적합계
+      sum = numAry2.reduce((prev, next) => prev + next);
+      console.log("sum = ", sum);
+
+      // 문자열인 경우 문자열 결합
+      sum = snacks.reduce((prev, next) => prev + next);
+      console.log("sum = ", sum);
+
+      // 문자열인 경우 문자열 결합
+      sum = snacks.reduce((prev, next) => prev.concat(next));
+      console.log("sum = ", sum);
+
+      // map : 객체에서 사용
+    </script>
+  </body>
+</html>

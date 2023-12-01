@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="frontend_3/styles/reset.css">
+    <style>
+        .btn{
+            width: 100px;
+            height: 40px;
+            margin: 20px 110px;
+        }
+        .box_container{
+            margin: 20px;
+            width: 300px;
+            background-color: lightgray;
+            padding-top: 20px;
+        }
+        .box{
+            border: 2px solid black;
+            width: 200px;
+            height: 200px;
+            border-radius: 40px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 20px auto ;
+        }
+        .box01:hover{
+
+            background-color: pink;
+            transform: translateX(100px)translateY(100px);
+            transition: 0.5s;
+        }
+        .box02:hover{
+            background-color: orange;
+            transform: rotate(45deg);
+        }
+        .box03{
+            background-color: lightblue;
+            position: relative;
+
+            animation-name: move;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes move{
+            0%{
+                left:0;
+            }
+            100%{
+                left: 300px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <button class="btn">버튼</button>
+    <div class="box_container">
+        <div class="box box01">box01</div>
+        <div class="box box02">box02</div>
+        <div class="box box03">box03</div>
+        <div class="box box04">box04</div>
+        <div class="box box05">box05</div>
+        <div class="box box06">box06</div>
+        <div class="box box07">box07</div>
+        <div class="box box08">box08</div>
+        <div class="box box09">box09</div>
+        <div class="box box10">box10</div>
+        <div class="box box11">box11</div>
+        <div class="box box12">box12</div>
+        <div class="box box13">box13</div>
+        <div class="box box14">box14</div>
+        <div class="box box15">box15</div>
+        <div class="box box16">box16</div>
+        <div class="box box17">box17</div>
+        <div class="box box18">box18</div>
+        <div class="box box19">box19</div>
+        <div class="box box20">box20</div>
+    </div>
+
+    <script>
+        let a=[0,1,2,3,4,5];
+
+        function add(num1,num2){
+            let res=num1*num2;
+            console.log(res);
+        }
+        add(a[2],a[5]);
+
+        add2=(a,b)=>{
+            let res=a+b;
+            console.log(res);
+        };
+        add2(a[3],a[4]);
+
+        console.log('a의 길이는:',a.length);
+        fun1=num=>{
+            let sum=0;
+            for(let i=0;i<=a.length-1;i++){
+                sum=sum+num[i];
+                console.log(sum);
+            }
+            console.log(sum);
+        }
+
+        console.log(fun1(a));
+
+    </script>
+</body>
+</html>

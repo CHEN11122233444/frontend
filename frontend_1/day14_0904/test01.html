@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" id="viewport"  content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1 user-scalable=no"/>
+    <!-- 
+        viewport : 장비가 인식하도록 하는 
+        장비 : 모니터, 태블릿, 모바일 
+    -->
+    <title>반응형</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        img{
+            width: 100%;
+            /* 모니터너비 > 원래사이즈 : 해상도에 문제 발생 */
+            max-width: 1280px;
+            /* 모니터너비 < 원래사이즈 : 해상도에 문제 발생 */
+            min-width: 1024px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">
+        한글은 아름다운 글입니다.
+        <a href="http://www.naver.com">naver</a><br>
+        <button>go</button> <br>
+        <p>hello html&css</p>
+        <img src="./images/cat-8130334_1280.jpg" alt="">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .indecator {
+        display: flex;
+        gap: 5px;
+      }
+      .indecator li {
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        border: 1px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <div><img src="" alt="" /></div>
+      <div><img src="" alt="" /></div>
+      <div><img src="" alt="" /></div>
+      <div><img src="" alt="" /></div>
+      <div><img src="" alt="" /></div>
+      <div><img src="" alt="" /></div>
+      <div><img src="" alt="" /></div>
+      <div><img src="" alt="" /></div>
+      <div><img src="" alt="" /></div>
+      <div><img src="" alt="" /></div>
+    </div>
+    <ul class="indecator">
+      <li>0</li>
+    </ul>
+    <script>
+      const imgsLength = document.querySelectorAll("img").length;
+
+      console.log(imgsLength);
+
+      const ul = document.querySelector(".indecator");
+      let liTag = "";
+      for (let a = 0; a < imgsLength; a++) {
+        // liTag += '<li>'+ a +'</li>';
+        liTag += `<li>${a}</li>`;
+      }
+      ul.innerHTML = liTag;
+    </script>
+  </body>
+</html>

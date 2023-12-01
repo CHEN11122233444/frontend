@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <style>
+      .loading {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .loadBox {
+        width: 50px;
+        height: 50px;
+        border: 1px solid gray;
+        position: relative;
+      }
+      .rect {
+        position: absolute;
+
+        width: 25%;
+        height: 25%;
+        background-color: var(--bg-color);
+        /* animation: scale 1s infinite alternate; */
+        animation: scale 1s infinite var(--animation-delay);
+      }
+
+      .rect:nth-child(1) {
+        --bg-color: pink;
+        --animation-delay: 0s;
+      }
+      .rect:nth-child(2) {
+        --bg-color: lightgreen;
+        --animation-delay: 0.5s;
+      }
+
+      @keyframes scale {
+        0%,
+        100% {
+          left: 0;
+          top: 0;
+        }
+        25% {
+          left: 75%;
+          top: 0;
+        }
+        50% {
+          left: 75%;
+          top: 75%;
+        }
+        75% {
+          left: 0px;
+          top: 75%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading">
+      <div class="loadBox">
+        <div class="rect"></div>
+        <div class="rect"></div>
+      </div>
+      <div></div>
+    </div>
+  </body>
+</html>
+
+<!-- 
+    12간지 : position, transform 이해 하기 좋음       
+ -->

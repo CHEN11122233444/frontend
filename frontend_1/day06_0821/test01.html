@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img{
+            width: 200px;
+        }
+
+        /* table>tbody>tr>td>img{
+            
+            width: 300px;
+        }*/
+
+        .table__container{
+            width: 800px;
+        }
+
+        .table__container img{
+            width: 300px;
+        }
+
+        .firstTd td{
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            color:white;
+            background-color: black;
+        }
+
+        /*집합 선택자*/
+        tr:nth-child(2)>td:nth-child(1),
+        tr:nth-child(3)>td:nth-child(1){
+            text-align: center;
+        }
+        
+        .table__container table{
+            width: 400px;
+
+        }
+    </style>
+
+</head>
+<body>
+    <img src="https://www.hyundai.com/contents/repn-car/side-45/ioniq6-22lc-45side.png" alt="아이오닉6" width="200">
+    <img src="https://www.hyundai.co.kr/image/upload/asset_library/MDA00000000000033027/bebeb59b7c7447f7be0a1f8238821cce.jpg" alt="더 뉴 아반떼" width="200">
+    <table class="table__container">
+        <tbody>
+            <tr class="firstTd">
+                <td colspan="2">▼상담신청 바로가기▼</td>
+                <!--<td></td>-->
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://www.hyundai.com/contents/repn-car/side-45/ioniq6-22lc-45side.png" alt="아이오닉6" width="200">
+                </td>
+                <td>
+                    <h3>2023 아이오닉6</h3>
+                    <h4>Gde PE</h4>
+                    <!--테이블 삽입-->
+                    <table>
+                        <tr>
+                            <th>차량가격</th>
+                            <td>24,400,400원</td>
+                        </tr>
+                        <tr>
+                            <th>초기납입금</th>
+                            <td>7,320,000원</td>
+                        </tr>
+                        <tr>
+                            <th>월렌탈료</th>
+                            <td>349,000원</td>
+                        </tr>
+                    </table>
+                    <!--테이블 끝-->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://www.hyundai.co.kr/image/upload/asset_library/MDA00000000000033027/bebeb59b7c7447f7be0a1f8238821cce.jpg" alt="더 뉴 아반떼" width="200">
+                </td>
+                <td>
+                    <h3>더 뉴 아반떼</h3>
+                    <h4>GDI 프레스티지</h4>
+                    <!--테이블 삽입-->
+                    <table>
+                        <tr>
+                            <th>차량가격</th>
+                            <td>24,400,400원</td>
+                        </tr>
+                        <tr>
+                            <th>초기납입금</th>
+                            <td>7,320,000원</td>
+                        </tr>
+                        <tr>
+                            <th>월렌탈료</th>
+                            <td>349,000원</td>
+                        </tr>
+                    </table>
+                    <!--테이블 끝-->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--
+        emmet code 작성 후 완료 단축키는 enter, tab
+        파이썬 : vscode extention emmet 충돌 가능성 있음
+    -->
+    
+</body>
+</html>

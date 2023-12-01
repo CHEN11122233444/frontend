@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>fetch</h1>
+    <!-- 서버(메모리)에 데이터가 있을 때 -->
+
+    <script>
+        fetch('./datas/lorem.txt')
+        .then((response)=>response.text()) // promise
+        .then((response)=>{
+            // console.log(response)
+            const ary=response.split(' ');
+            // console.log(ary);
+
+            createElement(ary);
+        });
+
+
+        function createElement(ary){
+            ary.forEach((a) => {
+                const elem=`<div>${a}</div>`
+                const h1=document.querySelector('h1');
+
+                h1.insertAdjacentHTML('afterend',elem);
+            });
+        }
+    </script>
+</body>
+</html>

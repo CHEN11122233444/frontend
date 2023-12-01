@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #search.active{
+            background-color: #efefef;
+        }
+    </style>
+</head>
+<body>
+    <input  type="search" 
+            id="search" 
+            placeholder="search brand name product_type" 
+            class="active">
+
+
+    <script>
+        search.addEventListener('focus',()=>{
+            search.classList.add('active');
+        })
+        search.addEventListener('blur',()=>{
+            search.classList.remove('active');
+        })
+        search.addEventListener('input',(event)=>{
+            console.log(event.target.value);
+        })
+
+        function loadData(search){
+            let URL='';
+            if(!search){
+                url="http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline"
+                
+            }else{
+                url=`http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline&product_type=${search}`
+            }
+            fetch(url)
+                .then((res)=>res.json())
+                .then((res)=>console.log(res.length));
+        }
+
+        loadData();
+        // loadData('bronzer');
+    </script>    
+</body>
+</html>
+
+
+
+<!-- "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline"; -->
+<!-- "http://makeup-api.herokuapp.com/api/v1/products.json" -->

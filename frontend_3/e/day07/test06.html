@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .author {
+        font-weight: bold;
+      }
+      .author::after {
+        content: " : ";
+      }
+      li {
+        line-height: 2em;
+        margin-bottom: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="message-container">
+      <!-- <li></li> -->
+    </ul>
+    <script>
+      fetch("./datas/koreaData.json")
+        .then((response) => response.json()) // json() promise
+        .then((response) => {
+          console.log(response); // js형태로 형변환
+
+          response.forEach((res) => {
+            const li = `<li>
+                <span class="author">${res.author}</span>
+                <span class="message">${res.message}</span>
+                </li>`;
+
+            const msg = document.querySelector(".message-container");
+            msg.insertAdjacentHTML("beforeend", li);
+          });
+        });
+    </script>
+  </body>
+</html>
